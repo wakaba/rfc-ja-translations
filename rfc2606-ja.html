@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="iso-2022-jp"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns:h="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://suika.fam.cx/~wakaba/lang/rfc/translation/html-profile">
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<title>
+      RFC 2606: 
+    最上位 DNS 名の予約 (Reserved Top Level DNS Names)
+    </title>
+<link rel="stylesheet" href="http://suika.fam.cx/~wakaba/lang/rfc/translation/rfc-ja-style.css" type="text/css"/>
+<link rel="alternate" href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:2606" hreflang="en" title="RFC 2606"/>
+<link rev="made" href="http://www.rfceditor.org/" title="RFC Editor"/>
+<link rev="translate" href="#rfc-translators-note"/>
+<meta name="author" content="Donald E. Eastlake 3rd, Aliza R. Panitz, "/>
+</head>
+<body>
+<div id="rfc--table">
+<ul id="rfc--table-left">
+<li>Network Working Group</li>
+<li>Request for Comments: 2606</li>
+<li>
+<acronym title="Best Current Practice: 現状最善運用">BCP</acronym>: 32</li>
+<li>
+<span class="t-pair">
+<span xml:lang="en" class="t-l-en">Category: Best Current Practice</span>
+</span>
+</li>
+<li>
+<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">分類: 現状最善運用</span>
+</span>
+</li>
+</ul>
+<ul id="rfc--table-right">
+<li title="Donald E. Eastlake 3rd">D. Eastlake</li>
+<li>IBM</li>
+<li title="Aliza R. Panitz">A. Panitz</li>
+<li>
+<span class="t-pair">
+<span xml:lang="en" class="t-l-en"> June 1999</span>
+</span>
+</li>
+<li>
+<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">1999年6月</span>
+</span>
+</li>
+</ul>
+</div>
+<div class="t-pair t-heading" id="rfc-title">
+<h1 class="rfc-title t-l-en" xml:lang="en">Reserved Top Level DNS Names</h1>
+<h1 class="rfc-title t-l-ja" xml:lang="ja">最上位 DNS 名の予約</h1>
+</div>
+<div id="rfc-status" class="rfc-section">
+<div class="t-pair">
+<h1 xml:lang="en" class="t-l-en">Status of this Memo</h1>
+<h1 xml:lang="ja" class="t-l-ja">このメモの位置付け</h1>
+</div>
+<div class="rfc-t">
+<div class="t-pair">
+<p class="t-l-en" xml:lang="en">
+      This document specifies an Internet Best Current Practice 
+      for the Internet Community, and requests discussion and 
+      suggestions for improvements.
+      Distribution of this memo is unlimited.
+        </p>
+<p class="t-l-ja" xml:lang="ja">
+          このメモは、 Internet 社会向けに Internet 現状最善運用を説明し、改良の為の議論や提案を求めます。このメモの配布は制限しません。
+        </p>
+</div>
+</div>
+</div>
+<div id="rfc-copyright-notice" class="rfc-section">
+<div class="t-pair">
+<h1 xml:lang="en" class="t-l-en">Copyright Notice</h1>
+<h1 xml:lang="ja" class="t-l-ja">著作権表示</h1>
+</div>
+<div class="t-pair t-hide-no">
+<p class="t-l-en" xml:lang="en">Copyright &#x00A9; 
+        <a href="http://www.isoc.org/">The Internet Society</a> 
+        (1999). 
+        All Rights Reserved.</p>
+<p class="t-l-ja" xml:lang="ja">著作権 &#x00A9; 
+        <a href="http://www.isoc.org/">The Internet Society</a> 
+        (1999)。全権保留。</p>
+</div>
+</div>
+<div class="rfc-section" id="rfc.abstract">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">Abstract</h1>
+<h1 xml:lang="ja" class="t-l-ja">概要</h1>
+</div>
+      <div class="rfc-t">
+        <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+          To reduce the likelihood of conflict and confusion, a few top 
+          level domain names are reserved for use in private testing, as 
+          examples in documentation, and the like. In addition, a few 
+          second level domain names reserved for use as examples are
+          documented.
+        </p>
+<p xml:lang="ja" class="t-l-ja">
+          衝突・混乱の可能性を減らすため、幾つかの最上位ドメイン名を私的確認,
+          文書中での例示などで使うために予約します。加えて、例示に使うために予約されている幾つかの第二位ドメイン名を文書化します。
+        </p>
+</div>
+      </div>
+    </div>
+
+
+<div class="rfc-section" id="rfc.section.1">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">1. Introduction</h1>
+<h1 xml:lang="ja" class="t-l-ja">1. 
+          はじめに</h1>
+</div>
+
+<div class="rfc-t" id="rfc.section.1.p.1">
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+    The global Internet Domain Name System is documented in 
+    <span class="rfc-xref">
+<a href="#RFC1034" title="Domain Names ― Concepts and Facilities">[RFC 1034]</a>
+</span>, <span class="rfc-xref">
+<a href="#RFC1035" title="Domain Names ― Implementation and Specification">[RFC 1035]</a>
+</span>, 
+    <span class="rfc-xref">
+<a href="#RFC1591" title="Domain Name System Structure and Delegation">[RFC 1591]</a>
+</span>
+    and numerous additional Requests for Comment.  It defines
+   a tree of names starting with root, ".", immediately below which are
+   top level domain names such as <samp>“.com”</samp>
+   and <samp>“.us”</samp>. Below top level
+   domain names there are normally additional levels of names.
+  </p>
+<p xml:lang="ja" class="t-l-ja">
+    広域 Internet ドメイン名系統は 
+    <a href="#RFC1034" title="ドメイン名―概念と機能">[RFC 1034]</a>, <a href="#RFC1035" title="ドメイン名―実装と仕様">[RFC 1035]</a>, 
+    <a href="#RFC1591" title="ドメイン名ドメイン名系統構造と委任">[RFC 1591]</a> と数ある追加の
+    Requests for Comment で文書化されています。これは根,
+    "." で始まり、真下に <samp>「.com」</samp>, <samp>「.us」</samp> 
+    のような最上位ドメイン名が来る木を定義するものです。最上位ドメイン名の下には通常、追加の階位の名前が来ます。
+  </p>
+</div>
+</div>
+</div>
+
+<div class="rfc-section" id="rfc.section.2">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">2. TLDs for Testing, &amp; Documentation Examples</h1>
+<h1 xml:lang="ja" class="t-l-ja">2. 
+          実験・例示用の TLD</h1>
+</div>
+
+<div class="rfc-t" id="rfc.section.2.p.1">
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+    There is a need for top level domain (TLD) names that can be used for
+   creating names which, without fear of conflicts with current or
+   future actual TLD names in the global DNS, can be used for private
+   testing of existing DNS related code, examples in documentation, DNS
+   related experimentation, invalid DNS names, or other similar uses.
+  </p>
+<p xml:lang="ja" class="t-l-ja">
+    現在や将来の広域 DNS 実際の TLD 名との衝突の虞無しに、既存の
+DNS 関連コードの私的な実験や文書内での例示, DNS 関連実験,
+不正な DNS 名, その他同様なことに使うことが出来る最上位ドメイン
+(TLD) 名が必要です。
+  </p>
+</div>
+</div>
+
+<div class="rfc-t" id="rfc.section.2.p.2">
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+    For example, without guidance, a site might set up some local
+   additional unused top level domains for testing of its local DNS code
+   and configuration. Later, these TLDs might come into actual use on
+   the global Internet.  As a result, local attempts to reference the
+   real data in these zones could be thwarted by the local test
+   versions.  Or test or example code might be written that accesses a
+   TLD that is in use with the thought that the test code would only be
+   run in a restricted testbed net or the example never actually run.
+   Later, the test code could escape from the testbed or the example be
+   actually coded and run on the Internet. Depending on the nature of
+   the test or example, it might be best for it to be referencing a TLD
+   permanently reserved for such purposes.
+  </p>
+<p xml:lang="ja" class="t-l-ja">
+    例えば、手引きが無いと、どこかのサイトが局地的で追加の未使用な最上位ドメインを局地的
+    DNS コードや設定の確認のために設定するかもしれません。後で、
+    この TLD が広域 Internet 
+    で実際に使われることになるかもしれません。結果として、局地的にてこの領域の実際のデータを参照しようとすると、局地的な確認版のために上手くいかないことでしょう。あるいは、制限された実験台網でのみ動かされるか,
+    実際に動かされることの無い例示と考えて使っている 
+    TLD に接続する、確認や例示のコードが書かれるかもしれません。後で、確認コードが実験台から漏れるかもしれませんし、例示が実際にコード化されて
+    Internet で動かされるかもしれません。確認や例示の性質を鑑みると、これらの目的に永久に予約した
+    TLD を参照するのが最善の策でしょう。
+  </p>
+</div>
+</div>
+
+<div class="rfc-t" id="rfc.section.2.p.3">
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+    To safely satisfy these needs, four domain names are reserved as
+   listed and described below.
+  </p>
+<p xml:lang="ja" class="t-l-ja">
+    この需要を安全に満たすために、下に挙げて説明する4つのドメイン名を予約します。
+  </p>
+</div>
+  
+  <ul class="rfc-list-empty">
+  	<li>
+<span class="rfc-xref">
+<a href="#tld.test" title="">.test</a>
+</span>
+</li>
+  	<li>
+<span class="rfc-xref">
+<a href="#tld.example" title="">.example</a>
+</span>
+</li>
+  	<li>
+<span class="rfc-xref">
+<a href="#tld.invalid" title="">.invalid</a>
+</span>
+</li>
+  	<li>
+<span class="rfc-xref">
+<a href="#tld.localhost" title="">.localhost</a>
+</span>
+</li>
+  </ul>
+  
+  <ul class="rfc-list-empty">
+  	<li id="tld.test">
+  	  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+  	    ".test" is recommended for use in testing of current or new DNS
+  	    related code.
+  	  </p>
+<p xml:lang="ja" class="t-l-ja">
+  	    「.test」(確認)
+  	    は現行または新規の DNS 関連コードの確認に使うことを推奨します。
+  	  </p>
+</div>
+  	</li>
+  	
+  	<li id="tld.example">
+  	  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+  	    ".example" is recommended for use in documentation or 
+  	    as examples.
+  	  </p>
+<p xml:lang="ja" class="t-l-ja">
+  	    「.example」 (例) は文書や例の中で使うことを推奨します。
+  	  </p>
+</div>
+  	</li>
+  	
+  	<li id="tld.invalid">
+  	  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+  	    ".invalid" is intended for use in online construction of 
+  	    domain names that are sure to be invalid and which it is 
+  	    obvious at a glance are invalid.
+  	  </p>
+<p xml:lang="ja" class="t-l-ja">
+  	    「.invalid」 (不正) 
+  	    は不正であるのが確実で、一目で不正であると確認出来るドメイン名の online 構造に使うことを意図しています。
+  	  </p>
+</div>
+  	</li>
+  	
+  	<li id="tld.localhost">
+  	  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+  	    The ".localhost" TLD has traditionally been statically 
+  	    defined in host DNS implementations as having an A record 
+  	    pointing to the loop back IP address and is reserved for 
+  	    such use.  Any other use would conflict with widely 
+  	    deployed code which assumes this use.
+  	  </p>
+<p xml:lang="ja" class="t-l-ja">
+  	    「.localhost」 (局地ホスト) TLD は伝統的にホスト 
+  	    DNS 実装で loop back  IP address を指す A 
+  	     record を持つと固定的に定義されているので、この用途に予約します。他の目的に使うと、これを仮定している、広く使われているコードと衝突するでしょう。
+  	  </p>
+</div>
+  	</li>
+  </ul>
+</div>
+</div>
+
+<div class="rfc-section" id="rfc.section.3">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">3. Reserved Example Second Level Domain Names</h1>
+<h1 xml:lang="ja" class="t-l-ja">3. 
+          予約例示第二位ドメイン名</h1>
+</div>
+
+<div class="rfc-t" id="rfc.section.3.p.1">
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+    The Internet Assigned Numbers Authority (IANA) also currently has the
+   following second level domain names reserved which can be used as
+   examples.
+  </p>
+<p xml:lang="ja" class="t-l-ja">
+    <a href="http://www.iana.org/" title="URI: &lt;http://www.iana.org/>" class="rfc-eref"> Internet 割当番号事務局 (IANA)</a> 
+    は現在次の第二位ドメイン名も例示に使えるように予約しています。
+  </p>
+</div>
+  
+  <ul class="rfc-list-empty">
+        <li>example.com</li>
+        <li>example.net</li>
+        <li>example.org</li>
+  </ul>
+</div>
+<ins class="t-note t-l-ja" xml:lang="ja">
+<span class="t-note-title">訳注: </span>example.edu も IANA が予約しているようです。</ins>
+</div>
+
+<div class="rfc-section" id="rfc.section.4">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">4. IANA Considerations</h1>
+<h1 xml:lang="ja" class="t-l-ja">4. 
+          IANA に関して</h1>
+</div>
+<div class="rfc-t" id="rfc.section.4.p.1">
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+    IANA has agreed to the four top level domain name reservations
+    specified in this document and will reserve them for the uses
+    indicated.
+  </p>
+<p xml:lang="ja" class="t-l-ja">
+    IANA はこの文書で説明している4つの最上位ドメイン名を予約するのに同意し、これを指定された用途に予約します。
+  </p>
+</div>
+</div>
+</div>
+
+<div class="rfc-section" id="rfc.section.5">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">5. Security Considerations</h1>
+<h1 xml:lang="ja" class="t-l-ja">5. 
+          安全性に関して</h1>
+</div>
+
+<div class="rfc-t" id="rfc.section.5.p.1">
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+    Confusion and conflict can be caused by the use of a current or
+    future top level domain name in experimentation or testing, as an
+    example in documentation, to indicate invalid names, or as a synonym
+    for the loop back address.  Test and experimental software can escape
+    and end up being run against the global operational DNS.  Even
+    examples used “only” in documentation can end up being coded and
+    released or cause conflicts due to later real use and the possible
+    acquisition of intellectual property rights in such “example” names.
+  </p>
+<p xml:lang="ja" class="t-l-ja">
+    現在または将来の最上位ドメイン名を実験や確認, 
+    文書中での例示や不正名を示すのや loop back  
+    address の類義語に使うことで混乱と衝突が起こり得ます。確認・実験的ソフトウェアは広域 
+    DNS を避けて動かすことが出来ます。文書内「のみ」に使われる例示でも、コード化されて発布されたり、後の実際の使用や「例示」名の知的所有権の取得による衝突が起こり得ます。
+  </p>
+</div>
+</div>
+
+<div class="rfc-t" id="rfc.section.5.p.2">
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+    The reservation of several top level domain names for these purposes
+   will minimize such confusion and conflict.
+  </p>
+<p xml:lang="ja" class="t-l-ja">
+    数個の最上ドメイン名をこれらの目的に予約することで、混乱と衝突を最小限に抑えることができるでしょう。
+  </p>
+</div>
+</div>
+</div>
+
+<div class="rfc-section" id="rfc.references.References">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">References</h1>
+<h1 xml:lang="ja" class="t-l-ja">参考文献</h1>
+</div>
+<dl>
+  <dt id="RFC1034">[RFC 1034]</dt>
+<dd>『<cite>Domain Names ― Concepts and Facilities</cite>』<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">, 『<cite>
+<a href="http://selene.ok.mei.titech.ac.jp/docs/studies/rfc1034jp.txt" title="URI: &lt;http://selene.ok.mei.titech.ac.jp/docs/studies/rfc1034jp.txt>">ドメイン名―概念と機能</a>
+</cite>』</span>
+</span>, <span title="@fullname">Mockapetris, P.</span>, <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:std:13" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:std:13>">STD 13</a>, <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1034" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1034>">RFC 1034</a>。</dd>
+  <dt id="RFC1035">[RFC 1035]</dt>
+<dd>『<cite>Domain Names ― Implementation and Specification</cite>』<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">, 『<cite>ドメイン名―実装と仕様</cite>』</span>
+</span>, <span title="@fullname">Mockapetris, P.</span>, <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:std:13" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:std:13>">STD 13</a>, <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1035" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1035>">RFC 1035</a>。</dd>
+  <dt id="RFC1591">[RFC 1591]</dt>
+<dd>『<cite>Domain Name System Structure and Delegation</cite>』<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">, 『<cite>ドメイン名ドメイン名系統構造と委任</cite>』</span>
+</span>, <span title="@fullname">Postel, J.</span>, <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1591" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1591>">RFC 1591</a>。</dd>
+</dl>
+</div>
+<div id="rfc-authors" class="rfc-section">
+<div id="rfc.authors" class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">Author's Addresses</h1>
+<h1 xml:lang="ja" class="t-l-ja">著者の連絡先</h1>
+</div>
+<ul class="rfc-author">
+<li class="rfc-author-fullname">Donald E. Eastlake 3rd</li>
+<li class="rfc-organization">IBM</li>
+<li class="rfc-street">65 Shindegan Hill Road</li>
+<li class="rfc-street">RR #1</li>
+<li class="rfc-city">Carmel</li>
+<li class="rfc-region">NY</li>
+<li class="rfc-code">10512</li>
+<li class="rfc-phone">電話: +1 914-276-1668(h)</li>
+<li class="rfc-facsimile">FAX: +1 914-784-3833(3)</li>
+<li class="rfc-email">電子メイル: &lt;<a href="mailto:dee3@us.ibm.com">dee3@us.ibm.com</a>&gt;</li>
+</ul>
+<ul class="rfc-author">
+<li class="rfc-author-fullname">Aliza R. Panitz</li>
+<li class="rfc-street">500 Stamford Dr. No. 310</li>
+<li class="rfc-city">Newark</li>
+<li class="rfc-region">DE</li>
+<li class="rfc-code">19711</li>
+<li class="rfc-country">USA</li>
+<li class="rfc-phone">電話: +1 302-738-1554</li>
+<li class="rfc-email">電子メイル: &lt;<a href="mailto:buglady@fuschia.net">buglady@fuschia.net</a>&gt;</li>
+</ul>
+</div>
+<div id="rfc-copyright" class="rfc-section">
+<div class="t-pair" id="rfc.copyright">
+<h1 xml:lang="en" class="t-l-en">Full Copyright Statement</h1>
+<h1 xml:lang="ja" class="t-l-ja">完全な著作権声明</h1>
+</div>
+<div class="t-pair t-hide-no">
+<p class="t-l-en" xml:lang="en">
+          Copyright &#x00A9; 
+          <a href="http://www.isoc.org/">The Internet Society</a> 
+          (1999). 
+          All Rights Reserved.
+        </p>
+<p class="t-l-ja" xml:lang="ja">
+          著作権 &#x00A9; 
+          <a href="http://www.isoc.org/">The Internet Society</a> 
+          (1999)。全権留保。
+        </p>
+</div>
+<div class="rfc-t">
+<div class="t-pair t-hide-no">
+<p class="t-l-en" xml:lang="en">
+            This document and translations of it may be copied 
+            and furnished
+            to others, and derivative works that comment on or otherwise 
+            explain it or assist in its implementation may be prepared, 
+            copied, published and distributed, in whole or in part, 
+            without restriction of any kind, provided that the 
+            above copyright notice 
+            and this paragraph are included on all such copies and 
+            derivative works. However, this document itself may 
+            not be modified in any way, such as by removing the 
+            copyright notice or references to the Internet Society 
+            or other Internet organizations, except as 
+            needed for the purpose of developing Internet standards 
+            in which case the procedures for copyrights defined in 
+            the Internet Standards process must be followed, or as 
+            required to translate it into languages other than English.
+          </p>
+<p class="t-l-ja" xml:lang="ja">
+            この文書とその翻訳は複写し他者に提供しても良く、またこれについて注釈を加えるかもしくは説明する、あるいはその実装を助ける派生的作業は、その全部または一部を、上記の著作権表示及びこの節を全ての複写物及び派生的作業に含む限りにおいて、一切の制限無しに、用意・複写・出版・配布して良い。しかし、この文書自体は、著作権表示あるいは 
+            Internet Society 又は他の Internet 
+            組織への言及を取り除くなど、いかなる方法にせよ変更してはならない。但し、 
+            Internet 標準化過程で定義された著作権のための手続きに従い 
+            Internet 標準を開発する目的に必要な場合、あるいは英語以外の言語に翻訳するのに必要な場合を除く。
+          </p>
+</div>
+</div>
+<div class="rfc-t">
+<div class="t-pair t-hide-no">
+<p class="t-l-en" xml:lang="en">
+            The limited permissions granted above are perpetual and will 
+            not be revoked by the Internet Society or its successors or 
+            assigns.
+          </p>
+<p class="t-l-ja" xml:lang="ja">
+            上記で認めたこの制限付き許諾は恒久的なものであり、
+            Internet Society もしくはその後継者もしくはその譲渡者により破棄されることはない。
+          </p>
+</div>
+</div>
+<div class="rfc-t">
+<div class="t-pair t-hide-no">
+<p class="t-l-en" xml:lang="en">
+            This document and the information contained herein is provided 
+            on an “<strong>AS IS</strong>” basis and 
+            <strong>THE INTERNET SOCIETY AND THE INTERNET ENGINEERING
+            TASK FORCE DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, 
+            INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF 
+            THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY 
+            IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR 
+            A PARTICULAR PURPOSE</strong>.
+          </p>
+<p class="t-l-ja" xml:lang="ja">
+            この文書及びここに含まれる情報は「<strong>現状有姿</strong>」で提供され、
+            <strong>Internet Society および
+            Internet Engineering Task Force (Internet 技術特別調査委員会)
+            はここに含まれる情報の使用がいかなる権利をも侵害しないという保証または市場性あるいは特定目的への適当性についての暗黙的保証を含めてこれに限定されない、明示あるいは暗示による、一切の保証を否認する</strong>。
+          </p>
+</div>
+</div>
+<ins class="t-note t-l-ja" xml:lang="ja">
+<p class="rfc-t">
+          (<span class="t-note-title">訳注:</span>
+          正式な著作権声明は英語の原文のみであり、訳者は一切の保証
+          (翻訳文が原文と厳密に一致しているかを含むが、これに限定されない。)
+          をしない。<a href="#rfc-t-copyright">訳文についての著作権声明</a>も参照せよ。)
+        </p>
+</ins>
+</div>
+<div id="rfc-acknowledgement-editor" class="rfc-section">
+<div class="t-heading t-pair">
+<h1 xml:lang="en" class="t-l-en">Acknowledgement</h1>
+<h1 xml:lang="ja" class="t-l-ja">謝辞</h1>
+</div>
+<div class="rfc-t">
+<div class="t-pair">
+<p class="t-l-en" xml:lang="en">
+          Funding for the 
+          <a href="http://www.rfceditor.org/">RFC editor</a> 
+          function is currently provided by the
+          <a href="http://www.isoc.org/">Internet Society</a>.
+        </p>
+<p class="t-l-ja" xml:lang="ja">
+<a href="http://www.rfceditor.org/" xml:lang="en">RFC 
+          編集者</a>業務の資金援助は現在
+          <a href="http://www.isoc.org/">Internet Society</a>
+          により行われています。
+        </p>
+</div>
+</div>
+</div>
+<ins id="rfc-translators-note" class="t-note t-l-ja" xml:lang="ja">
+<div class="rfc-section">
+<div>
+<h1>参考</h1>
+</div>
+  <div class="rfc-section">
+<div>
+<h2>登録簿</h2>
+</div>
+    <ul class="rfc-list-symbols text">
+      <li>IANA
+      <a href="http://www.iana.org/domain-names.htm" title="URI: &lt;http://www.iana.org/domain-names.htm>" class="rfc-eref">Domain Name Services</a>
+      の最上位ドメイン名の項には、2002年5月現在これらの最上位ドメイン名についての情報はありません・・・。</li>
+      <li>IANA が予約していることを示す登録簿のようなものは見当りません。
+      (whois でも出てきませんし...)</li>
+      <li>TLD 「.localdomain」も .localhost 
+      と似たような目的で使われています。</li>
+    </ul>
+  </div>
+  <div class="rfc-section">
+<div>
+<h2>他の翻訳</h2>
+</div>
+    <p class="rfc-t" id="rfc.section.1.2.p.1">
+  &lt;<a href="http://www.goto.info.kanagawa-u.ac.jp/~horiyuki/rfc/rfc2606j.txt" class="rfc-eref">http://www.goto.info.kanagawa-u.ac.jp/~horiyuki/rfc/rfc2606j.txt</a>&gt;
+ (岡橋一輝さん訳)</p>
+  </div>
+</div>
+<div class="rfc-section" id="t-change">
+<h1>翻訳の変更履歴</h1>
+<dl>
+<dt>2002-05-11 <a href="mailto:w@suika.fam.cx" title="電子メイル: &lt;w@suika.fam.cx>">わかば</a>
+</dt>
+<dd>
+<ul>
+<li>日本語に翻訳。</li>
+</ul>
+</dd>
+<dt>2002-05-12 <a href="mailto:w@suika.fam.cx" title="電子メイル: &lt;w@suika.fam.cx>">わかば</a>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:2629" title="RFC 2629">RFC 2629</a> でマーク付け。</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="rfc-section" id="rfc-t-copyright">
+<h1>訳文についての著作権声明</h1>
+<p>
+<a href="#rfc-copyright">原文の著作権声明</a>が、訳文についても同様に適用されます。</p>
+<p>また、改訳その他の原文の著作権声明に反しない範囲における改変は、一切の許可無く行って構いません。</p>
+</div>
+</ins>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="iso-2022-jp"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+  <!ENTITY rfc.number "2053">
+  <!ENTITY ja.system "系統">
+  <!ENTITY ja.domain.registry "登録簿">
+]>
+<rfc number="&rfc.number;" category="info"
+   xmlns:myns="mailto:julian.reschke@greenbytes.de?subject=rcf2629.xslt"
+   xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/"
+   xmlns:h="http://www.w3.org/1999/xhtml">
+  <front>
+    <title>The AM (Armenia) Domain</title> 
+    <ja:title xml:lang="ja">AM (アルメニア) ドメイン</ja:title> 
+    <author initials="E." surname="Der-Danieliantz" fullname="Edgar Der-Danieliantz">
+    <organization>AM Network Information Center</organization>
+    <ja:organization>c/o Arminco Limited</ja:organization>
+    <address>
+      <postal>
+        <street>Mashtotz Avenue 51</street>
+        <street>Yerevan</street>
+        <country ja:text="ARMENIA">AM</country>
+      </postal>
+      <phone>+374 2 28 14 25</phone>
+      <facsimile>+374 2 28 50 82</facsimile>
+      <email>edd@acm.org</email>
+      <ja:email>edd@amnic.net</ja:email>
+    </address>
+  </author>
+  <date month="October" year="1996" /> 
+  </front>
+<ja:front>
+<author fullname="わかば" ja:id="wakaba">
+	<address>
+	<email>w@suika.fam.cx</email>
+	<uri>http://suika.fam.cx/~wakaba/</uri>
+	</address>
+</author>
+<ja:change>
+  <ja:item year="2002" month="05" day="11"><author ja:ref="wakaba" />
+    <t>日本語に翻訳。</t>
+  </ja:item>
+  <ja:item year="2002" month="05" day="12"><author ja:ref="wakaba" />
+    <t><ja:link type="rfc" number="2629" /> でマーク付け。</t>
+  </ja:item>
+</ja:change><!-- $Date: 2002/05/12 04:31:40 $ -->
+</ja:front>
+<middle>
+
+<section title="The AM Domain" ja:title-ja="AM ドメイン" myns:unnumbered="yes">
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The AM Domain is an official Internet top-level domain of Armenia.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    AM ドメインはアルメニアの公式 Internet 最上位ドメインです。
+  </ja:l>
+  </ja:pair>
+</t>
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    AM is the ISO-3166 2-letter country code for the Republic of Armenia
+    and thus the AM Domain is established as a top-level domain and
+    registered with the 
+    <eref target="http://www.internic.net/">InterNIC</eref> 
+    the same way other country domains are.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    AM はアルメニア共和国の ISO 3166 2文字国名符号で、 AM 
+    ドメインは最上位ドメインとして設立され、他の国家ドメインと同様にして
+    <eref target="http://www.internic.net/">InterNIC</eref> 
+    に登録されました。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+
+<section title="Naming Structure"
+  ja:title-ja="名前構造" myns:unnumbered="yes">
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The AM Domain hierarchy is flat. This means that any organization may
+    be registered directly under the AM TLD. 
+    Example: <h:samp>arminco.am</h:samp>.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    AM ドメイン階層は平坦です。これはいかなる組織も AM TLD 
+    直下に登録可能なことを意味します。例: <h:samp>arminco.am</h:samp>。
+  </ja:l>
+  </ja:pair>
+</t>
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    However, subdomains are allowed, such as ORG and MIL, as well as CO
+    and AC.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    しかし、 ORG, MIL, CO, AC といった亜ドメインもあります。
+  </ja:l>
+  </ja:pair>
+</t>
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Please note that MIL.AM and GOV.AM domains are reserved by the
+    Ministry of Defense and The Government of Armenia, respectively.
+    Other domains may be reserved for appropriate organizations by
+    contacting AM Network Information Center at 
+    <eref target="mailto:HOSTMASTER@AMNIC.NET">HOSTMASTER@AMNIC.NET</eref>.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    MIL.AM と GOV.AD 
+    は防衛省とアルメニア政府がそれぞれ予約していることに注意して下さい。他のドメインは
+    AM ネットワーク情報センター 
+    <eref target="mailto:HOSTMASTER@AMNIC.NET">HOSTMASTER@AMNIC.NET</eref> 
+    に連絡して適当な組織に予約することが出来ます。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+
+<section title="Registration" ja:title-ja="登録" myns:unnumbered="yes">
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    There are two types of registrations (1) Delegation, where a branch
+    of the AM Domain is delegated to an organization running name servers
+    to support that branch; or (2) Direct Registration, in which the
+    information is put directly into the main database.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    登録には2通りあります。 (1) 委任, AM 
+    ドメインの枝をその枝に対応した名前サーバーを動かしている組織に委任します。
+    (2) 直接登録, 情報は主データベースに直接入れられます。
+  </ja:l>
+  </ja:pair>
+</t>
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    In Direct Registration there are two cases: (a) an IP-host (with an
+    IP address), and (b) non-IP host (for example, a UUCP host).  Any
+    particular registration will involve any one of these three
+    situations.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    直接登録には二つの場合があります。 (a) IP ホスト (IP address を持つ)
+    (B) 非 IP ホスト (例えば UUCP 
+    ホスト)。どの登録もこの3つの内のどれかに当てはまります。
+  </ja:l>
+  </ja:pair>
+</t>
+
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The registration is performed by the AM Network Information Center,
+    national Internet registry of Armenia. For more information about AM
+    Network Information Center, please visit:
+  </ja:l>
+  <ja:l xml:lang="ja">
+    登録はアルメニアの国家 Internet &ja.domain.registry;である 
+    AM ネットワーク情報センターで行います。 AM 
+    ネットワーク情報センターについて詳しくは、
+  </ja:l>
+  </ja:pair>
+</preamble>
+
+<ja:artwork><artwork>http://www.amnic.net</artwork>
+<eref target="http://www.amnic.net/">http://www.amnic.net</eref></ja:artwork>
+
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="ja">
+    を御覧下さい。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+</section>
+
+<section title="Requirements" myns:unnumbered="yes">
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Anyone requesting to register a host in the AM Domain is sent a copy
+    of the “AM second-level domain registration template”. It is
+    necessary to fill out this template and send via Internet e-mail to
+    <eref target="mailto:HOSTMASTER@AMNIC.NET">HOSTMASTER@AMNIC.NET</eref> 
+    for consideration.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    AM ドメインにホストを登録申請する人は「AM 
+    第二位ドメイン登録雛型」の複製を送ります。この雛型を埋めて
+    Internet の電子メイルで 
+    <eref target="mailto:HOSTMASTER@AMNIC.NET">HOSTMASTER@AMNIC.NET</eref> 
+    に送って検討を促すことが必要です。
+  </ja:l>
+  </ja:pair>
+</t>
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The AM Domain template, is similar to the InterNIC Domain template,
+    but it is not the same.  To request a copy of the AM Domain template,
+    send a message to 
+    <eref target="mailto:HOSTMASTER@AMNIC.NET">HOSTMASTER@AMNIC.NET</eref>.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    AM ドメイン雛型は InterNIC 
+    ドメイン雛型と似ていますが、同じではありません。
+    AM ドメイン雛型の複製を入手するには、
+    <eref target="mailto:HOSTMASTER@AMNIC.NET">HOSTMASTER@AMNIC.NET</eref>
+    にメッセージを送って下さい。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+
+<ja:insert section="references" />
+<section title="Security Considerations" myns:unnumbered="yes">
+   <t>Security issues are not discussed in this memo.</t>
+</section>
+</middle>
+
+<back>
+<references>
+  <reference anchor="RFC1032"><!-- [1] -->
+    <front>
+      <title>Domain Administrators Guide</title>
+      <ja:title xml:lang="ja">ドメイン管理者の手引き</ja:title>
+      <author initials="M." surname="Stahl" fullname="M. Stahl">
+        <organization>SRI International</organization>
+      </author>
+      <date month="November" year="1987" /> 
+    </front>
+    <seriesInfo name="RFC" value="1032" /> 
+  </reference>
+  <reference anchor="RFC1033"><!-- [2] -->
+    <front>
+      <title abbrev="DOMAIN OPERATIONS GUIDE">Domain Administrators Operations Guide</title>
+      <ja:title xml:lang="ja" abbrev="ドメイン運営手引">ドメイン管理者の運営の手引き</ja:title>
+      <author initials="M." surname="Lottor" fullname="M. Lottor">
+        <organization>SRI International</organization>
+      </author>
+      <date month="November" year="1987" />
+    </front>
+    <seriesInfo name="RFC" value="1033" /> 
+  </reference>
+  <reference anchor="RFC1034" ja:target-ja="http://selene.ok.mei.titech.ac.jp/docs/studies/rfc1034jp.txt"><!-- [3] -->
+    <front>
+      <title abbrev="Domain Concepts and Facilities">Domain Names ― Concepts and Facilities</title>
+      <ja:title xml:lang="ja">ドメイン名―概念と機能</ja:title>
+      <author initials="P." surname="Mockapetris" fullname="P. Mockapetris">
+        <organization abbrev="ISI">Information Sciences Institute (ISI)</organization>
+      </author>
+      <date month="November" year="1987" />
+    </front>
+    <seriesInfo name="STD" value="13" />
+    <seriesInfo name="RFC" value="1034" /> 
+  </reference>
+  <reference anchor="RFC1035"><!-- [4] -->
+    <front>
+    <title abbrev="Domain Implementation and Specification">Domain Names ― Implementation and Specification</title>
+    <ja:title xml:lang="ja">ドメイン名―実装と仕様</ja:title>
+    <author initials="P." surname="Mockapetris" fullname="P. Mockapetris">
+      <organization abbrev="ISI">USC/ISI</organization>
+    </author>
+    <date month="November" year="1987" />
+  </front>
+  <seriesInfo name="STD" value="13" />
+  <seriesInfo name="RFC" value="1035" />
+  </reference>
+  <reference><!-- [5] -->
+    <front>
+      <title>Name Server Operations Guide for Bind, Release 4.3</title>
+      <ja:title xml:lang="ja">Bind 用名前サーバー運営の手引き</ja:title>
+      <author fullname="UC Berkeley" />
+    </front>
+    <ja:add-info>SMM:11-3</ja:add-info>
+  </reference>
+  <reference anchor="RFC0974"><!-- [5] -->
+    <front>
+      <title>Mail Routing and the Domain Name System</title>
+      <ja:title xml:lang="ja">メイル経路制御とドメイン名&ja.system;</ja:title>
+      <author initials="C." surname="Partridge" fullname="Craig Partridge">
+        <organization abbrev="BBN">Bolt Baranek and Newman (BBN) Laboratories Inc., CSNET CIC</organization>
+      </author>
+      <date month="January" year="1986" />
+    </front>
+    <seriesInfo name="STD" value="14" />
+    <seriesInfo name="RFC" value="974" />
+  </reference>
+  <reference><!-- [7] -->
+    <front>
+      <title><h:q>DNS and Bind</h:q> Help for UNIX System Administrators</title>
+      <ja:title><h:q>DNS と Bind</h:q> UNIX &ja.system;管理者の補助</ja:title>
+      <author initials="P." surname="Albitz" />
+      <author initials="C." surname="Liu" />
+      <ja:publisher fullname="O'Reilly and Associates, Inc." />
+      <date month="October" year="1992" />
+    </front>
+  </reference>
+  <reference anchor="RFC1700"><!-- [8] -->
+    <front>
+      <title>Assigned Numbers</title>
+      <ja:title xml:lang="ja">割当番号</ja:title>
+      <author initials="J." surname="Reynolds" fullname="Joyce K. Reynolds">
+        <organization abbrev="ISI">USC/Information Sciences Institute</organization>
+      </author>
+      <author initials="J." surname="Postel" fullname="Jon Postel">
+        <organization abbrev="ISI">USC/Information Sciences Institute</organization>
+      </author>
+      <date month="October" year="1994" />
+    </front>
+    <seriesInfo name="STD" value="2" />
+    <seriesInfo name="RFC" value="1700" />
+  </reference>
+</references>
+</back>
+</rfc>

@@ -60,7 +60,7 @@
       This document discusses the relationship of the Request for 
       Comments (RFCs) notes to Internet Standards.
     </ja:l>
-    <ja:l xml:lang="en">
+    <ja:l xml:lang="ja">
       この文書は、 Request for Comments (RFC) 覚書と
       Internet 標準との関係について扱います。
     </ja:l>
@@ -78,9 +78,9 @@
 <ja:change>
   <ja:item year="2002" month="05" day="09"><author ja:ref="wakaba" />
     <t><ja:link type="rfc" number="2629" /> でマーク付け。</t>
-    <t>翻訳完了。</t>
+    <t>日本語に翻訳。</t>
   </ja:item>
-</ja:change><!-- $Date: 2002/05/09 09:52:35 $ -->
+</ja:change><!-- $Date: 2002/05/12 04:31:40 $ -->
 </ja:front>
 <middle>
 

@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="iso-2022-jp"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+  <!ENTITY rfc.number "2606">
+  <!ENTITY ja.access "接続">
+  <!ENTITY ja.global "広域">
+  <!ENTITY ja.local "局地的">
+  <!ENTITY ja.online " online ">
+  <!ENTITY ja.domain.domain-name-system "ドメイン名系統">
+  <!ENTITY ja.domain.localhost "局地ホスト">
+  <!ENTITY ja.domain.record " record ">
+  <!ENTITY ja.domain.root "根">
+  <!ENTITY ja.domain.zone "領域">
+  <!ENTITY ja.inet.iana " Internet 割当番号事務局">
+  <!ENTITY ja.ip.loopback " loop back ">
+  <!ENTITY ja.software.release "発布">
+]>
+<?rfc symrefs="yes"?>
+<rfc number="&rfc.number;" category="bcp" seriesNo="32"
+   xmlns:myns="mailto:julian.reschke@greenbytes.de?subject=rcf2629.xslt"
+   xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/"
+   xmlns:h="http://www.w3.org/1999/xhtml">
+  <front>
+    <title>Reserved Top Level DNS Names</title> 
+    <ja:title xml:lang="ja">最上位 DNS 名の予約</ja:title>
+    <author initials="D." surname="Eastlake" fullname="Donald E. Eastlake 3rd">
+      <organization>IBM</organization>
+      <address>
+        <postal>
+          <street>65 Shindegan Hill Road</street>
+          <street>RR #1</street>
+          <city>Carmel</city> <region>NY</region>
+          <code>10512</code>
+          <country ja:show="no">US</country>
+        </postal>
+        <phone ja:text="+1 914-276-1668(h)">+1 914 276 1668</phone>
+        <phone ja:text="+1 914-784-7913(w)">+1 914 784 7913</phone>
+        <facsimile ja:text="+1 914-784-3833(3)">+1 914 784 3833</facsimile>
+        <email>dee3@us.ibm.com</email>
+      </address>
+    </author>
+    <author initials="A." surname="Panitz" fullname="Aliza R. Panitz">
+      <address>
+        <postal>
+          <street>500 Stamford Dr. No. 310</street>
+          <city>Newark</city> <region>DE</region> <code>19711</code>
+          <country ja:text="USA">US</country>
+        </postal>
+        <phone ja:text="+1 302-738-1554">+1 302 738 1554</phone>
+        <email>buglady@fuschia.net</email>
+      </address>
+    </author>
+    <date month="June" year="1999" />
+    <abstract>
+      <t>
+        <ja:pair>
+        <ja:l xml:lang="en">
+          To reduce the likelihood of conflict and confusion, a few top 
+          level domain names are reserved for use in private testing, as 
+          examples in documentation, and the like. In addition, a few 
+          second level domain names reserved for use as examples are
+          documented.
+        </ja:l>
+        <ja:l xml:lang="ja">
+          衝突・混乱の可能性を減らすため、幾つかの最上位ドメイン名を私的確認,
+          文書中での例示などで使うために予約します。加えて、例示に使うために予約されている幾つかの第二位ドメイン名を文書化します。
+        </ja:l>
+        </ja:pair>
+      </t>
+    </abstract>
+  </front>
+<ja:front>
+<author fullname="わかば" ja:id="wakaba">
+	<address>
+	<email>w@suika.fam.cx</email>
+	<uri>http://suika.fam.cx/~wakaba/</uri>
+	</address>
+</author>
+<ja:change>
+  <ja:item year="2002" month="05" day="11"><author ja:ref="wakaba" />
+    <t>日本語に翻訳。</t>
+  </ja:item>
+  <ja:item year="2002" month="05" day="12"><author ja:ref="wakaba" />
+    <t><ja:link type="rfc" number="2629" /> でマーク付け。</t>
+  </ja:item>
+</ja:change><!-- $Date: 2002/05/12 04:31:40 $ -->
+</ja:front>
+<middle>
+
+<ja:insert section="toc" />
+<section title="Introduction">
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The global Internet Domain Name System is documented in 
+    <xref target="RFC1034" />, <xref target="RFC1035" />, 
+    <xref target="RFC1591" />
+    and numerous additional Requests for Comment.  It defines
+   a tree of names starting with root, ".", immediately below which are
+   top level domain names such as <h:samp>.com</h:samp>
+   and <h:samp>.us</h:samp>. Below top level
+   domain names there are normally additional levels of names.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    &ja.global; Internet &ja.domain.domain-name-system;は 
+    <xref target="RFC1034" />, <xref target="RFC1035" />, 
+    <xref target="RFC1591" /> と数ある追加の
+    Requests for Comment で文書化されています。これは&ja.domain.root;,
+    "." で始まり、真下に <h:samp>.com</h:samp>, <h:samp>.us</h:samp> 
+    のような最上位ドメイン名が来る木を定義するものです。最上位ドメイン名の下には通常、追加の階位の名前が来ます。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+
+<section title="TLDs for Testing, &amp; Documentation Examples"
+  ja:title-ja="実験・例示用の TLD">
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    There is a need for top level domain (TLD) names that can be used for
+   creating names which, without fear of conflicts with current or
+   future actual TLD names in the global DNS, can be used for private
+   testing of existing DNS related code, examples in documentation, DNS
+   related experimentation, invalid DNS names, or other similar uses.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    現在や将来の&ja.global; DNS 実際の TLD 名との衝突の虞無しに、既存の
+DNS 関連コードの私的な実験や文書内での例示, DNS 関連実験,
+不正な DNS 名, その他同様なことに使うことが出来る最上位ドメイン
+(TLD) 名が必要です。
+  </ja:l>
+  </ja:pair>
+</t>
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    For example, without guidance, a site might set up some local
+   additional unused top level domains for testing of its local DNS code
+   and configuration. Later, these TLDs might come into actual use on
+   the global Internet.  As a result, local attempts to reference the
+   real data in these zones could be thwarted by the local test
+   versions.  Or test or example code might be written that accesses a
+   TLD that is in use with the thought that the test code would only be
+   run in a restricted testbed net or the example never actually run.
+   Later, the test code could escape from the testbed or the example be
+   actually coded and run on the Internet. Depending on the nature of
+   the test or example, it might be best for it to be referencing a TLD
+   permanently reserved for such purposes.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    例えば、手引きが無いと、どこかのサイトが&ja.local;で追加の未使用な最上位ドメインを&ja.local;
+    DNS コードや設定の確認のために設定するかもしれません。後で、
+    この TLD が&ja.global; Internet 
+    で実際に使われることになるかもしれません。結果として、&ja.local;にてこの&ja.domain.zone;の実際のデータを参照しようとすると、&ja.local;な確認版のために上手くいかないことでしょう。あるいは、制限された実験台網でのみ動かされるか,
+    実際に動かされることの無い例示と考えて使っている 
+    TLD に&ja.access;する、確認や例示のコードが書かれるかもしれません。後で、確認コードが実験台から漏れるかもしれませんし、例示が実際にコード化されて
+    Internet で動かされるかもしれません。確認や例示の性質を鑑みると、これらの目的に永久に予約した
+    TLD を参照するのが最善の策でしょう。
+  </ja:l>
+  </ja:pair>
+</t>
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    To safely satisfy these needs, four domain names are reserved as
+   listed and described below.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    この需要を安全に満たすために、下に挙げて説明する4つのドメイン名を予約します。
+  </ja:l>
+  </ja:pair>
+  
+  <list style="empty">
+  	<t><xref target="tld.test">.test</xref></t>
+  	<t><xref target="tld.example">.example</xref></t>
+  	<t><xref target="tld.invalid">.invalid</xref></t>
+  	<t><xref target="tld.localhost">.localhost</xref></t>
+  </list>
+  
+  <list style="empty">
+  	<t ja:anchor="tld.test">
+  	  <ja:pair>
+  	  <ja:l xml:lang="en">
+  	    ".test" is recommended for use in testing of current or new DNS
+  	    related code.
+  	  </ja:l>
+  	  <ja:l xml:lang="ja">
+  	    「.test」(確認)
+  	    は現行または新規の DNS 関連コードの確認に使うことを推奨します。
+  	  </ja:l>
+  	  </ja:pair>
+  	</t>
+  	
+  	<t ja:anchor="tld.example">
+  	  <ja:pair>
+  	  <ja:l xml:lang="en">
+  	    ".example" is recommended for use in documentation or 
+  	    as examples.
+  	  </ja:l>
+  	  <ja:l xml:lang="ja">
+  	    「.example」 (例) は文書や例の中で使うことを推奨します。
+  	  </ja:l>
+  	  </ja:pair>
+  	</t>
+  	
+  	<t ja:anchor="tld.invalid">
+  	  <ja:pair>
+  	  <ja:l xml:lang="en">
+  	    ".invalid" is intended for use in online construction of 
+  	    domain names that are sure to be invalid and which it is 
+  	    obvious at a glance are invalid.
+  	  </ja:l>
+  	  <ja:l xml:lang="ja">
+  	    「.invalid」 (不正) 
+  	    は不正であるのが確実で、一目で不正であると確認出来るドメイン名の&ja.online;構造に使うことを意図しています。
+  	  </ja:l>
+  	  </ja:pair>
+  	</t>
+  	
+  	<t ja:anchor="tld.localhost">
+  	  <ja:pair>
+  	  <ja:l xml:lang="en">
+  	    The ".localhost" TLD has traditionally been statically 
+  	    defined in host DNS implementations as having an A record 
+  	    pointing to the loop back IP address and is reserved for 
+  	    such use.  Any other use would conflict with widely 
+  	    deployed code which assumes this use.
+  	  </ja:l>
+  	  <ja:l xml:lang="ja">
+  	    「.localhost」 (&ja.domain.localhost;) TLD は伝統的にホスト 
+  	    DNS 実装で&ja.ip.loopback; IP address を指す A 
+  	    &ja.domain.record;を持つと固定的に定義されているので、この用途に予約します。他の目的に使うと、これを仮定している、広く使われているコードと衝突するでしょう。
+  	  </ja:l>
+  	  </ja:pair>
+  	</t>
+  </list>
+</t>
+</section>
+
+<section title="Reserved Example Second Level Domain Names"
+  ja:title-ja="予約例示第二位ドメイン名">
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The Internet Assigned Numbers Authority (IANA) also currently has the
+   following second level domain names reserved which can be used as
+   examples.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <eref target="http://www.iana.org/">&ja.inet.iana; (IANA)</eref> 
+    は現在次の第二位ドメイン名も例示に使えるように予約しています。
+  </ja:l>
+  </ja:pair>
+  
+  <list style="empty">
+        <t>example.com</t>
+        <t>example.net</t>
+        <t>example.org</t>
+  </list>
+</t>
+<ja:note>example.edu も IANA が予約しているようです。</ja:note>
+</section>
+
+<section title="IANA Considerations">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    IANA has agreed to the four top level domain name reservations
+    specified in this document and will reserve them for the uses
+    indicated.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    IANA はこの文書で説明している4つの最上位ドメイン名を予約するのに同意し、これを指定された用途に予約します。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+
+<section title="Security Considerations">
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Confusion and conflict can be caused by the use of a current or
+    future top level domain name in experimentation or testing, as an
+    example in documentation, to indicate invalid names, or as a synonym
+    for the loop back address.  Test and experimental software can escape
+    and end up being run against the global operational DNS.  Even
+    examples used “only” in documentation can end up being coded and
+    released or cause conflicts due to later real use and the possible
+    acquisition of intellectual property rights in such “example” names.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    現在または将来の最上位ドメイン名を実験や確認, 
+    文書中での例示や不正名を示すのや&ja.ip.loopback; 
+    address の類義語に使うことで混乱と衝突が起こり得ます。確認・実験的ソフトウェアは&ja.global; 
+    DNS を避けて動かすことが出来ます。文書内「のみ」に使われる例示でも、コード化されて&ja.software.release;されたり、後の実際の使用や「例示」名の知的所有権の取得による衝突が起こり得ます。
+  </ja:l>
+  </ja:pair>
+</t>
+
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The reservation of several top level domain names for these purposes
+   will minimize such confusion and conflict.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    数個の最上ドメイン名をこれらの目的に予約することで、混乱と衝突を最小限に抑えることができるでしょう。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+
+</middle>
+
+<back>
+<references>
+  <reference anchor="RFC1034" ja:text="RFC 1034"
+    ja:target-ja="http://selene.ok.mei.titech.ac.jp/docs/studies/rfc1034jp.txt">
+    <front>
+      <title abbrev="Domain Concepts and Facilities">Domain Names ― Concepts and Facilities</title>
+      <ja:title xml:lang="ja">ドメイン名―概念と機能</ja:title>
+      <author initials="P." surname="Mockapetris" fullname="P. Mockapetris">
+        <organization abbrev="ISI">Information Sciences Institute (ISI)</organization>
+      </author>
+      <date month="November" year="1987" />
+    </front>
+    <seriesInfo name="STD" value="13" />
+    <seriesInfo name="RFC" value="1034" /> 
+  </reference>
+  <reference anchor="RFC1035" ja:text="RFC 1035">
+    <front>
+    <title abbrev="Domain Implementation and Specification">Domain Names ― Implementation and Specification</title>
+    <ja:title xml:lang="ja">ドメイン名―実装と仕様</ja:title>
+    <author initials="P." surname="Mockapetris" fullname="P. Mockapetris">
+      <organization abbrev="ISI">USC/ISI</organization>
+    </author>
+    <date month="November" year="1987" />
+  </front>
+  <seriesInfo name="STD" value="13" />
+  <seriesInfo name="RFC" value="1035" />
+  </reference>
+  <reference anchor="RFC1591" ja:text="RFC 1591">
+    <front>
+      <title>Domain Name System Structure and Delegation</title>
+      <ja:title xml:lang="ja">ドメイン名&ja.domain.domain-name-system;構造と委任</ja:title>
+      <author initials="J." surname="Postel" fullname="Jon Postel" />
+      <date month="March" year="1994" />
+    </front>
+    <seriesInfo name="RFC" value="1591" />
+  </reference>
+</references>
+</back>
+<ja:back>
+<section title="参考">
+  <section title="登録簿">
+    <list style="symbols">
+      <t>IANA
+      <eref target="http://www.iana.org/domain-names.htm" xml:lang="en">Domain Name Services</eref>
+      の最上位ドメイン名の項には、2002年5月現在これらの最上位ドメイン名についての情報はありません・・・。</t>
+      <t>IANA が予約していることを示す登録簿のようなものは見当りません。
+      (whois でも出てきませんし...)</t>
+      <t>TLD 「.localdomain」も .localhost 
+      と似たような目的で使われています。</t>
+    </list>
+  </section>
+  <section title="他の翻訳">
+    <t><eref target="http://www.goto.info.kanagawa-u.ac.jp/~horiyuki/rfc/rfc2606j.txt" /> (岡橋一輝さん訳)</t>
+  </section>
+</section>
+</ja:back>
+</rfc>
