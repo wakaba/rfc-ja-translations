@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="iso-2022-jp"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+  <!ENTITY rfc.number "2659">
+  <!ENTITY ja.dereference "解参照 (dereference) ">
+  <!ENTITY ja.escape-quote " quote ">
+  <!ENTITY ja.protocol "プロトコル">
+  <!ENTITY ja.security "安全性">
+  <!ENTITY ja.crypt.advisory "顧問">
+  <!ENTITY ja.crypt.cryptopts " cryptopts ">
+  <!ENTITY ja.html.browser "ブラウザー">
+  <!ENTITY ja.html.form " form ">
+  <!ENTITY ja.html.hypertext "超文">
+  <!ENTITY ja.network.client "クライアント">
+]>
+<?rfc symrefs="yes"?>
+<rfc number="&rfc.number;" category="exp"
+   xmlns:myns="mailto:julian.reschke@greenbytes.de?subject=rcf2629.xslt"
+   xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
+  <front>
+    <title>Security Extensions For HTML</title> 
+    <ja:title xml:lang="ja">HTMLの&ja.security;拡張</ja:title>
+    <author initials="E." surname="Rescorla" fullname="Eric Rescorla">
+      <organization>RTFM, Inc.</organization>
+      <address>
+        <postal>
+          <street>30 Newell Road, #16</street>
+          <city>East Palo Alto</city> <region>CA</region>
+          <code>94303</code>
+          <country ja:show="no">US</country>
+        </postal>
+        <phone>(650) 328-8631</phone>
+        <email>ekr@rtfm.com</email>
+      </address>
+    </author>
+    <author initials="A." surname="Schiffman" fullname="Allan M. Schiffman">
+      <organization abbrev="Terisa Systems, Inc.">SPYRUS/Terisa</organization>
+      <address>
+        <postal>
+          <street>5303 Betsy Ross Drive</street>
+          <city>Santa Clara</city> <region>CA</region>
+          <code>95054</code>
+          <country ja:show="no">US</country>
+        </postal>
+        <phone>(408) 327-1901</phone>
+        <email>ams@terisa.com</email>
+      </address>
+    </author>
+    <date month="August" year="1999" />
+    <abstract>
+      <t>
+        <ja:pair>
+        <ja:l xml:lang="en">
+          This memo describes a syntax for embedding S-HTTP negotiation
+          parameters in HTML documents.  S-HTTP, as described by 
+          <ja:link type="rfc" number="2660" />, contains the concept of 
+          negotiation headers which reflect the potential receiver of 
+          a message's preferences as to which cryptographic enhancements 
+          should be applied to the message. This document describes a 
+          syntax for binding these negotiation parameters to HTML anchors.
+        </ja:l>
+        <ja:l xml:lang="ja">
+          このメモは、 HTML 文書中に S-HTTP 
+          折衝パラメーターを埋め込む構文を説明します。 
+          <ja:link type="rfc" number="2660" /> で説明されている
+          S-HTTP は、どの暗号拡張をメッセージに適用するかの、メッセージの潜在受信者の好みを反映する折衝頭の概念を含んでいます。この文書はこれらの折衝パラメーターを
+          HTML 錨に縛り付ける構文を説明します。
+        </ja:l>
+        </ja:pair>
+      </t>
+    </abstract>
+  </front>
+<ja:front>
+<author fullname="わかば" ja:id="wakaba">
+	<address>
+	<email>w@suika.fam.cx</email>
+	<uri>http://suika.fam.cx/~wakaba/</uri>
+	</address>
+</author>
+<ja:change>
+  <ja:item ja:year="2002" ja:month="05" ja:day="12">
+    <author ja:ref="wakaba" />
+    <t>日本語に翻訳。</t>
+  </ja:item>
+  <ja:item ja:year="2002" ja:month="05" ja:day="26">
+    <author ja:ref="wakaba" />
+    <t><ja:link type="rfc" number="2629" /> でマーク付け。</t>
+  </ja:item>
+</ja:change><!-- $Date: 2002/05/26 09:13:08 $ -->
+</ja:front>
+<middle>
+
+<section title="Introduction">
+  <ja:note>
+    <t xml:lang="ja">原文で欠落。</t>
+  </ja:note>
+</section>
+
+<section title="Anchor Attributes" ja:title-ja="錨属性">
+  <t>
+    <ja:pair>
+    <ja:l xml:lang="en">
+      We define the following new anchor (and form submission) attributes:
+    </ja:l>
+    <ja:l xml:lang="ja">
+      次の新しい錨 (と&ja.html.form;送信) 属性を定義します。
+    </ja:l>
+    </ja:pair>
+    
+    <list style="hanging">
+    <t hangText="DN" ja:anchor="html-a-dn">
+      <ja:pair>
+      <ja:l xml:lang="en">
+        The distinguished name of the principal for whom the
+        request should be encrypted when dereferencing the anchor's url.
+        This need not be specified, but failure to do so runs the risk
+        that the client will be unable to determine the DN and therefore
+        will be unable to encrypt.  This should be specified in the form
+        of <ja:link type="rfc" number="1485">RFC1485</ja:link>, 
+        using SGML quoting conventions as needed.
+      </ja:l>
+      <ja:l xml:lang="ja">
+        錨の url 
+        を&ja.dereference;する時に要求が暗号化するべき対象者の識別された名前。
+        これは指定する必要はありませんが、&ja.network.client;が DN
+        を決定出来ず、ひいては暗号化も出来なくなる危険を冒すことになります。
+        <ja:link type="rfc" number="1485" /> 
+        の形式で、必要に応じて SGML
+        &ja.escape-quote;法を使って、指定するべきです。
+      </ja:l>
+      </ja:pair>
+    </t>
+    <t hangText="NONCE" ja:target="html-a-nonce">
+      <ja:pair>
+      <ja:l xml:lang="en">
+        A free-format string (appropriately SGML quoted) which
+        is to be included in a SHTTP-Nonce: header (after SGML quoting
+        is removed) when the anchor is dereferenced.
+      </ja:l>
+      <ja:l xml:lang="ja">
+        (適切に SGML &ja.escape-quote;した) 
+        自由形式文字列で、錨が&ja.dereference;される時に
+        (SGML 引用符を消した後で) SHTTP-Nonce: 頭に含められるもの。
+      </ja:l>
+      </ja:pair>
+    </t>
+    <t hangText="CRYPTOPTS" ja:target="html-a-cryptopts">
+      <ja:pair>
+      <ja:l xml:lang="en">
+        Cryptographic option information as described in
+        <xref target="SHTTP" />. Specifically, the 
+        &lt;cryptopt-list&gt; production.
+      </ja:l>
+      <ja:l xml:lang="ja">
+        <xref target="SHTTP" /> で説明された暗号化選択肢情報。具体的には
+        &lt;cryptopt-list&gt;。
+      </ja:l>
+      </ja:pair>
+    </t>
+    </list>
+  </t>
+  
+  <section title="CERTS Element" ja:title-ja="CERTS 要素" 
+           anchor="html-certs">
+    <t>
+      <ja:pair>
+      <ja:l xml:lang="en">
+        A new CERTS HTML element is defined, which carries a 
+        (not necessarily related) group of certificates provided 
+        as advisory data. The element contents are not intended to be 
+        displayed to the user. Certificate groups may be provided 
+        appropriate for either PEM or PKCS-7 implementations. Such 
+        certificates are supplied in the HTML document for the 
+        convenience of the recipient, who might otherwise be unable
+        to retrieve the certificate (chain) corresponding to a DN 
+        specified in an anchor.
+      </ja:l>
+      <ja:l xml:lang="ja">
+        新しい CERTS という HTML 
+        要素を定義します。これは&ja.crypt.advisory;データとして提供される証明書の
+        (関連している必要は無い) 
+        群を運搬します。要素の内容は利用者に提示することを目的としてはいません。証明書群は
+        PEM か PKCS-7 
+        の実装のどちらか適切な方を提供して構いません。この証明書は受信者の便宜のために
+        HTML 
+        文書中に入れるものですが、入れてなければ<xref target="html-a-dn">錨中の 
+        DN</xref>
+        に対応する証明書(鎖)を取り出すことが出来ないかもしれません。
+      </ja:l>
+      </ja:pair>
+    </t>
+    
+    <t>
+      <ja:pair>
+      <ja:l xml:lang="en">
+        The format should be the same as that of the 'Certificate-Info'
+        header line, of <xref target="SHTTP" /> except that the 
+        &lt;Cert-Fmt&gt; specifier should be provided as the FMT attribute 
+        in the tag.
+      </ja:l>
+      <ja:l xml:lang="ja">
+        書式は <xref target="SHTTP" /> の 'Certificate-Info' 頭のものと、
+        &lt;Cert-Fmt&gt; 指定子をタグの FMT 属性とすることを除いて同一です。
+      </ja:l>
+      </ja:pair>
+    </t>
+    
+    <t>
+      <ja:pair>
+      <ja:l xml:lang="en">
+        Multiple CERTS elements are permitted; it is suggested that CERTS
+        elements themselves be included in the HTML document's HEAD 
+        element (in the hope that the data will not be displayed by 
+        S-HTTP oblivious but HTML compliant browsers.)
+      </ja:l>
+      <ja:l xml:lang="ja">
+        複数の CERTS 要素を使っても構いません。 CERTS 要素自体は HTML
+        文書の HEAD 要素中に含めることを (S-HTTP を知らないけど HTML
+        には適合している&ja.html.browser;がデータを表示しないことを願って)
+        提案します。
+      </ja:l>
+      </ja:pair>
+    </t>
+  </section>
+  
+  <section title="CRYPTOPTS Element" ja:title-ja="CRYPTOPTS 要素"
+           anchor="html-cryptopts">
+    <t>
+      <ja:pair>
+      <ja:l xml:lang="en">
+        Cryptopts may also be broken out into an element and referred 
+        to in anchors by name. The NAME attribute specifies the name 
+        by which this element may be referred to in a CRYPTOPTS 
+        attribute in an anchor. Names must have a # as the leading 
+        character.
+      </ja:l>
+      <ja:l xml:lang="ja">
+        &ja.crypt.cryptopts;も要素中に現れて, 
+        錨中で名前を使って参照されることが出来ます。 NAME 
+        属性はこの要素が<xref target="html-a-cryptopts">錨中の
+        CRYPTOPTS 
+        属性</xref>中で参照するための名前を指定します。名前は先導文字として
+        # を持たなければなりません。
+      </ja:l>
+      </ja:pair>
+    </t>
+  </section>
+  
+  <section title="HTML Example" ja:title-ja="HTML の例">
+    <figure>
+    <preamble>
+      <ja:pair>
+      <ja:l xml:lang="en">
+        An example of cryptographic data embedded in an anchor, 
+        proceeded by a certificate group is provided below. Note the 
+        SGML quoting syntax used to supply embedded quotation marks.
+      </ja:l>
+      <ja:l xml:lang="ja">
+        錨に埋め込まれた暗号化データに証明書群が続く例を次に挙げます。なお、
+        SGML &ja.escape-quote;構文を埋め込み引用符に使っています。
+      </ja:l>
+      </ja:pair>
+    </preamble>
+    
+<!--
+    <ja:pair><ja:l xml:lang="en">
+-->
+<artwork xml:space="preserve"><![CDATA[<CERTS FMT=PKCS-7>
+MIAGCSqGSIb3DQEHAqCAMIACAQExADCABgkqhkiG9w0BBwEAAKCAM
+IIBrTCCAUkCAgC2MA0GCSqGSIb3DQEBAgUAME0xCzAJBgNVBAYTAlVTMSAwH
+gYDVQQKExdSU0EgRGF0YSBTZWN1cml0eSwgSW5jLjEcMBoGA1UECxMTUGVyc
+29uYSBDZXJ0aWZpY2F0ZTAeFw05NDA0MDkwMDUwMzdaFw05NDA4MDIxODM4N
+TdaMGcxCzAJBgNVBAYTAlVTMSAwHgYDVQQKExdSU0EgRGF0YSBTZWN1cml0e
+SwgSW5jLjEcMBoGA1UECxMTUGVyc29uYSBDZXJ0aWZpY2F0ZTEYMBYGA1UEA
+xMPU2V0ZWMgQXN0cm9ub215MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMy8Q
+cW7RMrB4sTdQ8Nmb2DFmJmkWn+el+NdeamIDElX/qw9mIQu4xNj1FfepfJNx
+zPvA0OtMKhy6+bkrlyMEU8CAwEAATANBgkqhkiG9w0BAQIFAANPAAYn7jDgi
+rhiIL4wnP8nGzUisGSpsFsF4/7z2P2wqne6Qk8Cg/Dstu3RyaN78vAMGP8d8
+2H5+Ndfhi2mRp4YHiGHz0HlK6VbPfnyvS2wdjCCAccwggFRAgUCQAAAFDANB
+gkqhkiG9w0BAQIFADBfMQswCQYDVQQGEwJVUzEgMB4GA1UEChMXUlNBIERhd
+GEgU2VjdXJpdHksIEluYy4xLjAsBgNVBAsTJUxvdyBBc3N1cmFuY2UgQ2Vyd
+GlmaWNhdGlvbiBBdXRob3JpdHkwHhcNOTQwMTA3MDAwMDAwWhcNOTYwMTA3M
+jM1OTU5WjBNMQswCQYDVQQGEwJVUzEgMB4GA1UEChMXUlNBIERhdGEgU2Vjd
+XJpdHksIEluYy4xHDAaBgNVBAsTE1BlcnNvbmEgQ2VydGlmaWNhdGUwaTANB
+gkqhkiG9w0BAQEFAANYADBVAk4GqghQDa9Xi/2zAdYEqJVIcYhlLN1FpI9tX
+Q1m6zZ39PYXK8Uhoj0Es7kWRv8hC04vqkOKwndWbzVtvoHQOmP8nOkkuBi+A
+QvgFoRcgOUCAwEAATANBgkqhkiG9w0BAQIFAANhAD/5Uo7xDdp49oZm9GoNc
+PhZcW1e+nojLvHXWAU/CBkwfcR+FSf4hQ5eFu1AjYv6Wqf430Xe9Et5+jgnM
+Tiq4LnwgTdA8xQX4elJz9QzQobkE3XVOjVAtCFcmiin80RB8AAAMYAAAAAAA
+AAAAA==
+</CERTS>
+<A name=foobar
+DN="CN=Setec Astronomy, OU=Persona Certificate,
+    O=&quot;RSA Data Security, Inc.&quot;, C=US"
+CRYPTOPTS="SHTTP-Privacy-Enhancements: recv-refused=encrypt;
+SHTTP-Signature-Algorithms: recv-required=NIST-DSS"
+HREF="shttp://research.nsa.gov/skipjack-holes.html">
+Don't read this. </A>
+]]></artwork>
+<!--
+    </ja:l><ja:l xml:lang="ja">
+<artwork xml:space="preserve"><![CDATA[<CERTS FMT=PKCS-7>
+MIAGCSqGSIb3DQEHAqCAMIACAQExADCABgkqhkiG9w0BBwEAAKCAM
+IIBrTCCAUkCAgC2MA0GCSqGSIb3DQEBAgUAME0xCzAJBgNVBAYTAlVTMSAwH
+gYDVQQKExdSU0EgRGF0YSBTZWN1cml0eSwgSW5jLjEcMBoGA1UECxMTUGVyc
+29uYSBDZXJ0aWZpY2F0ZTAeFw05NDA0MDkwMDUwMzdaFw05NDA4MDIxODM4N
+TdaMGcxCzAJBgNVBAYTAlVTMSAwHgYDVQQKExdSU0EgRGF0YSBTZWN1cml0e
+SwgSW5jLjEcMBoGA1UECxMTUGVyc29uYSBDZXJ0aWZpY2F0ZTEYMBYGA1UEA
+xMPU2V0ZWMgQXN0cm9ub215MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMy8Q
+cW7RMrB4sTdQ8Nmb2DFmJmkWn+el+NdeamIDElX/qw9mIQu4xNj1FfepfJNx
+zPvA0OtMKhy6+bkrlyMEU8CAwEAATANBgkqhkiG9w0BAQIFAANPAAYn7jDgi
+rhiIL4wnP8nGzUisGSpsFsF4/7z2P2wqne6Qk8Cg/Dstu3RyaN78vAMGP8d8
+2H5+Ndfhi2mRp4YHiGHz0HlK6VbPfnyvS2wdjCCAccwggFRAgUCQAAAFDANB
+gkqhkiG9w0BAQIFADBfMQswCQYDVQQGEwJVUzEgMB4GA1UEChMXUlNBIERhd
+GEgU2VjdXJpdHksIEluYy4xLjAsBgNVBAsTJUxvdyBBc3N1cmFuY2UgQ2Vyd
+GlmaWNhdGlvbiBBdXRob3JpdHkwHhcNOTQwMTA3MDAwMDAwWhcNOTYwMTA3M
+jM1OTU5WjBNMQswCQYDVQQGEwJVUzEgMB4GA1UEChMXUlNBIERhdGEgU2Vjd
+XJpdHksIEluYy4xHDAaBgNVBAsTE1BlcnNvbmEgQ2VydGlmaWNhdGUwaTANB
+gkqhkiG9w0BAQEFAANYADBVAk4GqghQDa9Xi/2zAdYEqJVIcYhlLN1FpI9tX
+Q1m6zZ39PYXK8Uhoj0Es7kWRv8hC04vqkOKwndWbzVtvoHQOmP8nOkkuBi+A
+QvgFoRcgOUCAwEAATANBgkqhkiG9w0BAQIFAANhAD/5Uo7xDdp49oZm9GoNc
+PhZcW1e+nojLvHXWAU/CBkwfcR+FSf4hQ5eFu1AjYv6Wqf430Xe9Et5+jgnM
+Tiq4LnwgTdA8xQX4elJz9QzQobkE3XVOjVAtCFcmiin80RB8AAAMYAAAAAAA
+AAAAA==
+</CERTS>
+<A name=foobar
+DN="CN=Setec 天文学, OU=ペルソナ証明書,
+    O=&quot;RSA Data Security, Inc.&quot;, C=US"
+CRYPTOPTS="SHTTP-Privacy-Enhancements: recv-refused=encrypt;
+SHTTP-Signature-Algorithms: recv-required=NIST-DSS"
+HREF="shttp://research.nsa.gov/skipjack-holes.html">
+これ読むな。</A>]]></artwork>
+    <ja:note>
+      この例(の訳)は、 DN 属性中を訳しているため、 RFC 1485
+      に適合しません:-)
+    </ja:note>
+    </ja:l></ja:pair>
+-->
+    </figure>
+  </section>
+</section>
+
+<section title="Security Considerations">
+  <t>
+    <ja:pair>
+    <ja:l xml:lang="en">
+      This entire document is about security.
+    </ja:l>
+    <ja:l xml:lang="ja">
+      この文書全体が&ja.security;に関しての話です。
+    </ja:l>
+    </ja:pair>
+  </t>
+</section>
+
+<ja:insert ja:section="author-address" ja:title-prefix="4. " />
+<ja:insert ja:section="references" ja:title-prefix="5. " />
+<ja:insert ja:section="full-copyright" ja:title-prefix="6. " />
+
+</middle>
+<back>
+
+<references>
+  <reference anchor="SHTTP">
+    <front>
+      <title>The Secure HyperText Transfer Protocol</title>
+      <ja:title xml:lang="ja">安全&ja.html.hypertext;転送&ja.protocol;</ja:title>
+      <author surname="Rescorla" initials="E." />
+      <author initials="A." surname="Schiffman" />
+      <date month="August" year="1999" />
+    </front>
+    <seriesInfo name="RFC" value="2660" />
+  </reference>
+</references>
+
+</back>
+</rfc>
