@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="iso-2022-jp"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns:h="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://suika.fam.cx/~wakaba/lang/rfc/translation/html-profile">
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<title>
+      RFC 1428: 
+    Internet メイルの8まんま送りから8ビット SMTP/MIME への変換 (Transition of Internet Mail from Just-Send-8 to 8bit-SMTP/MIME)
+    </title>
+<link rel="stylesheet" href="http://suika.fam.cx/~wakaba/lang/rfc/translation/rfc-ja-style.css" type="text/css"/>
+<meta name="ietf-workgroup" content="SMTP Extensions Working Group"/>
+<style xml:space="preserve" type="text/css">
+  .rfc-t-artwork table
+  	{margin-left: 15%; margin-right: 15%;
+  	border-style: none}
+  .rfc-t-artwork table thead th
+  	{border-left: thin ActiveBorder solid;
+  	padding: 0.2em; text-align: left}
+  .rfc-t-artwork table thead th.css-first-child
+  	{border-left-style: none}
+  .rfc-t-artwork table tbody th
+  	{border-top: thin ActiveBorder solid;
+  	padding: 0.2em; text-align: right; vertical-align: middle}
+  .rfc-t-artwork table tbody td
+  	{border-top: thin ActiveBorder solid;
+  	border-left: thin ActiveBorder solid;
+  	padding: 0.2em; text-align: center; vertical-align: middle}
+</style>
+</head>
+<body>
+<div id="rfc--table">
+<ul id="rfc--table-left">
+<li>Network Working Group</li>
+<li>Request for Comments: 1428</li>
+</ul>
+<ul id="rfc--table-right">
+<li title="Greg Vaudreuil">G. Vaudreuil</li>
+<li title="Corporation for National Research Initiatives">CNRI</li>
+<li>
+<span class="t-pair">
+<span xml:lang="en" class="t-l-en"> February 1993</span>
+</span>
+</li>
+<li>
+<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">1993年2月</span>
+</span>
+</li>
+</ul>
+</div>
+<div class="t-pair t-heading" id="rfc-title">
+<h1 class="rfc-title t-l-en" xml:lang="en">Transition of Internet Mail from Just-Send-8 to 8bit-SMTP/MIME</h1>
+<h1 class="rfc-title t-l-ja" xml:lang="ja">Internet メイルの8まんま送りから8ビット SMTP/MIME への変換</h1>
+</div>
+<div id="rfc-status" class="rfc-section">
+<div class="t-pair">
+<h1 xml:lang="en" class="t-l-en">Status of this Memo</h1>
+<h1 xml:lang="ja" class="t-l-ja">このメモの位置付け</h1>
+</div>
+<div class="rfc-t">
+<div class="t-pair">
+<p class="t-l-en" xml:lang="en">
+          This memo provides information for the Internet community.
+          It does not specify an Internet standard of any kind.
+          Distribution of this memo is unlimited.
+        </p>
+<p class="t-l-ja" xml:lang="ja">
+          このメモは、 Internet 社会に情報を提供します。いかなる種類の
+          Internet 標準を規定するものでもありません。このメモの配布は制限しません。
+        </p>
+</div>
+</div>
+</div>
+<div class="rfc-section" id="rfc.abstract">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">Abstract</h1>
+<h1 xml:lang="ja" class="t-l-ja">概要</h1>
+</div>
+  <div class="rfc-t">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      Protocols for extending SMTP to pass 8bit characters have been
+      defined <span class="rfc-xref">
+<a href="#refs.RFC1425" title="SMTP Service Extensions">[3]</a>
+</span> <span class="rfc-xref">
+<a href="#refs.RFC1426" title="SMTP Service Extensions for 8bit MIMEtransport">[4]</a>
+</span>.
+      These protocols require that messages transported by
+      the extended SMTP are to be encoded in MIME 
+      <span class="rfc-xref">
+<a href="#refs.RFC1341" title="Multipurpose Internet Mail Extensions">[1]</a>
+</span> <span class="rfc-xref">
+<a href="#refs.RFC1342" title="Representation of Non-ASCII Text in Internet Message Headers">[2]</a>
+</span>. 
+      Before work began on these protocols, several SMTP implementations 
+      adopted ad-hoc mechanisms for sending 8bit data. It is desirable 
+      for the extended SMTP environment and these ad hoc mechanisms 
+      interoperate.  This document outlines the problems in this 
+      environment and an approach to minimizing the cost of transition 
+      from current usage of non-MIME 8bit messages to MIME.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      8ビット文字を通過させるように SMTP 
+      を拡張するプロトコルが定義されています
+      <a href="#refs.RFC1425" title="SMTP サービス拡張">[3]</a> <a href="#refs.RFC1426" title="8ビット MIME 転送用 SMTP サービス拡張">[4]</a>。
+      これらのプロトコルでは、拡張 SMTP で転送されるメッセージが
+      MIME <a href="#refs.RFC1341" title="多目的 Internet メイル拡張">[1]</a> <a href="#refs.RFC1342" title="非 ASCII 文の Internet メッセージ頭における表現">[2]</a>
+      で符号化されていることが必要です。これらのプロトコルの作業が始まる以前、幾つかの
+      SMTP 実装は8ビット・データを送信するための特設機構を採用していました。拡張
+      SMTP 環境とこの様な特設機構が協調して働くことが望ましいです。この文書は、これらの環境での問題と、非 MIME 8ビット・メッセージの現在の利用法から
+      MIME への変換の経費の最小化の方法について概説します。
+    </p>
+</div>
+  </div>
+</div>
+
+<div class="rfc-section" id="rfc.section.1">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">1. Terminology</h1>
+<h1 xml:lang="ja" class="t-l-ja">1. 
+          用語</h1>
+</div>
+  <div class="rfc-t" id="rfc.section.1.p.1">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+   RFC 821 defines a 7bit transport.  A transport agent which does not
+   clear the high order bit upon receipt of octets with this bit set in
+   SMTP messages is called 8 bit transparent in this document. An
+   implementation of the general SMTP Extensions document 
+      <span class="rfc-xref">
+<a href="#refs.RFC1425" title="SMTP Service Extensions">[3]</a>
+</span> and the
+      8bit extensions protocol <span class="rfc-xref">
+<a href="#refs.RFC1426" title="SMTP Service Extensions for 8bit MIMEtransport">[4]</a>
+</span> 
+      which passes MIME messages using all 8
+   bits of an octet is called 8bit ESMTP.  An implementation of extended
+   SMTP which does not accept 8bit characters is called 7bit ESMTP.  A
+   gateway is defined to be a transport agent with User Agent authority
+      to alter or convert the content of a message.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:821" title="RFC 821">RFC 821</a> は8ビット転送を定義しています。
+      SMTP メッセージ中の受け取ったオクテットの最上位ビットを、このビットに値を設定することで消去しない転送代理者を、この文書では8ビット透過と呼びます。一般 
+      SMTP 拡張文書 <a href="#refs.RFC1425" title="SMTP サービス拡張">[3]</a> 及び
+      MIME メッセージをオクテットの8ビット全てを使って渡す8ビット拡張プロトコル 
+      <a href="#refs.RFC1426" title="8ビット MIME 転送用 SMTP サービス拡張">[4]</a> の実装を8ビット 
+      ESMTP と呼びます。8ビット文字を受け付けない拡張 SMTP 
+      の実装を7ビット ESMTP と呼びます。関門 (gateway) 
+      は、メッセージの内容を変える・変換する利用者代理者当局つき転送代理者と定義します。
+    </p>
+</div>
+  </div>
+</div>
+
+<div class="rfc-section" id="rfc.section.2">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">2. The Problem</h1>
+<h1 xml:lang="ja" class="t-l-ja">2. 
+          問題点</h1>
+</div>
+  <div class="rfc-t" id="rfc.section.2.p.1">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      SMTP as defined in RFC 821 limits the sending of Internet Mail to
+      US-ASCII <span class="rfc-xref">
+<a href="#refs.ASCII" title="Coded Character Set――7-Bit American Standard Code for Information Interchange">[5]</a>
+</span> characters.  As the Internet 
+      has grown to include non-English correspondents, the need to 
+      communicate with character sets
+      other than US-ASCII has prompted many vendors and users to extend
+      SMTP or RFC 822 to use non-ASCII character sets.  Common approaches
+      are to send 7 bit national variant ISO 646 character sets over
+      current RFC822/SMTP, to extend SMTP and RFC822 to use 8bit ISO 8859
+      character sets, and to use proprietary PC character sets.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:821" title="RFC 821">RFC 821</a> で定義された SMTP は
+      Internet メイルの送信を US-ASCII <a href="#refs.ASCII" title="符号化文字集合――7ビットの情報交換用亜米利加標準符号">[5]</a>
+      文字に制限していました。 Internet 
+      が非英語文通者を含む様に成長するに従い、非 US-ASCII 
+      文字集合による意思疎通の必要性から、多くの製造者や利用者が SMTP 
+      や <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:822" title="RFC 822">RFC 822</a> を非 ASCII 
+      文字集合を使用するように拡張しようとしました。その共通の手段には7ビットの国家版
+      ISO 646 文字集合を現行の RFC 822/SMTP で送信する, SMTP と
+      RFC822 を8ビットの ISO 8859 文字集合を使用するように拡張する,
+      独占 PC 文字集合を使用する, があります。
+    </p>
+</div>
+  </div>
+
+  <div class="rfc-t" id="rfc.section.2.p.2">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      A third approach is used for Japanese mail.  Japanese characters are
+   represented by pairs of octets with the high order bit cleared.
+   Switching between 14 bit character sets and 7 bit character sets is
+   indicated within the message by ISO 2022 escape sequences.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      三番目の方法は日本語メイルに使われています。日本語文字は最上位ビットが消去されたオクテットの組合せで表現します。14ビット文字集合と7ビット文字集合はメッセージ中では
+      ISO 2022 エスケープ列で切り替えます。
+    </p>
+</div>
+  </div>
+  <ins class="t-note t-l-ja" xml:lang="ja">
+<span class="t-note-title">訳注:</span>
+    <p class="rfc-t" id="rfc.section.2.p.1">三番目の方法とは「独占 PC 文字集合の使用」ですから、この説明では合致しません。おそらく、三番目の方法は、「一番目・二番目以外の方法」とでもしたかったのでしょう。</p>
+  </ins>
+
+  <div class="rfc-t" id="rfc.section.2.p.3">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      So long as these implementations can communicate without intermediate
+   transformations and have a loose private agreement on the use of a
+   specific character set without tagging, basic mail service can be
+   provided.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      これらの実装は途中経路での変形無しに通信出来、特定文字集合の札無しでの使用の緩い私的な合意があるので、基本的なメイル・サービスが提供出来ます。
+    </p>
+</div>
+  </div>
+  
+  <div class="rfc-t" id="rfc.section.2.p.4">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      In the transition to the negotiated 8bit ESMTP/MIME environment, it
+   is important that mail sent by a currently non-conforming user can be
+   read by another non-conforming user.  This existing functionality is
+   reduced by conversion from 8bit text to text encoded in unreadable
+   Base-64 or "garbled" text encoded in quoted printable.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      折衝8ビット ESMTP/MIME 
+      環境への変換で、現在非適合の利用者が送信したメイルは他の非適合の利用者が読むことが出来ることは重要です。この既存機能性は、8ビット文から不可読
+      Base-64 で符号化された文や quoted printable 
+      で符号化された「文字化けした」文に変換することで減少します。
+    </p>
+</div>
+  </div>
+  
+  <div class="rfc-t" id="rfc.section.2.p.5">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      There are several interesting non-interoperable cases that currently
+      exist in non US-ASCII mail and several new ones likely to emerge in a
+      transition to 8bit/MIME.  Below is a listing of the 
+      transition-to-mime cases.  Only solutions to <span class="rfc-xref">
+<a href="#s2.i4">(4)</a>
+</span> 
+      in the context of a translating gateway are discussed in this memo.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      現在非 US-ASCII メイルに存在する興味深い相互通信不可な事例、あるいは8ビット/MIME 
+      への変換で浮上しそうな新しい事例が幾つかあります。下に挙げるのは、
+      MIME への変換の事例です。変換関門における <a href="#s2.i4">(4)</a>
+      の解決策のみをこのメモでは取り上げます。
+    </p>
+</div>
+  </div>
+  
+  <div class="rfc-figure">
+<span class="rfc-figure-id" id="rfc.figure.u.1">&#x00A0;</span>
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      <div class="rfc-t-artwork">
+<table>
+          <thead>
+            <tr>
+              <th class="css-first-child">Sender\Receiver</th>
+              <th>7bit only</th>
+              <th>8bit transparent</th>
+<th>MIME/ESMTP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>7bit only</th>
+              <td>
+<span class="rfc-xref">
+<a href="#s2.i1">(1)</a>
+</span>
+</td>
+              <td>
+<span class="rfc-xref">
+<a href="#s2.i1">(1)</a>
+</span>
+</td>
+              <td>
+<span class="rfc-xref">
+<a href="#s2.i1">(1)</a>
+</span>
+</td>
+            </tr>
+            <tr>
+              <th>8bit transparent</th>
+              <td>
+<span class="rfc-xref">
+<a href="#s2.i2">(2)</a>
+</span>
+</td>
+              <td>
+<span class="rfc-xref">
+<a href="#s2.i3">(3)</a>
+</span>
+</td>
+              <td>
+<span class="rfc-xref">
+<a href="#s2.i4">(4)</a>
+</span>
+</td>
+            </tr>
+            <tr>
+              <th>MIME/ESMTP</th>
+              <td>
+<span class="rfc-xref">
+<a href="#s2.i5">(5)</a>
+</span>
+</td>
+              <td>
+<span class="rfc-xref">
+<a href="#s2.i5">(5)</a>
+</span>
+</td>
+              <td>
+<span class="rfc-xref">
+<a href="#s2.i6">(6)</a>
+</span>
+</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      <div class="rfc-t-artwork">
+<table>
+          <thead>
+            <tr>
+              <th class="css-first-child">送信者\受信者</th>
+              <th>7ビットのみ</th>
+              <th>8ビット透過</th>
+<th>MIME/ESMTP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>7ビットのみ</th>
+              <td>
+<a href="#s2.i1">(1)</a>
+</td>
+              <td>
+<a href="#s2.i1">(1)</a>
+</td>
+              <td>
+<a href="#s2.i1">(1)</a>
+</td>
+            </tr>
+            <tr>
+              <th>8ビット透過</th>
+              <td>
+<a href="#s2.i2">(2)</a>
+</td>
+              <td>
+<a href="#s2.i3">(3)</a>
+</td>
+              <td>
+<a href="#s2.i4">(4)</a>
+</td>
+            </tr>
+            <tr>
+              <th>MIME/ESMTP</th>
+              <td>
+<a href="#s2.i5">(5)</a>
+</td>
+              <td>
+<a href="#s2.i5">(5)</a>
+</td>
+              <td>
+<a href="#s2.i6">(6)</a>
+</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+    </p>
+</div>
+  </div>
+
+  <dl class="rfc-list-hanging">
+    <dt id="s2.i1">
+<a href="#s2.i1" class="self">(1)</a>
+</dt>
+<dd>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">7Bit non-MIME sender to 7bit, MIME, or 
+      8bit transparent receiver</p>
+<p xml:lang="ja" class="t-l-ja">7ビット非 MIME 送信者から7ビットまたは 
+      MIME, 8ビット透過受信者へ</p>
+</div>
+        <br class="rfc-vspace"/>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      This will continue to work unchanged with nationally varient ISO
+      646 or ISO 2022 character set shifting if an external "out of
+      band" agreement exists between the sender and the receiver.  A
+      7bit to 8bit/ESMTP gateway need not alter the content of this
+      message.
+      </p>
+<p xml:lang="ja" class="t-l-ja">
+        ISO 646 国家版や ISO 2022 文字集合転移を、外部「out of band」合意が送受信者間で存在する場合は変更無く運用し続けます。7ビットから8ビット/SMTP 
+        への関門はこのメッセージの内容を変える必要はありません。
+      </p>
+</div>
+    </dd>
+    <ins class="t-note t-l-ja" xml:lang="ja">
+<span class="t-note-title">訳注:</span>
+      <p class="rfc-t" id="rfc.section.2.p.1">Jargon File には、 「out of band」 = 
+      <q title="Jargon File から「out of band」" xml:lang="en">“sometimes
+      used to describe what communications people call ‘shift characters’,
+      such as the <code>ESC</code> that leads control sequences for 
+      many terminals”</q> と書かれています。</p>
+    </ins>
+
+    <dt id="s2.i2">
+<a href="#s2.i2" class="self">(2)</a>
+</dt>
+<dd>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">8bit sender to 7bit non-MIME receiver</p>
+<p xml:lang="ja" class="t-l-ja">8ビット送信者から7ビット非 MIME 受信者へ</p>
+</div>
+        <br class="rfc-vspace"/>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+        The receiver will receive bit-stripped mail which results in the
+      mis-interpretation of the data and the wrong character being
+      displayed or printed.  Mail sent using languages where most
+      characters are in the US-ASCII subset of ISO 8859 may be somewhat
+      readable.
+      </p>
+<p xml:lang="ja" class="t-l-ja">
+        受信者は、データの誤解釈の結果たるビット落ちメイルを受け取り、間違った文字が表示・印刷されることになるでしょう。ほとんどの文字が 
+        ISO 8859 の US-ASCII 部分集合中にある言語を使って送られたメイルはそれなりに読めるかもしれません。
+      </p>
+</div>
+    </dd>
+
+    <dt id="s2.i3">
+<a href="#s2.i3" class="self">(3)</a>
+</dt>
+<dd>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">8bit transparent sender to 8bit transparent receiver</p>
+<p xml:lang="ja" class="t-l-ja">8ビット透過送信者から8ビット透過受信者へ</p>
+</div>
+        <br class="rfc-vspace"/>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+        Will work if an external agreement "out of band" to use a
+      particular character set without tagging exists between the sender
+      and the receiver.
+      </p>
+<p xml:lang="ja" class="t-l-ja">
+        特定文字集合を札無しで使用する外部合意「out of band」が送受信間に存在する場合はうまく働くでしょう。
+      </p>
+</div>
+    </dd>
+
+    <dt id="s2.i4">
+<a href="#s2.i4" class="self">(4)</a>
+</dt>
+<dd>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">8bit transparent sender to MIME/ESMTP conformant receiver</p>
+<p xml:lang="ja" class="t-l-ja">8ビット透過送信者から MIME/ESMTP 適合受信者へ</p>
+</div>
+        <br class="rfc-vspace"/>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+        Will work if a reasonable upgrade path is provided via gateways,
+      the indicated character set tag inserted by the gateway is correct
+      and the receiver supports the character set chosen by the sender.
+      This case is the focus of this memo.
+      </p>
+<p xml:lang="ja" class="t-l-ja">
+        分別ある格上げ経路が関門経由で提供されていて、関門が挿入する文字集合札が正しくて、受信者が送信者の選んだ文字集合に対応していれば、うまく働きましょう。この場合がこのメモの焦点です。
+      </p>
+</div>
+    </dd>
+
+    <dt id="s2.i5">
+<a href="#s2.i5" class="self">(5)</a>
+</dt>
+<dd>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">MIME/ESMTP sender to non-MIME 7bit receiver</p>
+<p xml:lang="ja" class="t-l-ja">MIME/ESMTP 送信者から非 MIME 7ビット受信者へ</p>
+</div>
+        <br class="rfc-vspace"/>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+        Because the ESMTP/MIME sender cannot know if the receiver will
+      understand 8bits, the sender will encode the text into base-64 or
+      quoted-printable which may be considered "garbled" by the
+      receiver.  To provide a useful downgrade path the gateway must
+      have some knowledge about the capabilities of the receiver. When
+      the character set can be clearly identified, techniques like the
+      menmonic MNEM encoding described in RFC 1345 may be helpful in
+      this case.
+      </p>
+<p xml:lang="ja" class="t-l-ja">
+        ESMTP/MIME 送信者は受信者が8ビットを理解するかどうか知り得ないので、送信者は文を 
+        base-64 か受信者に「文字化けした」と思われるかもしれない 
+        quoted-printable で符号化するでしょう。有用な格下げ経路を提供するには関門は受信者の理解能力についての知識を有する必要があります。文字集合が明確に識別出来る時は、 
+        <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1345" title="RFC 1345">RFC 1345</a> で説明されている記法 MNEM 
+        符号化の様な手法がこの場合には有用かもしれません。
+      </p>
+</div>
+    </dd>
+
+    <dt id="s2.i6">
+<a href="#s2.i6" class="self">(6)</a>
+</dt>
+<dd>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">MIME/ESMTP sender to MIME/ESMTP receiver</p>
+<p xml:lang="ja" class="t-l-ja">MIME/ESMTP 送信者から MIME/ESMTP 受信者へ</p>
+</div>
+        <br class="rfc-vspace"/>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+        Interoperability will be attained provided the receiver supports
+      the character set chosen by the sender.
+      </p>
+<p xml:lang="ja" class="t-l-ja">相互通信性は送信者が選択した文字集合に受信者が対応することにより満たされます。</p>
+</div>
+    </dd>
+  </dl>
+</div>
+
+<div class="rfc-section" id="rfc.section.3">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">3. Upgrade Path from 8bit Transparent to ESMTP/MIME</h1>
+<h1 xml:lang="ja" class="t-l-ja">3. 
+          8ビット透過から ESMTP/MIME への格上げ経路</h1>
+</div>
+
+  <div class="rfc-t" id="rfc.section.3.p.1">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      A gateway which has been upgraded to support Extended SMTP may
+   upgrade an 8bit message received to MIME.  This is consistent with
+   the requirement that all 8bit mail sent by ESMTP be encoded in MIME.
+   The upgrade should be done using the best available information.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      拡張 SMTP に対応するよう格上げする関門は、受信した8ビット・メッセージを
+      MIME に格上げして構いません。これは ESMTP で送信される8ビット・メイルは全て
+      MIME で符号化されていなければならないという要件を満たします。格上げは一番利用可能な情報を使って行うべきです。
+    </p>
+</div>
+  </div>
+
+  <div class="rfc-t" id="rfc.section.3.p.2">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      A site may "upgrade" to MIME en-masse by implementing MIME conversion
+   for all messages leaving the site.  For text messages, the body can
+   be converted by adding a MIME-version header and a Content-Type:
+   Text/Plain with the character set in use in the site, provided the
+   site uses a single character set.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      サイトは、サイトを離れる全てのメッセージを、
+      MIME を実装することでまとめて MIME に「格上げ」しても構いません。テキスト・メッセージについては、本体は
+      MIME-version 頭と Content-Type: Text/Plain 
+      にサイト内で使われている文字集合をつけることで、サイトが単一文字集合を使っている場合は変換出来ます。
+    </p>
+</div>
+  </div>
+
+  <div class="rfc-t" id="rfc.section.3.p.3">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      An appropriate Content-Transfer-Encoding header line must be added to
+   indicate any encoding that may be necessary.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      適切な Content-Transfer-Encoding 
+      頭行を、必要かもしれない符号化を示すのに加えなければなりません。
+    </p>
+</div>
+  </div>
+
+<div class="t-example">
+<div class="t-title t-pair">
+<div class="t-l-en" xml:lang="en">Example: </div>
+<div class="t-l-ja" xml:lang="ja">例: </div>
+</div>
+<pre xml:space="preserve">
+MIME-Version: 1.0
+Content-Type: Text/Plain; Charset = ISO-8859-1
+Content-Transfer-Encoding: 8bit
+</pre>
+</div>
+
+  <div class="rfc-t" id="rfc.section.3.p.4">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      If no information about the character set in use is available, the
+   gateway should upgrade the content by using the character set
+   "unknown-8bit". The unknown-8bit value of the charset parameter
+   indicates only that no reliable information about the character
+   set(s) used in the message was available.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      使用されている文字集合についての情報が無い場合は、関門は内容を文字集合 
+      "unknown-8bit" を使って格上げするべきです。 charset
+      パラメーターの unknown-8bit 
+      値はメッセージに使われている文字集合についての確実な情報を得ることが出来なかったことのみを示します。
+    </p>
+</div>
+  </div>
+
+  <div class="rfc-t" id="rfc.section.3.p.5">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      If a message body has been upgraded to MIME, the RFC 822 headers
+   containing non US-ASCII characters must be upgraded to conform with
+   the header encoding rules of RFC1342. A gateway should recode all
+   unstructered header fields as well as RFC 822 "comment"s and
+   "phrase"s according to the rules of RFC 1342. There is no equivalent
+   in RFC 1342 to the "8bit" Content-Transfer-Encoding value for message
+   bodies so all 8bit header text must be transformed according to
+   either the "B" or the "Q" encoding method.  For ISO 8859 character
+   sets, the "Q" encoding will generally result in somewhat readable
+   headers.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      メッセージ本体が MIME に格上げされる場合、非 US-ASCII
+      文字を含む <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:822" title="RFC 822">RFC 822</a> 頭は
+      RFC1342 の頭符号化規則に適合するようしなければなりません。関門は全ての非構造化頭領域と 
+      RFC 822 "comment" と "phrase" を RFC 1342 
+      の規則に従い再符号化するべきです。メッセージ本体の "8bit" 
+      内容転送符号化値に相当するものは RFC 1342 
+      には無いので、全ての8ビット頭文は "B" 符号化方式または "Q"
+      符号化方式で符号化しなければなりません。 ISO 8859 文字集合には、
+      "Q" 符号化を使うと、通常やや可読な頭となります。
+    </p>
+</div>
+  </div>
+
+  <div class="rfc-figure">
+<span class="rfc-figure-id" id="rfc.figure.u.2">&#x00A0;</span>
+    <div class="rfc-preamble">
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+        Trace information should be added to the document with a convert
+   clause: "rfc822-to-8bit", "rfc822-to-base-64" or "rfc822-to-quoted-
+   printable" e.g.,
+      </p>
+<p xml:lang="ja" class="t-l-ja">
+        追跡情報を次の例のように変換 (convert) 条項 "rfc822-to-8bit", 
+        "rfc822-to-base-64", "rfc822-to-quoted-printable" 
+        つきで文書に追加するべきです。
+      </p>
+</div>
+    </div>
+    
+    <pre class="rfc-artwork" xml:space="preserve">
+   Received: from dbc.mtview.ca.us by dbc.mtview.ca.us
+             convert rfc822-to-8bit; Tue, 01 Sep 1992 01:18:00 -0700
+</pre>
+  </div>
+</div>
+
+<div class="rfc-section">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">Appendix ― The “unknown-8bit” Character Set</h1>
+<h1 xml:lang="ja" class="t-l-ja">附属書 ― 「unknown-8bit」文字集合</h1>
+</div>
+
+  <div class="rfc-t" id="rfc.section.4.p.1">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      This section defines a "charset" parameter, for use in a MIME
+      Content-Type field.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      この節では MIME Content-Type 領域で使う "charset" 
+      パラメーターを定義します。
+    </p>
+</div>
+  </div>
+
+  <div class="rfc-t" id="rfc.section.4.p.2">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      A special purpose character set called "unknown-8bit" is defined to
+   be an unknown 8bit character set, encoded into a sequence of octets.
+   It can be used as a label for any character set from any language,
+   using any encoding.  It must not be further defined.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      "unknown-8bit" という特殊目的文字集合を、オクテット列に符号化された未知の8ビット文字集合用に定義します。これはいかなる言語でいかなる符号化を用いるいかなる文字集合にも札として使うことが出来ます。これ以上は定義しません。
+    </p>
+</div>
+  </div>
+
+  <div class="rfc-t" id="rfc.section.4.p.3">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      The use of this token in a "charset=" field of a message indicates
+   that nothing is known about the character set used. This marker is
+   intended for use by non-MIME to MIME gateways; specifically in those
+   which translate from SMTP to 8bit ESMTP/MIME.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      この字句をメッセージの "charset=" 
+      領域で使うことで、使われている文字集合について全くもって不明であることを示します。この印は非 MIME から MIME への関門、具体的には SMTP 
+      から8ビット ESMTP/MIME に変換する関門で使うことを意図しています。
+    </p>
+</div>
+  </div>
+
+  <div class="rfc-t" id="rfc.section.4.p.4">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      This character set is not intended to be used by mail composers.  
+      It is assumed that the mail composer knows the character set in 
+      use and will mark it with a character set value as specified in 
+      <span class="rfc-xref">
+<a href="#refs.RFC1341" title="Multipurpose Internet Mail Extensions">[1]</a>
+</span>, as amended by current Assigned 
+      Numbers documents <span class="rfc-xref">
+<a href="#refs.STD2" title="Assigned Numbers">[6]</a>
+</span>.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      この文字集合はメイル作成者が使うことは意図していません。メイル作成者は使用する文字集合を知っていて、 
+      <a href="#refs.RFC1341" title="多目的 Internet メイル拡張">[1]</a> で規定されて現行の割当番号文書 
+      <a href="#refs.STD2" title="割当番号">[6]</a> 
+      で改訂された文字集合値で印をつけると想定しています。
+    </p>
+</div>
+  </div>
+
+  <div class="rfc-t" id="rfc.section.4.p.5">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      The use of the "unknown-8bit" label is intended only by mail gateway
+   agents which cannot determine via out-of-band information the
+   intended character set.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      "unknown-8bit" 札の使用は、 out of band
+      情報により意図された文字集合を決定出来ないメイル関門代理者によりのみ使われることを想定しています。
+    </p>
+</div>
+  </div>
+
+  <div class="rfc-t" id="rfc.section.4.p.6">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      The interpretation of the "unknown-8bit" is up to the mail reader.
+   It is assumed that in many cases the human user will be able to
+   interpret the information and choose an appropriate character set or
+   pre-processor.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      "unknown-8bit" の解釈はメイル・リーダーに委ねられます。多くの場合では人間利用者が情報を解釈して適切な文字集合あるいは前処理器を選択できると思われます。
+    </p>
+</div>
+  </div>
+
+</div>
+
+<div class="rfc-section">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">Acknowledgements</h1>
+<h1 xml:lang="ja" class="t-l-ja">謝辞</h1>
+</div>
+  <div class="rfc-t" id="rfc.section.5.p.1">
+    <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+      This document originated as a hallway conversation between 
+      Ned Freed, Neil Katin, and the author.  Substantive input 
+      was received from Jonathan Laventhol, Craig Everhart, 
+      Olle Jarnefors, and Olafur Gudmundsson.  The document was 
+      refined with the input of many participants in the IETF SMTP 
+      Extensions Working Group.
+    </p>
+<p xml:lang="ja" class="t-l-ja">
+      この文書は Ned Freed, Neil Katin と著者の井戸端会議から生まれました。
+      Jonathan Laventhol, Craig Everhart, 
+      Olle Jarnefors, Olafur Gudmundsson が魂を吹き込んでくれました。この文書は
+      IETF SMTP 拡張作業部会の参加者の意見により精錬されました。
+    </p>
+</div>
+  </div>
+</div>
+
+<div class="rfc-section" id="rfc.references.References">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">References</h1>
+<h1 xml:lang="ja" class="t-l-ja">参考文献</h1>
+</div>
+<dl>
+    <dt id="refs.RFC1341">[1]</dt>
+<dd>『<cite>
+<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1341" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1341>">Multipurpose Internet Mail Extensions</a>
+</cite>』<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">, 『<cite>多目的 Internet メイル拡張</cite>』</span>
+</span>, Borenstein, N., Freed, N., RFC
+        &#x00A0;1341。</dd>
+    <dt id="refs.RFC1342">[2]</dt>
+<dd>『<cite>
+<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1342" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1342>">Representation of Non-ASCII Text in Internet Message Headers</a>
+</cite>』<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">, 『<cite>非 ASCII 文の Internet メッセージ頭における表現</cite>』</span>
+</span>, Moore, K., RFC
+        &#x00A0;1342。</dd>
+    <dt id="refs.RFC1425">[3]</dt>
+<dd>『<cite>
+<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1425" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1425>">SMTP Service Extensions</a>
+</cite>』<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">, 『<cite>SMTP サービス拡張</cite>』</span>
+</span>, Klensin, J., WG Chair, Freed, N., Editor, Rose, M., Stefferud, E., Crocker, D., RFC
+        &#x00A0;1425。</dd>
+    <dt id="refs.RFC1426">[4]</dt>
+<dd>『<cite>
+<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1426" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1426>">SMTP Service Extensions for 8bit
+       MIMEtransport</a>
+</cite>』<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">, 『<cite>8ビット MIME 転送用 SMTP サービス拡張</cite>』</span>
+</span>, Klensin, J., WG Chair, Freed, N., Editor, Rose, M., Stefferud, E., Crocker, D., RFC
+        &#x00A0;1426。</dd>
+    <dt id="refs.ASCII">[5]</dt>
+<dd>『<cite>Coded Character Set――7-Bit American Standard Code 
+                    for Information Interchange</cite>』<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">, 『<cite>符号化文字集合――7ビットの情報交換用亜米利加標準符号</cite>』</span>
+</span>, ANSI
+        &#x00A0;X3.4-1986。</dd>
+    <dt id="refs.STD2">[6]</dt>
+<dd>『<cite>
+<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1340" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1340>">Assigned Numbers</a>
+</cite>』<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">, 『<cite>割当番号</cite>』</span>
+</span>, Reynolds, J., Postel, J., STD
+        &#x00A0;2, RFC
+        &#x00A0;1340。</dd>
+  </dl>
+</div>
+
+
+<div class="rfc-section">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">Security Considerations</h1>
+<h1 xml:lang="ja" class="t-l-ja">安全性に関して</h1>
+</div>
+   <p class="rfc-t" id="rfc.section.6.p.1">
+<div class="t-pair">
+<p xml:lang="en" class="t-l-en">Security issues are not discussed in this memo.</p>
+<p xml:lang="ja" class="t-l-ja">安全性問題はこのメモでは取り扱っていません。</p>
+</div>
+</p>
+</div>
+
+<div id="rfc-authors" class="rfc-section">
+<div id="rfc.authors" class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">Author's Address</h1>
+<h1 xml:lang="ja" class="t-l-ja">著者の連絡先</h1>
+</div>
+<ul class="rfc-author">
+<li class="rfc-author-fullname">Greg Vaudreuil</li>
+<li class="rfc-organization">Corporation for National Research Initiatives</li>
+<li class="rfc-street">1895 Preston White Drive, Suite 100</li>
+<li class="rfc-city">Reston</li>
+<li class="rfc-region">VA</li>
+<li class="rfc-code">22091</li>
+<li class="rfc-country">USA</li>
+<li class="rfc-phone">電話: (703) 620-8990</li>
+<li class="rfc-email">電子メイル: &lt;<a href="mailto:GVaudre@CNRI.Reston.VA.US">GVaudre@CNRI.Reston.VA.US</a>&gt;</li>
+</ul>
+</div>
+<ins id="rfc-translators-note" class="t-note t-l-ja" xml:lang="ja">
+<div class="rfc-section" id="t-change">
+<h1>翻訳の変更履歴</h1>
+<dl>
+<dt>2002-05-08 <a href="mailto:w@suika.fam.cx" title="電子メイル: &lt;w@suika.fam.cx>">わかば</a>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:2629" title="RFC 2629">RFC 2629</a> でマーク付け。</li>
+<li>翻訳完了。</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="rfc-section" id="rfc-t-copyright">
+<h1>訳文についての著作権声明</h1>
+<ul>
+<li>Copyright &#x00A9; わかば (2002)。全権保留。</li>
+</ul>
+<p>この翻訳文は、自由に複製・配布・改変して構いません。
+        (rfc-copyright-story も参照して下さい。)</p>
+</div>
+</ins>
+</body>
+</html>

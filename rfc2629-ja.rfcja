@@ -62,7 +62,7 @@
   <ja:item year="2002" month="05" day="03"><author ja:ref="wakaba" />
     <t>訳注を幾つか追加。翻訳変更履歴の章を新設。</t>
   </ja:item>
-</ja:change><!-- $Date: 2002/05/03 07:29:27 $ -->
+</ja:change><!-- $Date: 2002/05/08 14:43:58 $ -->
 <keyword>拡張マーク付け言語</keyword>
 </ja:front>
 <middle>
@@ -2474,7 +2474,7 @@ main topic of your document, e.g.,
 <reference anchor="XML" target="http://www.w3.org/TR/1998/REC-xml-19980210">
 <front>
 <title>Extensible Markup Language (XML) 1.0</title>
-<ja:title-ja>拡張可能マーク付け言語 (XML) 1.0</ja:title-ja>
+<ja:title xml:lang="ja">拡張可能マーク付け言語 (XML) 1.0</ja:title>
 <author>
 <organization abbrev="W3C">World Wide Web Consortium</organization>
 <address>
@@ -2497,7 +2497,7 @@ main topic of your document, e.g.,
 <reference anchor="refs.RFC2223">
 <front>
 <title>Instructions to RFC Authors</title>
-<ja:title-ja>RFC 著者の手引き</ja:title-ja>
+<ja:title xml:lang="ja">RFC 著者の手引き</ja:title>
 <author initials="J." surname="Postel" fullname="Jon Postel">
 <organization abbrev="ISI">USC/Information Sciences Institute</organization>
 <address>
@@ -2531,7 +2531,7 @@ main topic of your document, e.g.,
 <reference anchor="refs.RFC2026">
 <front>
 <title>The Internet Standards Process ―― Revision 3</title>
-<ja:title-ja>Internet 標準化過程 ―― 改訂3版</ja:title-ja>
+<ja:title xml:lang="ja">Internet 標準化過程 ―― 改訂3版</ja:title>
 <author initials="S.O." surname="Bradner" fullname="Scott O. Bradner">
 <organization>Harvard University</organization>
 <address>
@@ -2553,7 +2553,7 @@ main topic of your document, e.g.,
 <reference anchor="URI">
 <front>
 <title>Uniform Resource Identifiers (URI): Generic Syntax</title>
-<ja:title-ja>統一資源識別子 (URI): 一般構文</ja:title-ja>
+<ja:title xml:lang="ja">統一資源識別子 (URI): 一般構文</ja:title>
 <author initials="T." surname="Berners-Lee" fullname="Tim Berners-Lee">
 <organization abbrev="W3C">World Wide Web Consortium</organization>
 <address>
