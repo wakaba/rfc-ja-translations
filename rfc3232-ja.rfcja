@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="iso-2022-jp"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+  <!ENTITY rfc.number "3232">
+  <!ENTITY ja.database "データベース">
+  <!ENTITY ja.online "オンライン">
+  <!ENTITY ja.parameter "パラメーター">
+  <!ENTITY ja.protocol "プロトコル">
+  <!ENTITY ja.snapshot "スナップ写真">
+  <!ENTITY ja.inet.iana " Internet 割当番号事務局">
+  <!ENTITY ja.web.webpage " Web 頁">
+]>
+<rfc number="&rfc.number;" category="info" obsoletes="1700"
+   xmlns:myns="mailto:julian.reschke@greenbytes.de?subject=rcf2629.xslt"
+   xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/"
+   xmlns:h="http://www.w3.org/1999/xhtml">
+  <front>
+    <title>Assigned Numbers: RFC 1700 is Replaced by an On-line Database</title> 
+    <ja:title xml:lang="ja">割当番号: RFC 1700 は&ja.online;&ja.database;で置き換えられます</ja:title>
+    <author initials="J." surname="Reynolds" fullname="Joyce K. Reynolds" ja:header-name="J. Reynolds, Editor">
+      <organization>RFC Editor</organization>
+      <address>
+        <postal>
+          <street>4676 Admiralty Way</street>
+          <city>Marina del Rey</city> <region>CA</region>
+          <code>90292</code>
+          <country ja:text="USA">US</country>
+        </postal>
+        <email>rfc-editor@rfc-editor.org</email>
+      </address>
+    </author>
+    <date month="January" year="2002" />
+    <abstract>
+      <t>
+        <ja:pair>
+        <ja:l xml:lang="en">
+          This memo obsoletes <ja:link type="rfc" number="1700" /> 
+          (<ja:link type="std" number="2" />) “Assigned Numbers”, 
+          which contained an October 1994 snapshot of assigned 
+          Internet protocol parameters.
+        </ja:l>
+        <ja:l xml:lang="ja">
+          このメモは、 1994年10月の割当済み Internet 
+          &ja.protocol;&ja.parameter;の&ja.snapshot;, 
+          <ja:link type="rfc" number="1700" /> 
+          (<ja:link type="std" number="2" />)
+          『割当番号』を廃止します。
+        </ja:l>
+        </ja:pair>
+      </t>
+    </abstract>
+  </front>
+<ja:front>
+<author fullname="わかば" ja:id="wakaba">
+	<address>
+	<email>w@suika.fam.cx</email>
+	<uri>http://suika.fam.cx/~wakaba/</uri>
+	</address>
+</author>
+<ja:change>
+  <ja:item year="2002" month="05" day="13"><author ja:ref="wakaba" />
+    <t>日本語に翻訳。</t>
+  </ja:item>
+  <ja:item year="2002" month="05" day="20"><author ja:ref="wakaba" />
+    <t><ja:link type="rfc" number="2629" /> でマーク付け。</t>
+  </ja:item>
+</ja:change><!-- $Date: 2002/05/20 12:30:02 $ -->
+</ja:front>
+<middle>
+
+<section title="Description" myns:unnumbered="yes">
+  <t>
+   <ja:pair>
+   <ja:l xml:lang="en">
+     From November 1977 through October 1994, the Internet 
+     Assigned Numbers Authority (IANA) periodically published 
+     tables of the Internet protocol parameter assignments in RFCs 
+     entitled, “Assigned Numbers”.  The most current of these 
+     Assigned Numbers RFCs had Standard status and carried the 
+     designation: <ja:link type="std" number="2" />.  At this time,
+     the latest <ja:link type="std" number="2" /> is 
+     <ja:link type="rfc" number="1700" />.
+   </ja:l>
+   <ja:l xml:lang="ja">
+     1977年11月から1994年10月まで、<eref target="http://www.iana.org/">&ja.inet.iana;
+     (IANA)</eref> は定期的に Internet 
+     &ja.protocol;&ja.parameter;の表を『割当番号』と名づけた
+     RFC で発行して来ました。現在まで割当番号 RFC 
+     は標準の位置付けで、 <ja:link type="std" number="2" /> 
+     という番号を当てられていました。現時点で最新の
+     <ja:link type="std" number="2" /> は 
+     <ja:link type="rfc" number="1700" /> です。
+   </ja:l>
+   </ja:pair>
+ </t>
+
+  <t>
+   <ja:pair>
+   <ja:l xml:lang="en">
+     Since 1994, this sequence of RFCs have been replaced by an 
+     online database accessible through a web page (currently, 
+     <eref target="http://www.iana.org/">www.iana.org</eref>).
+     The purpose of the present RFC is to note this fact and to 
+     officially obsolete <ja:link type="rfc" number="1700" />, 
+     whose status changes to Historic.  
+     <ja:link type="rfc" number="1700" /> is obsolete, and its 
+     values are incomplete and in some cases may be wrong.
+   </ja:l>
+   <ja:l xml:lang="ja">
+     1994年から、この一連の RFC は&ja.web.webpage; 
+     (現在、 <eref target="http://www.iana.org/">www.iana.org</eref>) 
+     で接続可能な&ja.online;&ja.database;で置き換えられています。
+     この RFC の目的はこの事実を覚書し、公式に 
+     <ja:link type="rfc" number="1700" /> 
+     を廃止し、その位置付けを歴史的とすることです。 
+     <ja:link type="rfc" number="1700" /> 
+     は時代遅れで、その値は不完全で場合によっては間違っています。
+   </ja:l>
+   </ja:pair>
+ </t>
+
+  <t>
+   <ja:pair>
+   <ja:l xml:lang="en">
+     We expect this series to be revived in the future by the new 
+     IANA organization.
+   </ja:l>
+   <ja:l xml:lang="ja">
+     我々はこの系列が将来新たなる IANA 
+     組織で復活することを願っています。
+   </ja:l>
+   </ja:pair>
+ </t>
+</section>
+
+<section title="Security Considerations" myns:unnumbered="yes">
+  <t>
+   <ja:pair>
+   <ja:l xml:lang="en">
+     This memo does not affect the technical security of the Internet.
+   </ja:l>
+   <ja:l xml:lang="ja">
+     このメモは Internet の技術的安全性に影響しません。
+   </ja:l>
+   </ja:pair>
+ </t>
+</section>
+</middle>
+<back>
+
+</back>
+</rfc>
+<!-- rfc3232-ja.rfcja ends here -->
