@@ -2,7 +2,7 @@
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [<!ENTITY rfc.number "2629">]>
 <?rfc toc="yes"?>
 <rfc number="2629"
-   xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translate/"
+   xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/"
    xmlns:h="http://www.w3.org/1999/xhtml">
 <front>
 <title>Writing I-Ds and RFCs using XML</title>
@@ -62,7 +62,7 @@
   <ja:item year="2002" month="05" day="03"><author ja:ref="wakaba" />
     <t>訳注を幾つか追加。翻訳変更履歴の章を新設。</t>
   </ja:item>
-</ja:change><!-- $Date: 2002/05/03 06:21:38 $ -->
+</ja:change><!-- $Date: 2002/05/03 07:29:27 $ -->
 <keyword>拡張マーク付け言語</keyword>
 </ja:front>
 <middle>
@@ -3226,7 +3226,7 @@ Frank Strauss。</ja:l>
     <t>この文書 (の原本) は、 RFC 2629 
     で定義された形式に、翻訳文用の要素を XML 
     名前空間を使って追加して用いています。詳しくは、 
-    <ja:uri-ref target="http://suika.fam.cx/~wakaba/lang/rfc/translate/" />
+    <ja:uri-ref target="http://suika.fam.cx/~wakaba/lang/rfc/translation/" />
     を御覧下さい。</t>
   </section>
 </ja:back>
