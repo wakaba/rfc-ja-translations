@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="iso-2022-jp"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+  <!ENTITY rfc.number "1873">
+  <!ENTITY ja.access "接続">
+  <!ENTITY ja.object "物体">
+  <!ENTITY ja.optional "省略可能">
+  <!ENTITY ja.security "安全性">
+  <!ENTITY ja.system "処理系">
+  <!ENTITY ja.text "テキスト">
+  <!ENTITY ja.user-agent "利用者代理者">
+  <!ENTITY ja.mail.body "本文">
+  <!ENTITY ja.mail.header "頭">
+  <!ENTITY ja.mime.body-part "本文部分">
+  <!ENTITY ja.mime.entity "実体">
+  <!ENTITY ja.mime.multipart "多部分">
+  <!ENTITY ja.mime.part "部分">
+  <!ENTITY ja.mime.parameter "パラメーター">
+]>
+<?rfc symrefs="yes"?>
+<rfc number="&rfc.number;" category="exp"
+   xmlns:myns="mailto:julian.reschke@greenbytes.de?subject=rcf2629.xslt"
+   xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/"
+   xmlns:h="http://www.w3.org/1999/xhtml">
+  <front>
+    <title>Message/External-Body Content-ID Access Type</title> 
+    <ja:title xml:lang="ja">Message/External-Body Content-ID &ja.access;型</ja:title>
+    <author initials="E." surname="Levinson" fullname="Edward Levinson">
+      <organization>Accurate Information Systems, Inc.</organization>
+      <address>
+        <postal>
+          <street>2 Industrial Way</street>
+          <city>Eatontown</city> <region>NJ</region>
+          <code>07724-2265</code>
+          <country ja:text="USA">US</country>
+        </postal>
+        <phone>+1 908 389 5550</phone>
+        <email>ELevinson@Accurate.com</email>
+      </address>
+    </author>
+    <author initials="J." surname="Clark" fullname="James Clark">
+      <address>
+        <postal>
+          <street>90 Clarendon Road</street>
+          <city>London W11 2HR</city>
+          <country ja:text="UK">GB</country>
+        </postal>
+        <email>jjc@jclark.com</email>
+      </address>
+    </author>
+    <date month="December" year="1995" />
+    <abstract>
+      <t>
+        <ja:pair>
+        <ja:l xml:lang="en">
+          When using MIME <xref target="MIME" /> to encapsulate a 
+          structured object that
+   consist of many elements, for example an SGML <xref target="SGML" /> 
+          document, a
+   single element may occur several times.  An encapsulation normally
+   maps each of the structured objects elements to a MIME entity.  It is
+   useful to include elements that occur multiple time exactly once.  To
+   accomplish that and to preserve the object structure it is desirable
+   to unambiguously refer to another body part of the same message.
+        </ja:l>
+        <ja:l xml:lang="ja">
+          MIME <xref target="MIME" /> を使って多くの要素で構成される構造化&ja.object;,
+          例えば SGML <xref target="SGML" /> 
+          文書をカプセル化する時、一つの要素が幾度も出現するかもしれません。カプセル化は通常各構造化&ja.object;要素と
+          MIME 実体を対応させます。複数回現れる要素を一つだけ含めることが出来れば便利です。これを達成しかつ&ja.object;構造を保つため、同じメッセージの他の&ja.mime.body-part;を曖昧無く参照出来るのが望ましいでしょう。
+        </ja:l>
+        </ja:pair>
+      </t>
+      <t>
+        <ja:pair>
+        <ja:l xml:lang="en">
+          The existing MIME Content-Type Message/External-Body access-types
+   allow a MIME entity (body-part) to refer to an object that is not in
+   the message by specifying how to access that object.  The Content-ID
+   access method described in this document provides the capability to
+   refer to an object within the message.
+        </ja:l>
+        <ja:l xml:lang="ja">
+          既存の MIME Content-Type Message/External-Body access-type
+では MIME &ja.mime.entity; (&ja.mime.body-part;) 
+が、メッセージ中に無い&ja.object;を、指定した&ja.object;への&ja.access;方法で参照することが出来ました。この文書で説明する
+Content-ID &ja.access;方法は、メッセージ中の&ja.object;を参照する方法を提供します。
+        </ja:l>
+        </ja:pair>
+      </t>
+    </abstract>
+  </front>
+<ja:front>
+<author fullname="わかば" ja:id="wakaba">
+	<address>
+	<email>w@suika.fam.cx</email>
+	<uri>http://suika.fam.cx/~wakaba/</uri>
+	</address>
+</author>
+<ja:change>
+  <ja:item year="2002" month="05" day="20"><author ja:ref="wakaba" />
+    <t>日本語に翻訳。</t>
+  </ja:item>
+  <ja:item year="2002" month="07" day="26"><author ja:ref="wakaba" />
+    <t><ja:link type="rfc" number="2629" /> でマーク付け。</t>
+  </ja:item>
+</ja:change><!-- $Date: 2002/07/26 11:56:16 $ -->
+</ja:front>
+<middle>
+
+<section title="Introduction">
+  <t>
+   <ja:pair>
+   <ja:l xml:lang="en">
+     Consider a MIME multipart entity several of whose body parts contain
+   the same data (body) but different parameters or Content-* headers.
+   Representing those body parts without duplicating the data in each
+   one promotes efficient use of resources (bandwidth and storage
+   space).  To achieve these benefits an access-type is defined that
+   permits one message part to refer to another one in the same message.
+   </ja:l>
+   <ja:l xml:lang="ja">
+     MIME &ja.mime.multipart;&ja.mime.entity;で、その&ja.mime.body-part;の幾つかは同じデータ 
+(&ja.mail.body;) であるが、パラメーターや 
+Content-* &ja.mail.header;が違っている場合を考えてみて下さい。これらの&ja.mime.body-part;を、データを二重にせずにそれぞれ一回ずつ表現することで、資源
+(帯域や保管空間) を能率的に使うことを促進出来ます。そこで、
+あるメッセージ&ja.mime.part;が同じメッセージ中の他の&ja.mime.part;を参照出来る
+access-type を定義します。
+    </ja:l>
+    </ja:pair>
+  </t>
+</section>
+
+<section title="The Content-ID Access Type" ja:title-ja="Content-ID &ja.access;型">
+
+   <section title="Registration Information" ja:title-ja="登録情報">
+     <list style="hanging">
+     <t hangText="MIME access-type name" ja:hangText-ja="MIME access-type 名">content-id</t>
+       
+       <t hangText="Required parameters" ja:hangText-ja="必須&ja.mime.parameter;"><ja:pair>
+         <ja:l xml:lang="en">none</ja:l>
+         <ja:l xml:lang="ja">なし</ja:l>
+       </ja:pair></t>
+       
+       <t hangText="Optional parameters" ja:hangText-ja="&ja.optional;&ja.mime.parameter;"><ja:pair>
+         <ja:l xml:lang="en">none</ja:l>
+         <ja:l xml:lang="ja">なし</ja:l>
+       </ja:pair></t>
+
+       <t hangText="Published specification" ja:hangText-ja="出版された仕様書"><ja:pair>
+         <ja:l xml:lang="en">this document</ja:l>
+         <ja:l xml:lang="ja">この文書</ja:l>
+       </ja:pair></t>
+
+       <t hangText="Person &amp; email address to contact for further information" ja:hangText-ja="詳しい情報の連絡先の人と電子メイル・アドレス">
+         Ed Levinson <ja:mail>ELevinson@accurate.com</ja:mail>
+       </t>
+       
+       <t hangText="Additional requirements" ja:hangText-ja="追加の要件">
+       
+         <t>
+           <ja:pair>
+           <ja:l xml:lang="en">
+             The content-id header of the access-type=content-id MIME
+             entity must match (be identical to) exactly one content-id
+             in the same message, excluding other access-type=content-id
+             entities.  Thus, the content-id access type can only occur
+             within a multipart message and can refer to another body
+             part anywhere in the same message.
+           </ja:l>
+           <ja:l xml:lang="ja">
+             <h:code>access-type=content-id</h:code> MIME 
+             &ja.mime.entity;の content-id &ja.mail.header;は、他の 
+             <h:code>access-type=content-id</h:code> 
+             の&ja.mime.entity;を除いて、同じメッセージ中の丁度一つの 
+             content-id とのみ一致する (同一である) 
+             ものでなければなりません。ですから、
+             content-id &ja.access;型は&ja.mime.multipart;メッセージ中でのみ使うことが出来ますし、同じメッセージ中のどこにある他の&ja.mime.body-part;をも参照することが出来ます。
+           </ja:l>
+           </ja:pair>
+         </t>
+         
+         <t>
+           <ja:pair>
+           <ja:l xml:lang="en">
+             A MIME User Agent (MUA) constructs the resultant MIME 
+             body part as described below.  We call the 
+             access-type=content-id MIME entity the referring body 
+             part and the MIME body part to which it refers, 
+             the one with the matching content-id, the referenced 
+             body part.  The MIME entity that results from
+             content-id access type consists of:
+           </ja:l>
+           <ja:l xml:lang="ja">
+             MIME &ja.user-agent; (<h:abbr xml:lang="en">MUA</h:abbr>) 
+             は結果として生じる MIME
+             &ja.mime.body-part;を次に説明するようにして構築します。ここで、
+             <ja:definition word="referring body part" translation="参照する&ja.mime.body-part;"><h:code>access-type=content-id</h:code>
+             の MIME 
+             &ja.mime.entity;</ja:definition>を参照する&ja.mime.body-part;と,
+             <ja:definition word="referenced body part" translation="参照される&ja.mime.body-part;">参照する&ja.mime.body-part;が参照する MIME &ja.mime.body-part;, 
+             つまり一致する content-id 
+             を持つもの</ja:definition>を参照される&ja.mime.body-part;と呼びます。
+             content-id &ja.access;型の結果の MIME 
+             &ja.mime.entity;は次のものから構成されます。
+           </ja:l>
+           </ja:pair>
+         </t>
+         
+         <list style="hanging">
+           <t hangText="(a)"><ja:pair>
+             <ja:l xml:lang="en">
+               the referenced body part's content-type header,
+             </ja:l>
+             <ja:l xml:lang="ja">
+               <ja:word name="referenced body part" />の content-type
+               &ja.mail.header;
+             </ja:l>
+           </ja:pair></t>
+           <t hangText="(b)"><ja:pair>
+             <ja:l xml:lang="en">
+               the referring body part's headers except its 
+               content-type header,
+             </ja:l>
+             <ja:l xml:lang="ja">
+               <ja:word name="referring body part" />の content-type 
+               &ja.mail.header;以外の&ja.mail.header;
+             </ja:l>
+           </ja:pair></t>
+           <t hangText="(c)"><ja:pair>
+             <ja:l xml:lang="en">
+               any headers in the referenced body part not in the 
+               referring one,
+             </ja:l>
+             <ja:l xml:lang="ja">
+               <ja:word name="referenced body part" />の、<ja:word name="referring body part">参照する方</ja:word>にない&ja.mail.header;
+             </ja:l>
+           </ja:pair></t>
+           <t hangText="(d)"><ja:pair>
+             <ja:l xml:lang="en">
+               the line separating the headers from the body, and
+             </ja:l>
+             <ja:l xml:lang="ja">
+               &ja.mail.header;と&ja.mail.body;を区切る行
+             </ja:l>
+           </ja:pair></t>
+           <t hangText="(e)"><ja:pair>
+             <ja:l xml:lang="en">
+               the referenced body part's body.
+             </ja:l>
+             <ja:l xml:lang="ja">
+               <ja:word name="referenced body part" />の&ja.mail.body;
+             </ja:l>
+           </ja:pair></t>
+         </list><!-- hanging -->
+       </t><!-- additional requirements -->
+     </list><!-- submit form -->
+   </section><!-- 2.1 -->
+   
+   <section title="Example Usage" ja:title-ja="使用例">
+     <figure>
+     <preamble>
+       <ja:pair>
+       <ja:l xml:lang="en">
+         The following example shows a message that consists of two identical images.
+       </ja:l>
+       <ja:l xml:lang="ja">
+         次の例は、2つの同じ画像から構成されるメッセージです。
+       </ja:l>
+       </ja:pair>
+     </preamble>
+     
+     <ja:pair>
+     <ja:l xml:lang="en">
+       
+
+<artwork xml:space="preserve"><![CDATA[            MIME-Version: 1.0
+            Content-Type: Multipart/Mixed;
+               boundary=tiger-lily
+
+            --tiger-lily
+            Content-Type: image/jpeg
+            Content-ID: <950323.1552@XIson.com>
+
+            AAAcdb...
+            --tiger-lily
+            Content-type: Message/External-Body;
+               access-type=content-id
+            Content-ID: <950323.1552@XIson.com>
+            Content-Description:
+               This body part is duplicated by reference
+
+            --tiger-lily--
+]]></artwork>
+     </ja:l>
+     <ja:l xml:lang="ja">
+<artwork xml:space="preserve"><![CDATA[            MIME-Version: 1.0
+            Content-Type: Multipart/Mixed;
+               boundary=tiger-lily
+
+            --tiger-lily
+            Content-Type: image/jpeg
+            Content-ID: <950323.1552@XIson.com>
+
+            AAAcdb...
+            --tiger-lily
+            Content-type: Message/External-Body;
+               access-type=content-id
+            Content-ID: <950323.1552@XIson.com>
+            Content-Description:
+               この&ja.mime.body-part;は参照で複製されます。
+
+            --tiger-lily--
+]]></artwork>
+     </ja:l>
+     </ja:pair>
+   </figure>
+   
+   <figure>
+     <preamble>
+       <ja:pair>
+       <ja:l xml:lang="en">
+         The equivalent MIME entity for the second body part is:
+       </ja:l>
+       <ja:l xml:lang="ja">
+         2つめの&ja.mime.body-part;と同等の 
+         MIME &ja.mime.entity;を次に挙げます。
+       </ja:l>
+       </ja:pair>
+     </preamble>
+     
+     <ja:pair>
+     <ja:l xml:lang="en">
+<artwork xml:space="preserve"><![CDATA[            --tiger-lily
+            Content-Type: image/jpeg
+            Content-ID: <950323.1552@XIson.com>
+            Content-Description:
+               この&ja.mime.body-part;は参照で複製されます。
+
+            AAAcdb...
+            --tiger-lily]]></artwork>
+     </ja:l>
+     <ja:l xml:lang="ja">
+<artwork xml:space="preserve"><![CDATA[            --tiger-lily
+            Content-Type: image/jpeg
+            Content-ID: <950323.1552@XIson.com>
+            Content-Description:
+               This body part is duplicated by reference
+
+            AAAcdb...
+            --tiger-lily]]></artwork>
+      </ja:l>
+      </ja:pair>
+    </figure>
+  </section><!-- 2.2 -->
+</section><!-- 2 -->
+
+<section title="Security Considerations">
+  <t>
+   <ja:pair>
+   <ja:l xml:lang="en">
+     The content-id access-type does not impact the security of messages
+   or systems.  The referenced MIME entity may have security
+   implications.
+   </ja:l>
+   <ja:l xml:lang="ja">
+     content-id access-type はメッセージや&ja.system;の&ja.security;に衝撃を与えません。<ja:word name="referenced body part">参照された
+MIME &ja.mime.entity;</ja:word>は&ja.security;に関係するかもしれません。
+    </ja:l>
+    </ja:pair>
+  </t>
+</section>
+
+<ja:insert section="references" ja:title-prefix="4. " />
+<ja:insert section="author-address" ja:title-prefix="5. " />
+</middle>
+
+<back>
+
+<references>
+  <reference anchor="RFC822">
+    <front>
+      <title>Standard for the format of ARPA Internet text messages</title>
+      <ja:title xml:lang="ja">ARPA Internet 
+      &ja.text;メッセージの書式の標準</ja:title>
+      <author initials="D." surname="Crocker" fullname="David H. Crocker">
+        <organization abbrev="UDEL">University of Delaware, 
+        Dept. of Electrical Engineering</organization>
+      </author>
+      <date month="August" year="1982" />
+    </front>
+    <seriesInfo name="STD" value="11" />
+    <seriesInfo name="RFC" value="822" />
+  </reference>
+  
+  <reference anchor="SGML">
+    <front>
+      <title>Information processing ―― Text and office systems
+      ―― Standard Generalized Markup Language (SGML)</title>
+      <ja:title xml:lang="ja">情報処理――&ja.text;及び事務所系統――標準汎用マーク付け言語 (SGML)</ja:title>
+    </front>
+    <seriesInfo name="ISO" value="8879:1988" />
+    <ja:add-info>
+      <ja:note>日本工業規格では、 JIS X 4151 
+      『文書記述言語SGML』が対応します。
+      (参考: 
+      <eref target="http://www1.u-netsurf.ne.jp/~7l1rll/SGMLindex.html">JIS X 4151-1992 (ISO 8859:1986 に対応)</eref>)</ja:note>
+    </ja:add-info>
+  </reference>
+  
+  <reference anchor="MIME">
+    <front>
+      <title>MIME (Multipurpose Internet Mail Extensions) 
+      Part One: Mechanisms for Specifying and Describing the Format 
+      of Internet Message Bodies</title>
+      <ja:title xml:lang="ja">MIME (多目的 Internet メイル拡張) 
+      第1部: Internet メッセージ本文の書式の指定説明機構</ja:title>
+      <author initials="N." surname="Borenstein" fullname="Nathaniel S. Borenstein">
+        <organization>Bellcore</organization>
+      </author>
+      <author initials="N." surname="Freed" fullname="Ned Freed">
+        <organization abbrev="Innosoft">Innosoft International, 
+        Inc.</organization>
+      </author>
+    </front>
+    <date month="September" year="1993" />
+    <seriesInfo name="RFC" value="1521" /> 
+  </reference>
+</references>
+</back>
+<ja:back xml:lang="ja">
+  <section title="Content-ID の指定">
+    <t>MIME <xref target="MIME" /> の規定と照らし合わせると、
+    <eref target="http://suika.fam.cx/~wakaba/-temp/wiki/wiki?message%2Fexternal%2Dbody%C7%DE%C2%CE%B7%BF">どこに 
+    Content-ID: 欄を書くのかについて疑問があります</eref>。</t>
+  </section>
+  <section title="IANA に関して">
+    <t><eref target="http://www.iana.org/assignments/access-types">IANA
+    登録簿</eref>には、 access-type "Content-ID" は登録されていません。
+    (2002年7月現在)</t>
+  </section>
+</ja:back>
+</rfc>

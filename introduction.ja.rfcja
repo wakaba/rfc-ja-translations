@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="iso-2022-jp"?>
+<!--<!DOCTYPE rfc SYSTEM "rfc2629.dtd">-->
+<?rfc private="せつめい"?>
+<?rfc symrefs="yes"?>
+<?rfc-translation show-rfc-copyright="no"?>
+<?rfc-translation show-rfc-status="no"?>
+<?rfc-translation show-rfc-acknowledgement-editor="no"?>
+<rfc category="info"
+   xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
+  <front>
+    <title xml:lang="ja">RFC の和訳</title>
+    <author fullname="わかば" ja:id="wakaba">
+      <organization>西瓜計画</organization>
+      <address>
+        <email>w@suika.fam.cx</email>
+        <uri>http://suika.fam.cx</uri>
+      </address>
+    </author>
+    <date month="June" year="2002" />
+    <abstract>
+      <t>
+        <ja:pair>
+        <ja:l xml:lang="ja">
+          ここには、幾つかの
+          <eref target="http://www.ietf.org/">IETF</eref>
+          <eref target="http://www.rfc-editor.org/">RFC</eref>
+          の和訳があります。
+        </ja:l>
+        <ja:l xml:lang="en">
+          There are some Japanese translations of 
+          <eref target="http://www.ietf.org/">IETF</eref>
+          <eref target="http://www.rfc-editor.org/">RFC</eref>s.
+        </ja:l>
+        </ja:pair>
+      </t>
+    </abstract>
+  </front>
+<ja:front>
+<ja:change>
+  <ja:item year="2002" month="06" day="12"><author ja:ref="wakaba" />
+    <t>新規作成。</t>
+  </ja:item>
+  <ja:copyright>
+    <ja:full-statement>この説明文は、翻訳文同様自由に取り扱ってもらって構いません。</ja:full-statement>
+  </ja:copyright>
+</ja:change><!-- $Date: 2002/07/26 11:56:15 $ -->
+</ja:front>
+<middle>
+
+<section title="Description">
+  <t>
+   ここには、幾つかの RFC の和訳が置いてあります。各文書は、
+   RFC 2629 <xref target="RFC2629" /> 
+   形式に、翻訳文のための多少の拡張を加えた形式でマーク付けしています。
+  </t>
+  
+  <t>
+    また、それを HTML 化したものも併せて用意しています。
+    HTML 版は、英和対訳の形になっています。適切なスタイルシート
+    (XSLT や CSS) などを使えば、和文のみに出来ます。
+  </t>
+  
+  <t>
+    全ての翻訳文は、 (その末尾に記してある通り、)
+    無保証ではありますが、自由に利用することが出来ます。
+    (公開されている RFC 和訳の多くは、 (意図的かどうかは別にして、)
+    その自由な利用が認められていません。あるいは、閲覧や配布は認められていても、改訳等の改変が認められていなかったり、出来るのかどうか曖昧で合ったりします。しかし、ここにある翻訳文は、これらも含めて自由に使って構いません。)
+  </t>
+</section>
+
+<section title="Security Considerations">
+  <t>
+    翻訳文には、誤訳・誤植などがあり得ます。また、翻訳文とともにマーク付けされている原文も、マーク付けの際の誤植が存在する可能性があります。ですから、可能な限り、
+    <eref target="http://www.rfc-editor.org/">RFC Editor</eref>
+    発行の原文と照合して確認して下さい。
+  </t>
+  <t>
+    RFC 原文発行後に見つかった誤りなどの情報は、出来るだけ訳注として補足するようにしていますが、完全ではないかもしれません。関係する
+    IETF の作業部会の文書などで確認して下さい。
+  </t>
+  <t>
+    発行から年月が経っている RFC には、現状と合わない部分が多々あると思われます。特に、当時問題とされなかった安全性に関する問題については、実装の際に十分御注意下さい。
+  </t>
+  <t>
+    と、こんなもんでいいかな? :-)
+  </t>
+</section>
+</middle>
+<back>
+  <references>
+    <reference anchor="RFC2629">
+      <front>
+        <title>Writing I-Ds and RFCs using XML</title>
+        <ja:title xml:lang="ja">XML を使って I-D や RFC を書く</ja:title>
+        <author initials="M.T." surname="Rose" fullname="Marshall T. Rose">
+          <organization>Invisible Worlds, Inc.</organization>
+        </author>
+        <date month="June" year="1999" />
+        <area>General</area>
+      </front>
+      <seriesInfo name="RFC" value="2629" />
+    </reference>
+    
+    <reference anchor="XRFCTML" target="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
+      <front>
+        <title xml:lang="ja">拡張可能な RFC の翻訳マーク付け言語</title>
+      </front>
+      <ja:add-info>Work in progress:-)</ja:add-info>
+    </reference>
+    
+    <reference anchor="XML2RFC" target="http://xml.resource.org/">
+      <front>
+        <title>xml2rfc</title>
+      </front>
+    </reference>
+  </references>
+</back>
+</rfc>
+<!-- introduction.ja.rfcja ends here -->

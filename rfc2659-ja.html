@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-2022-jp"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:h="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head profile="http://suika.fam.cx/~wakaba/lang/rfc/translation/html-profile">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <title>
@@ -90,8 +90,8 @@
 <h1 xml:lang="en" class="t-l-en">Abstract</h1>
 <h1 xml:lang="ja" class="t-l-ja">概要</h1>
 </div>
-      <div class="rfc-t">
-        <div class="t-pair">
+      <div class="rfc-t" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
           This memo describes a syntax for embedding S-HTTP negotiation
           parameters in HTML documents.  S-HTTP, as described by 
@@ -114,24 +114,24 @@
 
 <div class="rfc-section" id="rfc.section.1">
 <div class="t-pair t-heading">
-<h1 xml:lang="en" class="t-l-en">1. Introduction</h1>
-<h1 xml:lang="ja" class="t-l-ja">1. 
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">1. Introduction</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">1. 
           はじめに</h1>
 </div>
   <ins class="t-note t-l-ja" xml:lang="ja">
 <span class="t-note-title">訳注: </span>
-    <p class="rfc-t" id="rfc.section.1.p.1">原文で欠落。</p>
+    <p class="rfc-t" id="rfc.section.1.p.1" xmlns="http://www.w3.org/1999/xhtml">原文で欠落。</p>
   </ins>
 </div>
 
 <div class="rfc-section" id="rfc.section.2">
 <div class="t-pair t-heading">
-<h1 xml:lang="en" class="t-l-en">2. Anchor Attributes</h1>
-<h1 xml:lang="ja" class="t-l-ja">2. 
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2. Anchor Attributes</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2. 
           錨属性</h1>
 </div>
-  <div class="rfc-t" id="rfc.section.2.p.1">
-    <div class="t-pair">
+  <div class="rfc-t" id="rfc.section.2.p.1" xmlns="http://www.w3.org/1999/xhtml">
+    <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
       We define the following new anchor (and form submission) attributes:
     </p>
@@ -140,7 +140,7 @@
     </p>
 </div>
     
-    <dl class="rfc-list-hanging">
+    <dl class="rfc-list-hanging" xmlns="">
     <dt id="html-a-dn">
 <a href="#html-a-dn" class="self">DN</a>
 </dt>
@@ -202,12 +202,12 @@
   
   <div class="rfc-section" id="rfc.section.2.1">
 <div class="t-pair t-heading" id="html-certs">
-<h2 xml:lang="en" class="t-l-en">2.1. CERTS Element</h2>
-<h2 xml:lang="ja" class="t-l-ja">2.1. 
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.1. CERTS Element</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.1. 
           CERTS 要素</h2>
 </div>
-    <div class="rfc-t" id="rfc.section.2.1.p.1">
-      <div class="t-pair">
+    <div class="rfc-t" id="rfc.section.2.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
+      <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
         A new CERTS HTML element is defined, which carries a 
         (not necessarily related) group of certificates provided 
@@ -234,8 +234,8 @@
 </div>
     </div>
     
-    <div class="rfc-t" id="rfc.section.2.1.p.2">
-      <div class="t-pair">
+    <div class="rfc-t" id="rfc.section.2.1.p.2" xmlns="http://www.w3.org/1999/xhtml">
+      <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
         The format should be the same as that of the 'Certificate-Info'
         header line, of <span class="rfc-xref">
@@ -251,8 +251,8 @@
 </div>
     </div>
     
-    <div class="rfc-t" id="rfc.section.2.1.p.3">
-      <div class="t-pair">
+    <div class="rfc-t" id="rfc.section.2.1.p.3" xmlns="http://www.w3.org/1999/xhtml">
+      <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
         Multiple CERTS elements are permitted; it is suggested that CERTS
         elements themselves be included in the HTML document's HEAD 
@@ -271,12 +271,12 @@
   
   <div class="rfc-section" id="rfc.section.2.2">
 <div class="t-pair t-heading" id="html-cryptopts">
-<h2 xml:lang="en" class="t-l-en">2.2. CRYPTOPTS Element</h2>
-<h2 xml:lang="ja" class="t-l-ja">2.2. 
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2. CRYPTOPTS Element</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2. 
           CRYPTOPTS 要素</h2>
 </div>
-    <div class="rfc-t" id="rfc.section.2.2.p.1">
-      <div class="t-pair">
+    <div class="rfc-t" id="rfc.section.2.2.p.1" xmlns="http://www.w3.org/1999/xhtml">
+      <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
         Cryptopts may also be broken out into an element and referred 
         to in anchors by name. The NAME attribute specifies the name 
@@ -298,8 +298,8 @@
   
   <div class="rfc-section" id="rfc.section.2.3">
 <div class="t-pair t-heading">
-<h2 xml:lang="en" class="t-l-en">2.3. HTML Example</h2>
-<h2 xml:lang="ja" class="t-l-ja">2.3. 
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3. HTML Example</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3. 
           HTML の例</h2>
 </div>
     <div class="rfc-figure">
@@ -358,12 +358,12 @@ Don't read this. &lt;/A&gt;
 
 <div class="rfc-section" id="rfc.section.3">
 <div class="t-pair t-heading">
-<h1 xml:lang="en" class="t-l-en">3. Security Considerations</h1>
-<h1 xml:lang="ja" class="t-l-ja">3. 
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3. Security Considerations</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3. 
           安全性に関して</h1>
 </div>
-  <div class="rfc-t" id="rfc.section.3.p.1">
-    <div class="t-pair">
+  <div class="rfc-t" id="rfc.section.3.p.1" xmlns="http://www.w3.org/1999/xhtml">
+    <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
       This entire document is about security.
     </p>
@@ -374,36 +374,13 @@ Don't read this. &lt;/A&gt;
   </div>
 </div>
 
-<div id="rfc-authors" class="rfc-section">
-<div id="rfc.authors" class="t-pair t-heading">
-<h1 xml:lang="en" class="t-l-en">4. Author's Addresses</h1>
-<h1 xml:lang="ja" class="t-l-ja">4. 著者の連絡先</h1>
-</div>
-<ul class="rfc-author">
-<li class="rfc-author-fullname">Eric Rescorla</li>
-<li class="rfc-organization">RTFM, Inc.</li>
-<li class="rfc-street">30 Newell Road, #16</li>
-<li class="rfc-city">East Palo Alto</li>
-<li class="rfc-region">CA</li>
-<li class="rfc-code">94303</li>
-<li class="rfc-phone">電話: (650) 328-8631</li>
-<li class="rfc-email">電子メイル: &lt;<a href="mailto:ekr@rtfm.com">ekr@rtfm.com</a>&gt;</li>
-</ul>
-<ul class="rfc-author">
-<li class="rfc-author-fullname">Allan M. Schiffman</li>
-<li class="rfc-organization">SPYRUS/Terisa</li>
-<li class="rfc-street">5303 Betsy Ross Drive</li>
-<li class="rfc-city">Santa Clara</li>
-<li class="rfc-region">CA</li>
-<li class="rfc-code">95054</li>
-<li class="rfc-phone">電話: (408) 327-1901</li>
-<li class="rfc-email">電子メイル: &lt;<a href="mailto:ams@terisa.com">ams@terisa.com</a>&gt;</li>
-</ul>
-</div>
+<span style="color: red">&lt;ja:insert&gt;</span>
+<ja:insert xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns:myns="mailto:julian.reschke@greenbytes.de?subject=rcf2629.xslt">author-address4. </ja:insert>
+<span style="color: red">&lt;/ja:insert&gt;</span>
 <div class="rfc-section" id="rfc.references">
 <div class="t-pair t-heading">
-<h1 xml:lang="en" class="t-l-en">5. References</h1>
-<h1 xml:lang="ja" class="t-l-ja">5. 参考文献</h1>
+<h1 xml:lang="en" class="t-l-en">References</h1>
+<h1 xml:lang="ja" class="t-l-ja">参考文献</h1>
 </div>
 <dl>
   <dt id="SHTTP">[SHTTP]</dt>
@@ -414,8 +391,8 @@ Don't read this. &lt;/A&gt;
 </div>
 <div id="rfc-copyright" class="rfc-section">
 <div class="t-pair" id="rfc.copyright">
-<h1 xml:lang="en" class="t-l-en">6. Full Copyright Statement</h1>
-<h1 xml:lang="ja" class="t-l-ja">6. 完全な著作権声明</h1>
+<h1 xml:lang="en" class="t-l-en">Full Copyright Statement</h1>
+<h1 xml:lang="ja" class="t-l-ja">完全な著作権声明</h1>
 </div>
 <div class="t-pair t-hide-no">
 <p class="t-l-en" xml:lang="en">
@@ -489,7 +466,7 @@ Don't read this. &lt;/A&gt;
             <strong>Internet Society および
             <a href="http://www.ietf.org/">Internet Engineering Task Force 
             (Internet 技術特別調査委員会)</a>
-            はここに含まれる情報の使用がいかなる権利をも侵害しないという保証または市場性あるいは特定目的への適当性についての暗黙的保証を含めてこれに限定されない、明示あるいは暗示による、一切の保証を否認する</strong>。
+            はここに含まれる情報の使用がいかなる権利をも侵害しないという保証または市場性あるいは特定目的への適当性についての暗黙的保証を含むがこれに限定されない、明示あるいは暗示による、一切の保証を否認する</strong>。
           </p>
 </div>
 </div>

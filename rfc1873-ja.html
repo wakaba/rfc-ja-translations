@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="iso-2022-jp"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head profile="http://suika.fam.cx/~wakaba/lang/rfc/translation/html-profile">
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<title>
+      RFC 1873: 
+    Message/External-Body Content-ID 接続型 (Message/External-Body Content-ID Access Type)
+    </title>
+<link rel="stylesheet" href="http://suika.fam.cx/~wakaba/lang/rfc/translation/rfc-ja-style.css" type="text/css"/>
+<link rel="alternate" href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1873" hreflang="en" title="RFC 1873"/>
+<link rev="made" href="http://www.rfceditor.org/" title="RFC Editor"/>
+<link rev="translate" href="#rfc-translators-note"/>
+<meta name="author" content="Edward Levinson, James Clark, "/>
+</head>
+<body>
+<div id="rfc--table">
+<ul id="rfc--table-left">
+<li>Network Working Group</li>
+<li>Request for Comments: 1873</li>
+<li>
+<span class="t-pair">
+<span xml:lang="en" class="t-l-en">Category: Experimental</span>
+</span>
+</li>
+<li>
+<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">分類: 実験的</span>
+</span>
+</li>
+</ul>
+<ul id="rfc--table-right">
+<li title="Edward Levinson">E. Levinson</li>
+<li>Accurate Information Systems, Inc.</li>
+<li title="James Clark">J. Clark</li>
+<li>
+<span class="t-pair">
+<span xml:lang="en" class="t-l-en"> December 1995</span>
+</span>
+</li>
+<li>
+<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">1995年12月</span>
+</span>
+</li>
+</ul>
+</div>
+<div class="t-pair t-heading" id="rfc-title">
+<h1 class="rfc-title t-l-en" xml:lang="en">Message/External-Body Content-ID Access Type</h1>
+<h1 class="rfc-title t-l-ja" xml:lang="ja">Message/External-Body Content-ID 接続型</h1>
+</div>
+<div id="rfc-status" class="rfc-section">
+<div class="t-pair">
+<h1 xml:lang="en" class="t-l-en">Status of this Memo</h1>
+<h1 xml:lang="ja" class="t-l-ja">このメモの位置付け</h1>
+</div>
+<div class="rfc-t">
+<div class="t-pair">
+<p class="t-l-en" xml:lang="en">
+      This memo defines an Experimental Protocol for the Internet community.
+      It does not specify an Internet standard of any kind.
+      Discussion and suggestions for improvement are requested.
+      Distribution of this memo is unlimited.
+        </p>
+<p class="t-l-ja" xml:lang="ja">
+          このメモは、 Internet 社会向けの実験的プロトコルを定義するものです。いかなる種類の
+          Internet 標準を規定するものでもありません。改良の為の議論や提案を求めます。このメモの配布は制限しません。
+        </p>
+</div>
+</div>
+</div>
+<div class="rfc-section" id="rfc.abstract">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">Abstract</h1>
+<h1 xml:lang="ja" class="t-l-ja">概要</h1>
+</div>
+      <div class="rfc-t" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
+          When using MIME <span class="rfc-xref">
+<a href="#MIME" title="MIME (Multipurpose Internet Mail Extensions) Part One: Mechanisms for Specifying and Describing the Format of Internet Message Bodies">[MIME]</a>
+</span> to encapsulate a 
+          structured object that
+   consist of many elements, for example an SGML <span class="rfc-xref">
+<a href="#SGML" title="Information processing ―― Text and office systems ―― Standard Generalized Markup Language (SGML)">[SGML]</a>
+</span> 
+          document, a
+   single element may occur several times.  An encapsulation normally
+   maps each of the structured objects elements to a MIME entity.  It is
+   useful to include elements that occur multiple time exactly once.  To
+   accomplish that and to preserve the object structure it is desirable
+   to unambiguously refer to another body part of the same message.
+        </p>
+<p xml:lang="ja" class="t-l-ja">
+          MIME <a href="#MIME" title="MIME (多目的 Internet メイル拡張) 第1部: Internet メッセージ本文の書式の指定説明機構">[MIME]</a> を使って多くの要素で構成される構造化物体,
+          例えば SGML <a href="#SGML" title="情報処理――テキスト及び事務所系統――標準汎用マーク付け言語 (SGML)">[SGML]</a> 
+          文書をカプセル化する時、一つの要素が幾度も出現するかもしれません。カプセル化は通常各構造化物体要素と
+          MIME 実体を対応させます。複数回現れる要素を一つだけ含めることが出来れば便利です。これを達成しかつ物体構造を保つため、同じメッセージの他の本文部分を曖昧無く参照出来るのが望ましいでしょう。
+        </p>
+</div>
+      </div>
+      <div class="rfc-t" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
+          The existing MIME Content-Type Message/External-Body access-types
+   allow a MIME entity (body-part) to refer to an object that is not in
+   the message by specifying how to access that object.  The Content-ID
+   access method described in this document provides the capability to
+   refer to an object within the message.
+        </p>
+<p xml:lang="ja" class="t-l-ja">
+          既存の MIME Content-Type Message/External-Body access-type
+では MIME 実体 (本文部分) 
+が、メッセージ中に無い物体を、指定した物体への接続方法で参照することが出来ました。この文書で説明する
+Content-ID 接続方法は、メッセージ中の物体を参照する方法を提供します。
+        </p>
+</div>
+      </div>
+    </div>
+
+<div class="rfc-section" id="rfc.section.1">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">1. Introduction</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">1. 
+          はじめに</h1>
+</div>
+  <div class="rfc-t" id="rfc.section.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
+   <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
+     Consider a MIME multipart entity several of whose body parts contain
+   the same data (body) but different parameters or Content-* headers.
+   Representing those body parts without duplicating the data in each
+   one promotes efficient use of resources (bandwidth and storage
+   space).  To achieve these benefits an access-type is defined that
+   permits one message part to refer to another one in the same message.
+   </p>
+<p xml:lang="ja" class="t-l-ja">
+     MIME 多部分実体で、その本文部分の幾つかは同じデータ 
+(本文) であるが、パラメーターや 
+Content-* 頭が違っている場合を考えてみて下さい。これらの本文部分を、データを二重にせずにそれぞれ一回ずつ表現することで、資源
+(帯域や保管空間) を能率的に使うことを促進出来ます。そこで、
+あるメッセージ部分が同じメッセージ中の他の部分を参照出来る
+access-type を定義します。
+    </p>
+</div>
+  </div>
+</div>
+
+<div class="rfc-section" id="rfc.section.2">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2. The Content-ID Access Type</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2. 
+          Content-ID 接続型</h1>
+</div>
+
+   <div class="rfc-section" id="rfc.section.2.1">
+<div class="t-pair t-heading">
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.1. Registration Information</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.1. 
+          登録情報</h2>
+</div>
+     <dl class="rfc-list-hanging">
+     <dt>MIME access-type name</dt>
+<dt xml:lang="ja" class="t-l-ja">MIME access-type 名</dt>
+<dd>content-id</dd>
+       
+       <dt>Required parameters</dt>
+<dt xml:lang="ja" class="t-l-ja">必須パラメーター</dt>
+<dd>
+<div class="t-pair">
+<p xml:lang="en" class="t-l-en">none</p>
+<p xml:lang="ja" class="t-l-ja">なし</p>
+</div>
+</dd>
+       
+       <dt>Optional parameters</dt>
+<dt xml:lang="ja" class="t-l-ja">省略可能パラメーター</dt>
+<dd>
+<div class="t-pair">
+<p xml:lang="en" class="t-l-en">none</p>
+<p xml:lang="ja" class="t-l-ja">なし</p>
+</div>
+</dd>
+
+       <dt>Published specification</dt>
+<dt xml:lang="ja" class="t-l-ja">出版された仕様書</dt>
+<dd>
+<div class="t-pair">
+<p xml:lang="en" class="t-l-en">this document</p>
+<p xml:lang="ja" class="t-l-ja">この文書</p>
+</div>
+</dd>
+
+       <dt>Person &amp; email address to contact for further information</dt>
+<dt xml:lang="ja" class="t-l-ja">詳しい情報の連絡先の人と電子メイル・アドレス</dt>
+<dd>
+         Ed Levinson 
+  &lt;ELevinson@accurate.com&gt;
+
+       </dd>
+       
+       <dt>Additional requirements</dt>
+<dt xml:lang="ja" class="t-l-ja">追加の要件</dt>
+<dd>
+       
+         <div class="rfc-t" id="rfc.section.2.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
+           <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
+             The content-id header of the access-type=content-id MIME
+             entity must match (be identical to) exactly one content-id
+             in the same message, excluding other access-type=content-id
+             entities.  Thus, the content-id access type can only occur
+             within a multipart message and can refer to another body
+             part anywhere in the same message.
+           </p>
+<p xml:lang="ja" class="t-l-ja">
+             <code xmlns="http://www.w3.org/1999/xhtml">access-type=content-id</code> MIME 
+             実体の content-id 頭は、他の 
+             <code xmlns="http://www.w3.org/1999/xhtml">access-type=content-id</code> 
+             の実体を除いて、同じメッセージ中の丁度一つの 
+             content-id とのみ一致する (同一である) 
+             ものでなければなりません。ですから、
+             content-id 接続型は多部分メッセージ中でのみ使うことが出来ますし、同じメッセージ中のどこにある他の本文部分をも参照することが出来ます。
+           </p>
+</div>
+         </div>
+         
+         <div class="rfc-t" id="rfc.section.2.1.p.2" xmlns="http://www.w3.org/1999/xhtml">
+           <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
+             A MIME User Agent (MUA) constructs the resultant MIME 
+             body part as described below.  We call the 
+             access-type=content-id MIME entity the referring body 
+             part and the MIME body part to which it refers, 
+             the one with the matching content-id, the referenced 
+             body part.  The MIME entity that results from
+             content-id access type consists of:
+           </p>
+<p xml:lang="ja" class="t-l-ja">
+             MIME 利用者代理者 (<abbr xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">MUA</abbr>) 
+             は結果として生じる MIME
+             本文部分を次に説明するようにして構築します。ここで、
+             <code xmlns="http://www.w3.org/1999/xhtml">access-type=content-id</code>
+             の MIME 
+             実体を参照する本文部分と,
+             参照する本文部分が参照する MIME 本文部分, 
+             つまり一致する content-id 
+             を持つものを参照される本文部分と呼びます。
+             content-id 接続型の結果の MIME 
+             実体は次のものから構成されます。
+           </p>
+</div>
+         </div>
+         
+         <dl class="rfc-list-hanging">
+           <dt>(a)</dt>
+<dd>
+<div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+               the referenced body part's content-type header,
+             </p>
+<p xml:lang="ja" class="t-l-ja">
+               <span title="参照される本文部分: 参照する本文部分が参照する MIME 本文部分, つまり一致する content-id を持つもの" class="ja-word">参照される本文部分</span>の content-type
+               頭
+             </p>
+</div>
+</dd>
+           <dt>(b)</dt>
+<dd>
+<div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+               the referring body part's headers except its 
+               content-type header,
+             </p>
+<p xml:lang="ja" class="t-l-ja">
+               <span title="参照する本文部分: access-type=content-id の MIME 実体" class="ja-word">参照する本文部分</span>の content-type 
+               頭以外の頭
+             </p>
+</div>
+</dd>
+           <dt>(c)</dt>
+<dd>
+<div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+               any headers in the referenced body part not in the 
+               referring one,
+             </p>
+<p xml:lang="ja" class="t-l-ja">
+               <span title="参照される本文部分: 参照する本文部分が参照する MIME 本文部分, つまり一致する content-id を持つもの" class="ja-word">参照される本文部分</span>の、<span title="参照する方: access-type=content-id の MIME 実体" class="ja-word">参照する方</span>にない頭
+             </p>
+</div>
+</dd>
+           <dt>(d)</dt>
+<dd>
+<div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+               the line separating the headers from the body, and
+             </p>
+<p xml:lang="ja" class="t-l-ja">
+               頭と本文を区切る行
+             </p>
+</div>
+</dd>
+           <dt>(e)</dt>
+<dd>
+<div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+               the referenced body part's body.
+             </p>
+<p xml:lang="ja" class="t-l-ja">
+               <span title="参照される本文部分: 参照する本文部分が参照する MIME 本文部分, つまり一致する content-id を持つもの" class="ja-word">参照される本文部分</span>の本文
+             </p>
+</div>
+</dd>
+         </dl>
+       </dd>
+     </dl>
+   </div>
+   
+   <div class="rfc-section" id="rfc.section.2.2">
+<div class="t-pair t-heading">
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2. Example Usage</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2. 
+          使用例</h2>
+</div>
+     <div class="rfc-figure">
+<span class="rfc-figure-id" id="rfc.figure.u.1">&#x00A0;</span>
+     <div class="rfc-preamble">
+       <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+         The following example shows a message that consists of two identical images.
+       </p>
+<p xml:lang="ja" class="t-l-ja">
+         次の例は、2つの同じ画像から構成されるメッセージです。
+       </p>
+</div>
+     </div>
+     
+     <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+       
+
+<pre class="rfc-artwork" xml:space="preserve">            MIME-Version: 1.0
+            Content-Type: Multipart/Mixed;
+               boundary=tiger-lily
+
+            --tiger-lily
+            Content-Type: image/jpeg
+            Content-ID: &lt;950323.1552@XIson.com&gt;
+
+            AAAcdb...
+            --tiger-lily
+            Content-type: Message/External-Body;
+               access-type=content-id
+            Content-ID: &lt;950323.1552@XIson.com&gt;
+            Content-Description:
+               This body part is duplicated by reference
+
+            --tiger-lily--
+</pre>
+     </p>
+<p xml:lang="ja" class="t-l-ja">
+<pre class="rfc-artwork" xml:space="preserve">            MIME-Version: 1.0
+            Content-Type: Multipart/Mixed;
+               boundary=tiger-lily
+
+            --tiger-lily
+            Content-Type: image/jpeg
+            Content-ID: &lt;950323.1552@XIson.com&gt;
+
+            AAAcdb...
+            --tiger-lily
+            Content-type: Message/External-Body;
+               access-type=content-id
+            Content-ID: &lt;950323.1552@XIson.com&gt;
+            Content-Description:
+               この&amp;ja.mime.body-part;は参照で複製されます。
+
+            --tiger-lily--
+</pre>
+     </p>
+</div>
+   </div>
+   
+   <div class="rfc-figure">
+<span class="rfc-figure-id" id="rfc.figure.u.2">&#x00A0;</span>
+     <div class="rfc-preamble">
+       <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+         The equivalent MIME entity for the second body part is:
+       </p>
+<p xml:lang="ja" class="t-l-ja">
+         2つめの本文部分と同等の 
+         MIME 実体を次に挙げます。
+       </p>
+</div>
+     </div>
+     
+     <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+<pre class="rfc-artwork" xml:space="preserve">            --tiger-lily
+            Content-Type: image/jpeg
+            Content-ID: &lt;950323.1552@XIson.com&gt;
+            Content-Description:
+               この&amp;ja.mime.body-part;は参照で複製されます。
+
+            AAAcdb...
+            --tiger-lily</pre>
+     </p>
+<p xml:lang="ja" class="t-l-ja">
+<pre class="rfc-artwork" xml:space="preserve">            --tiger-lily
+            Content-Type: image/jpeg
+            Content-ID: &lt;950323.1552@XIson.com&gt;
+            Content-Description:
+               This body part is duplicated by reference
+
+            AAAcdb...
+            --tiger-lily</pre>
+      </p>
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="rfc-section" id="rfc.section.3">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3. Security Considerations</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3. 
+          安全性に関して</h1>
+</div>
+  <div class="rfc-t" id="rfc.section.3.p.1" xmlns="http://www.w3.org/1999/xhtml">
+   <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
+     The content-id access-type does not impact the security of messages
+   or systems.  The referenced MIME entity may have security
+   implications.
+   </p>
+<p xml:lang="ja" class="t-l-ja">
+     content-id access-type はメッセージや処理系の安全性に衝撃を与えません。<span title="参照された&#10;MIME 実体: 参照する本文部分が参照する MIME 本文部分, つまり一致する content-id を持つもの" class="ja-word">参照された
+MIME 実体</span>は安全性に関係するかもしれません。
+    </p>
+</div>
+  </div>
+</div>
+
+<div class="rfc-section" id="rfc.references">
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">4. References</h1>
+<h1 xml:lang="ja" class="t-l-ja">4. 参考文献</h1>
+</div>
+<dl>
+  <dt id="RFC822">[RFC822]</dt>
+<dd>『<cite>Standard for the format of ARPA Internet text messages</cite>』<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">, 『<cite>ARPA Internet 
+      テキストメッセージの書式の標準</cite>』</span>
+</span>, <span title="@fullname">Crocker, D.</span>, <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:std:11" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:std:11>">STD 11</a>, <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:822" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:822>">RFC 822</a>。</dd>
+  
+  <dt id="SGML">[SGML]</dt>
+<dd>『<cite>Information processing ―― Text and office systems
+      ―― Standard Generalized Markup Language (SGML)</cite>』<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">, 『<cite>情報処理――テキスト及び事務所系統――標準汎用マーク付け言語 (SGML)</cite>』</span>
+</span>, ISO
+        &#x00A0;8879:1988。<span class="t-add-info">
+      <ins class="t-note t-l-ja" xml:lang="ja">
+<span class="t-note-title">訳注: </span>日本工業規格では、 JIS X 4151 
+      『文書記述言語SGML』が対応します。
+      (参考: 
+      <a href="http://www1.u-netsurf.ne.jp/~7l1rll/SGMLindex.html" title="URI: &lt;http://www1.u-netsurf.ne.jp/~7l1rll/SGMLindex.html>" class="rfc-eref">JIS X 4151-1992 (ISO 8859:1986 に対応)</a>)</ins>
+    </span>
+</dd>
+  
+  <dt id="MIME">[MIME]</dt>
+<dd>『<cite>MIME (Multipurpose Internet Mail Extensions) 
+      Part One: Mechanisms for Specifying and Describing the Format 
+      of Internet Message Bodies</cite>』<span class="t-pair">
+<span xml:lang="ja" class="t-l-ja">, 『<cite>MIME (多目的 Internet メイル拡張) 
+      第1部: Internet メッセージ本文の書式の指定説明機構</cite>』</span>
+</span>, <span title="@fullname">Borenstein, N.</span>, <span title="@fullname">Freed, N.</span>, <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1521" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1521>">RFC 1521</a>。</dd>
+</dl>
+</div>
+<div id="rfc-authors" class="rfc-section">
+<div id="rfc.authors" class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en">5. Author's Addresses</h1>
+<h1 xml:lang="ja" class="t-l-ja">5. 著者の連絡先</h1>
+</div>
+<ul class="rfc-author">
+<li class="rfc-author-fullname">Edward Levinson</li>
+<li class="rfc-organization">Accurate Information Systems, Inc.</li>
+<li class="rfc-street">2 Industrial Way</li>
+<li class="rfc-city">Eatontown</li>
+<li class="rfc-region">NJ</li>
+<li class="rfc-code">07724-2265</li>
+<li class="rfc-country">USA</li>
+<li class="rfc-phone">電話: +1 908 389 5550</li>
+<li class="rfc-email">電子メイル: &lt;<a href="mailto:ELevinson@Accurate.com">ELevinson@Accurate.com</a>&gt;</li>
+</ul>
+<ul class="rfc-author">
+<li class="rfc-author-fullname">James Clark</li>
+<li class="rfc-street">90 Clarendon Road</li>
+<li class="rfc-city">London W11 2HR</li>
+<li class="rfc-country">UK</li>
+<li class="rfc-email">電子メイル: &lt;<a href="mailto:jjc@jclark.com">jjc@jclark.com</a>&gt;</li>
+</ul>
+</div>
+<ins id="rfc-translators-note" class="t-note t-l-ja" xml:lang="ja">
+<div class="rfc-section">
+<div>
+<h1 xmlns="http://www.w3.org/1999/xhtml">Content-ID の指定</h1>
+</div>
+    <p class="rfc-t" id="rfc.section.1.p.1" xmlns="http://www.w3.org/1999/xhtml">MIME <a href="#MIME" title="MIME (多目的 Internet メイル拡張) 第1部: Internet メッセージ本文の書式の指定説明機構" xmlns="">[MIME]</a> の規定と照らし合わせると、
+    <a href="http://suika.fam.cx/~wakaba/-temp/wiki/wiki?message%2Fexternal%2Dbody%C7%DE%C2%CE%B7%BF" title="URI: &lt;http://suika.fam.cx/~wakaba/-temp/wiki/wiki?message%2Fexternal%2Dbody%C7%DE%C2%CE%B7%BF>" class="rfc-eref" xmlns="">どこに 
+    Content-ID: 欄を書くのかについて疑問があります</a>。</p>
+  </div>
+<div class="rfc-section">
+<div>
+<h1 xmlns="http://www.w3.org/1999/xhtml">IANA に関して</h1>
+</div>
+    <p class="rfc-t" id="rfc.section.2.p.1" xmlns="http://www.w3.org/1999/xhtml">
+<a href="http://www.iana.org/assignments/access-types" title="URI: &lt;http://www.iana.org/assignments/access-types>" class="rfc-eref" xmlns="">IANA
+    登録簿</a>には、 access-type "Content-ID" は登録されていません。
+    (2002年7月現在)</p>
+  </div>
+<div class="rfc-section" id="t-change">
+<h1>翻訳の変更履歴</h1>
+<dl>
+<dt>2002-05-20 <a href="mailto:w@suika.fam.cx" title="電子メイル: &lt;w@suika.fam.cx>">わかば</a>
+</dt>
+<dd>
+<ul>
+<li>日本語に翻訳。</li>
+</ul>
+</dd>
+<dt>2002-07-26 <a href="mailto:w@suika.fam.cx" title="電子メイル: &lt;w@suika.fam.cx>">わかば</a>
+</dt>
+<dd>
+<ul>
+<li>
+<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:2629" title="RFC 2629">RFC 2629</a> でマーク付け。</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="rfc-section" id="rfc-t-copyright">
+<h1>訳文についての著作権声明</h1>
+<p>この翻訳文は、自由に複製・配布・改変して構いません。
+        (rfc-copyright-story も参照して下さい。)</p>
+</div>
+</ins>
+</body>
+</html>

@@ -77,15 +77,15 @@
 	</address>
 </author>
 <ja:change>
-  <ja:item ja:year="2002" ja:month="05" ja:day="12">
+  <ja:item year="2002" month="05" day="12">
     <author ja:ref="wakaba" />
     <t>日本語に翻訳。</t>
   </ja:item>
-  <ja:item ja:year="2002" ja:month="05" ja:day="26">
+  <ja:item year="2002" month="05" day="26">
     <author ja:ref="wakaba" />
     <t><ja:link type="rfc" number="2629" /> でマーク付け。</t>
   </ja:item>
-</ja:change><!-- $Date: 2002/05/26 09:13:08 $ -->
+</ja:change><!-- $Date: 2002/07/26 11:56:16 $ -->
 </ja:front>
 <middle>
 
@@ -352,9 +352,9 @@ HREF="shttp://research.nsa.gov/skipjack-holes.html">
   </t>
 </section>
 
-<ja:insert ja:section="author-address" ja:title-prefix="4. " />
-<ja:insert ja:section="references" ja:title-prefix="5. " />
-<ja:insert ja:section="full-copyright" ja:title-prefix="6. " />
+<ja:insert section="author-address" title-prefix="4. " />
+<ja:insert section="references" title-prefix="5. " />
+<ja:insert section="full-copyright" title-prefix="6. " />
 
 </middle>
 <back>

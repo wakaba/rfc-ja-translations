@@ -63,35 +63,35 @@
   <ja:item year="2002" month="05" day="20"><author ja:ref="wakaba" />
     <t><ja:link type="rfc" number="2629" /> でマーク付け。</t>
   </ja:item>
-</ja:change><!-- $Date: 2002/05/20 12:30:02 $ -->
+</ja:change><!-- $Date: 2002/07/26 11:56:16 $ -->
 </ja:front>
 <middle>
 
 <section title="Description" myns:unnumbered="yes">
   <t>
-   <ja:pair>
-   <ja:l xml:lang="en">
-     From November 1977 through October 1994, the Internet 
-     Assigned Numbers Authority (IANA) periodically published 
-     tables of the Internet protocol parameter assignments in RFCs 
-     entitled, “Assigned Numbers”.  The most current of these 
-     Assigned Numbers RFCs had Standard status and carried the 
-     designation: <ja:link type="std" number="2" />.  At this time,
-     the latest <ja:link type="std" number="2" /> is 
-     <ja:link type="rfc" number="1700" />.
-   </ja:l>
-   <ja:l xml:lang="ja">
-     1977年11月から1994年10月まで、<eref target="http://www.iana.org/">&ja.inet.iana;
-     (IANA)</eref> は定期的に Internet 
-     &ja.protocol;&ja.parameter;の表を『割当番号』と名づけた
-     RFC で発行して来ました。現在まで割当番号 RFC 
-     は標準の位置付けで、 <ja:link type="std" number="2" /> 
-     という番号を当てられていました。現時点で最新の
-     <ja:link type="std" number="2" /> は 
-     <ja:link type="rfc" number="1700" /> です。
-   </ja:l>
-   </ja:pair>
- </t>
+    <ja:pair>
+    <ja:l xml:lang="en">
+      From November 1977 through October 1994, the Internet 
+      Assigned Numbers Authority (IANA) periodically published 
+      tables of the Internet protocol parameter assignments in RFCs 
+      entitled, “Assigned Numbers”.  The most current of these 
+      Assigned Numbers RFCs had Standard status and carried the 
+      designation: <ja:link type="std" number="2" />.  At this time,
+      the latest <ja:link type="std" number="2" /> is 
+      <ja:link type="rfc" number="1700" />.
+    </ja:l>
+    <ja:l xml:lang="ja">
+      1977年11月から1994年10月まで、<eref target="http://www.iana.org/">&ja.inet.iana;
+      (IANA)</eref> は定期的に Internet 
+      &ja.protocol;&ja.parameter;の表を『割当番号』と名づけた
+      RFC で発行して来ました。現在まで割当番号 RFC 
+      は標準の位置付けで、 <ja:link type="std" number="2" /> 
+      という番号を当てられていました。現時点で最新の
+      <ja:link type="std" number="2" /> は 
+      <ja:link type="rfc" number="1700" /> です。
+    </ja:l>
+    </ja:pair>
+  </t>
 
   <t>
    <ja:pair>
