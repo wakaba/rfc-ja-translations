@@ -1,0 +1,3233 @@
+<?xml version="1.0" encoding="iso-2022-jp"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [<!ENTITY rfc.number "2629">]>
+<?rfc toc="yes"?>
+<rfc number="2629"
+   xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translate/"
+   xmlns:h="http://www.w3.org/1999/xhtml">
+<front>
+<title>Writing I-Ds and RFCs using XML</title>
+<ja:title xml:lang="ja">XML を使って I-D や RFC を書く</ja:title>
+<author initials="M.T." surname="Rose" fullname="Marshall T. Rose">
+<organization>Invisible Worlds, Inc.</organization>
+<address>
+<postal>
+<street>660 York Street</street>
+<city>San Francisco</city> <region>CA</region> <code>94110</code>
+<country>US</country>
+</postal>
+<phone>+1 415 695 3975</phone>
+<email>mrose@not.invisible.net</email>
+<uri>http://invisible.net/</uri>
+</address>
+</author>
+<date month="June" year="1999" />
+<area>General</area>
+<keyword>RFC</keyword>
+<keyword>Request for Comments</keyword>
+<keyword>I-D</keyword>
+<keyword>Internet-Draft</keyword>
+<keyword>XML</keyword>
+<keyword>Extensible Markup Language</keyword>
+<abstract>
+  <t>
+    <ja:pair>
+    <ja:l xml:lang="en">
+      This memo presents a technique for using XML
+      (Extensible Markup Language)
+      as a source format for documents in the Internet-Drafts (I-Ds) 
+      and Request for Comments (RFC) series.
+    </ja:l>
+    <ja:l xml:lang="ja">
+      このメモは、 XML (拡張マーク付け言語) を Internet-Draft (I-D)
+      や Request for Comments (RFC) 系列の文書の原形式として使用する手法を説明します。
+    </ja:l>
+    </ja:pair>
+  </t>
+</abstract>
+</front>
+<ja:front>
+<author fullname="わかば" ja:id="wakaba">
+	<address>
+	<email>w@suika.fam.cx</email>
+	<uri>http://suika.fam.cx/~wakaba/</uri>
+	</address>
+</author>
+<ja:copyright>
+  <ja:item>Copyright &#xa9; わかば (2002)。全権保留。</ja:item>
+</ja:copyright>
+<ja:change>
+  <ja:item year="2002" month="04" day="30"><author ja:ref="wakaba" />
+    <t>翻訳完了。</t>
+  </ja:item>
+  <ja:item year="2002" month="05" day="03"><author ja:ref="wakaba" />
+    <t>訳注を幾つか追加。翻訳変更履歴の章を新設。</t>
+  </ja:item>
+</ja:change><!-- $Date: 2002/05/03 06:14:36 $ -->
+<keyword>拡張マーク付け言語</keyword>
+</ja:front>
+<middle>
+
+<section title="Introduction">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    This memo describes how to write a document for the I-D and 
+    RFC series using <xref target="XML">the Extensible Markup 
+    Language</xref> (XML). This memo has three goals:
+  </ja:l>
+  <ja:l xml:lang="ja">
+    このメモは、 I-D および RFC 
+    系列の文書を<xref target="XML">拡張マーク付け言語</xref> (XML)
+    を使って書く方法を説明します。このメモには、三つの目的があります。
+  </ja:l>
+  </ja:pair>
+  
+<list style="numbers">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    To describe a simple XML Document Type Definition (DTD) that is
+powerful enough to handle the simple formatting requirements of RFC-like
+documents whilst allowing for meaningful markup of descriptive
+qualities.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    意味マーク付けの記述品質が可能な RFC
+    型文書の単純な書式づけ要件を取り扱うのに十分強力である XML 
+    文書型定義 (DTD) の説明
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    To describe software that processes XML source files,
+including a tool that produces documents
+conforming to <xref target="refs.RFC2223">RFC 2223</xref>,
+HTML format, and so on.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <xref target="refs.RFC2223">RFC 2223</xref> に適合する文書,
+    HTML 形式, その他を生成する道具を含む、
+    XML 源ファイルを処理するソフトウェアの説明
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    To provide the proof-of-concept for the first two goals
+(this memo was written using this DTD and produced using that
+software).
+  </ja:l>
+  <ja:l xml:lang="ja">
+    前述の2つの目的の概念の証明の提供 (このメモはその DTD 
+    を使って執筆され、そうしたソフトウェアを使って生成されました。)
+  </ja:l>
+  </ja:pair>
+</t>
+</list>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    It is beyond the scope of this memo to discuss the political
+ramifications of using XML as a source format for RFC-like documents.
+Rather,
+it is simply noted that adding minimal markup to plain text:
+  </ja:l>
+  <ja:l xml:lang="ja">
+    RFC 的文書の源形式として XML を使うことの政治的議論はこのメモの適用範囲外です。それよりも、平文 (plain text) に最小のマーク付けを加えることで、
+  </ja:l>
+  </ja:pair>
+  
+<list style="symbols">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    allows the traditional production of textual RFC-like documents using
+familiar editors;
+  </ja:l>
+  <ja:l xml:lang="ja">
+    よく知られているエディターを使って文字な RFC 的文書の伝統的生成が可能になる
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    requires some, albeit minimal, additions to existing software
+environments; and,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    幾つか、最低でも、既存のソフトウェア環境に追加が必要である
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    permits information to be organized, searched, and retrieved
+using both unstructured and structured mechanisms.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    非構造化・構造化の両機構を使って情報を組織化したり検索したり取り出したり出来る
+  </ja:l>
+  </ja:pair>
+</t>
+</list>
+
+  <ja:pair>
+  <ja:l xml:lang="ja">
+    ということを単に記すものです。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+
+<section title="Using the DTD to Write I-Ds and RFCs" ja:title-ja="I-D や RFC を書くのに DTD を使う">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    We do not provide a formal or comprehensive description of XML.
+Rather,
+this section discusses just enough XML to use a Document Type
+Declaration (DTD) to write RFC-like documents.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    XML についての正式な、あるいは包括的な説明はしません。
+    この節では、 RFC 的文書を書くための文書型宣言 (DTD) 
+    を使うのに必要なだけの話をします。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    If you're already familiar with XML,
+skip to <xref target="rfc.dtd" /> to look at the DTD.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    XML について既によく分かっているなら、<xref target="rfc.dtd" />に飛んで、 DTD を御覧下さい。
+  </ja:l>
+  </ja:pair>
+</t>
+
+<section anchor="xml_basics" title="XML basics" ja:title-ja="XML の基礎">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    There are very few rules when writing in XML,
+as the syntax is simple.
+There are five terms you'll need to know:
+  </ja:l>
+  <ja:l xml:lang="ja">
+    XML は構文が簡単なので、書く時に必要なのはほんの少しの規則だけです。知っておくべきことは5つあります。
+  </ja:l>
+  </ja:pair>
+
+<list style="numbers">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    An “element” usually refers to a start tag, an end tag, and all the
+characters in between,
+e.g.,
+"&lt;example&gt;text and/or nested elements&lt;/example&gt;"
+  </ja:l>
+  <ja:l xml:lang="ja">
+    「要素」は通常開始タグと終了タグ、それに間の全ての文字、例えば
+    <h:samp>&lt;例&gt;文字とか入れ子の要素&lt;/例&gt;</h:samp>
+    を指します。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    An "empty element" combines the start tag and the end tag,
+e.g.,
+"&lt;empty/&gt;".
+You don't find these in HTML.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    「空要素」は開始タグと終了タグがくっついて、 
+    <h:samp>&lt;空/&gt;</h:samp> のようになります。 
+    HTML にはこれはありません。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    An "attribute" is part of an element.
+If present, they occur in the start tag, e.g.,
+"&lt;example name='value'&gt;".
+Of course,
+they can also appear in empty elements, e.g.,
+"&lt;empty name='value'/&gt;".
+  </ja:l>
+  <ja:l xml:lang="ja">
+    「属性」は要素の一部です。存在する場合、開始タグ中に、
+    <h:samp>&lt;例 名前='値'&gt;</h:samp> 
+    の様に現れます。もちろん、空要素中でも
+    <h:samp>&lt;空 名前='値'/&gt;</h:samp> の様に使えます。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    An "entity" is a textual macro that starts with "&amp;".
+Don't worry about these,
+you'll only use them whenever you want to put a "&amp;" or a "&lt;" in
+your text.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    「実体」は文字マクロで、「&amp;」で始まります。
+    な〜に心配しなさんな、「&amp;」や「&lt;」を文中に入れたい時にだけいつでも使うことが出来ます。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    A "token" is a string of characters.
+The first character is either a letter or an underscore ("_").
+Any characters that follow are either letters, numbers, an
+underscore, or a period (".").
+  </ja:l>
+  <ja:l xml:lang="ja">
+    「字句 (token)」 は文字の列です。最初の文字は文字か下線 (「_」)
+    です。その後の文字は文字、数字、下線、句点 (「.」) です。
+    <ja:note>ここで文字とは、26×2種類の基本ラテン字母のことです。</ja:note>
+  </ja:l>
+  </ja:pair>
+</t>
+</list>
+</t>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    First,
+start your source file with an XML declaration,
+a reference to the DTD,
+and the "rfc" element:
+  </ja:l>
+  <ja:l xml:lang="ja">
+    最初に、源ファイルは XML 宣言, DTD への参照, 「rfc」要素で始めます。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <?xml version="1.0"?>
+    <!DOCTYPE rfc SYSTEM "rfc]]>&rfc.number;<![CDATA[.dtd">
+    <rfc>
+        ...
+    </rfc>
+]]></artwork>
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Ignore the first two lines
+―― the declaration and the reference ――
+and simply treat them as opaque strings.
+Nothing else should be present after the "&lt;/rfc&gt;" tag.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    最初の2行 (宣言と参照) は無視し、単に呪文だと思って下さい。
+    「&lt;/rfc&gt;」タグの後には何も現れるべきではありません。
+    <ja:note>rfc 要素については、 <xref target="rfc" /> に説明があります。</ja:note>
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Second,
+make sure that all elements are properly matched and nested.
+A properly matched element that starts with
+"&lt;example&gt;" is eventually followed with "&lt;/example&gt;".
+(Empty elements are always matched.)
+Elements are properly nested when they don't overlap.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    二番目に、全ての要素が適切に対応・入れ子になっているか確かめて下さい。
+    <h:samp>&lt;例&gt;</h:samp> で始まる適切に対応する要素は、最終的には
+    <h:samp>&lt;/例&gt;</h:samp> が続くことになります。
+    (空要素は常に対応しています。) 
+    各要素は重複していない時で適切に入れ子になっています。
+  </ja:l>
+  </ja:pair>
+</t>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    For example,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    例えば、
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <outer>
+        ...
+        <inner>
+            ...
+        </inner>
+        ...
+    </outer>
+]]></artwork>
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    is properly nested.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    は適切に入り組んでいます。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    However,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    しかし、
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <outer>
+        ...
+        <inner>
+            ...
+        </outer>
+        ...
+    </inner>
+]]></artwork>
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    overlaps, so the elements aren't properly nested.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    は重なっているので、要素は正しく入れ子になっていません。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Third,
+never use "&lt;" or "&amp;" in your text.
+Instead, use either "&amp;lt;" or "&amp;amp;", respectively.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    三番目に、「&lt;」や「&amp;」を文中に使ってはいけません。代わりに、それぞれ「&amp;lt;」と「&amp;amp;」を使います。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Fourth,
+there are two quoting characters in XML, 'apostrophe' and "quotation".
+Make sure that all attributes values are quoted,
+e.g., "&lt;example name='value'&gt;",
+If the value contains one of the quoting characters,
+then use the other to quote the value,
+e.g., "&lt;example name='"'&gt;",
+If the value contains both quoting characters,
+then use one of them to quote the value,
+and replace occurrances of that character in the attribute value with
+either '&amp;apos;' (apostrophe) or "&amp;quot;" (quotation),
+e.g., "&lt;example name='"&amp;apos;"'&gt;".
+  </ja:l>
+  <ja:l xml:lang="ja">
+    四番目に、 XML では 'アポストロフィ' と "引用" 
+    の二種類の引用文字があります。全ての属性値を、
+    <h:samp>6lt;例 名前='値'&gt;</h:samp> の様に引用符で囲むことを確認して下さい。値に引用文字の一方が使われている時は、
+    <h:samp>&lt;例 名前='"'&gt;</h:samp> の様に他方を値を囲むのに使います。
+    値が引用文字の両方を含んでいる場合、どちらかを値を囲むのに使い、属性値に使われている文字を '&amp;apos;' (アポストロフィ) または "&amp;quot;"
+    (引用) に置き換えて、 <h:samp>&lt;例 名前='"&amp;apos;"'&gt;"</h:samp>
+    のようにします。
+  </ja:l>
+  </ja:pair>
+</t>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    If you want to put a comment in your source file,
+here's the syntax:
+  </ja:l>
+  <ja:l xml:lang="ja">
+    源ファイルに注釈を入れたい時は、次の構文の様にします。
+  </ja:l>
+  </ja:pair>
+</preamble>
+
+  <ja:pair>
+  <ja:l xml:lang="en">
+    <artwork><![CDATA[
+        <!-- comments can be multiline,
+         if you wish -->
+]]></artwork>
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <artwork><![CDATA[
+        <!-- 注釈行は、必要なら
+         複数行に出来ます。 -->
+]]></artwork>
+    <postamble>
+      <ja:note>また、注釈中に「--」を使ってはいけません。</ja:note>
+    </postamble>
+  </ja:l>
+  </ja:pair>
+
+</figure>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Finally,
+XML is case sensitive.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    五番目に、 XML は大文字と小文字を区別します。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+
+<section anchor="front_matter" title="Front matter">
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Immediately following the "&lt;rfc&gt;" tag is the "front"
+element:
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "&lt;rfc&gt;" タグの直ぐ後に続くのは "front" 要素です。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <?xml version="1.0"?>
+    <!DOCTYPE rfc SYSTEM "rfc]]>&rfc.number;<![CDATA[.dtd">
+    <rfc>
+        <front>
+            <title ...>
+            <author ...>
+            <author ...>
+            <date ...>
+            <area ...>
+            <workgroup ...>
+            <keyword ...>
+            <keyword ...>
+            <abstract ...>
+            <note ...>
+        </front>
+        ...
+    </rfc>
+]]></artwork>
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    (Note that in all examples,
+indentation is used only for expository purposes.)
+  </ja:l>
+  <ja:l xml:lang="ja">
+    (全ての例で、字下げは説明のためだけに使っていることに注意して下さい。)
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "front" element consists of a "title" element,
+one or more "author" elements,
+a "date" element,
+one or more optional "area" elements,
+one or more optional "workgroup" elements,
+one or more optional "keyword" elements,
+an optional "abstract" element.
+and,
+one or more optional "note" elements.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "front" 要素は "title" 要素, 1つ以上の "author" 要素, "date" 要素,
+    1つ以上の省略可能な "area" 要素,
+    1つ以上の省略可能な "workgroup" 要素,
+    1つ以上の省略可能な "keyword" 要素,
+    省略可能な "abstract" 要素,
+    1つ以上の省略可能な "note" 要素から成ります。
+  </ja:l>
+  </ja:pair>
+</t>
+<section title="The title Element" ja:title-ja="title 要素">
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "title" element identifies the title of the document.
+Because the title will be used in the headers of the document when formatted
+according to <xref target="refs.RFC2223" />,
+if the title is more than 42 characters,
+then an abbreviation should also be provided,
+e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "title" 要素は、文書の題を識別します。題は 
+    <xref target="refs.RFC2223" /> に従って整形する時に文書の頭に使われるので、題は42文字以上の時は、省略形も与えるべきです。例えば、次のようにします。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <title abbrev="Much Ado about Nothing">
+    The IETF's Discussion on "Source Format of RFC Documents"
+    </title>
+]]></artwork>
+</figure>
+</section>
+<section anchor="author" title="The author Element" ja:title-ja="author 要素">
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Each "author" element identifies a document author.
+Since a document may have more than one author,
+more than one "author" element may be present.
+If the author is a person,
+then three attributes must be present in the "&lt;author&gt;" tag,
+"initials", "surname", and "fullname",
+e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    各 "author" 要素は、文書の要素を識別します。文書には複数人の著者がい得ますので、複数の 
+    "author" 要素を使うことが出来ます。著者が人物である時は、
+    "initials" (頭文字), "surname" (姓), "fullname" (全名) の3つの属性が
+    "author" タグになければなりません。例えば、次の様にします。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <author initials="M.T." surname="Rose"
+            fullname="Marshall T. Rose">
+]]></artwork>
+</figure>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "author" element itself consists of an "organization" element,
+and,
+an optional "address" element.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "author" 要素自身は "organization" 要素と、省略可能な "address"
+    要素から成ります。
+  </ja:l>
+  </ja:pair>
+</t>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "organization" element is similar to the "title"
+element,
+in that an abbreviation may be paired with a long organization name
+using the "abbrev" attribute, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "organization" 要素は "title" 要素と同じ様に、長い組織名に
+    "abbrev" 属性を使って次の例の様に省略名を指定することが出来ます。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <organization abbrev="ISI">
+        USC/Information Sciences Institute
+    </organization>
+]]></artwork>
+</figure>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "address" element consists of an optional "postal" element,
+an optional "phone" element,
+an optional "facsimile" element,
+an optional "email" element,
+and,
+an optional "uri" element.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "address" 要素は省略可能な "postal" 要素,
+省略可能な "phone" 要素,
+省略可能な "facsimile" 要素,
+省略可能な "email" 要素,
+省略可能な "uri" 要素から成ります。
+  </ja:l>
+  </ja:pair>
+</t>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "postal" element contains one or more "street" elements,
+followed by any combination of "city", "region" (state or province),
+"code" (zipcode or postal code), and "country" elements, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "postal" 要素は次の例の様に、1つ以上の "street" 要素, それに続く
+    "city", "region" (州や地方), "code" (郵便番号), "country" 
+    各要素の自由な組合せから成ります。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <postal>
+        <street>660 York Street</street>
+        <street>M/S 40</street>
+        <city>San Francisco</city> <region>CA</region>
+        <code>94110</code>
+        <country>US</country>
+    </postal>
+]]></artwork>
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    This flexibility is provided to allow for different national
+formats for postal addresses.
+Note however,
+that although the order of the "city", "region", "code", and "country"
+elements isn't specified,
+at most one of each may be present.
+Regardless,
+these elements must not be re-ordered during processing by an XML
+application
+(e.g., display applications must preserve the ordering of the
+information contained in these elements).
+Finally,
+the value of the "country" element should be a two-letter
+code from ISO 3166.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    この柔軟さにより、異なった国家郵便住所形式が使えます。
+    しかし、 "city", "region", "code", "country" 
+    各要素の順序は規定していませんが、この内のせいぜい1つは出現するかもしれないことに注意して下さい。とにかく、これらの要素は 
+    XML 応用の処理の過程で順序を入れ替えてはなりません。 
+    (例えば、表示応用はこれらの要素に含まれる情報の順序を保たなければなりません。)
+    最後に、 "country" 要素の値は ISO 3166 の2文字符号とするべきです。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "phone", "facsimile", "email", and "uri" elements are
+simple, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "phone", "facsimile", "email", "uri" 各要素は簡単で、次の様な感じです。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <phone>+1 415 695 3975</phone>
+    <email>mrose@not.invisible.net</email>
+    <uri>http://invisible.net/</uri>
+]]></artwork>
+</figure>
+</section>
+<section anchor="date" title="The date Element" ja:title-ja="date 要素">
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "date" element identifies the publication date of the
+document.
+It consists of a month and a year, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "date" 要素は文書の出版の日付を示します。次のように月と年から成ります。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <date month="February" year="1999" />
+]]></artwork>
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "date" element also has an optional day attribute.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "date" 要素には省略可能な day 属性もあります。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+</section>
+<section title="Meta Data Elements" ja:title-ja="メタ・データ要素">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "front" element may contain meta data ――
+the content of these elements does not appear in printed versions of
+the document.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "front" 要素はメタ・データ (内容は文書の印刷版には出現しないもの) も含むことが出来ます。
+  </ja:l>
+  </ja:pair>
+</t>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    A document has one or more optional "area",
+"workgroup" and "keyword" elements, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    文書は1つ以上の省略可能な "area", "workgroup", "keyword"
+    各要素を次の例の様に持ちます。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <area>General</area>
+    <workgroup>RFC Beautification Working Group</workgroup>
+    <keyword>RFC</keyword>
+    <keyword>Request for Comments</keyword>
+    <keyword>I-D</keyword>
+    <keyword>Internet-Draft</keyword>
+    <keyword>XML</keyword>
+    <keyword>Extensible Markup Language</keyword>
+]]></artwork>
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "area" elements identify a general category for the
+document
+(e.g., one of "Applications", "General", "Internet", "Management",
+"Operations", "Routing", "Security", "Transport", or "User"),
+while the "workgroup" elements identify the IETF working groups that
+produced the document,
+and the "keyword" elements identify useful search terms.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "area" 要素は文書の一般分類 ("Applications" (応用), 
+    "General" (一般), "Internet", "Management" (経営),
+    "Operations" (作業), "Routing" (経路), "Security" (保安), 
+    "Transport" (輸送), "User" (利用者)) を示し、
+    "workgroup" 要素は文書を出した IETF 作業部会を示し、
+    "keyword" 要素は有用な検索語を示します。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+</section>
+<section title="The abstract Element" ja:title-ja="abstract 要素">
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    A document may have an "abstract" element,
+which contains one or more <xref target="t">"t" elements</xref>.
+In general,
+only a single "t" element is present,
+e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    文書には "abstract" 要素を使うことが出来て、
+    それには1つ以上の <xref target="t">"t" 要素</xref>が含められます。通常、次の例の様に、 "t" 要素を1つだけ使います。
+  </ja:l>
+  </ja:pair>
+</preamble>
+
+  <ja:pair>
+  <ja:l xml:lang="en">
+    <artwork><![CDATA[
+    <abstract>
+        <t>This memo presents a technique for using XML
+        (Extensible Markup Language) as a source format
+        for documents in the Internet-Drafts (I-Ds) and
+        Request for Comments (RFC) series.</t>
+    </abstract>
+]]></artwork>
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <artwork><![CDATA[
+    <abstract>
+        <t>このメモは、 XML (拡張マーク付け言語) を 
+        Internet-Draft (I-D) や Request for Comments (RFC) 
+        系列の文書の原形式として使用する手法を説明します。</t>
+    </abstract>
+]]></artwork>
+  </ja:l>
+  </ja:pair>
+
+</figure>
+</section>
+<section title="The note Element" ja:title-ja="note 要素">
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    A document may have one or more "note" elements,
+each of which contains one or more <xref target="t">"t" elements</xref>.
+There is a mandatory "title" attribute.
+In general,
+the "note" element contains text from the IESG, 
+e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    文書には1つ以上の "note" 要素を使うことが出来て、
+    それぞれ1つ以上の <xref target="t">"t" 要素</xref>が含められます。必須の
+    "title" 属性があります。通常、 "note" 要素は IESG 
+    からの文を次の例の様に入れます。
+  </ja:l>
+  </ja:pair>
+</preamble>
+
+  <ja:pair>
+  <ja:l xml:lang="en">
+    <artwork><![CDATA[
+    <note title="IESG Note">
+        <t>The IESG has something to say.</t>
+    </note>
+]]></artwork>
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <artwork><![CDATA[
+    <note title="IESG 注記">
+        <t>IESG は特に言うことはありません。</t>
+    </note>
+]]></artwork>
+  </ja:l>
+  </ja:pair>
+
+</figure>
+</section>
+<section title="Status, Copyright Notice, Table of Contents" ja:title-ja="位置付け, 著作権表示, 目次">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Note that text relating to the memo's status, copyright notice, or
+table of contents is not included in the document's markup ―― this is
+automatically inserted by an XML application when it produces either
+a text or HTML version of the document.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    メモの位置付けを説明する文章, 著作権表示, 
+    目次は文書のマーク付けには含めません。これは XML 
+    応用が文書の text 版や HTML 版を生成する時に自動的に挿入されます。
+  </ja:l>
+  </ja:pair>
+</t>
+<section anchor="ipr" title="Conformance with RFC 2026" ja:title-ja="RFC 2026 への適合性">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    If an Internet-Draft is being produced,
+then the "ipr" attribute should be present in the "&lt;rfc&gt;"
+tag at the beginning of the file.
+The value of the attribute should be one of:
+  </ja:l>
+  <ja:l xml:lang="ja">
+    Internet-Draft が生成される場合に、 "ipr" 属性がファイルのはじめの
+    "&lt;rfc&gt;"タグに現れるべきです。この属性の値は次のいずれかであるべきです。
+  </ja:l>
+  </ja:pair>
+
+<list style="hanging">
+<t hangText="full2026:">
+  <ja:pair>
+  <ja:l xml:lang="en">
+    indicating that the document is in full conformance with all
+the provisions of Section 10 of RFC 2026;
+  </ja:l>
+  <ja:l xml:lang="ja">
+    文書が <ja:link type="rfc" number="2026">RFC 2026</ja:link> 
+    の<ja:link type="rfc" number="2026" section="10">第10章</ja:link>
+    の全ての要件に完全に適合することを示します
+  </ja:l>
+  </ja:pair>
+</t>
+<t hangText="noDerivativeWorks2026:">
+  <ja:pair>
+  <ja:l xml:lang="en">
+    indicating that the document is in full
+conformance with all the provisions of Section 10 of RFC 2026 except that the
+right to produce derivative works is not granted; or,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    文書が、派生的作業の生成が認められていないことを除いて、
+    <ja:link type="rfc" number="2026">RFC 2026</ja:link> 
+    の<ja:link type="rfc" number="2026" section="10">第10章</ja:link>
+    の全ての要件に完全に適合することを示します
+  </ja:l>
+  </ja:pair>
+</t>
+<t hangText="none:">
+  <ja:pair>
+  <ja:l xml:lang="en">
+    indicating that the document is NOT offered in accordance with
+Section 10 of RFC 2026, and the author does not provide the IETF with any rights
+other than to publish as an Internet-Draft.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    文書が
+    <ja:link type="rfc" number="2026">RFC 2026</ja:link> 
+    の<ja:link type="rfc" number="2026" section="10">第10章</ja:link>
+    に従って<h:strong>おらず</h:strong>、著者は IETF に Internet-Draft
+    として発行する以外のいかなる権利をも提供しないことを示します
+  </ja:l>
+  </ja:pair>
+</t>
+</list>
+
+  <ja:pair>
+  <ja:l xml:lang="en">
+    In the latter case,
+a copyright notice will not be automatically inserted during
+processing by an XML application.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    後者の場合では、著作権表示は XML 応用により自動的には挿入されません。
+    <ja:note>後者 (the latter case) とは最後の場合のみ?
+    rfc2629.xslt ではどの場合でも挿入されるようですが...</ja:note>
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Consult <xref target="refs.RFC2026" /> for further details.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    詳しくは <xref target="refs.RFC2026" /> を調べて下さい。
+  </ja:l>
+  </ja:pair>
+</t>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Finally,
+if the Internet-Draft is being submitted to an automated process,
+then the "docName" attribute should be present in the "&lt;rfc&gt;"
+tag at the beginning of the file.
+The value of this attribute contains the document (not file) name
+associated with this Internet-Draft, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    最後に、 Internet-Draft が自動処理に回された時は、 "docName"
+    属性がファイルのはじめの "&lt;rfc&gt;" タグ中に出現するべきです。
+    この属性の値は Internet-Draft につけられた文書 (ファイルでなしに) 
+    の名前で、次の様になります。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <rfc ipr="full" docName="draft-mrose-writing-rfcs-01">
+        ...
+    </rfc>
+]]></artwork>
+<!-- ↓原文ママ -->
+<postamble></postamble>
+</figure>
+</section>
+</section>
+<section title="Everything in the Front" ja:title-ja="Front 全体">
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    So,
+putting it all together, we have, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    以上をまとめると次の様になります。
+  </ja:l>
+  </ja:pair>
+</preamble>
+
+  <ja:pair>
+  <ja:l xml:lang="en"><artwork><![CDATA[
+    <front>
+        <title>Writing I-Ds and RFCs using XML</title>
+    
+        <author initials="M.T." surname="Rose"
+                fullname="Marshall T. Rose">
+            <organization>Invisible Worlds, Inc.</organization>
+    
+            <address>
+                <postal>
+                    <street>660 York Street</street>
+                    <street>M/S 40</street>
+                    <city>San Francisco</city> <region>CA</region>
+                    <code>94110</code>
+                    <country>US</country>
+                </postal>
+    
+                <phone>+1 415 695 3975</phone>
+                <email>mrose@not.invisible.net</email>
+                <uri>http://invisible.net/</uri>
+            </address>
+        </author>
+    
+        <date month="February" year="1999" />
+    
+        <area>General</area>
+        <workgroup>RFC Beautification Working Group</workgroup>
+        <keyword>RFC</keyword>
+        <keyword>Request for Comments</keyword>
+        <keyword>I-D</keyword>
+        <keyword>Internet-Draft</keyword>
+        <keyword>XML</keyword>
+        <keyword>Extensible Markup Language</keyword>
+        <abstract>
+            <t>This memo presents a technique for using XML
+            (Extensible Markup Language) as a source format
+            for documents in the Internet-Drafts (I-Ds) and
+            Request for Comments (RFC) series.</t>
+        </abstract>
+    </front>
+]]></artwork></ja:l>
+  <ja:l xml:lang="ja"><artwork><![CDATA[
+    <front>
+        <title>XML を使って I-D や RFC を書く</title>
+    
+        <author initials="M.T." surname="Rose"
+                fullname="Marshall T. Rose">
+            <organization>Invisible Worlds, Inc.</organization>
+    
+            <address>
+                <postal>
+                    <street>660 York Street</street>
+                    <street>M/S 40</street>
+                    <city>San Francisco</city> <region>CA</region>
+                    <code>94110</code>
+                    <country>US</country>
+                </postal>
+    
+                <phone>+1 415 695 3975</phone>
+                <email>mrose@not.invisible.net</email>
+                <uri>http://invisible.net/</uri>
+            </address>
+        </author>
+    
+        <date month="February" year="1999" />
+    
+        <area>General</area>
+        <workgroup>RFC 美化作業部会</workgroup>
+        <keyword>RFC</keyword>
+        <keyword>Request for Comments</keyword>
+        <keyword>I-D</keyword>
+        <keyword>Internet-Draft</keyword>
+        <keyword>XML</keyword>
+        <keyword>拡張マーク付け言語</keyword>
+        <abstract>
+            <t>このメモは、 XML (拡張マーク付け言語) を 
+            Internet-Draft (I-D) や Request for Comments (RFC) 
+            系列の文書の原形式として使用する手法を説明します。</t>
+        </abstract>
+    </front>
+]]></artwork></ja:l>
+  </ja:pair>
+
+</figure>
+</section>
+</section>
+<section title="The Middle">
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "middle" element contains all the sections of the document
+except for the bibliography and appendices:
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "middle" 要素は参考文献と附属書を除く文書の全ての節から成ります。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    ...
+    </front>
+    <middle>
+        <section ...>
+        <section ...>
+        <section ...>
+    </middle>
+    <back>
+    ...
+]]></artwork>
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "middle" element consists of one or more "section"
+elements.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "middle" 要素は1つ以上の "section" 要素から成ります。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+<section anchor="section" title="The section Element" ja:title-ja="section 要素">
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Each "section" element contains a section of the document.
+There is a mandatory attribute,
+"title",
+that identifies the title of the section.
+There is also an optional attribute,
+"anchor",
+that is used for cross-referencing with
+<xref target="xref">the "xref" element</xref>,
+e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    各 "section" 要素は文書の節から成ります。必須の属性 "title"
+    は節の題を表します。省略可能の属性 "anchor" は
+    <xref target="xref">"xref" 要素</xref>による交差参照に使います。
+    次の例を御覧下さい。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <section anchor="intro" title="Introduction">
+        ...
+    </section>
+]]></artwork>
+</figure>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "section" element is recursive ――
+each contains any number and combination of "t", "figure", and "section"
+elements, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "section" 要素は再帰的で、各々任意の数・組合せで "t",
+    "figure", "section" 各要素を次の例の如く使います。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <section title="The Middle">
+        ...
+        <section title="The section Element">
+            ...
+            <section title="The t Element">...</section>
+            <section title="The list Element">...</section>
+            <section title="The figure Element">...</section>
+            <section title="The xref Element">...</section>
+            <section title="The eref Element">...</section>
+            <section title="The iref Element">...</section>
+        </section>
+    </section>
+]]></artwork>
+</figure>
+<section anchor="t" title="The t Element" ja:title-ja="t 要素">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "t" element contains any number and combination of
+paragraphs, lists, and figures.
+If a cross-reference is needed to a section, figure, or reference,
+<xref target="xref">the "xref" element</xref> is used;
+similarly,
+if an external-reference is needed,
+<xref target="eref">the "eref" element</xref> is used.
+Indexing of text is provided by the
+<xref target="iref">the "iref" element</xref>.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "t" 要素は任意の数・組合せの段落・一覧・図から成ります。節・図・参考文献への交差参照が必要なら、 <xref target="xref">"xref" 要素</xref>
+    を使います。同様に外部参照が必要なら、 <xref target="eref">"eref" 
+    要素</xref>を使います。文章の索引付けには <xref target="iref">"iref" 
+    要素</xref>を使います。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+<section title="The list Element" ja:title-ja="list 要素">
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "list" element contains one or more items.
+Each item is a "t" element,
+allowing for recursion, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "list" 要素は1つ以上の項目から成ります。各項目は
+    "t" 要素で、繰り返し可能です。例を御覧あれ:
+  </ja:l>
+  </ja:pair>
+</preamble>
+
+  <ja:pair>
+  <ja:l xml:lang="en">
+    <artwork><![CDATA[
+    <list style="numbers">
+        <t>The first item.</t>
+        <t>The second item, which contains two bulleted sub-items:
+            <list style="symbols">
+                <t>The first sub-item.</t>
+                <t>The second sub-item.</t>
+            </list>
+        </t>
+    </list>
+]]></artwork>
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <artwork><![CDATA[
+    <list style="numbers">
+        <t>最初の項目。</t>
+        <t>2つの小項目がある二番目の項目
+            <list style="symbols">
+                <t>最初の小項目</t>
+                <t>二番目の小項目</t>
+            </list>
+        </t>
+    </list>
+]]></artwork>
+  </ja:l>
+  </ja:pair>
+
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "list" element has an optional attribute,
+"style",
+having the value "numbers" (for numeric lists),
+"symbols" (for bulleted lists),
+"hanging" (for hanging lists),
+or,
+"empty" (for indented text).
+If a "list" element is nested,
+the default value is taken from its closest parent;
+otherwise,
+the default value is "empty".
+
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "list" 要素は省略可能な "style" 属性があって、 "numbers"
+    (番号つき一覧), "symbols" (記号つき一覧), "hanging" (ぶら下がり一覧),
+    "empty" (字下げ文) のいずれかの値を取ることが出来ます。
+    "list" 要素が入れ子になっている時、既定値は一番近い親から取られます。そうでない時は、既定値は "empty" です。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    When nested within a "hanging list" element,
+the "t" element has an optional attribute,
+"hangText" that specifies the text to be inserted, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    「ぶら下がり一覧」 要素中で入れ子になっている時、
+    "t" 要素は省略可能な属性 "hangText" を持ち、挿入される文字列を指定します。次の例を参照して下さい。
+  </ja:l>
+  </ja:pair>
+</preamble>
+
+  <ja:pair>
+  <ja:l xml:lang="en">
+    <artwork><![CDATA[
+    <list style="hanging">
+        <t hangText="full2026:">indicating that the document is in
+        full conformance with all the provisions of Section 10 of
+        RFC 2026;</t>
+
+        <t hangText="noDerivativeWorks2026:">indicating that the
+        document is in full conformance with all the provisions of
+        Section 10 of RFC 2026 except that the right to produce
+        derivative works is not granted; or,</t>
+
+        <t hangText="none:">indicating that the document is NOT
+        offered in accordance with Section 10 of RFC 2026, and
+        the author does not provide the IETF with any rights other
+        than to publish as an Internet-Draft.</t>
+    </list>
+]]></artwork>
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <artwork><![CDATA[
+    <list style="hanging">
+        <t hangText="full2026:">文書が RFC 2026 
+        の第10章の全ての要件に完全に適合することを示します</t>
+
+        <t hangText="noDerivativeWorks2026:">
+        文書が、派生的作業の生成が認められていないことを除いて、
+        RFC 2026 の第10章の全ての要件に完全に適合することを
+        示します</t>
+
+        <t hangText="none:">文書が RFC 2026 の第10章に従って
+        *おらず*、著者は IETF に Internet-Draft
+        として発行する以外のいかなる権利をも提供しないことを
+        示します</t>
+    </list>
+]]></artwork>
+  </ja:l>
+  </ja:pair>
+
+</figure>
+</section>
+<section anchor="figure" title="The figure Element" ja:title-ja="figure 要素">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "figure" element groups an optional "preamble" element,
+an "artwork" element,
+and an optional "postamble" element together.
+The "figure" element also has an optional "anchor" attribute that is
+used for cross-referencing with
+<xref target="xref">the "xref" element</xref>.
+There is also an optional "title" attribute that identifies the title
+of the figure.
+
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "figure" 要素は省略可能な "preamble" 要素,
+    "artwork" 要素, 省略可能な "postable" 要素をひとまとめにします。
+    "figure" 要素は省略可能な "anchor" 属性も持っていて、
+    <xref target="xref">"xref" 要素</xref>による交差参照に使うことが出来ます。
+    省略可能な "title" 属性というのもあって、図の題を示します。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "preamble" and "postamble" elements,
+if present,
+are simply text.
+If a cross-reference is needed to a section, figure, or reference,
+<xref target="xref">the "xref" element</xref> is used;
+similarly,
+if an external-reference is needed,
+<xref target="eref">the "eref" element</xref> is used.
+Indexing of text is provided by the
+<xref target="iref">the "iref" element</xref>.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "preamble" ・ "postamble" 両要素は、存在する場合、単純な文字列です。
+    節・図・参考文献への交差参照が必要な場合は、
+    <xref target="xref">"xref" 
+    要素</xref>を使います。同様に、外部参照が必要なら、 
+    <xref target="eref">"eref" 要素</xref>を使います。文章の索引付けには 
+    <xref target="iref">"iref" 要素</xref>を使います。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "artwork" element,
+which must be present,
+contains "ASCII artwork".
+Unlike text contained in the "t", "preamble", or "postamble" elements,
+both horizontal and vertical whitespace is significant in the "artwork"
+element.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "artwork" 要素は、必ず存在しなければならず、「ASCII 絵」から成ります。
+    "t", "preamble", "postamble" 各要素中の文字列とは違って、水平・垂直どちらの空白間隔も 
+    "artwork" 要素中では意味を持ちます。
+  </ja:l>
+  </ja:pair>
+</t>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    So,
+putting it all together, we have, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    ということで、全てまとめると、次の例の様になります。
+  </ja:l>
+  </ja:pair>
+</preamble>
+
+  <ja:pair>
+  <ja:l xml:lang="en">
+    <artwork><![CDATA[
+    <figure anchor="figure_example">
+        <preamble>So,
+        putting it all together, we have, e.g.,</preamble>
+        <artwork>
+            ascii artwork goes here...
+    
+            be sure to use "&lt;" or "&amp;" instead of "<" and "&",
+            respectively!
+        </artwork>
+        <postamble>which is a very simple example.</postamble>
+    </figure>
+]]></artwork>
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <artwork><![CDATA[
+    <figure anchor="figure_example">
+        <preamble>ということで、全てまとめると、
+        次の例の様になります。</preamble>
+        <artwork>
+            ascii 絵がここに入ります...
+    
+            "&lt;" とか "&amp;" をそれぞれ "<" と "&"
+            の代わりに使うんだよ!
+        </artwork>
+        <postamble>非常に単純な例でした。</postamble>
+    </figure>
+]]></artwork>
+  </ja:l>
+  </ja:pair>
+
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    which is a very simple example.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    非常に単純な例でした。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    If you have artwork with a lot of "&lt;" characters,
+then there's an XML trick you can use:
+  </ja:l>
+  <ja:l xml:lang="ja">
+    沢山の "&lt;" 文字が絵の中にある場合は、このような
+    XML 魔法を使うことが出来ます。
+  </ja:l>
+  </ja:pair>
+</preamble>
+
+  <ja:pair>
+  <ja:l xml:lang="en">
+    <artwork>
+    &lt;figure>
+        &lt;preamble>If you have artwork with a lot of "&amp;lt;"
+        characters, then there's an XML trick you can
+        use:&lt;/preamble>
+        &lt;artwork>&lt;![CDATA[
+            ascii artwork goes here...
+    
+            just don't use "]]" in your artwork!
+        ]]&gt;&lt;/artwork>
+        &lt;postamble>The "&amp;lt;![CDATA[ ... ]]&gt;" construct is called
+        a CDATA block -- everything between the innermost brackets
+        is left alone by the XML application.&lt;/postamble>
+    &lt;/figure>
+</artwork>
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <artwork>
+    &lt;figure>
+        &lt;preamble>沢山の "&amp;lt;" 文字が絵の中にある場合は、
+        このような XML 魔法を使うことが出来ます。&lt;/preamble>
+        &lt;artwork>&lt;![CDATA[
+            ascii がここに来ます...
+    
+            単に "]]" を絵の中で使わないだけです!
+        ]]&gt;&lt;/artwork>
+        &lt;postamble>"&amp;lt;![CDATA[ ... ]]&gt;" 構造は CDATA
+        塊と呼ばれます。一番内側の括弧の間のものは全て XML 
+        応用に干渉されません。&lt;/postamble>
+    &lt;/figure>
+</artwork>
+  </ja:l>
+  </ja:pair>
+
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "&lt;![CDATA[ ... ]]&gt;" construct is called a CDATA
+block ―― everything between the innermost brackets is left alone by
+the XML application.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <h:samp>&lt;![CDATA[ ... ]]&gt;</h:samp> 構造は CDATA
+    塊と呼ばれます。一番内側の括弧の間のものは全て XML 応用に干渉されません。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Because the "figure" element represents a logical grouping of text
+and artwork,
+an XML application producing a text version of the document should
+attempt to keep these elements on the same page.
+Because <xref target="refs.RFC2223">RFC 2223</xref> allows no more than 69
+characters by 49 lines of content on each page,
+XML applications should be prepared to prematurely introduce page
+breaks to allow for better visual grouping.
+  </ja:l>
+  <ja:l xml:lang="ja">
+      "figure" 要素は文書と絵の論理的な集合を表現するので、文書の 
+      text 版を生成する XML 応用は各要素を同一頁中に入れるように策するべきです。
+      <xref target="refs.RFC2223">RFC 2223</xref> 
+      が各頁49行の内容で, 69文字を超えるのを認めていないので、
+      XML 応用はより良い視覚的集合化を行うために予め改頁する準備をしておくべきです。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Finally,
+the "artwork" element has two optional attributes:
+"name" and "type".
+The former is used to suggest a filename to use when storing the
+content of the "artwork" element,
+whilst the latter contains a suggestive data-typing for the content.
+  </ja:l>
+  <ja:l xml:lang="ja">
+      最後に、 "artwork" 要素は2つの省略可能な属性 "name", "type"
+      を持ちます。前者は "artwork" 要素の内容を保管する時に使うファイル名の案を推すのに使います。後者は内容のデータ型を示すのに使います。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+<section anchor="xref" title="The xref Element" ja:title-ja="xref 要素">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "xref" element is used to cross-reference sections, figures, and
+references.
+The mandatory "target" attribute is used to link back to the "anchor"
+attribute of the "section", "figure", and "reference" elements.
+The value of the "anchor" and "target" attributes should be formatted
+according to the token syntax in <xref target="xml_basics" />.
+  </ja:l>
+  <ja:l xml:lang="ja">
+      "xref" 要素は節・図・参考文献の交差参照に使います。必須の
+      "target" 属性は "section", "figure", "reference" 要素の
+      "anchor" 属性に逆接続するのに使います。
+      "anchor" および "target" 両属性の値は <xref target="xml_basics" />
+      の字句 (token) 構文に従い書式化されるべきです。
+  </ja:l>
+  </ja:pair>
+</t>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    If used as an empty element,
+e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+      空要素として使う時は
+  </ja:l>
+  </ja:pair>
+</preamble>
+
+  <ja:pair>
+  <ja:l xml:lang="en">
+    <artwork><![CDATA[
+    according to the token syntax in <xref target="xml_basics" />.
+]]></artwork>
+  </ja:l>
+  <ja:l xml:lang="ja">
+      <artwork><![CDATA[
+    <xref target="xml_basics" /> の字句 (token) 構文に従い
+]]></artwork>
+  </ja:l>
+  </ja:pair>
+
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    then the XML application inserts an appropriate phrase
+during processing,
+such as "Section 2.1" or
+<![CDATA["<a href="#xml_basics">XML Basics</a>"]]>.
+  </ja:l>
+  <ja:l xml:lang="ja">
+      の様になり、 XML 応用は <h:samp>2.1 節</h:samp> や
+      <h:samp><![CDATA[<a href="#xml_basics">XML の基礎</a>]]></h:samp>
+      のように適切な文字列を処理により挿入します。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    If used with content, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+      内容ありで使う時は
+  </ja:l>
+  </ja:pair>
+</preamble>
+
+  <ja:pair>
+  <ja:l xml:lang="en">
+    <artwork><![CDATA[
+    conforming to <xref target="refs.RFC2223">RFC 2223</xref>.
+]]></artwork>
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <artwork><![CDATA[
+    <xref target="refs.RFC2223">RFC 2223</xref> に適合する
+]]></artwork>
+  </ja:l>
+  </ja:pair>
+
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    then the XML application inserts an appropriate
+designation during processing,
+such as "RFC 2223[2]" or
+<![CDATA["<a href="#refs.RFC2223">RFC 2223</a>"]]>.
+Although the XML application decides what "an appropriate designation"
+might be,
+its choice is consistent throughout the processing of the document.
+  </ja:l>
+  <ja:l xml:lang="ja">
+      の様になり、 XML 応用は <h:samp>RFC 2223[2]</h:samp> や
+      <h:samp><![CDATA[<a href="#refs.RFC2223">RFC 2223</a>]]></h:samp>
+      のように適切な指示を処理により挿入します。「適切な指示」の内容は
+      XML 応用が決めますが、選択は当該文書の処理を通じて固定です。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+</section>
+
+<section anchor="eref" title="The eref Element" ja:title-ja="eref 要素">
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "eref" element is used to reference external documents.
+The mandatory "target" attribute is a
+<xref target="URI">URI</xref>, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "eref" 要素は、外部文書を参照するのに使います。必須の
+    "target" 属性は <xref target="URI">URI</xref>
+    で、次の様に使います。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <eref target="http://metalab.unc.edu/xml/">Cafe con Leche</eref>
+]]></artwork>
+</figure>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Note that while the "target" attribute is always present,
+the "eref" element may be empty, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "target" 属性は常に必要であり、 "eref" 要素は空であり得ることに注意して下さい。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <eref target="http://invisible.net/" />
+]]></artwork>
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+and the XML application inserts an appropriate designation during
+processing such as "[9]" or
+<![CDATA["<a href="http://invisible.net/">http://invisible.net/</a>"]]>.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    XML 応用は <h:samp>[9]</h:samp> や 
+    <h:samp><![CDATA[<a href="http://invisible.net/">http://invisible.net/</a>]]></h:samp> 
+    の様に適切な指示を処理の過程で挿入します。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+</section>
+<section anchor="iref" title="The iref Element" ja:title-ja="iref 要素">
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+<iref item="indexing" subitem="how to" />The "iref" element
+is used to add information to an index.
+The mandatory "item" attribute is the primary key the information is stored
+under,
+whilst the optional "subitem" attribute is the secondary key, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <iref item="索引付け" subitem="方法" />"iref" 
+    要素は索引に情報を追加するのに使います。必須の属性 "item"
+    は情報が保管される主鍵で、省略可能な "subitem" 属性は副鍵です。
+  </ja:l>
+  </ja:pair>
+</preamble>
+
+  <ja:pair>
+  <ja:l xml:lang="en">
+<artwork><![CDATA[
+    <iref item="indexing" subitem="how to" />
+]]></artwork>
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <artwork><![CDATA[
+    <iref item="索引付け" subitem="方法" />
+]]></artwork>
+  </ja:l>
+  </ja:pair>
+
+</figure>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+Finally, note that the "iref" element is always empty ―― it never
+contains any text.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    最後に、 "iref" 
+    要素は常に空である――どんな文字列も含まないということに注意して下さい。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+<section title="The vspace Element" ja:title-ja="vspace 要素">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "vspace" element,
+which may occur only inside the "t" element,
+is used by the author to provide formatting guidance to the XML
+application.
+There is an attribute,
+"blankLines",
+that indicates the number of blank lines that should be inserted.
+A physical linebreak is specified by using the default value, "0".
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "vspace" 要素は、 "t" 要素の中にのみ現れることが出来て、著者が
+    XML 応用に整形の手引きを与えるのに使います。 "blankLines"
+    属性があり、挿入されるべき空白行の数を示します。物理改行は既定値である
+    "0" を使って表します。
+  </ja:l>
+  </ja:pair>
+</t>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    In addition,
+the "vspace" element can be used to force a new physical paragraph
+within a list item, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    加えて、 "vspace" 要素は次に例示するように、新しい形式段落を一覧項目中に作り出すのに使うことが出来ます。
+  </ja:l>
+  </ja:pair>
+</preamble>
+
+  <ja:pair>
+  <ja:l xml:lang="en">
+    <artwork><![CDATA[
+    <list style="numbers">
+        <t>This is list item.
+           <vspace blankLines="1" />
+           This is part of the same list item,
+           although when displayed, it appears
+           as a separate physical paragraph.</t>
+    </list>
+]]></artwork>
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <artwork><![CDATA[
+    <list style="numbers">
+        <t>これは一覧の項目です。
+           <vspace blankLines="1" />
+           これは同じ一覧項目です。
+           しかし表示の際には別の形式段落に見えます。</t>
+    </list>
+]]></artwork>
+  </ja:l>
+  </ja:pair>
+
+</figure>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    An XML application producing a text version of the document should
+exercise care when encountering a value for "blankLines" that causes a
+pagebreak ――
+in particular,
+if a "vspace" element causes a pagebreak,
+then no further blank lines should be inserted.
+This allows authors to "force" a pagebreak by using an arbitrarily
+large value, e.g., "blankLines='100'".
+  </ja:l>
+  <ja:l xml:lang="ja">
+    文書の text 版を生成する XML 応用は、改頁を起こすような
+    "breakLines" の値であった時に注意するべきです。
+    "vspace" 要素が改頁を起こす時は、それ以上空白行を挿入するべきではありません。これにより、著者は任意の大きな値、例えば
+    <h:samp>blankLines='100'</h:samp> で「強制」改頁させることが出来ます。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Finally, note that the "vspace" element is always empty ―― it never
+contains any text.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    最後に、 "vspace" 要素は常に空である――文字列を含まないということに注意して下さい。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+</section>
+</section>
+<section anchor="back_matter" title="Back matter">
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Finally,
+the "back" element is used for references and
+appendices:
+  </ja:l>
+  <ja:l xml:lang="ja">
+    最後に、 "back" 要素は参考文献と附属書に使います。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+        ...
+        </middle>
+        <back>
+            <references>
+                <reference ...>
+                <reference ...>
+            </references>
+            <section ...>
+            <section ...>
+        </back>
+    </rfc>
+]]></artwork>
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "back" element consists of an optional "references" element,
+and,
+one or more optional "section" elements.
+The "back" element itself is optional,
+if your document doesn't have any references or appendices,
+you don't have to include it.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "back" 要素は省略可能な "references" 要素と、1つ以上の省略可能な
+    "section" 要素から成ります。 "back" 要素自体は省略可能で、文書に参考文献も附属書もない場合は、含める必要はありません。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+<section anchor="references" title="The references Element" ja:title-ja="references 要素">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "references" element contains the document's bibliography.
+It contains one or more "reference" elements.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "references" 要素は文書の参考文献から成ります。1つ以上の
+    "reference" 要素から成ります。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Each "reference" element contains a "front" element and one or more
+optional "seriesInfo" elements.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    各 "references" 要素は "front" 要素と1つ以上の省略可能な
+    "seriesInfo" 要素から成ります。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    We've already discussed the "front" element back in
+<xref target="front_matter" />.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "front" 要素については <xref target="front_matter" />
+    で既に話しました。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "seriesInfo" element has two attributes,
+"name" and "value" that identify the document series and series entry,
+respectively.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "seriesInfo" 要素は "name", "value" の2つの属性を持ち、それぞれ文書系列と系列項目を特定します。
+  </ja:l>
+  </ja:pair>
+</t>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "reference" element has an optional "anchor"
+attribute that is used for cross-referencing with
+<xref target="xref">the "xref" element</xref>, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "reference" 要素は省略可能な "anchor" 属性を持ち、
+    次の様に使い、 <xref target="xref">"xref" 要素</xref>で交差参照に使うことが出来ます。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <reference anchor="refs.RFC2200">
+        <front>
+            <title>Internet Official Protocol Standards</title>
+            <author initials="J." surname="Postel"
+                    fullname="Jon Postel">
+                <organization abbrev="ISI">
+                USC/Information Sciences Institute
+                </organization>
+            </author>
+    
+            <date month="June" year="1997" />
+        </front>
+        <seriesInfo name="RFC" value="2200" />
+        <seriesInfo name="STD" value="1" />
+    </reference>
+]]></artwork>
+</figure>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "reference" element also has an optional "target"
+attribute that is used for external references
+(c.f., <xref target="eref" />).
+The XML application,
+if producing an HTML version of the document will use the "target"
+attribute accordingly;
+however, if the "name" attribute of the "seriesInfo" element has the value
+"RFC",
+then the XML application should automatically provide an appropriate
+default for the "target" attribute
+(e.g., <![CDATA["http://example.com/rfcs/rfc2200.txt"]]>).
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "reference" 要素には省略可能な "target" 属性があり、外部参照に使います。
+    (cf. <xref target="eref" />) XML 応用は文書の HTML 版を生成する時に
+    "target" 属性を使います。しかし、 "seriseInfo" 要素の "name"
+    属性が値 "RFC" を持つ場合、 XML 応用は自動的に適切な "target"
+    属性の既定値を用意するべきです。 (例えば 
+    <h:samp><![CDATA[http://example.com/rfcs/rfc2200.txt]]></h:samp>)
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+<section title="Appendices" ja:title-ja="附属書">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    To include appendices after the bibliography,
+simply add more "section" elements.
+(For an example,
+look at the example at the beginning of <xref target="back_matter" />.)
+  </ja:l>
+  <ja:l xml:lang="ja">
+    参考文献の後に附属書を含めるには、単に "section" 
+    要素を追加するだけです。 (例として、 <xref target="back_matter" />
+    のはじめの例を御覧下さい。)
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+<section title="Copyright Status" ja:title-ja="著作権状態">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The copyright status for the document is not included in the
+document's markup ―― this is automatically inserted by an XML
+application that produces either a text or HTML version of the document.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    文書の著作権状態は文書のマーク付けには含めません。
+    これは文書の text 版か HTML 版を生成する XML 
+    応用により自動的に挿入されます。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+</section>
+</section>
+<section title="Processing the XML Source File" ja:title-ja="XML 源ファイルの処理">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    This section concerns itself with applications that operate on
+an XML source file.
+A lot of XML tools are available,
+as are many lists of XML resources,
+e.g.,
+<eref target="http://metalab.unc.edu/xml/">Cafe con Leche</eref>.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    この節は XML 源ファイルを処理する応用についてです。沢山の
+    XML 工具が利用可能ですし、沢山の XML 資源の一覧も、例えば
+    <eref target="http://metalab.unc.edu/xml/">Cafe con Leche</eref>
+    にあります。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    There are two kinds of XML tools: validating and non-validating.
+Both check that the source file conforms to the rules given in
+<xref target="xml_basics" />.
+However,
+in addition to making sure that the source file is well-formed,
+a validating tool also reads the DTD referenced by the source file
+to make sure that they match.
+There are a number of both validating and non-validating tools available.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    XML 工具には2種類あります: 検証するものと検証しないものです。両者共に、源ファイルが 
+    <xref target="xml_basics" /> に挙げた規則に適合するかは確認します。しかし、加えて源ファイルが整形式であるかを確認するため、検証工具は現ファイルが参照している
+    DTD も読んで一致しているか確認します。検証・非検証工具共に多数入手出来ます。
+  </ja:l>
+  </ja:pair>
+</t>
+<section title="Editing" ja:title-ja="編集">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    There are several XML editors available.
+Ideally,
+you want an editor that validates.
+This has two advantages:
+  </ja:l>
+  <ja:l xml:lang="ja">
+    XML エディターは幾つか入手可能です。理想的には、検証出来るエディターが良いでしょう。これには2つの利点があります。
+  </ja:l>
+  </ja:pair>
+
+<list style="symbols">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    the editor provides guidance in fleshing-out the document structure;
+and,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    エディターが文書構造に肉付けする手引きを示す
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    the editor validates that the source file matches the rules in the DTD.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    エディターが源ファイルが DTD の規則と一致しているか検証する
+  </ja:l>
+  </ja:pair>
+</t>
+</list>
+</t>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    There are two major modes in Emacs that support XML:
+<eref target="http://www.mulberrytech.com/tdtd/">tdtd</eref> and
+<eref target="http://www.inria.fr/koala/plh/sxml.html">psgml</eref>.
+The latter mode allows you to validate the source file
+(by calling an external program).
+If you visit the source file in Emacs and the major mode isn't
+"SGML" or "XML", 
+then usually all it takes is adding these lines to your ".emacs"
+file:
+  </ja:l>
+  <ja:l xml:lang="ja">
+    Emacs では XML に対応した2つの大モード、
+    <eref target="http://www.mulberrytech.com/tdtd/">tdtd</eref> と
+    <eref target="http://www.inria.fr/koala/plh/sxml.html">psgml</eref>
+    があります。後者のモードでは源ファイルを 
+    (外部プログラムを呼び出すことにより) 検証することが出来ます。源ファイルを
+    Emacs でみて、大モードが 「SGML」 か 「XML」 
+    にならない場合、通常は ".emacs" ファイルに次の行
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    (setq auto-mode-alist
+          (cons (cons "\\.xml$" 'sgml-mode) auto-mode-alist))
+]]></artwork>
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    and then restarting Emacs.
+If this doesn't work,
+try one of the sources above.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    を加えて、 Emacs を再起動します。これで上手くいかなければ、上記の情報源のいずれかを試してみて下さい。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The author uses both sgml-mode in Emacs,
+and a commercial validating editor,
+<eref target="http://www.t2000-usa.com/">Clip! version 1.5</eref>,
+when editing source
+files.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    著者は両 sgml-mode を Emacs で使っていて、商用検証エディター
+    <eref xml:lang="en" target="http://www.t2000-usa.com/">Clip! version 1.5</eref>
+    を源ファイルを編集するのに使っています。
+  </ja:l>
+  </ja:pair>
+</t>
+<section title="Checking" ja:title-ja="確認">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    If your editor doesn't validate,
+then you should run a program to validate the source file.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    お使いのエディターが検証しないなら、源ファイルを検証するのにプログラムを動かす必要があります。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The author uses
+<eref target="http://www.alphaworks.ibm.com/formula/xml/">the
+AlphaWorks XML parser</eref> for this purpose.
+It requires that your system have a Java virtual machine.
+In addition to Java,
+there are validating parsers written in C, Perl, Python, and Tcl.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    著者は 
+    <eref xml:lang="en" target="http://www.alphaworks.ibm.com/formula/xml/">the
+    AlphaWorks XML parser</eref> をこの目的に使っています。これにはお使いの系統に
+    Java 仮想機械が必要です。 Java に加え、 C, Perl, Python, Tcl
+    で書かれた検証解析器があります。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+</section>
+<section anchor="xml2rfc" title="Converting to Text Format" ja:title-ja="text 形式に変換する">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The author has written
+<eref target="http://memory.palace.org/authoring/">the xml2rfc tool</eref>,
+which reads the source file and produces both a text and HTML version
+of the document.
+(This memo was produced using the xml2rfc tool.)
+Note that xml2rfc isn't a validating tool,
+so it's a good idea to use either a validating editor or run a stand-alone
+validating parser prior to using the tool.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    著者は源ファイルを読んで文書の text 版と HTML 版の両者を生成する
+    <eref target="http://memory.palace.org/authoring/">xml2rfc 
+    工具</eref>を書きました。 (このメモは xml2rfc 工具を使って生成しました。)
+    なお、 xml2rfc は検証工具ではないので、検証エディターや単独検証解析器をこの工具の前に使うのが良いでしょう。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+<section title="Converting to HTML Format" ja:title-ja="HTML 形式に変換する">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The XML Style Language (XSL) is used to describe transformations
+from the source file into some other structured file.
+So,
+ideally you should use an XSL-capable formatter to convert an XML source
+file to HTML.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    XML スタイル言語 (XSL) を源ファイルから他の構造のファイルに変形するのを記述するのに使用出来ます。ですから、理想的には XSL が使える formatter
+    を使って XML 源ファイルを HTML に変換するべきでしょう。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    However,
+as of this writing XSL is still in considerable flux.
+(Hence,
+no reference was included in this memo,
+as by the time you read this section,
+the reference would be outdated.)
+So,
+in the interim,
+the author uses the xml2rfc tool for this purpose,
+even though this tool doesn't provide much flexibility in its HTML layout.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    しかしながら、この XSL 書きはまだ流動的と考えられます。
+    (それ故、このメモには参照は含めませんでした。読者がこの節を読む時には参照はもう古いものになっているでしょうから。)
+    ですが、その間、著者はこの目的に xml2rfc 工具を使います。
+    この工具はそれほど HTML 配置に柔軟性を持っていないのですが。
+  </ja:l>
+  </ja:pair>
+</t>
+<ja:note>
+  <t>rfc2629.xslt は、 
+  <eref target="http://xml.resource.org/authoring/">xml2rfc 
+  工具</eref>に含まれています。これを使って巷の XSLT formatter
+  でも HTML に変換出来ます。</t>
+</ja:note>
+</section>
+<section title="Viewing" ja:title-ja="表示">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Browsers that support either XSL or Cascading Style Sheets (CSS)
+are able to view the source file directly.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    XSL か Cascading Style Sheets (CSS) 
+    に対応した閲覧器を源ファイルを直接見るのに使用出来ます。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    At present,
+the author doesn't use any of these browsers,
+instead converting source files to either text or HTML.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    現時点で、著者はその様な閲覧器を使っておらず、代わりに源ファイルを
+    text か HTML に変換しています。
+  </ja:l>
+  </ja:pair>
+</t>
+</section>
+<section title="Searching" ja:title-ja="検索">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    As with text editors,
+any text-oriented search tool (e.g., grep) can be used on the source file.
+However,
+there are search tools available that understand structured source.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    text エディターと共に、どんな text 指向検索工具 (例 grep)
+    をも源ファイルに対して使うことが出来ます。しかし、構造化された源を理解する検索道具もあります。
+  </ja:l>
+  </ja:pair>
+</t>
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The author uses 
+<eref target="http://www.cs.helsinki.fi/~jjaakkol/sgrep.html">sgrep
+version 1.9</eref>
+for this purpose,
+e.g.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    著者は
+    <eref target="http://www.cs.helsinki.fi/~jjaakkol/sgrep.html">sgrep
+    version 1.9</eref> をこの目的で次の様に使っています。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork>
+    sgrep -g xml 'ELEMENTS("title") not in ELEMENTS("back")' \
+        writing-rfcs.xml
+</artwork>
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    which extracts the title element from the source file.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    これは title 要素を源ファイルから取り出します。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+</section>
+</section>
+<section title="Security Considerations">
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    This memo raises no security issues;
+however,
+according to <xref target="refs.RFC2223" />,
+your document should contain a section near the end that discusses the
+security considerations of the protocol or procedures that are the
+main topic of your document, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    このメモは安全性問題を起こしません。しかし、 <xref target="refs.RFC2223" />
+    によると、文書は終わり近くに、文書の主題であるプロトコルや処理の安全性に関しての議論の節を設けるべきです。例:
+  </ja:l>
+  </ja:pair>
+</preamble>
+
+  <ja:pair>
+  <ja:l xml:lang="en">
+    <artwork><![CDATA[
+    <middle>
+        ...
+        <section title="Security Considerations">
+            <t>This memo raises no security issues;
+            however,
+            according to <xref target="refs.RFC2223" />,
+            your document should contain a section near the end
+            that discusses the security considerations of the
+            protocol or procedures that are the main topic of your
+            document.</t>
+        </section>
+    </middle>
+]]></artwork>
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <artwork><![CDATA[
+    <middle>
+        ...
+        <section title="安全性に関して">
+            <t>このメモは安全性問題を起こしません。しかし、 
+            <xref target="refs.RFC2223" /> によると、
+            文書は終わり近くに、文書の主題であるプロトコルや
+            処理の安全性に関しての議論の節を設けるべきです。</t>
+        </section>
+    </middle>
+]]></artwork>
+  </ja:l>
+  </ja:pair>
+
+</figure>
+</section>
+</middle>
+<back>
+<references>
+<reference anchor="XML" target="http://www.w3.org/TR/1998/REC-xml-19980210">
+<front>
+<title>Extensible Markup Language (XML) 1.0</title>
+<ja:title-ja>拡張可能マーク付け言語 (XML) 1.0</ja:title-ja>
+<author>
+<organization abbrev="W3C">World Wide Web Consortium</organization>
+<address>
+<postal>
+<street>MIT Laboratory for Computer Science</street>
+<street>545 Technology Square</street>
+<city>Cambridge</city> <region>MA</region> <code>02139</code>
+<country>US</country>
+</postal>
+<phone>+ 1 617 253 2613</phone>
+<facsimile>+ 1 617 258 5999</facsimile>
+<email>timbl@w3.org</email>
+<uri>http://www.w3c.org</uri>
+</address>
+</author>
+<date month="February" year="1998" />
+</front>
+<seriesInfo name="W3C" value="XML" />
+</reference>
+<reference anchor="refs.RFC2223">
+<front>
+<title>Instructions to RFC Authors</title>
+<ja:title-ja>RFC 著者の手引き</ja:title-ja>
+<author initials="J." surname="Postel" fullname="Jon Postel">
+<organization abbrev="ISI">USC/Information Sciences Institute</organization>
+<address>
+<postal>
+<street>4676 Admiralty Way</street>
+<city>Marina del Rey</city> <region>CA</region> <code>90292</code>
+<country>US</country>
+</postal>
+<phone>+1 310 822 1511</phone>
+<facsimile>+1 310 823 6714</facsimile>
+<email>Postel@ISI.EDU</email>
+</address>
+</author>
+<author initials="J." surname="Reynolds" fullname="Joyce K. Reynolds">
+<organization abbrev="ISI">USC/Information Sciences Institute</organization>
+<address>
+<postal>
+<street>4676 Admiralty Way</street>
+<city>Marina del Rey</city> <region>CA</region> <code>90292</code>
+<country>US</country>
+</postal>
+<phone>+1 310 822 1511</phone>
+<facsimile>+1 310 823 6714</facsimile>
+<email>jkrey@isi.edu</email>
+</address>
+</author>
+<date month="October" year="1997" />
+</front>
+<seriesInfo name="RFC" value="2223" />
+</reference>
+<reference anchor="refs.RFC2026">
+<front>
+<title>The Internet Standards Process ―― Revision 3</title>
+<ja:title-ja>Internet 標準化過程 ―― 改訂3版</ja:title-ja>
+<author initials="S.O." surname="Bradner" fullname="Scott O. Bradner">
+<organization>Harvard University</organization>
+<address>
+<postal>
+<street>Holyoke Center, Room 813</street>
+<street>1350 Massachusettes Avenue</street>
+<city>Cambridge</city> <region>MA</region> <code>02138</code>
+<country>US</country>
+</postal>
+<phone>+1 617 495 3864</phone>
+<email>sob@harvard.edu</email>
+</address>
+</author>
+<date month="October" year="1996" />
+</front>
+<seriesInfo name="RFC" value="2026" />
+<seriesInfo name="BCP" value="9" />
+</reference>
+<reference anchor="URI">
+<front>
+<title>Uniform Resource Identifiers (URI): Generic Syntax</title>
+<ja:title-ja>統一資源識別子 (URI): 一般構文</ja:title-ja>
+<author initials="T." surname="Berners-Lee" fullname="Tim Berners-Lee">
+<organization abbrev="W3C">World Wide Web Consortium</organization>
+<address>
+<postal>
+<street>MIT Laboratory for Computer Science</street>
+<street>545 Technology Square</street>
+<city>Cambridge</city> <region>MA</region> <code>02139</code>
+<country>US</country>
+</postal>
+<phone>+1 617 253 5702</phone>
+<facsimile>+1 617 258 8682</facsimile>
+<email>timbl@w3.org</email>
+</address>
+</author>
+<author initials="R.T." surname="Fielding" fullname="Roy T. Fielding">
+<organization abbrev="UCI">University of California, Irvine</organization>
+<address>
+<postal>
+<street>Department of Information and Computer Science</street>
+<street>University of California, Irvine</street>
+<city>Irvine</city> <region>CA</region> <code>92697-3425</code>
+<country>US</country>
+</postal>
+<phone>+1 949 824 7403</phone>
+<facsimile>+1 949 824 1715</facsimile>
+<email>fielding@ics.uci.edu</email>
+</address>
+</author>
+<author initials="L." surname="Masinter" fullname="Larry Masinter">
+<organization>Xerox PARC</organization>
+<address>
+<postal>
+<street>3333 Coyote Hill Road</street>
+<city>Palo Alto</city> <region>CA</region> <code>94304</code>
+<country>US</country>
+</postal>
+<phone>+1 650 812 4365</phone>
+<facsimile>+1 650 812 4333</facsimile>
+<email>masinter@parc.xerox.com</email>
+</address>
+</author>
+<date month="August" year="1998" />
+</front>
+<seriesInfo name="RFC" value="2396" />
+</reference>
+</references>
+<section anchor="rfc" title="The rfc Element" ja:title-ja="rfc 要素">
+<figure>
+<preamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The "&lt;rfc&gt;" tag at the beginning of the file,
+with only <xref target="ipr">an "ipr" attribute</xref>,
+produces an Internet-Draft.
+However,
+when other attributes are added to this tag by the RFC editor,
+an RFC is produced, e.g.,
+  </ja:l>
+  <ja:l xml:lang="ja">
+    ファイルのはじめの "&lt;rfc&gt;" タグは、
+    <xref target="ipr">"ipr" 属性</xref>だけを持つと、 Internet-Draft
+    を生成します。しかし、このタグに RFC 編集者により他の属性が
+    付加されると、 RFC が生成されます。
+  </ja:l>
+  </ja:pair>
+</preamble>
+<artwork><![CDATA[
+    <rfc number="2200"
+         obsoletes="2000, 1920, 1880, 1800, ..."
+         category="std"
+         seriesNo="1">
+]]></artwork>
+<postamble>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    At a minimum,
+the "number" attribute should be present.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    少なくても、 "number" 属性があるべきです。
+  </ja:l>
+  </ja:pair>
+</postamble>
+</figure>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    The other attributes are:
+  </ja:l>
+  <ja:l xml:lang="ja">
+    この他の属性は、
+  </ja:l>
+  </ja:pair>
+
+<list style="symbols">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    "obsoletes",
+having a comma-separated list of RFC numbers,
+that the document obsoletes;
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "obsoleted" は、その文書が廃止する読点 (comma) 区切りの RFC 番号の一覧です。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    "updates",
+having a comma-separated list of RFC numbers,
+that the document updates;
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "updates" は、その文書が更新する読点 (comma) 区切りの RFC 番号の一覧です。
+  </ja:l>
+  </ja:pair>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    "category",
+having one of these values:
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "category" は、次の値のいずれかを持ちます。
+  </ja:l>
+  </ja:pair>
+
+    <list style="numbers">
+    <t>
+      <ja:pair>
+      <ja:l xml:lang="en">"std", for a Standards-Track document;</ja:l>
+      <ja:l xml:lang="ja">"std" は標準化過程文書用</ja:l>
+      </ja:pair>
+    </t>
+    <t>
+      <ja:pair>
+      <ja:l xml:lang="en">"bcp", for a Best Current Practices document;</ja:l>
+      <ja:l xml:lang="ja">"bcp" は現状最善運用文書用</ja:l>
+      </ja:pair>
+    </t>
+    <t>
+      <ja:pair>
+      <ja:l xml:lang="en">"exp", for an Experimental Protocol document;</ja:l>
+      <ja:l xml:lang="ja">"exp" は実験プロトコル文書用</ja:l>
+      </ja:pair>
+    </t>
+    <t>
+      <ja:pair>
+      <ja:l xml:lang="en">"historic", for a historic document; or,</ja:l>
+      <ja:l xml:lang="ja">"exp" は歴史的文書用</ja:l>
+      </ja:pair>
+    </t>
+    <t>
+      <ja:pair>
+      <ja:l xml:lang="en">"info", the default, for an Informational document.</ja:l>
+      <ja:l xml:lang="ja">"info" は既定値で参考文書用</ja:l>
+      </ja:pair>
+    </t>
+    </list>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    "seriesNo",
+having the corresponding number in the STD (std), BCP (bcp), or FYI (info)
+series.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    "seriesNo" は、 STD (std), BCP (bcp), FYI (info) 各系列での対応番号を値に持ちます。
+  </ja:l>
+  </ja:pair>
+</t>
+</list>
+</t>
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">
+    Finally,
+a special entity, "&amp;rfc.number;", is available.
+Authors preparing an RFC should use this entity whenever they want to 
+reference the number of the RFC within the document itself.
+In printed versions of the document,
+the appropriate substitution (or "XXXX") will occur.
+  </ja:l>
+  <ja:l xml:lang="ja">
+    最後に、特別な実体 "&amp;rfc.number;" が使えます。
+    RFC を用意する著者はこの実体を文書自身の 
+    RFC 番号を参照したい時に使うべきです。文書の印刷版では、適切な代替 
+    (または "XXXX") を使います。
+  </ja:l>
+  </ja:pair>
+  <ja:note>
+    <figure>
+      <preamble>実際に使う時は、</preamble>
+      <artwork><![CDATA[<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [<!ENTITY rfc.number "1234">]>]]></artwork>
+      <postamble>のように、文書型宣言で当該 RFC 
+      番号を示すことになるでしょう。</postamble>
+    </figure>
+  </ja:note>
+</t>
+</section>
+<section anchor="rfc.dtd" title="The RFC DTD">
+
+<ja:note>
+  <t>この DTD のファイル rfc2629.dtd は、 
+  <eref target="http://xml.resource.org/authoring/">xml2rfc 
+  工具</eref>の中にも含まれています。</t>
+</ja:note>
+
+<figure>
+
+  <ja:pair>
+  <ja:l xml:lang="en">
+    <artwork><![CDATA[
+<!--
+  DTD for the RFC document series, draft of 99-01-30
+  -->
+
+
+<!--
+  Contents
+
+    DTD data types
+
+    The top-level
+
+    Front matter
+
+    The Body
+
+    Back matter
+  -->
+
+
+<!--
+  DTD data types:
+
+        entity        description
+        ======        ===============================================
+        NUMBER        [0-9]+
+        NUMBERS       a comma-separated list of NUMBER
+
+        DAY           the day of the month, e.g., "1"
+        MONTH         the month of the year, e.g., "January"
+        YEAR          a four-digit year, e.g., "1999"
+
+        URI           e.g., "http://invisible.net/"
+
+        ATEXT/CTEXT   printable ASCII text (no line-terminators)
+
+        TEXT          character data
+  -->
+
+
+<!ENTITY % NUMBER     "CDATA">
+<!ENTITY % NUMBERS    "CDATA">
+
+<!ENTITY % DAY        "CDATA">
+<!ENTITY % MONTH      "CDATA">
+<!ENTITY % YEAR       "CDATA">
+
+<!ENTITY % URI        "CDATA">
+
+<!ENTITY % ATEXT      "CDATA">
+<!ENTITY % CTEXT      "#PCDATA">
+
+<!ENTITY % TEXT       "#PCDATA">
+
+<!ENTITY   rfc.number "]]>&rfc.number;<![CDATA[">
+
+
+<!--
+  The top-level
+  -->
+
+
+<!--
+  attributes for the "rfc" element are supplied by the RFC
+  editor. when preparing drafts, authors should leave them blank.
+
+  the "seriesNo" attribute is used if the category is, e.g., BCP.
+  -->
+<!ELEMENT rfc         (front,middle,back?)>
+<!ATTLIST rfc
+          number      %NUMBER;           #IMPLIED
+          obsoletes   %NUMBERS;          ""
+          updates     %NUMBERS;          ""
+          category    (std|bcp|info|exp|historic)
+                                         "info"
+          seriesNo    %NUMBER;           #IMPLIED
+          ipr         (full2026|noDerivativeWorks2026|none)
+                                         #IMPLIED
+          docName     %ATEXT;            #IMPLIED> 
+
+<!--
+  Front matter
+  -->
+
+
+<!ELEMENT front       (title,author+,date,area*,workgroup*,keyword*,
+                       abstract?,note*)>
+
+<!-- the "abbrev" attribute is used for headers, etc. -->
+<!ELEMENT title       (%CTEXT;)>
+<!ATTLIST title
+          abbrev      %ATEXT;            #IMPLIED> 
+
+<!ELEMENT author      (organization,address?)>
+<!ATTLIST author
+          initials    %ATEXT;            #IMPLIED
+          surname     %ATEXT;            #IMPLIED
+          fullname    %ATEXT;            #IMPLIED>
+
+<!ELEMENT organization
+                      (%CTEXT;)>
+<!ATTLIST organization
+          abbrev      %ATEXT;            #IMPLIED> 
+ 
+<!ELEMENT address     (postal?,phone?,facsimile?,email?,uri?)>
+
+<!-- at most one of each the city, region, code, and country
+     elements may be present -->
+<!ELEMENT postal      (street+,(city|region|code|country)*)>
+<!ELEMENT street      (%CTEXT;)>
+<!ELEMENT city        (%CTEXT;)>
+<!ELEMENT region      (%CTEXT;)>
+<!ELEMENT code        (%CTEXT;)>
+<!ELEMENT country     (%CTEXT;)>
+<!ELEMENT phone       (%CTEXT;)>
+<!ELEMENT facsimile   (%CTEXT;)>
+<!ELEMENT email       (%CTEXT;)>
+<!ELEMENT uri         (%CTEXT;)>
+
+<!ELEMENT date        EMPTY>
+<!ATTLIST date
+          day         %DAY;              #IMPLIED
+          month       %MONTH;            #REQUIRED
+          year        %YEAR;             #REQUIRED>
+
+<!-- meta-data... -->
+<!ELEMENT area        (%CTEXT;)>
+<!ELEMENT workgroup   (%CTEXT;)>
+<!ELEMENT keyword     (%CTEXT;)>
+
+<!ELEMENT abstract    (t)+>
+<!ELEMENT note        (t)+>
+<!ATTLIST note
+          title       %ATEXT;            #REQUIRED>
+
+
+<!--
+  The body
+  -->
+
+
+<!ELEMENT middle      (section)+>
+
+<!ELEMENT section     (t|figure|section)*>
+<!ATTLIST section
+          anchor      ID                 #IMPLIED
+          title       %ATEXT;            #REQUIRED>
+
+<!ELEMENT t           (%TEXT;|list|figure|xref|eref|iref|vspace)*>
+<!ATTLIST t
+          hangText    %ATEXT;            #IMPLIED>
+
+<!-- the value of the style attribute is inherited from the closest 
+     parent -->
+<!ELEMENT list        (t+)>
+<!ATTLIST list
+          style       (numbers|symbols|hanging|empty)
+                                         "empty">
+
+<!ELEMENT xref        (%CTEXT;)>
+<!ATTLIST xref
+          target      IDREF              #REQUIRED
+          pageno      (true|false)       "false">
+
+<!ELEMENT eref        (%CTEXT;)>
+<!ATTLIST eref
+          target      %URI;              #REQUIRED>
+
+<!ELEMENT iref        EMPTY>
+<!ATTLIST iref
+          item        %ATEXT;            #REQUIRED
+          subitem     %ATEXT;            "">
+
+<!ELEMENT vspace      EMPTY>
+<!ATTLIST vspace
+          blankLines  %NUMBER;           "0">
+
+<!ELEMENT figure      (preamble?,artwork,postamble?)>
+<!ATTLIST figure
+          anchor      ID                 #IMPLIED
+          title       %ATEXT;            "">
+
+<!ELEMENT preamble    (%TEXT;|xref|eref|iref)*>
+<!ELEMENT artwork     (%TEXT;)*>
+<!ATTLIST artwork
+          xml:space   (default|preserve) "preserve">
+<!ELEMENT postamble   (%TEXT;|xref|eref|iref)*>
+
+
+<!--
+  Back matter
+  -->
+
+
+<!-- sections, if present, are appendices -->
+<!ELEMENT back        (references?,section*)>
+
+<!ELEMENT references  (reference+)>
+<!ELEMENT reference   (front,seriesInfo*)>
+<!ATTLIST reference
+          anchor      ID                 #IMPLIED
+          target      %URI;              #IMPLIED>
+<!ELEMENT seriesInfo  EMPTY>
+<!ATTLIST seriesInfo
+          name        %ATEXT;            #REQUIRED
+          value       %ATEXT;            #REQUIRED>
+]]></artwork>
+  </ja:l>
+  <ja:l xml:lang="ja">
+    <artwork><![CDATA[
+<!--
+  RFC 文書系列用 DTD, 99-01-30 の原案 (の注釈部分和訳)
+  -->
+
+
+<!--
+  内容
+
+    DTD データ型
+
+    最上位
+
+    Front matter
+
+    The Body
+
+    Back matter
+  -->
+
+
+<!--
+  DTD データ型:
+
+        実体          説明
+        ======        ===============================================
+        NUMBER        [0-9]+
+        NUMBERS       読点(comma)区切りの NUMBER
+
+        DAY           月中の日、例えば "1"
+        MONTH         年中の月、例えば "January" (1月)
+        YEAR          4桁年号、例えば "1999"
+
+        URI           例 "http://invisible.net/"
+
+        ATEXT/CTEXT   印字可能 ASCII 文字列 (行終端無し)
+
+        TEXT          文字データ
+  -->
+
+
+<!ENTITY % NUMBER     "CDATA">
+<!ENTITY % NUMBERS    "CDATA">
+
+<!ENTITY % DAY        "CDATA">
+<!ENTITY % MONTH      "CDATA">
+<!ENTITY % YEAR       "CDATA">
+
+<!ENTITY % URI        "CDATA">
+
+<!ENTITY % ATEXT      "CDATA">
+<!ENTITY % CTEXT      "#PCDATA">
+
+<!ENTITY % TEXT       "#PCDATA">
+
+<!ENTITY   rfc.number "]]>&rfc.number;<![CDATA[">
+
+
+<!--
+  最上位
+  -->
+
+
+<!--
+  "rfc" 要素の属性は RFC 編集者により埋められます。
+  原案を用意する際には、著者は空欄にしておくべきです。
+
+  "seriesNo" 属性は分類が例えば BCP の時に使います。
+  -->
+<!ELEMENT rfc         (front,middle,back?)>
+<!ATTLIST rfc
+          number      %NUMBER;           #IMPLIED
+          obsoletes   %NUMBERS;          ""
+          updates     %NUMBERS;          ""
+          category    (std|bcp|info|exp|historic)
+                                         "info"
+          seriesNo    %NUMBER;           #IMPLIED
+          ipr         (full2026|noDerivativeWorks2026|none)
+                                         #IMPLIED
+          docName     %ATEXT;            #IMPLIED> 
+
+<!--
+  Front matter
+  -->
+
+
+<!ELEMENT front       (title,author+,date,area*,workgroup*,keyword*,
+                       abstract?,note*)>
+
+<!-- "abbrev" 属性は頭とかに使います。 -->
+<!ELEMENT title       (%CTEXT;)>
+<!ATTLIST title
+          abbrev      %ATEXT;            #IMPLIED> 
+
+<!ELEMENT author      (organization,address?)>
+<!ATTLIST author
+          initials    %ATEXT;            #IMPLIED
+          surname     %ATEXT;            #IMPLIED
+          fullname    %ATEXT;            #IMPLIED>
+
+<!ELEMENT organization
+                      (%CTEXT;)>
+<!ATTLIST organization
+          abbrev      %ATEXT;            #IMPLIED> 
+ 
+<!ELEMENT address     (postal?,phone?,facsimile?,email?,uri?)>
+
+<!-- city, region, code, country 各要素がせいぜい1回出現可能 -->
+<!ELEMENT postal      (street+,(city|region|code|country)*)>
+<!ELEMENT street      (%CTEXT;)>
+<!ELEMENT city        (%CTEXT;)>
+<!ELEMENT region      (%CTEXT;)>
+<!ELEMENT code        (%CTEXT;)>
+<!ELEMENT country     (%CTEXT;)>
+<!ELEMENT phone       (%CTEXT;)>
+<!ELEMENT facsimile   (%CTEXT;)>
+<!ELEMENT email       (%CTEXT;)>
+<!ELEMENT uri         (%CTEXT;)>
+
+<!ELEMENT date        EMPTY>
+<!ATTLIST date
+          day         %DAY;              #IMPLIED
+          month       %MONTH;            #REQUIRED
+          year        %YEAR;             #REQUIRED>
+
+<!-- メタ・データ・・・ -->
+<!ELEMENT area        (%CTEXT;)>
+<!ELEMENT workgroup   (%CTEXT;)>
+<!ELEMENT keyword     (%CTEXT;)>
+
+<!ELEMENT abstract    (t)+>
+<!ELEMENT note        (t)+>
+<!ATTLIST note
+          title       %ATEXT;            #REQUIRED>
+
+
+<!--
+  本体
+  -->
+
+
+<!ELEMENT middle      (section)+>
+
+<!ELEMENT section     (t|figure|section)*>
+<!ATTLIST section
+          anchor      ID                 #IMPLIED
+          title       %ATEXT;            #REQUIRED>
+
+<!ELEMENT t           (%TEXT;|list|figure|xref|eref|iref|vspace)*>
+<!ATTLIST t
+          hangText    %ATEXT;            #IMPLIED>
+
+<!-- style 属性の値は直近の親から継承する -->
+<!ELEMENT list        (t+)>
+<!ATTLIST list
+          style       (numbers|symbols|hanging|empty)
+                                         "empty">
+
+<!ELEMENT xref        (%CTEXT;)>
+<!ATTLIST xref
+          target      IDREF              #REQUIRED
+          pageno      (true|false)       "false">
+
+<!ELEMENT eref        (%CTEXT;)>
+<!ATTLIST eref
+          target      %URI;              #REQUIRED>
+
+<!ELEMENT iref        EMPTY>
+<!ATTLIST iref
+          item        %ATEXT;            #REQUIRED
+          subitem     %ATEXT;            "">
+
+<!ELEMENT vspace      EMPTY>
+<!ATTLIST vspace
+          blankLines  %NUMBER;           "0">
+
+<!ELEMENT figure      (preamble?,artwork,postamble?)>
+<!ATTLIST figure
+          anchor      ID                 #IMPLIED
+          title       %ATEXT;            "">
+
+<!ELEMENT preamble    (%TEXT;|xref|eref|iref)*>
+<!ELEMENT artwork     (%TEXT;)*>
+<!ATTLIST artwork
+          xml:space   (default|preserve) "preserve">
+<!ELEMENT postamble   (%TEXT;|xref|eref|iref)*>
+
+
+<!--
+  Back matter
+  -->
+
+
+<!-- sections がある場合、それは附属書 -->
+<!ELEMENT back        (references?,section*)>
+
+<!ELEMENT references  (reference+)>
+<!ELEMENT reference   (front,seriesInfo*)>
+<!ATTLIST reference
+          anchor      ID                 #IMPLIED
+          target      %URI;              #IMPLIED>
+<!ELEMENT seriesInfo  EMPTY>
+<!ATTLIST seriesInfo
+          name        %ATEXT;            #REQUIRED
+          value       %ATEXT;            #REQUIRED>
+]]></artwork>
+  </ja:l>
+  </ja:pair>
+
+</figure>
+</section>
+<section title="Acknowledgements">
+<t>
+  <ja:pair>
+  <ja:l xml:lang="en">The author gratefully acknowledges the contributions of:
+Alan Barrett,
+Brad Burdick,
+Brian Carpenter,
+Steve Deering,
+Patrik Faltstrom,
+Jim Gettys,
+Carl Malamud,
+Chris Newman,
+Kurt Starsinic,
+and,
+Frank Strauss.</ja:l>
+  <ja:l xml:lang="ja">著者は次の方々の貢献に謝意を表します:
+Alan Barrett,
+Brad Burdick,
+Brian Carpenter,
+Steve Deering,
+Patrik Faltstrom,
+Jim Gettys,
+Carl Malamud,
+Chris Newman,
+Kurt Starsinic,
+Frank Strauss。</ja:l>
+  </ja:pair>
+</t>
+</section>
+</back>
+<ja:back>
+  <section anchor="ja.note.mydtd" title="この翻訳文の形式について">
+    <t>この文書 (の原本) は、 RFC 2629 
+    で定義された形式に、翻訳文用の要素を XML 
+    名前空間を使って追加して用いています。詳しくは、 
+    <ja:uri-ref target="http://suika.fam.cx/~wakaba/lang/rfc/translate/" />
+    を御覧下さい。</t>
+  </section>
+</ja:back>
+</rfc>
