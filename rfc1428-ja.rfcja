@@ -10,7 +10,7 @@
   <!ENTITY ja.UserAgent "利用者代理者">
 ]>
 <?rfc-translation show-rfc-header-category="no" ?>
-<rfc number="1428" category="info"
+<rfc number="&rfc.number;" category="info"
    xmlns:myns="mailto:julian.reschke@greenbytes.de?subject=rcf2629.xslt"
    xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/"
    xmlns:h="http://www.w3.org/1999/xhtml">
@@ -76,7 +76,7 @@
     <t><ja:link type="rfc" number="2629" /> でマーク付け。</t>
     <t>翻訳完了。</t>
   </ja:item>
-</ja:change><!-- $Date: 2002/05/08 14:43:57 $ -->
+</ja:change><!-- $Date: 2002/05/09 09:52:35 $ -->
 <h:style xml:space="preserve" type="text/css">
   .rfc-t-artwork table
   	{margin-left: 15%; margin-right: 15%;
