@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="iso-2022-jp"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
-<head profile="http://suika.fam.cx/~wakaba/lang/rfc/translate/html-profile">
+<head profile="http://suika.fam.cx/~wakaba/lang/rfc/translation/html-profile">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <title>
       RFC 2629: 
-    Writing I-Ds and RFCs using XML</title>
+    XML を使って I-D や RFC を書く (Writing I-Ds and RFCs using XML)
+    </title>
 <link rel="stylesheet" href="http://suika.fam.cx/~wakaba/lang/rfc/translation/rfc-ja-style.css" type="text/css"/>
 <meta name="ietf-area" content="General"/>
 <meta name="keyword" xml:lang="en" content="RFC, Request for Comments, I-D, Internet-Draft, XML, Extensible Markup Language, "/>
+<meta name="keyword" content="拡張マーク付け言語, "/>
 </head>
 <body>
 <div id="rfc--table">
@@ -17,7 +19,7 @@
 <li>Request for Comments: 2629</li>
 <li>
 <span class="t-pair">
-<span xml:lang="en" class="t-l-en t-hide-no">Category: Informational</span>
+<span xml:lang="en" class="t-l-en">Category: Informational</span>
 </span>
 </li>
 <li>
@@ -41,7 +43,10 @@
 </li>
 </ul>
 </div>
-<h1 class="rfc-title" id="rfc-title">Writing I-Ds and RFCs using XML</h1>
+<div class="t-pair t-heading" id="rfc-title">
+<h1 class="rfc-title t-l-en" xml:lang="en">Writing I-Ds and RFCs using XML</h1>
+<h1 class="rfc-title t-l-ja" xml:lang="ja">XML を使って I-D や RFC を書く</h1>
+</div>
 <div id="rfc-status" class="rfc-section">
 <div class="t-pair">
 <h1 xml:lang="en" class="t-l-en">Status of this Memo</h1>
@@ -66,8 +71,8 @@
 <h1 xml:lang="en" class="t-l-en">Copyright Notice</h1>
 <h1 xml:lang="ja" class="t-l-ja">著作権表示</h1>
 </div>
-<div class="t-pair">
-<p class="t-l-en t-hide-no" xml:lang="en">Copyright &#x00A9; 
+<div class="t-pair t-hide-no">
+<p class="t-l-en" xml:lang="en">Copyright &#x00A9; 
         <a href="http://www.isoc.org/">The Internet Society</a> 
         (1999). 
         All Rights Reserved.</p>
@@ -81,26 +86,20 @@
 <h1 xml:lang="en" class="t-l-en">Abstract</h1>
 <h1 xml:lang="ja" class="t-l-ja">概要</h1>
 </div>
-  <p class="rfc-t" xmlns="http://www.w3.org/1999/xhtml">
-    <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-    <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="rfc-t" xmlns="http://www.w3.org/1999/xhtml">
+    <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
       This memo presents a technique for using XML
       (Extensible Markup Language)
       as a source format for documents in the Internet-Drafts (I-Ds) 
       and Request for Comments (RFC) series.
-    </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-    <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+    </p>
+<p xml:lang="ja" class="t-l-ja">
       このメモは、 XML (拡張マーク付け言語) を Internet-Draft (I-D)
       や Request for Comments (RFC) 系列の文書の原形式として使用する手法を説明します。
-    </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-    </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-  </p>
+    </p>
+</div>
+  </div>
 </div>
 
 <div class="rfc-section" id="rfc.section.1">
@@ -110,10 +109,8 @@
           はじめに</h1>
 </div>
 <div class="rfc-t" id="rfc.section.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     This memo describes how to write a document for the I-D and 
     RFC series using <span class="rfc-xref">
 <a href="#XML" title="Extensible Markup Language (XML) 1.0">the Extensible Markup 
@@ -121,49 +118,35 @@
           &#x00A0;<sup>[1]</sup>
 </a>
 </span> (XML). This memo has three goals:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     このメモは、 I-D および RFC 
-    系列の文書を<span class="rfc-xref">
-<a href="#XML" title="Extensible Markup Language (XML) 1.0">拡張マーク付け言語
+    系列の文書を<a href="#XML" title="拡張可能マーク付け言語 (XML) 1.0">拡張マーク付け言語
           &#x00A0;<sup>[1]</sup>
-</a>
-</span> (XML)
+</a> (XML)
     を使って書く方法を説明します。このメモには、三つの目的があります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
   
 <ol class="rfc-list-numbers text" xmlns="">
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     To describe a simple XML Document Type Definition (DTD) that is
 powerful enough to handle the simple formatting requirements of RFC-like
 documents whilst allowing for meaningful markup of descriptive
 qualities.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     意味マーク付けの記述品質が可能な RFC
     型文書の単純な書式づけ要件を取り扱うのに十分強力である XML 
     文書型定義 (DTD) の説明
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </li>
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     To describe software that processes XML source files,
 including a tool that produces documents
 conforming to <span class="rfc-xref">
@@ -172,331 +155,239 @@ conforming to <span class="rfc-xref">
 </a>
 </span>,
 HTML format, and so on.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    <span class="rfc-xref">
-<a href="#refs.RFC2223" title="Instructions to RFC Authors">RFC 2223
+  </p>
+<p xml:lang="ja" class="t-l-ja">
+    <a href="#refs.RFC2223" title="RFC 著者の手引き">RFC 2223
           &#x00A0;<sup>[2]</sup>
-</a>
-</span> に適合する文書,
+</a> に適合する文書,
     HTML 形式, その他を生成する道具を含む、
     XML 源ファイルを処理するソフトウェアの説明
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </li>
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     To provide the proof-of-concept for the first two goals
 (this memo was written using this DTD and produced using that
 software).
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     前述の2つの目的の概念の証明の提供 (このメモはその DTD 
     を使って執筆され、そうしたソフトウェアを使って生成されました。)
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </li>
 </ol>
 </div>
 <div class="rfc-t" id="rfc.section.1.p.2" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     It is beyond the scope of this memo to discuss the political
 ramifications of using XML as a source format for RFC-like documents.
 Rather,
 it is simply noted that adding minimal markup to plain text:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     RFC 的文書の源形式として XML を使うことの政治的議論はこのメモの適用範囲外です。それよりも、平文 (plain text) に最小のマーク付けを加えることで、
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
   
 <ul class="rfc-list-symbols text" xmlns="">
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     allows the traditional production of textual RFC-like documents using
 familiar editors;
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     よく知られているエディターを使って文字な RFC 的文書の伝統的生成が可能になる
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </li>
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     requires some, albeit minimal, additions to existing software
 environments; and,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     幾つか、最低でも、既存のソフトウェア環境に追加が必要である
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </li>
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     permits information to be organized, searched, and retrieved
 using both unstructured and structured mechanisms.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     非構造化・構造化の両機構を使って情報を組織化したり検索したり取り出したり出来る
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </li>
 </ul>
 
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  <div class="t-pair" xmlns="">
+<p xml:lang="ja" class="t-l-ja">
     ということを単に記すものです。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 </div>
 
 <div class="rfc-section" id="rfc.section.2">
-<div>
-<h1 xmlns="http://www.w3.org/1999/xhtml">2. Using the DTD to Write I-Ds and RFCs</h1>
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2. Using the DTD to Write I-Ds and RFCs</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2. 
+          I-D や RFC を書くのに DTD を使う</h1>
 </div>
-<p class="rfc-t" id="rfc.section.2.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     We do not provide a formal or comprehensive description of XML.
 Rather,
 this section discusses just enough XML to use a Document Type
 Declaration (DTD) to write RFC-like documents.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     XML についての正式な、あるいは包括的な説明はしません。
     この節では、 RFC 的文書を書くための文書型宣言 (DTD) 
     を使うのに必要なだけの話をします。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-<p class="rfc-t" id="rfc.section.2.p.2" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  </p>
+</div>
+</div>
+<div class="rfc-t" id="rfc.section.2.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     If you're already familiar with XML,
 skip to <span class="rfc-xref">
 <a href="#rfc.dtd" title="The RFC DTD">
         section 2</a>
 </span> to look at the DTD.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    XML について既によく分かっているなら、<span class="rfc-xref">
-<a href="#rfc.dtd" title="The RFC DTD">
-        section 2</a>
-</span>に飛んで、 DTD を御覧下さい。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+<p xml:lang="ja" class="t-l-ja">
+    XML について既によく分かっているなら、<a href="#rfc.dtd" title="The RFC DTD">
+      附属書B</a>に飛んで、 DTD を御覧下さい。
+  </p>
+</div>
+</div>
 
 <div class="rfc-section" id="rfc.section.2.1">
-<div id="xml_basics">
-<h2 xmlns="http://www.w3.org/1999/xhtml">2.1. XML basics</h2>
+<div class="t-pair t-heading" id="xml_basics">
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.1. XML basics</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.1. 
+          XML の基礎</h2>
 </div>
 <div class="rfc-t" id="rfc.section.2.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     There are very few rules when writing in XML,
 as the syntax is simple.
 There are five terms you'll need to know:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     XML は構文が簡単なので、書く時に必要なのはほんの少しの規則だけです。知っておくべきことは5つあります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 <ol class="rfc-list-numbers text" xmlns="">
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     An “element” usually refers to a start tag, an end tag, and all the
 characters in between,
 e.g.,
 "&lt;example&gt;text and/or nested elements&lt;/example&gt;"
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     「要素」は通常開始タグと終了タグ、それに間の全ての文字、例えば
     <samp>「&lt;例&gt;文字とか入れ子の要素&lt;/例&gt;」</samp>
     を指します。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </li>
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     An "empty element" combines the start tag and the end tag,
 e.g.,
 "&lt;empty/&gt;".
 You don't find these in HTML.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     「空要素」は開始タグと終了タグがくっついて、 
     <samp>「&lt;空/&gt;」</samp> のようになります。 
     HTML にはこれはありません。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </li>
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     An "attribute" is part of an element.
 If present, they occur in the start tag, e.g.,
 "&lt;example name='value'&gt;".
 Of course,
 they can also appear in empty elements, e.g.,
 "&lt;empty name='value'/&gt;".
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     「属性」は要素の一部です。存在する場合、開始タグ中に、
     <samp>「&lt;例 名前='値'&gt;」</samp> 
     の様に現れます。もちろん、空要素中でも
     <samp>「&lt;空 名前='値'/&gt;」</samp> の様に使えます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </li>
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     An "entity" is a textual macro that starts with "&amp;".
 Don't worry about these,
 you'll only use them whenever you want to put a "&amp;" or a "&lt;" in
 your text.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     「実体」は文字マクロで、「&amp;」で始まります。
     な〜に心配しなさんな、「&amp;」や「&lt;」を文中に入れたい時にだけいつでも使うことが出来ます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </li>
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     A "token" is a string of characters.
 The first character is either a letter or an underscore ("_").
 Any characters that follow are either letters, numbers, an
 underscore, or a period (".").
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     「字句 (token)」 は文字の列です。最初の文字は文字か下線 (「_」)
     です。その後の文字は文字、数字、下線、句点 (「.」) です。
-    <span style="color: red">&lt;ja:note&gt;</span>
-<ja:note>ここで文字とは、26×2種類の基本ラテン字母のことです。</ja:note>
-<span style="color: red">&lt;/ja:note&gt;</span>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+    <ins class="t-note t-l-ja" xml:lang="ja">
+    (<span class="t-note-title">訳注:</span>ここで文字とは、26×2種類の基本ラテン字母のことです。)
+  </ins>
+  </p>
+</div>
 </li>
 </ol>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.1">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     First,
 start your source file with an XML declaration,
 a reference to the DTD,
 and the "rfc" element:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     最初に、源ファイルは XML 宣言, DTD への参照, 「rfc」要素で始めます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;?xml version="1.0"?&gt;
@@ -506,74 +397,54 @@ and the "rfc" element:
     &lt;/rfc&gt;
 </pre>
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     Ignore the first two lines
 ―― the declaration and the reference ――
 and simply treat them as opaque strings.
 Nothing else should be present after the "&lt;/rfc&gt;" tag.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     最初の2行 (宣言と参照) は無視し、単に呪文だと思って下さい。
     「&lt;/rfc&gt;」タグの後には何も現れるべきではありません。
-    <span style="color: red">&lt;ja:note&gt;</span>
-<ja:note>rfc 要素については、 <span class="rfc-xref">
-<a href="#rfc" title="The rfc Element">
-        section 1</a>
-</span> に説明があります。</ja:note>
-<span style="color: red">&lt;/ja:note&gt;</span>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+    <ins class="t-note t-l-ja" xml:lang="ja">
+    (<span class="t-note-title">訳注:</span>rfc 要素については、 <a href="#rfc" title="rfc 要素">
+      附属書A</a> に説明があります。)
+  </ins>
+  </p>
 </div>
 </div>
-<p class="rfc-t" id="rfc.section.2.1.p.3" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+</div>
+<div class="rfc-t" id="rfc.section.2.1.p.3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     Second,
 make sure that all elements are properly matched and nested.
 A properly matched element that starts with
 "&lt;example&gt;" is eventually followed with "&lt;/example&gt;".
 (Empty elements are always matched.)
 Elements are properly nested when they don't overlap.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     二番目に、全ての要素が適切に対応・入れ子になっているか確かめて下さい。
     <samp>「&lt;例&gt;」</samp> で始まる適切に対応する要素は、最終的には
     <samp>「&lt;/例&gt;」</samp> が続くことになります。
     (空要素は常に対応しています。) 
     各要素は重複していない時で適切に入れ子になっています。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.2">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     For example,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     例えば、
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;outer&gt;
@@ -585,39 +456,27 @@ Elements are properly nested when they don't overlap.
     &lt;/outer&gt;
 </pre>
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     is properly nested.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     は適切に入り組んでいます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.3">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     However,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     しかし、
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;outer&gt;
@@ -629,45 +488,31 @@ Elements are properly nested when they don't overlap.
     &lt;/inner&gt;
 </pre>
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     overlaps, so the elements aren't properly nested.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     は重なっているので、要素は正しく入れ子になっていません。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
 </div>
 </div>
-<p class="rfc-t" id="rfc.section.2.1.p.6" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+</div>
+<div class="rfc-t" id="rfc.section.2.1.p.6" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     Third,
 never use "&lt;" or "&amp;" in your text.
 Instead, use either "&amp;lt;" or "&amp;amp;", respectively.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     三番目に、「&lt;」や「&amp;」を文中に使ってはいけません。代わりに、それぞれ「&amp;lt;」と「&amp;amp;」を使います。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-<p class="rfc-t" id="rfc.section.2.1.p.7" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  </p>
+</div>
+</div>
+<div class="rfc-t" id="rfc.section.2.1.p.7" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     Fourth,
 there are two quoting characters in XML, 'apostrophe' and "quotation".
 Make sure that all attributes values are quoted,
@@ -680,10 +525,8 @@ then use one of them to quote the value,
 and replace occurrances of that character in the attribute value with
 either '&amp;apos;' (apostrophe) or "&amp;quot;" (quotation),
 e.g., "&lt;example name='"&amp;apos;"'&gt;".
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     四番目に、 XML では 'アポストロフィ' と "引用" 
     の二種類の引用文字があります。全ての属性値を、
     <samp>「6lt;例 名前='値'&gt;」</samp> の様に引用符で囲むことを確認して下さい。値に引用文字の一方が使われている時は、
@@ -691,75 +534,55 @@ e.g., "&lt;example name='"&amp;apos;"'&gt;".
     値が引用文字の両方を含んでいる場合、どちらかを値を囲むのに使い、属性値に使われている文字を '&amp;apos;' (アポストロフィ) または "&amp;quot;"
     (引用) に置き換えて、 <samp>「&lt;例 名前='"&amp;apos;"'&gt;"」</samp>
     のようにします。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.4">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     If you want to put a comment in your source file,
 here's the syntax:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     源ファイルに注釈を入れたい時は、次の構文の様にします。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     <pre class="rfc-artwork" xml:space="preserve">
         &lt;!-- comments can be multiline,
          if you wish --&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     <pre class="rfc-artwork" xml:space="preserve">
         &lt;!-- 注釈行は、必要なら
          複数行に出来ます。 --&gt;
 </pre>
     <div class="rfc-postamble">
-      <span style="color: red">&lt;ja:note&gt;</span>
-<ja:note>また、注釈中に「--」を使ってはいけません。</ja:note>
-<span style="color: red">&lt;/ja:note&gt;</span>
+      <ins class="t-note t-l-ja" xml:lang="ja">
+    (<span class="t-note-title">訳注:</span>また、注釈中に「--」を使ってはいけません。)
+  </ins>
     </div>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 </div>
-<p class="rfc-t" id="rfc.section.2.1.p.9" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.1.p.9" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     Finally,
 XML is case sensitive.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     五番目に、 XML は大文字と小文字を区別します。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 </div>
 
 <div class="rfc-section" id="rfc.section.2.2">
@@ -769,21 +592,15 @@ XML is case sensitive.
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.5">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     Immediately following the "&lt;rfc&gt;" tag is the "front"
 element:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "&lt;rfc&gt;" タグの直ぐ後に続くのは "front" 要素です。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;?xml version="1.0"?&gt;
@@ -805,28 +622,20 @@ element:
     &lt;/rfc&gt;
 </pre>
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     (Note that in all examples,
 indentation is used only for expository purposes.)
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     (全ての例で、字下げは説明のためだけに使っていることに注意して下さい。)
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
 </div>
 </div>
-<p class="rfc-t" id="rfc.section.2.2.p.2" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+</div>
+<div class="rfc-t" id="rfc.section.2.2.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The "front" element consists of a "title" element,
 one or more "author" elements,
 a "date" element,
@@ -836,32 +645,28 @@ one or more optional "keyword" elements,
 an optional "abstract" element.
 and,
 one or more optional "note" elements.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "front" 要素は "title" 要素, 1つ以上の "author" 要素, "date" 要素,
     1つ以上の省略可能な "area" 要素,
     1つ以上の省略可能な "workgroup" 要素,
     1つ以上の省略可能な "keyword" 要素,
     省略可能な "abstract" 要素,
     1つ以上の省略可能な "note" 要素から成ります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 <div class="rfc-section" id="rfc.section.2.2.1">
-<div>
-<h3 xmlns="http://www.w3.org/1999/xhtml">2.2.1. The title Element</h3>
+<div class="t-pair t-heading">
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.1. The title Element</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.1. 
+          title 要素</h3>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.6">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "title" element identifies the title of the document.
 Because the title will be used in the headers of the document when formatted
 according to <span class="rfc-xref">
@@ -870,18 +675,12 @@ according to <span class="rfc-xref">
 if the title is more than 42 characters,
 then an abbreviation should also be provided,
 e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "title" 要素は、文書の題を識別します。題は 
-    <span class="rfc-xref">
-<a href="#refs.RFC2223" title="Instructions to RFC Authors">[2]</a>
-</span> に従って整形する時に文書の頭に使われるので、題は42文字以上の時は、省略形も与えるべきです。例えば、次のようにします。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+    <a href="#refs.RFC2223" title="RFC 著者の手引き">[2]</a> に従って整形する時に文書の頭に使われるので、題は42文字以上の時は、省略形も与えるべきです。例えば、次のようにします。
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;title abbrev="Much Ado about Nothing"&gt;
@@ -891,16 +690,16 @@ e.g.,
 </div>
 </div>
 <div class="rfc-section" id="rfc.section.2.2.2">
-<div id="author">
-<h3 xmlns="http://www.w3.org/1999/xhtml">2.2.2. The author Element</h3>
+<div class="t-pair t-heading" id="author">
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.2. The author Element</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.2. 
+          author 要素</h3>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.7">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     Each "author" element identifies a document author.
 Since a document may have more than one author,
 more than one "author" element may be present.
@@ -908,64 +707,48 @@ If the author is a person,
 then three attributes must be present in the "&lt;author&gt;" tag,
 "initials", "surname", and "fullname",
 e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     各 "author" 要素は、文書の要素を識別します。文書には複数人の著者がい得ますので、複数の 
     "author" 要素を使うことが出来ます。著者が人物である時は、
     "initials" (頭文字), "surname" (姓), "fullname" (全名) の3つの属性が
     "author" タグになければなりません。例えば、次の様にします。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;author initials="M.T." surname="Rose"
             fullname="Marshall T. Rose"&gt;
 </pre>
 </div>
-<p class="rfc-t" id="rfc.section.2.2.2.p.2" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.2.2.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The "author" element itself consists of an "organization" element,
 and,
 an optional "address" element.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "author" 要素自身は "organization" 要素と、省略可能な "address"
     要素から成ります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.8">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "organization" element is similar to the "title"
 element,
 in that an abbreviation may be paired with a long organization name
 using the "abbrev" attribute, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "organization" 要素は "title" 要素と同じ様に、長い組織名に
     "abbrev" 属性を使って次の例の様に省略名を指定することが出来ます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;organization abbrev="ISI"&gt;
@@ -973,52 +756,40 @@ using the "abbrev" attribute, e.g.,
     &lt;/organization&gt;
 </pre>
 </div>
-<p class="rfc-t" id="rfc.section.2.2.2.p.4" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.2.2.p.4" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The "address" element consists of an optional "postal" element,
 an optional "phone" element,
 an optional "facsimile" element,
 an optional "email" element,
 and,
 an optional "uri" element.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "address" 要素は省略可能な "postal" 要素,
 省略可能な "phone" 要素,
 省略可能な "facsimile" 要素,
 省略可能な "email" 要素,
 省略可能な "uri" 要素から成ります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.9">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "postal" element contains one or more "street" elements,
 followed by any combination of "city", "region" (state or province),
 "code" (zipcode or postal code), and "country" elements, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "postal" 要素は次の例の様に、1つ以上の "street" 要素, それに続く
     "city", "region" (州や地方), "code" (郵便番号), "country" 
     各要素の自由な組合せから成ります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;postal&gt;
@@ -1030,10 +801,8 @@ followed by any combination of "city", "region" (state or province),
     &lt;/postal&gt;
 </pre>
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     This flexibility is provided to allow for different national
 formats for postal addresses.
 Note however,
@@ -1048,40 +817,30 @@ information contained in these elements).
 Finally,
 the value of the "country" element should be a two-letter
 code from ISO 3166.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     この柔軟さにより、異なった国家郵便住所形式が使えます。
     しかし、 "city", "region", "code", "country" 
     各要素の順序は規定していませんが、この内のせいぜい1つは出現するかもしれないことに注意して下さい。とにかく、これらの要素は 
     XML 応用の処理の過程で順序を入れ替えてはなりません。 
     (例えば、表示応用はこれらの要素に含まれる情報の順序を保たなければなりません。)
     最後に、 "country" 要素の値は ISO 3166 の2文字符号とするべきです。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.10">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "phone", "facsimile", "email", and "uri" elements are
 simple, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "phone", "facsimile", "email", "uri" 各要素は簡単で、次の様な感じです。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;phone&gt;+1 415 695 3975&lt;/phone&gt;
@@ -1091,91 +850,71 @@ simple, e.g.,
 </div>
 </div>
 <div class="rfc-section" id="rfc.section.2.2.3">
-<div id="date">
-<h3 xmlns="http://www.w3.org/1999/xhtml">2.2.3. The date Element</h3>
+<div class="t-pair t-heading" id="date">
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.3. The date Element</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.3. 
+          date 要素</h3>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.11">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "date" element identifies the publication date of the
 document.
 It consists of a month and a year, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "date" 要素は文書の出版の日付を示します。次のように月と年から成ります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;date month="February" year="1999" /&gt;
 </pre>
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "date" element also has an optional day attribute.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "date" 要素には省略可能な day 属性もあります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 </div>
 </div>
 <div class="rfc-section" id="rfc.section.2.2.4">
-<div>
-<h3 xmlns="http://www.w3.org/1999/xhtml">2.2.4. Meta Data Elements</h3>
+<div class="t-pair t-heading">
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.4. Meta Data Elements</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.4. 
+          メタ・データ要素</h3>
 </div>
-<p class="rfc-t" id="rfc.section.2.2.4.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.2.4.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The "front" element may contain meta data ――
 the content of these elements does not appear in printed versions of
 the document.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "front" 要素はメタ・データ (内容は文書の印刷版には出現しないもの) も含むことが出来ます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.12">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     A document has one or more optional "area",
 "workgroup" and "keyword" elements, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     文書は1つ以上の省略可能な "area", "workgroup", "keyword"
     各要素を次の例の様に持ちます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;area&gt;General&lt;/area&gt;
@@ -1188,10 +927,8 @@ the document.
     &lt;keyword&gt;Extensible Markup Language&lt;/keyword&gt;
 </pre>
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "area" elements identify a general category for the
 document
 (e.g., one of "Applications", "General", "Internet", "Management",
@@ -1199,34 +936,30 @@ document
 while the "workgroup" elements identify the IETF working groups that
 produced the document,
 and the "keyword" elements identify useful search terms.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "area" 要素は文書の一般分類 ("Applications" (応用), 
     "General" (一般), "Internet", "Management" (経営),
     "Operations" (作業), "Routing" (経路), "Security" (保安), 
     "Transport" (輸送), "User" (利用者)) を示し、
     "workgroup" 要素は文書を出した IETF 作業部会を示し、
     "keyword" 要素は有用な検索語を示します。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 </div>
 </div>
 <div class="rfc-section" id="rfc.section.2.2.5">
-<div>
-<h3 xmlns="http://www.w3.org/1999/xhtml">2.2.5. The abstract Element</h3>
+<div class="t-pair t-heading">
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.5. The abstract Element</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.5. 
+          abstract 要素</h3>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.13">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     A document may have an "abstract" element,
 which contains one or more <span class="rfc-xref">
 <a href="#t" title="">"t" elements</a>
@@ -1234,24 +967,16 @@ which contains one or more <span class="rfc-xref">
 In general,
 only a single "t" element is present,
 e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     文書には "abstract" 要素を使うことが出来て、
-    それには1つ以上の <span class="rfc-xref">
-<a href="#t" title="">"t" 要素</a>
-</span>が含められます。通常、次の例の様に、 "t" 要素を1つだけ使います。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+    それには1つ以上の <a href="#t" title="">"t" 要素</a>が含められます。通常、次の例の様に、 "t" 要素を1つだけ使います。
+  </p>
+</div>
 </div>
 
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;abstract&gt;
         &lt;t&gt;This memo presents a technique for using XML
@@ -1260,10 +985,8 @@ e.g.,
         Request for Comments (RFC) series.&lt;/t&gt;
     &lt;/abstract&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;abstract&gt;
         &lt;t&gt;このメモは、 XML (拡張マーク付け言語) を 
@@ -1271,24 +994,22 @@ e.g.,
         系列の文書の原形式として使用する手法を説明します。&lt;/t&gt;
     &lt;/abstract&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 </div>
 </div>
 <div class="rfc-section" id="rfc.section.2.2.6">
-<div>
-<h3 xmlns="http://www.w3.org/1999/xhtml">2.2.6. The note Element</h3>
+<div class="t-pair t-heading">
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.6. The note Element</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.6. 
+          note 要素</h3>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.14">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     A document may have one or more "note" elements,
 each of which contains one or more <span class="rfc-xref">
 <a href="#t" title="">"t" elements</a>
@@ -1297,242 +1018,172 @@ There is a mandatory "title" attribute.
 In general,
 the "note" element contains text from the IESG, 
 e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     文書には1つ以上の "note" 要素を使うことが出来て、
-    それぞれ1つ以上の <span class="rfc-xref">
-<a href="#t" title="">"t" 要素</a>
-</span>が含められます。必須の
+    それぞれ1つ以上の <a href="#t" title="">"t" 要素</a>が含められます。必須の
     "title" 属性があります。通常、 "note" 要素は IESG 
     からの文を次の例の様に入れます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;note title="IESG Note"&gt;
         &lt;t&gt;The IESG has something to say.&lt;/t&gt;
     &lt;/note&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;note title="IESG 注記"&gt;
         &lt;t&gt;IESG は特に言うことはありません。&lt;/t&gt;
     &lt;/note&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 </div>
 </div>
 <div class="rfc-section" id="rfc.section.2.2.7">
-<div>
-<h3 xmlns="http://www.w3.org/1999/xhtml">2.2.7. Status, Copyright Notice, Table of Contents</h3>
+<div class="t-pair t-heading">
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.7. Status, Copyright Notice, Table of Contents</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.7. 
+          位置付け, 著作権表示, 目次</h3>
 </div>
-<p class="rfc-t" id="rfc.section.2.2.7.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.2.7.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     Note that text relating to the memo's status, copyright notice, or
 table of contents is not included in the document's markup ―― this is
 automatically inserted by an XML application when it produces either
 a text or HTML version of the document.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     メモの位置付けを説明する文章, 著作権表示, 
     目次は文書のマーク付けには含めません。これは XML 
     応用が文書の text 版や HTML 版を生成する時に自動的に挿入されます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 <div class="rfc-section" id="rfc.section.2.2.7.1">
-<div id="ipr">
-<h4 xmlns="http://www.w3.org/1999/xhtml">2.2.7.1. Conformance with RFC 2026</h4>
+<div class="t-pair t-heading" id="ipr">
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.7.1. Conformance with RFC 2026</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.7.1. 
+          RFC 2026 への適合性</h4>
 </div>
 <div class="rfc-t" id="rfc.section.2.2.7.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     If an Internet-Draft is being produced,
 then the "ipr" attribute should be present in the "&lt;rfc&gt;"
 tag at the beginning of the file.
 The value of the attribute should be one of:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     Internet-Draft が生成される場合に、 "ipr" 属性がファイルのはじめの
     "&lt;rfc&gt;"タグに現れるべきです。この属性の値は次のいずれかであるべきです。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 <dl class="rfc-list-hanging" xmlns="">
 <dt>full2026:</dt>
 <dd>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     indicating that the document is in full conformance with all
 the provisions of Section 10 of RFC 2026;
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    文書が <span style="color: red">&lt;ja:link&gt;</span>
-<ja:link>rfc2026RFC 2026</ja:link>
-<span style="color: red">&lt;/ja:link&gt;</span> 
-    の<span style="color: red">&lt;ja:link&gt;</span>
-<ja:link>rfc202610第10章</ja:link>
-<span style="color: red">&lt;/ja:link&gt;</span>
+  </p>
+<p xml:lang="ja" class="t-l-ja">
+    文書が <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:2026" title="RFC 2026">RFC 2026</a> 
+    の<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:2026" title="RFC 2026">第10章</a>
     の全ての要件に完全に適合することを示します
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </dd>
 <dt>noDerivativeWorks2026:</dt>
 <dd>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     indicating that the document is in full
 conformance with all the provisions of Section 10 of RFC 2026 except that the
 right to produce derivative works is not granted; or,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     文書が、派生的作業の生成が認められていないことを除いて、
-    <span style="color: red">&lt;ja:link&gt;</span>
-<ja:link>rfc2026RFC 2026</ja:link>
-<span style="color: red">&lt;/ja:link&gt;</span> 
-    の<span style="color: red">&lt;ja:link&gt;</span>
-<ja:link>rfc202610第10章</ja:link>
-<span style="color: red">&lt;/ja:link&gt;</span>
+    <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:2026" title="RFC 2026">RFC 2026</a> 
+    の<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:2026" title="RFC 2026">第10章</a>
     の全ての要件に完全に適合することを示します
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </dd>
 <dt>none:</dt>
 <dd>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     indicating that the document is NOT offered in accordance with
 Section 10 of RFC 2026, and the author does not provide the IETF with any rights
 other than to publish as an Internet-Draft.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     文書が
-    <span style="color: red">&lt;ja:link&gt;</span>
-<ja:link>rfc2026RFC 2026</ja:link>
-<span style="color: red">&lt;/ja:link&gt;</span> 
-    の<span style="color: red">&lt;ja:link&gt;</span>
-<ja:link>rfc202610第10章</ja:link>
-<span style="color: red">&lt;/ja:link&gt;</span>
+    <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:2026" title="RFC 2026">RFC 2026</a> 
+    の<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:2026" title="RFC 2026">第10章</a>
     に従って<strong xmlns="http://www.w3.org/1999/xhtml">おらず</strong>、著者は IETF に Internet-Draft
     として発行する以外のいかなる権利をも提供しないことを示します
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </dd>
 </dl>
 
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     In the latter case,
 a copyright notice will not be automatically inserted during
 processing by an XML application.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     後者の場合では、著作権表示は XML 応用により自動的には挿入されません。
-    <span style="color: red">&lt;ja:note&gt;</span>
-<ja:note>後者 (the latter case) とは最後の場合のみ?
-    rfc2629.xslt ではどの場合でも挿入されるようですが...</ja:note>
-<span style="color: red">&lt;/ja:note&gt;</span>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
+    <ins class="t-note t-l-ja" xml:lang="ja">
+    (<span class="t-note-title">訳注:</span>後者 (the latter case) とは最後の場合のみ?
+    rfc2629.xslt ではどの場合でも挿入されるようですが...)
+  </ins>
+  </p>
 </div>
-<p class="rfc-t" id="rfc.section.2.2.7.1.p.2" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+</div>
+<div class="rfc-t" id="rfc.section.2.2.7.1.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     Consult <span class="rfc-xref">
 <a href="#refs.RFC2026" title="The Internet Standards Process ―― Revision 3">[3]</a>
 </span> for further details.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    詳しくは <span class="rfc-xref">
-<a href="#refs.RFC2026" title="The Internet Standards Process ―― Revision 3">[3]</a>
-</span> を調べて下さい。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+<p xml:lang="ja" class="t-l-ja">
+    詳しくは <a href="#refs.RFC2026" title="Internet 標準化過程 ―― 改訂3版">[3]</a> を調べて下さい。
+  </p>
+</div>
+</div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.15">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     Finally,
 if the Internet-Draft is being submitted to an automated process,
 then the "docName" attribute should be present in the "&lt;rfc&gt;"
 tag at the beginning of the file.
 The value of this attribute contains the document (not file) name
 associated with this Internet-Draft, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     最後に、 Internet-Draft が自動処理に回された時は、 "docName"
     属性がファイルのはじめの "&lt;rfc&gt;" タグ中に出現するべきです。
     この属性の値は Internet-Draft につけられた文書 (ファイルでなしに) 
     の名前で、次の様になります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;rfc ipr="full" docName="draft-mrose-writing-rfcs-01"&gt;
@@ -1545,33 +1196,28 @@ associated with this Internet-Draft, e.g.,
 </div>
 </div>
 <div class="rfc-section" id="rfc.section.2.2.8">
-<div>
-<h3 xmlns="http://www.w3.org/1999/xhtml">2.2.8. Everything in the Front</h3>
+<div class="t-pair t-heading">
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.8. Everything in the Front</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.8. 
+          Front 全体</h3>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.16">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     So,
 putting it all together, we have, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     以上をまとめると次の様になります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en<pre class="rfc-artwork" xml:space="preserve">
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
+<pre class="rfc-artwork" xml:space="preserve">
     &lt;front&gt;
         &lt;title&gt;Writing I-Ds and RFCs using XML&lt;/title&gt;
     
@@ -1612,10 +1258,9 @@ putting it all together, we have, e.g.,
         &lt;/abstract&gt;
     &lt;/front&gt;
 </pre>
-</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja<pre class="rfc-artwork" xml:space="preserve">
+</p>
+<p xml:lang="ja" class="t-l-ja">
+<pre class="rfc-artwork" xml:space="preserve">
     &lt;front&gt;
         &lt;title&gt;XML を使って I-D や RFC を書く&lt;/title&gt;
     
@@ -1655,10 +1300,8 @@ putting it all together, we have, e.g.,
         &lt;/abstract&gt;
     &lt;/front&gt;
 </pre>
-</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+</p>
+</div>
 
 </div>
 </div>
@@ -1670,21 +1313,15 @@ putting it all together, we have, e.g.,
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.17">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "middle" element contains all the sections of the document
 except for the bibliography and appendices:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "middle" 要素は参考文献と附属書を除く文書の全ての節から成ります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     ...
@@ -1698,34 +1335,28 @@ except for the bibliography and appendices:
     ...
 </pre>
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "middle" element consists of one or more "section"
 elements.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "middle" 要素は1つ以上の "section" 要素から成ります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 </div>
 <div class="rfc-section" id="rfc.section.2.3.1">
-<div id="section">
-<h3 xmlns="http://www.w3.org/1999/xhtml">2.3.1. The section Element</h3>
+<div class="t-pair t-heading" id="section">
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1. The section Element</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1. 
+          section 要素</h3>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.18">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     Each "section" element contains a section of the document.
 There is a mandatory attribute,
 "title",
@@ -1737,20 +1368,14 @@ that is used for cross-referencing with
 <a href="#xref" title="">the "xref" element</a>
 </span>,
 e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     各 "section" 要素は文書の節から成ります。必須の属性 "title"
     は節の題を表します。省略可能の属性 "anchor" は
-    <span class="rfc-xref">
-<a href="#xref" title="">"xref" 要素</a>
-</span>による交差参照に使います。
+    <a href="#xref" title="">"xref" 要素</a>による交差参照に使います。
     次の例を御覧下さい。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;section anchor="intro" title="Introduction"&gt;
@@ -1761,23 +1386,17 @@ e.g.,
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.19">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "section" element is recursive ――
 each contains any number and combination of "t", "figure", and "section"
 elements, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "section" 要素は再帰的で、各々任意の数・組合せで "t",
     "figure", "section" 各要素を次の例の如く使います。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;section title="The Middle"&gt;
@@ -1795,14 +1414,14 @@ elements, e.g.,
 </pre>
 </div>
 <div class="rfc-section" id="rfc.section.2.3.1.1">
-<div id="t">
-<h4 xmlns="http://www.w3.org/1999/xhtml">2.3.1.1. The t Element</h4>
+<div class="t-pair t-heading" id="t">
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1.1. The t Element</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1.1. 
+          t 要素</h4>
 </div>
-<p class="rfc-t" id="rfc.section.2.3.1.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.3.1.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The "t" element contains any number and combination of
 paragraphs, lists, and figures.
 If a cross-reference is needed to a section, figure, or reference,
@@ -1818,56 +1437,40 @@ Indexing of text is provided by the
 <span class="rfc-xref">
 <a href="#iref" title="">the "iref" element</a>
 </span>.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    "t" 要素は任意の数・組合せの段落・一覧・図から成ります。節・図・参考文献への交差参照が必要なら、 <span class="rfc-xref">
-<a href="#xref" title="">"xref" 要素</a>
-</span>
-    を使います。同様に外部参照が必要なら、 <span class="rfc-xref">
-<a href="#eref" title="">"eref" 
-    要素</a>
-</span>を使います。文章の索引付けには <span class="rfc-xref">
-<a href="#iref" title="">"iref" 
-    要素</a>
-</span>を使います。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+<p xml:lang="ja" class="t-l-ja">
+    "t" 要素は任意の数・組合せの段落・一覧・図から成ります。節・図・参考文献への交差参照が必要なら、 <a href="#xref" title="">"xref" 要素</a>
+    を使います。同様に外部参照が必要なら、 <a href="#eref" title="">"eref" 
+    要素</a>を使います。文章の索引付けには <a href="#iref" title="">"iref" 
+    要素</a>を使います。
+  </p>
+</div>
+</div>
 </div>
 <div class="rfc-section" id="rfc.section.2.3.1.2">
-<div>
-<h4 xmlns="http://www.w3.org/1999/xhtml">2.3.1.2. The list Element</h4>
+<div class="t-pair t-heading">
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1.2. The list Element</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1.2. 
+          list 要素</h4>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.20">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "list" element contains one or more items.
 Each item is a "t" element,
 allowing for recursion, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "list" 要素は1つ以上の項目から成ります。各項目は
     "t" 要素で、繰り返し可能です。例を御覧あれ:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;list style="numbers"&gt;
         &lt;t&gt;The first item.&lt;/t&gt;
@@ -1879,10 +1482,8 @@ allowing for recursion, e.g.,
         &lt;/t&gt;
     &lt;/list&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;list style="numbers"&gt;
         &lt;t&gt;最初の項目。&lt;/t&gt;
@@ -1894,16 +1495,12 @@ allowing for recursion, e.g.,
         &lt;/t&gt;
     &lt;/list&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "list" element has an optional attribute,
 "style",
 having the value "numbers" (for numeric lists),
@@ -1916,46 +1513,34 @@ the default value is taken from its closest parent;
 otherwise,
 the default value is "empty".
 
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "list" 要素は省略可能な "style" 属性があって、 "numbers"
     (番号つき一覧), "symbols" (記号つき一覧), "hanging" (ぶら下がり一覧),
     "empty" (字下げ文) のいずれかの値を取ることが出来ます。
     "list" 要素が入れ子になっている時、既定値は一番近い親から取られます。そうでない時は、既定値は "empty" です。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.21">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     When nested within a "hanging list" element,
 the "t" element has an optional attribute,
 "hangText" that specifies the text to be inserted, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     「ぶら下がり一覧」 要素中で入れ子になっている時、
     "t" 要素は省略可能な属性 "hangText" を持ち、挿入される文字列を指定します。次の例を参照して下さい。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;list style="hanging"&gt;
         &lt;t hangText="full2026:"&gt;indicating that the document is in
@@ -1973,10 +1558,8 @@ the "t" element has an optional attribute,
         than to publish as an Internet-Draft.&lt;/t&gt;
     &lt;/list&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;list style="hanging"&gt;
         &lt;t hangText="full2026:"&gt;文書が RFC 2026 
@@ -1993,22 +1576,20 @@ the "t" element has an optional attribute,
         示します&lt;/t&gt;
     &lt;/list&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 </div>
 </div>
 <div class="rfc-section" id="rfc.section.2.3.1.3">
-<div id="figure">
-<h4 xmlns="http://www.w3.org/1999/xhtml">2.3.1.3. The figure Element</h4>
+<div class="t-pair t-heading" id="figure">
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1.3. The figure Element</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1.3. 
+          figure 要素</h4>
 </div>
-<p class="rfc-t" id="rfc.section.2.3.1.3.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.3.1.3.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The "figure" element groups an optional "preamble" element,
 an "artwork" element,
 and an optional "postamble" element together.
@@ -2020,27 +1601,19 @@ used for cross-referencing with
 There is also an optional "title" attribute that identifies the title
 of the figure.
 
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "figure" 要素は省略可能な "preamble" 要素,
     "artwork" 要素, 省略可能な "postable" 要素をひとまとめにします。
     "figure" 要素は省略可能な "anchor" 属性も持っていて、
-    <span class="rfc-xref">
-<a href="#xref" title="">"xref" 要素</a>
-</span>による交差参照に使うことが出来ます。
+    <a href="#xref" title="">"xref" 要素</a>による交差参照に使うことが出来ます。
     省略可能な "title" 属性というのもあって、図の題を示します。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-<p class="rfc-t" id="rfc.section.2.3.1.3.p.2" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  </p>
+</div>
+</div>
+<div class="rfc-t" id="rfc.section.2.3.1.3.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The "preamble" and "postamble" elements,
 if present,
 are simply text.
@@ -2057,74 +1630,50 @@ Indexing of text is provided by the
 <span class="rfc-xref">
 <a href="#iref" title="">the "iref" element</a>
 </span>.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "preamble" ・ "postamble" 両要素は、存在する場合、単純な文字列です。
     節・図・参考文献への交差参照が必要な場合は、
-    <span class="rfc-xref">
-<a href="#xref" title="">"xref" 
-    要素</a>
-</span>を使います。同様に、外部参照が必要なら、 
-    <span class="rfc-xref">
-<a href="#eref" title="">"eref" 要素</a>
-</span>を使います。文章の索引付けには 
-    <span class="rfc-xref">
-<a href="#iref" title="">"iref" 要素</a>
-</span>を使います。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-<p class="rfc-t" id="rfc.section.2.3.1.3.p.3" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+    <a href="#xref" title="">"xref" 
+    要素</a>を使います。同様に、外部参照が必要なら、 
+    <a href="#eref" title="">"eref" 要素</a>を使います。文章の索引付けには 
+    <a href="#iref" title="">"iref" 要素</a>を使います。
+  </p>
+</div>
+</div>
+<div class="rfc-t" id="rfc.section.2.3.1.3.p.3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The "artwork" element,
 which must be present,
 contains "ASCII artwork".
 Unlike text contained in the "t", "preamble", or "postamble" elements,
 both horizontal and vertical whitespace is significant in the "artwork"
 element.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "artwork" 要素は、必ず存在しなければならず、「ASCII 絵」から成ります。
     "t", "preamble", "postamble" 各要素中の文字列とは違って、水平・垂直どちらの空白間隔も 
     "artwork" 要素中では意味を持ちます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.22">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     So,
 putting it all together, we have, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     ということで、全てまとめると、次の例の様になります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;figure anchor="figure_example"&gt;
         &lt;preamble&gt;So,
@@ -2138,10 +1687,8 @@ putting it all together, we have, e.g.,
         &lt;postamble&gt;which is a very simple example.&lt;/postamble&gt;
     &lt;/figure&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;figure anchor="figure_example"&gt;
         &lt;preamble&gt;ということで、全てまとめると、
@@ -2155,53 +1702,37 @@ putting it all together, we have, e.g.,
         &lt;postamble&gt;非常に単純な例でした。&lt;/postamble&gt;
     &lt;/figure&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     which is a very simple example.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     非常に単純な例でした。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.23">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     If you have artwork with a lot of "&lt;" characters,
 then there's an XML trick you can use:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     沢山の "&lt;" 文字が絵の中にある場合は、このような
     XML 魔法を使うことが出来ます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;figure&gt;
         &lt;preamble&gt;If you have artwork with a lot of "&amp;lt;"
@@ -2217,10 +1748,8 @@ then there's an XML trick you can use:
         is left alone by the XML application.&lt;/postamble&gt;
     &lt;/figure&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;figure&gt;
         &lt;preamble&gt;沢山の "&amp;lt;" 文字が絵の中にある場合は、
@@ -2235,36 +1764,26 @@ then there's an XML trick you can use:
         応用に干渉されません。&lt;/postamble&gt;
     &lt;/figure&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "&lt;![CDATA[ ... ]]&gt;" construct is called a CDATA
 block ―― everything between the innermost brackets is left alone by
 the XML application.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     <samp>「&lt;![CDATA[ ... ]]&gt;」</samp> 構造は CDATA
     塊と呼ばれます。一番内側の括弧の間のものは全て XML 応用に干渉されません。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
 </div>
 </div>
-<p class="rfc-t" id="rfc.section.2.3.1.3.p.6" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+</div>
+<div class="rfc-t" id="rfc.section.2.3.1.3.p.6" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     Because the "figure" element represents a logical grouping of text
 and artwork,
 an XML application producing a text version of the document should
@@ -2277,56 +1796,44 @@ Because <span class="rfc-xref">
 characters by 49 lines of content on each page,
 XML applications should be prepared to prematurely introduce page
 breaks to allow for better visual grouping.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
       "figure" 要素は文書と絵の論理的な集合を表現するので、文書の 
       text 版を生成する XML 応用は各要素を同一頁中に入れるように策するべきです。
-      <span class="rfc-xref">
-<a href="#refs.RFC2223" title="Instructions to RFC Authors">RFC 2223
+      <a href="#refs.RFC2223" title="RFC 著者の手引き">RFC 2223
           &#x00A0;<sup>[2]</sup>
-</a>
-</span> 
+</a> 
       が各頁49行の内容で, 69文字を超えるのを認めていないので、
       XML 応用はより良い視覚的集合化を行うために予め改頁する準備をしておくべきです。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-<p class="rfc-t" id="rfc.section.2.3.1.3.p.7" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  </p>
+</div>
+</div>
+<div class="rfc-t" id="rfc.section.2.3.1.3.p.7" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     Finally,
 the "artwork" element has two optional attributes:
 "name" and "type".
 The former is used to suggest a filename to use when storing the
 content of the "artwork" element,
 whilst the latter contains a suggestive data-typing for the content.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
       最後に、 "artwork" 要素は2つの省略可能な属性 "name", "type"
       を持ちます。前者は "artwork" 要素の内容を保管する時に使うファイル名の案を推すのに使います。後者は内容のデータ型を示すのに使います。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 </div>
 <div class="rfc-section" id="rfc.section.2.3.1.4">
-<div id="xref">
-<h4 xmlns="http://www.w3.org/1999/xhtml">2.3.1.4. The xref Element</h4>
+<div class="t-pair t-heading" id="xref">
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1.4. The xref Element</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1.4. 
+          xref 要素</h4>
 </div>
-<p class="rfc-t" id="rfc.section.2.3.1.4.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.3.1.4.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The "xref" element is used to cross-reference sections, figures, and
 references.
 The mandatory "target" attribute is used to link back to the "anchor"
@@ -2336,127 +1843,88 @@ according to the token syntax in <span class="rfc-xref">
 <a href="#xml_basics" title="XML basics">
         section 2.1</a>
 </span>.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
       "xref" 要素は節・図・参考文献の交差参照に使います。必須の
       "target" 属性は "section", "figure", "reference" 要素の
       "anchor" 属性に逆接続するのに使います。
-      "anchor" および "target" 両属性の値は <span class="rfc-xref">
-<a href="#xml_basics" title="XML basics">
-        section 2.1</a>
-</span>
+      "anchor" および "target" 両属性の値は <a href="#xml_basics" title="XML の基礎">2.1節</a>
       の字句 (token) 構文に従い書式化されるべきです。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.24">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     If used as an empty element,
 e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
       空要素として使う時は
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     <pre class="rfc-artwork" xml:space="preserve">
     according to the token syntax in &lt;xref target="xml_basics" /&gt;.
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
       <pre class="rfc-artwork" xml:space="preserve">
     &lt;xref target="xml_basics" /&gt; の字句 (token) 構文に従い
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     then the XML application inserts an appropriate phrase
 during processing,
 such as "Section 2.1" or
 "&lt;a href="#xml_basics"&gt;XML Basics&lt;/a&gt;".
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
       の様になり、 XML 応用は <samp>「2.1 節」</samp> や
       <samp>「&lt;a href="#xml_basics"&gt;XML の基礎&lt;/a&gt;」</samp>
       のように適切な文字列を処理により挿入します。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.25">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     If used with content, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
       内容ありで使う時は
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     <pre class="rfc-artwork" xml:space="preserve">
     conforming to &lt;xref target="refs.RFC2223"&gt;RFC 2223&lt;/xref&gt;.
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;xref target="refs.RFC2223"&gt;RFC 2223&lt;/xref&gt; に適合する
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     then the XML application inserts an appropriate
 designation during processing,
 such as "RFC 2223[2]" or
@@ -2464,33 +1932,29 @@ such as "RFC 2223[2]" or
 Although the XML application decides what "an appropriate designation"
 might be,
 its choice is consistent throughout the processing of the document.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
       の様になり、 XML 応用は <samp>「RFC 2223[2]」</samp> や
       <samp>「&lt;a href="#refs.RFC2223"&gt;RFC 2223&lt;/a&gt;」</samp>
       のように適切な指示を処理により挿入します。「適切な指示」の内容は
       XML 応用が決めますが、選択は当該文書の処理を通じて固定です。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 </div>
 </div>
 
 <div class="rfc-section" id="rfc.section.2.3.1.5">
-<div id="eref">
-<h4 xmlns="http://www.w3.org/1999/xhtml">2.3.1.5. The eref Element</h4>
+<div class="t-pair t-heading" id="eref">
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1.5. The eref Element</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1.5. 
+          eref 要素</h4>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.26">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "eref" element is used to reference external documents.
 The mandatory "target" attribute is a
 <span class="rfc-xref">
@@ -2498,21 +1962,15 @@ The mandatory "target" attribute is a
           &#x00A0;<sup>[4]</sup>
 </a>
 </span>, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "eref" 要素は、外部文書を参照するのに使います。必須の
-    "target" 属性は <span class="rfc-xref">
-<a href="#URI" title="Uniform Resource Identifiers (URI): Generic Syntax">URI
+    "target" 属性は <a href="#URI" title="統一資源識別子 (URI): 一般構文">URI
           &#x00A0;<sup>[4]</sup>
 </a>
-</span>
     で、次の様に使います。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;eref target="http://metalab.unc.edu/xml/"&gt;Cafe con Leche&lt;/eref&gt;
@@ -2521,124 +1979,96 @@ The mandatory "target" attribute is a
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.27">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     Note that while the "target" attribute is always present,
 the "eref" element may be empty, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "target" 属性は常に必要であり、 "eref" 要素は空であり得ることに注意して下さい。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;eref target="http://invisible.net/" /&gt;
 </pre>
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
 and the XML application inserts an appropriate designation during
 processing such as "[9]" or
 "&lt;a href="http://invisible.net/"&gt;http://invisible.net/&lt;/a&gt;".
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     XML 応用は <samp>「[9]」</samp> や 
     <samp>「&lt;a href="http://invisible.net/"&gt;http://invisible.net/&lt;/a&gt;」</samp> 
     の様に適切な指示を処理の過程で挿入します。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 </div>
 </div>
 <div class="rfc-section" id="rfc.section.2.3.1.6">
-<div id="iref">
-<h4 xmlns="http://www.w3.org/1999/xhtml">2.3.1.6. The iref Element</h4>
+<div class="t-pair t-heading" id="iref">
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1.6. The iref Element</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1.6. 
+          iref 要素</h4>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.28">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
 <span class="rfc-iref" id="rfc.iref.1">&#x00A0;</span>The "iref" element
 is used to add information to an index.
 The mandatory "item" attribute is the primary key the information is stored
 under,
 whilst the optional "subitem" attribute is the secondary key, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     <span class="rfc-iref" id="rfc.iref.2">&#x00A0;</span>"iref" 
     要素は索引に情報を追加するのに使います。必須の属性 "item"
     は情報が保管される主鍵で、省略可能な "subitem" 属性は副鍵です。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;iref item="indexing" subitem="how to" /&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;iref item="索引付け" subitem="方法" /&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 </div>
-<p class="rfc-t" id="rfc.section.2.3.1.6.p.2" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.3.1.6.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
 Finally, note that the "iref" element is always empty ―― it never
 contains any text.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     最後に、 "iref" 
     要素は常に空である――どんな文字列も含まないということに注意して下さい。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 </div>
 <div class="rfc-section" id="rfc.section.2.3.1.7">
-<div>
-<h4 xmlns="http://www.w3.org/1999/xhtml">2.3.1.7. The vspace Element</h4>
+<div class="t-pair t-heading">
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1.7. The vspace Element</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1.7. 
+          vspace 要素</h4>
 </div>
-<p class="rfc-t" id="rfc.section.2.3.1.7.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.3.1.7.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The "vspace" element,
 which may occur only inside the "t" element,
 is used by the author to provide formatting guidance to the XML
@@ -2647,44 +2077,32 @@ There is an attribute,
 "blankLines",
 that indicates the number of blank lines that should be inserted.
 A physical linebreak is specified by using the default value, "0".
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "vspace" 要素は、 "t" 要素の中にのみ現れることが出来て、著者が
     XML 応用に整形の手引きを与えるのに使います。 "blankLines"
     属性があり、挿入されるべき空白行の数を示します。物理改行は既定値である
     "0" を使って表します。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.29">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     In addition,
 the "vspace" element can be used to force a new physical paragraph
 within a list item, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     加えて、 "vspace" 要素は次に例示するように、新しい形式段落を一覧項目中に作り出すのに使うことが出来ます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;list style="numbers"&gt;
         &lt;t&gt;This is list item.
@@ -2694,10 +2112,8 @@ within a list item, e.g.,
            as a separate physical paragraph.&lt;/t&gt;
     &lt;/list&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;list style="numbers"&gt;
         &lt;t&gt;これは一覧の項目です。
@@ -2706,17 +2122,13 @@ within a list item, e.g.,
            しかし表示の際には別の形式段落に見えます。&lt;/t&gt;
     &lt;/list&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 </div>
-<p class="rfc-t" id="rfc.section.2.3.1.7.p.3" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.3.1.7.p.3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     An XML application producing a text version of the document should
 exercise care when encountering a value for "blankLines" that causes a
 pagebreak ――
@@ -2725,36 +2137,26 @@ if a "vspace" element causes a pagebreak,
 then no further blank lines should be inserted.
 This allows authors to "force" a pagebreak by using an arbitrarily
 large value, e.g., "blankLines='100'".
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     文書の text 版を生成する XML 応用は、改頁を起こすような
     "breakLines" の値であった時に注意するべきです。
     "vspace" 要素が改頁を起こす時は、それ以上空白行を挿入するべきではありません。これにより、著者は任意の大きな値、例えば
     <samp>「blankLines='100'」</samp> で「強制」改頁させることが出来ます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-<p class="rfc-t" id="rfc.section.2.3.1.7.p.4" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  </p>
+</div>
+</div>
+<div class="rfc-t" id="rfc.section.2.3.1.7.p.4" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     Finally, note that the "vspace" element is always empty ―― it never
 contains any text.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     最後に、 "vspace" 要素は常に空である――文字列を含まないということに注意して下さい。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2765,22 +2167,16 @@ contains any text.
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.30">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     Finally,
 the "back" element is used for references and
 appendices:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     最後に、 "back" 要素は参考文献と附属書に使います。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
         ...
@@ -2796,134 +2192,95 @@ appendices:
     &lt;/rfc&gt;
 </pre>
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "back" element consists of an optional "references" element,
 and,
 one or more optional "section" elements.
 The "back" element itself is optional,
 if your document doesn't have any references or appendices,
 you don't have to include it.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "back" 要素は省略可能な "references" 要素と、1つ以上の省略可能な
     "section" 要素から成ります。 "back" 要素自体は省略可能で、文書に参考文献も附属書もない場合は、含める必要はありません。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 </div>
 <div class="rfc-section" id="rfc.section.2.4.1">
-<div id="references">
-<h3 xmlns="http://www.w3.org/1999/xhtml">2.4.1. The references Element</h3>
+<div class="t-pair t-heading" id="references">
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.4.1. The references Element</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.4.1. 
+          references 要素</h3>
 </div>
-<p class="rfc-t" id="rfc.section.2.4.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.4.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The "references" element contains the document's bibliography.
 It contains one or more "reference" elements.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "references" 要素は文書の参考文献から成ります。1つ以上の
     "reference" 要素から成ります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-<p class="rfc-t" id="rfc.section.2.4.1.p.2" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  </p>
+</div>
+</div>
+<div class="rfc-t" id="rfc.section.2.4.1.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     Each "reference" element contains a "front" element and one or more
 optional "seriesInfo" elements.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     各 "references" 要素は "front" 要素と1つ以上の省略可能な
     "seriesInfo" 要素から成ります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-<p class="rfc-t" id="rfc.section.2.4.1.p.3" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  </p>
+</div>
+</div>
+<div class="rfc-t" id="rfc.section.2.4.1.p.3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     We've already discussed the "front" element back in
 <span class="rfc-xref">
 <a href="#front_matter" title="Front matter">
         section 2.2</a>
 </span>.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    "front" 要素については <span class="rfc-xref">
-<a href="#front_matter" title="Front matter">
-        section 2.2</a>
-</span>
+  </p>
+<p xml:lang="ja" class="t-l-ja">
+    "front" 要素については <a href="#front_matter" title="">2.2節</a>
     で既に話しました。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-<p class="rfc-t" id="rfc.section.2.4.1.p.4" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  </p>
+</div>
+</div>
+<div class="rfc-t" id="rfc.section.2.4.1.p.4" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The "seriesInfo" element has two attributes,
 "name" and "value" that identify the document series and series entry,
 respectively.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "seriesInfo" 要素は "name", "value" の2つの属性を持ち、それぞれ文書系列と系列項目を特定します。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.31">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "reference" element has an optional "anchor"
 attribute that is used for cross-referencing with
 <span class="rfc-xref">
 <a href="#xref" title="">the "xref" element</a>
 </span>, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "reference" 要素は省略可能な "anchor" 属性を持ち、
-    次の様に使い、 <span class="rfc-xref">
-<a href="#xref" title="">"xref" 要素</a>
-</span>で交差参照に使うことが出来ます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+    次の様に使い、 <a href="#xref" title="">"xref" 要素</a>で交差参照に使うことが出来ます。
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;reference anchor="refs.RFC2200"&gt;
@@ -2943,11 +2300,9 @@ attribute that is used for cross-referencing with
     &lt;/reference&gt;
 </pre>
 </div>
-<p class="rfc-t" id="rfc.section.2.4.1.p.6" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.4.1.p.6" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The "reference" element also has an optional "target"
 attribute that is used for external references
 (c.f., <span class="rfc-xref">
@@ -2962,34 +2317,27 @@ however, if the "name" attribute of the "seriesInfo" element has the value
 then the XML application should automatically provide an appropriate
 default for the "target" attribute
 (e.g., "http://example.com/rfcs/rfc2200.txt").
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "reference" 要素には省略可能な "target" 属性があり、外部参照に使います。
-    (cf. <span class="rfc-xref">
-<a href="#eref" title="The eref Element">
-        section 2.3.1.5</a>
-</span>) XML 応用は文書の HTML 版を生成する時に
+    (cf. <a href="#eref" title="eref 要素">2.3.1.5節</a>) XML 応用は文書の HTML 版を生成する時に
     "target" 属性を使います。しかし、 "seriseInfo" 要素の "name"
     属性が値 "RFC" を持つ場合、 XML 応用は自動的に適切な "target"
     属性の既定値を用意するべきです。 (例えば 
     <samp>「http://example.com/rfcs/rfc2200.txt」</samp>)
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 </div>
 <div class="rfc-section" id="rfc.section.2.4.2">
-<div>
-<h3 xmlns="http://www.w3.org/1999/xhtml">2.4.2. Appendices</h3>
+<div class="t-pair t-heading">
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.4.2. Appendices</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.4.2. 
+          附属書</h3>
 </div>
-<p class="rfc-t" id="rfc.section.2.4.2.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.4.2.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     To include appendices after the bibliography,
 simply add more "section" elements.
 (For an example,
@@ -2997,82 +2345,65 @@ look at the example at the beginning of <span class="rfc-xref">
 <a href="#back_matter" title="Back matter">
         section 2.4</a>
 </span>.)
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     参考文献の後に附属書を含めるには、単に "section" 
-    要素を追加するだけです。 (例として、 <span class="rfc-xref">
-<a href="#back_matter" title="Back matter">
-        section 2.4</a>
-</span>
+    要素を追加するだけです。 (例として、 <a href="#back_matter" title="">2.4節</a>
     のはじめの例を御覧下さい。)
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 </div>
 <div class="rfc-section" id="rfc.section.2.4.3">
-<div>
-<h3 xmlns="http://www.w3.org/1999/xhtml">2.4.3. Copyright Status</h3>
+<div class="t-pair t-heading">
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.4.3. Copyright Status</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.4.3. 
+          著作権状態</h3>
 </div>
-<p class="rfc-t" id="rfc.section.2.4.3.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.2.4.3.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The copyright status for the document is not included in the
 document's markup ―― this is automatically inserted by an XML
 application that produces either a text or HTML version of the document.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     文書の著作権状態は文書のマーク付けには含めません。
     これは文書の text 版か HTML 版を生成する XML 
     応用により自動的に挿入されます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="rfc-section" id="rfc.section.3">
-<div>
-<h1 xmlns="http://www.w3.org/1999/xhtml">3. Processing the XML Source File</h1>
+<div class="t-pair t-heading">
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3. Processing the XML Source File</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3. 
+          XML 源ファイルの処理</h1>
 </div>
-<p class="rfc-t" id="rfc.section.3.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.3.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     This section concerns itself with applications that operate on
 an XML source file.
 A lot of XML tools are available,
 as are many lists of XML resources,
 e.g.,
 <a href="http://metalab.unc.edu/xml/" title="URI: &lt;http://metalab.unc.edu/xml/>">Cafe con Leche</a>.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     この節は XML 源ファイルを処理する応用についてです。沢山の
     XML 工具が利用可能ですし、沢山の XML 資源の一覧も、例えば
     <a href="http://metalab.unc.edu/xml/" title="URI: &lt;http://metalab.unc.edu/xml/>">Cafe con Leche</a>
     にあります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-<p class="rfc-t" id="rfc.section.3.p.2" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  </p>
+</div>
+</div>
+<div class="rfc-t" id="rfc.section.3.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     There are two kinds of XML tools: validating and non-validating.
 Both check that the source file conforms to the rules given in
 <span class="rfc-xref">
@@ -3084,87 +2415,62 @@ in addition to making sure that the source file is well-formed,
 a validating tool also reads the DTD referenced by the source file
 to make sure that they match.
 There are a number of both validating and non-validating tools available.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     XML 工具には2種類あります: 検証するものと検証しないものです。両者共に、源ファイルが 
-    <span class="rfc-xref">
-<a href="#xml_basics" title="XML basics">
-        section 2.1</a>
-</span> に挙げた規則に適合するかは確認します。しかし、加えて源ファイルが整形式であるかを確認するため、検証工具は現ファイルが参照している
+    <a href="#xml_basics" title="XML の基礎">2.1節</a> に挙げた規則に適合するかは確認します。しかし、加えて源ファイルが整形式であるかを確認するため、検証工具は現ファイルが参照している
     DTD も読んで一致しているか確認します。検証・非検証工具共に多数入手出来ます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 <div class="rfc-section" id="rfc.section.3.1">
-<div>
-<h2 xmlns="http://www.w3.org/1999/xhtml">3.1. Editing</h2>
+<div class="t-pair t-heading">
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3.1. Editing</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3.1. 
+          編集</h2>
 </div>
 <div class="rfc-t" id="rfc.section.3.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     There are several XML editors available.
 Ideally,
 you want an editor that validates.
 This has two advantages:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     XML エディターは幾つか入手可能です。理想的には、検証出来るエディターが良いでしょう。これには2つの利点があります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 <ul class="rfc-list-symbols text" xmlns="">
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     the editor provides guidance in fleshing-out the document structure;
 and,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     エディターが文書構造に肉付けする手引きを示す
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </li>
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     the editor validates that the source file matches the rules in the DTD.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     エディターが源ファイルが DTD の規則と一致しているか検証する
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </li>
 </ul>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.32">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     There are two major modes in Emacs that support XML:
 <a href="http://www.mulberrytech.com/tdtd/" title="URI: &lt;http://www.mulberrytech.com/tdtd/>">tdtd</a> and
 <a href="http://www.inria.fr/koala/plh/sxml.html" title="URI: &lt;http://www.inria.fr/koala/plh/sxml.html>">psgml</a>.
@@ -3174,10 +2480,8 @@ If you visit the source file in Emacs and the major mode isn't
 "SGML" or "XML", 
 then usually all it takes is adding these lines to your ".emacs"
 file:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     Emacs では XML に対応した2つの大モード、
     <a href="http://www.mulberrytech.com/tdtd/" title="URI: &lt;http://www.mulberrytech.com/tdtd/>">tdtd</a> と
     <a href="http://www.inria.fr/koala/plh/sxml.html" title="URI: &lt;http://www.inria.fr/koala/plh/sxml.html>">psgml</a>
@@ -3185,113 +2489,89 @@ file:
     (外部プログラムを呼び出すことにより) 検証することが出来ます。源ファイルを
     Emacs でみて、大モードが 「SGML」 か 「XML」 
     にならない場合、通常は ".emacs" ファイルに次の行
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     (setq auto-mode-alist
           (cons (cons "\\.xml$" 'sgml-mode) auto-mode-alist))
 </pre>
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     and then restarting Emacs.
 If this doesn't work,
 try one of the sources above.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     を加えて、 Emacs を再起動します。これで上手くいかなければ、上記の情報源のいずれかを試してみて下さい。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
 </div>
 </div>
-<p class="rfc-t" id="rfc.section.3.1.p.3" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+</div>
+<div class="rfc-t" id="rfc.section.3.1.p.3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The author uses both sgml-mode in Emacs,
 and a commercial validating editor,
 <a href="http://www.t2000-usa.com/" title="URI: &lt;http://www.t2000-usa.com/>">Clip! version 1.5</a>,
 when editing source
 files.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     著者は両 sgml-mode を Emacs で使っていて、商用検証エディター
     <a href="http://www.t2000-usa.com/" title="URI: &lt;http://www.t2000-usa.com/>">Clip! version 1.5</a>
     を源ファイルを編集するのに使っています。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-<div class="rfc-section" id="rfc.section.3.1.1">
-<div>
-<h3 xmlns="http://www.w3.org/1999/xhtml">3.1.1. Checking</h3>
+  </p>
 </div>
-<p class="rfc-t" id="rfc.section.3.1.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+</div>
+<div class="rfc-section" id="rfc.section.3.1.1">
+<div class="t-pair t-heading">
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3.1.1. Checking</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3.1.1. 
+          確認</h3>
+</div>
+<div class="rfc-t" id="rfc.section.3.1.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     If your editor doesn't validate,
 then you should run a program to validate the source file.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     お使いのエディターが検証しないなら、源ファイルを検証するのにプログラムを動かす必要があります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-<p class="rfc-t" id="rfc.section.3.1.1.p.2" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  </p>
+</div>
+</div>
+<div class="rfc-t" id="rfc.section.3.1.1.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The author uses
 <a href="http://www.alphaworks.ibm.com/formula/xml/" title="URI: &lt;http://www.alphaworks.ibm.com/formula/xml/>">the
 AlphaWorks XML parser</a> for this purpose.
 It requires that your system have a Java virtual machine.
 In addition to Java,
 there are validating parsers written in C, Perl, Python, and Tcl.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     著者は 
     <a href="http://www.alphaworks.ibm.com/formula/xml/" title="URI: &lt;http://www.alphaworks.ibm.com/formula/xml/>">the
     AlphaWorks XML parser</a> をこの目的に使っています。これにはお使いの系統に
     Java 仮想機械が必要です。 Java に加え、 C, Perl, Python, Tcl
     で書かれた検証解析器があります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 </div>
 </div>
 <div class="rfc-section" id="rfc.section.3.2">
-<div id="xml2rfc">
-<h2 xmlns="http://www.w3.org/1999/xhtml">3.2. Converting to Text Format</h2>
+<div class="t-pair t-heading" id="xml2rfc">
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3.2. Converting to Text Format</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3.2. 
+          text 形式に変換する</h2>
 </div>
-<p class="rfc-t" id="rfc.section.3.2.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.3.2.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The author has written
 <a href="http://memory.palace.org/authoring/" title="URI: &lt;http://memory.palace.org/authoring/>">the xml2rfc tool</a>,
 which reads the source file and produces both a text and HTML version
@@ -3300,50 +2580,40 @@ of the document.
 Note that xml2rfc isn't a validating tool,
 so it's a good idea to use either a validating editor or run a stand-alone
 validating parser prior to using the tool.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     著者は源ファイルを読んで文書の text 版と HTML 版の両者を生成する
     <a href="http://memory.palace.org/authoring/" title="URI: &lt;http://memory.palace.org/authoring/>">xml2rfc 
     工具</a>を書きました。 (このメモは xml2rfc 工具を使って生成しました。)
     なお、 xml2rfc は検証工具ではないので、検証エディターや単独検証解析器をこの工具の前に使うのが良いでしょう。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 </div>
 <div class="rfc-section" id="rfc.section.3.3">
-<div>
-<h2 xmlns="http://www.w3.org/1999/xhtml">3.3. Converting to HTML Format</h2>
+<div class="t-pair t-heading">
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3.3. Converting to HTML Format</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3.3. 
+          HTML 形式に変換する</h2>
 </div>
-<p class="rfc-t" id="rfc.section.3.3.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.3.3.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The XML Style Language (XSL) is used to describe transformations
 from the source file into some other structured file.
 So,
 ideally you should use an XSL-capable formatter to convert an XML source
 file to HTML.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     XML スタイル言語 (XSL) を源ファイルから他の構造のファイルに変形するのを記述するのに使用出来ます。ですから、理想的には XSL が使える formatter
     を使って XML 源ファイルを HTML に変換するべきでしょう。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-<p class="rfc-t" id="rfc.section.3.3.p.2" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  </p>
+</div>
+</div>
+<div class="rfc-t" id="rfc.section.3.3.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     However,
 as of this writing XSL is still in considerable flux.
 (Hence,
@@ -3354,137 +2624,106 @@ So,
 in the interim,
 the author uses the xml2rfc tool for this purpose,
 even though this tool doesn't provide much flexibility in its HTML layout.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     しかしながら、この XSL 書きはまだ流動的と考えられます。
     (それ故、このメモには参照は含めませんでした。読者がこの節を読む時には参照はもう古いものになっているでしょうから。)
     ですが、その間、著者はこの目的に xml2rfc 工具を使います。
     この工具はそれほど HTML 配置に柔軟性を持っていないのですが。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-<span style="color: red">&lt;ja:note&gt;</span>
-<ja:note xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
+  </p>
+</div>
+</div>
+<ins class="t-note t-l-ja" xml:lang="ja">
+<span class="t-note-title">訳注:</span>
   <p class="rfc-t" id="rfc.section.3.3.p.1" xmlns="http://www.w3.org/1999/xhtml">rfc2629.xslt は、 
   <a href="http://xml.resource.org/authoring/" title="URI: &lt;http://xml.resource.org/authoring/>" xmlns="">xml2rfc 
   工具</a>に含まれています。これを使って巷の XSLT formatter
   でも HTML に変換出来ます。</p>
-</ja:note>
-<span style="color: red">&lt;/ja:note&gt;</span>
+</ins>
 </div>
 <div class="rfc-section" id="rfc.section.3.4">
-<div>
-<h2 xmlns="http://www.w3.org/1999/xhtml">3.4. Viewing</h2>
+<div class="t-pair t-heading">
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3.4. Viewing</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3.4. 
+          表示</h2>
 </div>
-<p class="rfc-t" id="rfc.section.3.4.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.3.4.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     Browsers that support either XSL or Cascading Style Sheets (CSS)
 are able to view the source file directly.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     XSL か Cascading Style Sheets (CSS) 
     に対応した閲覧器を源ファイルを直接見るのに使用出来ます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-<p class="rfc-t" id="rfc.section.3.4.p.2" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  </p>
+</div>
+</div>
+<div class="rfc-t" id="rfc.section.3.4.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     At present,
 the author doesn't use any of these browsers,
 instead converting source files to either text or HTML.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     現時点で、著者はその様な閲覧器を使っておらず、代わりに源ファイルを
     text か HTML に変換しています。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 </div>
 <div class="rfc-section" id="rfc.section.3.5">
-<div>
-<h2 xmlns="http://www.w3.org/1999/xhtml">3.5. Searching</h2>
+<div class="t-pair t-heading">
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3.5. Searching</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3.5. 
+          検索</h2>
 </div>
-<p class="rfc-t" id="rfc.section.3.5.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.3.5.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     As with text editors,
 any text-oriented search tool (e.g., grep) can be used on the source file.
 However,
 there are search tools available that understand structured source.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     text エディターと共に、どんな text 指向検索工具 (例 grep)
     をも源ファイルに対して使うことが出来ます。しかし、構造化された源を理解する検索道具もあります。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+  </p>
+</div>
+</div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.33">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The author uses 
 <a href="http://www.cs.helsinki.fi/~jjaakkol/sgrep.html" title="URI: &lt;http://www.cs.helsinki.fi/~jjaakkol/sgrep.html>">sgrep
 version 1.9</a>
 for this purpose,
 e.g.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     著者は
     <a href="http://www.cs.helsinki.fi/~jjaakkol/sgrep.html" title="URI: &lt;http://www.cs.helsinki.fi/~jjaakkol/sgrep.html>">sgrep
     version 1.9</a> をこの目的で次の様に使っています。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     sgrep -g xml 'ELEMENTS("title") not in ELEMENTS("back")' \
         writing-rfcs.xml
 </pre>
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     which extracts the title element from the source file.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     これは title 要素を源ファイルから取り出します。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 </div>
 </div>
@@ -3498,10 +2737,8 @@ e.g.
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.34">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     This memo raises no security issues;
 however,
 according to <span class="rfc-xref">
@@ -3510,24 +2747,16 @@ according to <span class="rfc-xref">
 your document should contain a section near the end that discusses the
 security considerations of the protocol or procedures that are the
 main topic of your document, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    このメモは安全性問題を起こしません。しかし、 <span class="rfc-xref">
-<a href="#refs.RFC2223" title="Instructions to RFC Authors">[2]</a>
-</span>
+  </p>
+<p xml:lang="ja" class="t-l-ja">
+    このメモは安全性問題を起こしません。しかし、 <a href="#refs.RFC2223" title="RFC 著者の手引き">[2]</a>
     によると、文書は終わり近くに、文書の主題であるプロトコルや処理の安全性に関しての議論の節を設けるべきです。例:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;middle&gt;
         ...
@@ -3542,10 +2771,8 @@ main topic of your document, e.g.,
         &lt;/section&gt;
     &lt;/middle&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     <pre class="rfc-artwork" xml:space="preserve">
     &lt;middle&gt;
         ...
@@ -3557,14 +2784,11 @@ main topic of your document, e.g.,
         &lt;/section&gt;
     &lt;/middle&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 </div>
 </div>
-
 <div class="rfc-section" id="rfc.references.References">
 <div class="t-pair t-heading">
 <h1 xml:lang="en" class="t-l-en">References</h1>
@@ -3630,738 +2854,6 @@ main topic of your document, e.g.,
 </dd>
 </dl>
 </div>
-<div class="rfc-section" id="rfc.section.A">
-<div id="rfc">
-<h1 xmlns="http://www.w3.org/1999/xhtml">A. The rfc Element</h1>
-</div>
-<div class="rfc-figure">
-<span class="rfc-figure-id" id="rfc.figure.u.35">&#x00A0;</span>
-<div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
-    The "&lt;rfc&gt;" tag at the beginning of the file,
-with only <span class="rfc-xref">
-<a href="#ipr" title="">an "ipr" attribute</a>
-</span>,
-produces an Internet-Draft.
-However,
-when other attributes are added to this tag by the RFC editor,
-an RFC is produced, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    ファイルのはじめの "&lt;rfc&gt;" タグは、
-    <span class="rfc-xref">
-<a href="#ipr" title="">"ipr" 属性</a>
-</span>だけを持つと、 Internet-Draft
-    を生成します。しかし、このタグに RFC 編集者により他の属性が
-    付加されると、 RFC が生成されます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
-</div>
-<pre class="rfc-artwork" xml:space="preserve">
-    &lt;rfc number="2200"
-         obsoletes="2000, 1920, 1880, 1800, ..."
-         category="std"
-         seriesNo="1"&gt;
-</pre>
-<div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
-    At a minimum,
-the "number" attribute should be present.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    少なくても、 "number" 属性があるべきです。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
-</div>
-</div>
-<div class="rfc-t" id="rfc.section.A.p.2" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
-    The other attributes are:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    この他の属性は、
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-
-<ul class="rfc-list-symbols text" xmlns="">
-<li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
-    "obsoletes",
-having a comma-separated list of RFC numbers,
-that the document obsoletes;
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    "obsoleted" は、その文書が廃止する読点 (comma) 区切りの RFC 番号の一覧です。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
-</li>
-<li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
-    "updates",
-having a comma-separated list of RFC numbers,
-that the document updates;
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    "updates" は、その文書が更新する読点 (comma) 区切りの RFC 番号の一覧です。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
-</li>
-<li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
-    "category",
-having one of these values:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    "category" は、次の値のいずれかを持ちます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
-
-    <ol class="rfc-list-numbers text">
-    <li>
-      <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en"std", for a Standards-Track document;</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja"std" は標準化過程文書用</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
-    </li>
-    <li>
-      <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en"bcp", for a Best Current Practices document;</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja"bcp" は現状最善運用文書用</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
-    </li>
-    <li>
-      <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en"exp", for an Experimental Protocol document;</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja"exp" は実験プロトコル文書用</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
-    </li>
-    <li>
-      <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en"historic", for a historic document; or,</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja"exp" は歴史的文書用</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
-    </li>
-    <li>
-      <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en"info", the default, for an Informational document.</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja"info" は既定値で参考文書用</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
-    </li>
-    </ol>
-</li>
-<li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
-    "seriesNo",
-having the corresponding number in the STD (std), BCP (bcp), or FYI (info)
-series.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    "seriesNo" は、 STD (std), BCP (bcp), FYI (info) 各系列での対応番号を値に持ちます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
-</li>
-</ul>
-</div>
-<p class="rfc-t" id="rfc.section.A.p.3" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
-    Finally,
-a special entity, "&amp;rfc.number;", is available.
-Authors preparing an RFC should use this entity whenever they want to 
-reference the number of the RFC within the document itself.
-In printed versions of the document,
-the appropriate substitution (or "XXXX") will occur.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    最後に、特別な実体 "&amp;rfc.number;" が使えます。
-    RFC を用意する著者はこの実体を文書自身の 
-    RFC 番号を参照したい時に使うべきです。文書の印刷版では、適切な代替 
-    (または "XXXX") を使います。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-  <span style="color: red" xmlns="">&lt;ja:note&gt;</span>
-<ja:note xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-    <div class="rfc-figure">
-<span class="rfc-figure-id" id="rfc.figure.u.36">&#x00A0;</span>
-      <div class="rfc-preamble">実際に使う時は、</div>
-      <pre class="rfc-artwork" xml:space="preserve">&lt;!DOCTYPE rfc SYSTEM "rfc2629.dtd" [&lt;!ENTITY rfc.number "1234"&gt;]&gt;</pre>
-      <div class="rfc-postamble">のように、文書型宣言で当該 RFC 
-      番号を示すことになるでしょう。</div>
-    </div>
-  </ja:note>
-<span style="color: red" xmlns="">&lt;/ja:note&gt;</span>
-</p>
-</div>
-<div class="rfc-section" id="rfc.section.B">
-<div id="rfc.dtd">
-<h1 xmlns="http://www.w3.org/1999/xhtml">B. The RFC DTD</h1>
-</div>
-
-<span style="color: red">&lt;ja:note&gt;</span>
-<ja:note xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <p class="rfc-t" id="rfc.section.B.p.1" xmlns="http://www.w3.org/1999/xhtml">この DTD のファイル rfc2629.dtd は、 
-  <a href="http://xml.resource.org/authoring/" title="URI: &lt;http://xml.resource.org/authoring/>" xmlns="">xml2rfc 
-  工具</a>の中にも含まれています。</p>
-</ja:note>
-<span style="color: red">&lt;/ja:note&gt;</span>
-
-<div class="rfc-figure">
-<span class="rfc-figure-id" id="rfc.figure.u.37">&#x00A0;</span>
-
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
-    <pre class="rfc-artwork" xml:space="preserve">
-&lt;!--
-  DTD for the RFC document series, draft of 99-01-30
-  --&gt;
-
-
-&lt;!--
-  Contents
-
-    DTD data types
-
-    The top-level
-
-    Front matter
-
-    The Body
-
-    Back matter
-  --&gt;
-
-
-&lt;!--
-  DTD data types:
-
-        entity        description
-        ======        ===============================================
-        NUMBER        [0-9]+
-        NUMBERS       a comma-separated list of NUMBER
-
-        DAY           the day of the month, e.g., "1"
-        MONTH         the month of the year, e.g., "January"
-        YEAR          a four-digit year, e.g., "1999"
-
-        URI           e.g., "http://invisible.net/"
-
-        ATEXT/CTEXT   printable ASCII text (no line-terminators)
-
-        TEXT          character data
-  --&gt;
-
-
-&lt;!ENTITY % NUMBER     "CDATA"&gt;
-&lt;!ENTITY % NUMBERS    "CDATA"&gt;
-
-&lt;!ENTITY % DAY        "CDATA"&gt;
-&lt;!ENTITY % MONTH      "CDATA"&gt;
-&lt;!ENTITY % YEAR       "CDATA"&gt;
-
-&lt;!ENTITY % URI        "CDATA"&gt;
-
-&lt;!ENTITY % ATEXT      "CDATA"&gt;
-&lt;!ENTITY % CTEXT      "#PCDATA"&gt;
-
-&lt;!ENTITY % TEXT       "#PCDATA"&gt;
-
-&lt;!ENTITY   rfc.number "2629"&gt;
-
-
-&lt;!--
-  The top-level
-  --&gt;
-
-
-&lt;!--
-  attributes for the "rfc" element are supplied by the RFC
-  editor. when preparing drafts, authors should leave them blank.
-
-  the "seriesNo" attribute is used if the category is, e.g., BCP.
-  --&gt;
-&lt;!ELEMENT rfc         (front,middle,back?)&gt;
-&lt;!ATTLIST rfc
-          number      %NUMBER;           #IMPLIED
-          obsoletes   %NUMBERS;          ""
-          updates     %NUMBERS;          ""
-          category    (std|bcp|info|exp|historic)
-                                         "info"
-          seriesNo    %NUMBER;           #IMPLIED
-          ipr         (full2026|noDerivativeWorks2026|none)
-                                         #IMPLIED
-          docName     %ATEXT;            #IMPLIED&gt; 
-
-&lt;!--
-  Front matter
-  --&gt;
-
-
-&lt;!ELEMENT front       (title,author+,date,area*,workgroup*,keyword*,
-                       abstract?,note*)&gt;
-
-&lt;!-- the "abbrev" attribute is used for headers, etc. --&gt;
-&lt;!ELEMENT title       (%CTEXT;)&gt;
-&lt;!ATTLIST title
-          abbrev      %ATEXT;            #IMPLIED&gt; 
-
-&lt;!ELEMENT author      (organization,address?)&gt;
-&lt;!ATTLIST author
-          initials    %ATEXT;            #IMPLIED
-          surname     %ATEXT;            #IMPLIED
-          fullname    %ATEXT;            #IMPLIED&gt;
-
-&lt;!ELEMENT organization
-                      (%CTEXT;)&gt;
-&lt;!ATTLIST organization
-          abbrev      %ATEXT;            #IMPLIED&gt; 
- 
-&lt;!ELEMENT address     (postal?,phone?,facsimile?,email?,uri?)&gt;
-
-&lt;!-- at most one of each the city, region, code, and country
-     elements may be present --&gt;
-&lt;!ELEMENT postal      (street+,(city|region|code|country)*)&gt;
-&lt;!ELEMENT street      (%CTEXT;)&gt;
-&lt;!ELEMENT city        (%CTEXT;)&gt;
-&lt;!ELEMENT region      (%CTEXT;)&gt;
-&lt;!ELEMENT code        (%CTEXT;)&gt;
-&lt;!ELEMENT country     (%CTEXT;)&gt;
-&lt;!ELEMENT phone       (%CTEXT;)&gt;
-&lt;!ELEMENT facsimile   (%CTEXT;)&gt;
-&lt;!ELEMENT email       (%CTEXT;)&gt;
-&lt;!ELEMENT uri         (%CTEXT;)&gt;
-
-&lt;!ELEMENT date        EMPTY&gt;
-&lt;!ATTLIST date
-          day         %DAY;              #IMPLIED
-          month       %MONTH;            #REQUIRED
-          year        %YEAR;             #REQUIRED&gt;
-
-&lt;!-- meta-data... --&gt;
-&lt;!ELEMENT area        (%CTEXT;)&gt;
-&lt;!ELEMENT workgroup   (%CTEXT;)&gt;
-&lt;!ELEMENT keyword     (%CTEXT;)&gt;
-
-&lt;!ELEMENT abstract    (t)+&gt;
-&lt;!ELEMENT note        (t)+&gt;
-&lt;!ATTLIST note
-          title       %ATEXT;            #REQUIRED&gt;
-
-
-&lt;!--
-  The body
-  --&gt;
-
-
-&lt;!ELEMENT middle      (section)+&gt;
-
-&lt;!ELEMENT section     (t|figure|section)*&gt;
-&lt;!ATTLIST section
-          anchor      ID                 #IMPLIED
-          title       %ATEXT;            #REQUIRED&gt;
-
-&lt;!ELEMENT t           (%TEXT;|list|figure|xref|eref|iref|vspace)*&gt;
-&lt;!ATTLIST t
-          hangText    %ATEXT;            #IMPLIED&gt;
-
-&lt;!-- the value of the style attribute is inherited from the closest 
-     parent --&gt;
-&lt;!ELEMENT list        (t+)&gt;
-&lt;!ATTLIST list
-          style       (numbers|symbols|hanging|empty)
-                                         "empty"&gt;
-
-&lt;!ELEMENT xref        (%CTEXT;)&gt;
-&lt;!ATTLIST xref
-          target      IDREF              #REQUIRED
-          pageno      (true|false)       "false"&gt;
-
-&lt;!ELEMENT eref        (%CTEXT;)&gt;
-&lt;!ATTLIST eref
-          target      %URI;              #REQUIRED&gt;
-
-&lt;!ELEMENT iref        EMPTY&gt;
-&lt;!ATTLIST iref
-          item        %ATEXT;            #REQUIRED
-          subitem     %ATEXT;            ""&gt;
-
-&lt;!ELEMENT vspace      EMPTY&gt;
-&lt;!ATTLIST vspace
-          blankLines  %NUMBER;           "0"&gt;
-
-&lt;!ELEMENT figure      (preamble?,artwork,postamble?)&gt;
-&lt;!ATTLIST figure
-          anchor      ID                 #IMPLIED
-          title       %ATEXT;            ""&gt;
-
-&lt;!ELEMENT preamble    (%TEXT;|xref|eref|iref)*&gt;
-&lt;!ELEMENT artwork     (%TEXT;)*&gt;
-&lt;!ATTLIST artwork
-          xml:space   (default|preserve) "preserve"&gt;
-&lt;!ELEMENT postamble   (%TEXT;|xref|eref|iref)*&gt;
-
-
-&lt;!--
-  Back matter
-  --&gt;
-
-
-&lt;!-- sections, if present, are appendices --&gt;
-&lt;!ELEMENT back        (references?,section*)&gt;
-
-&lt;!ELEMENT references  (reference+)&gt;
-&lt;!ELEMENT reference   (front,seriesInfo*)&gt;
-&lt;!ATTLIST reference
-          anchor      ID                 #IMPLIED
-          target      %URI;              #IMPLIED&gt;
-&lt;!ELEMENT seriesInfo  EMPTY&gt;
-&lt;!ATTLIST seriesInfo
-          name        %ATEXT;            #REQUIRED
-          value       %ATEXT;            #REQUIRED&gt;
-</pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
-    <pre class="rfc-artwork" xml:space="preserve">
-&lt;!--
-  RFC 文書系列用 DTD, 99-01-30 の原案 (の注釈部分和訳)
-  --&gt;
-
-
-&lt;!--
-  内容
-
-    DTD データ型
-
-    最上位
-
-    Front matter
-
-    The Body
-
-    Back matter
-  --&gt;
-
-
-&lt;!--
-  DTD データ型:
-
-        実体          説明
-        ======        ===============================================
-        NUMBER        [0-9]+
-        NUMBERS       読点(comma)区切りの NUMBER
-
-        DAY           月中の日、例えば "1"
-        MONTH         年中の月、例えば "January" (1月)
-        YEAR          4桁年号、例えば "1999"
-
-        URI           例 "http://invisible.net/"
-
-        ATEXT/CTEXT   印字可能 ASCII 文字列 (行終端無し)
-
-        TEXT          文字データ
-  --&gt;
-
-
-&lt;!ENTITY % NUMBER     "CDATA"&gt;
-&lt;!ENTITY % NUMBERS    "CDATA"&gt;
-
-&lt;!ENTITY % DAY        "CDATA"&gt;
-&lt;!ENTITY % MONTH      "CDATA"&gt;
-&lt;!ENTITY % YEAR       "CDATA"&gt;
-
-&lt;!ENTITY % URI        "CDATA"&gt;
-
-&lt;!ENTITY % ATEXT      "CDATA"&gt;
-&lt;!ENTITY % CTEXT      "#PCDATA"&gt;
-
-&lt;!ENTITY % TEXT       "#PCDATA"&gt;
-
-&lt;!ENTITY   rfc.number "2629"&gt;
-
-
-&lt;!--
-  最上位
-  --&gt;
-
-
-&lt;!--
-  "rfc" 要素の属性は RFC 編集者により埋められます。
-  原案を用意する際には、著者は空欄にしておくべきです。
-
-  "seriesNo" 属性は分類が例えば BCP の時に使います。
-  --&gt;
-&lt;!ELEMENT rfc         (front,middle,back?)&gt;
-&lt;!ATTLIST rfc
-          number      %NUMBER;           #IMPLIED
-          obsoletes   %NUMBERS;          ""
-          updates     %NUMBERS;          ""
-          category    (std|bcp|info|exp|historic)
-                                         "info"
-          seriesNo    %NUMBER;           #IMPLIED
-          ipr         (full2026|noDerivativeWorks2026|none)
-                                         #IMPLIED
-          docName     %ATEXT;            #IMPLIED&gt; 
-
-&lt;!--
-  Front matter
-  --&gt;
-
-
-&lt;!ELEMENT front       (title,author+,date,area*,workgroup*,keyword*,
-                       abstract?,note*)&gt;
-
-&lt;!-- "abbrev" 属性は頭とかに使います。 --&gt;
-&lt;!ELEMENT title       (%CTEXT;)&gt;
-&lt;!ATTLIST title
-          abbrev      %ATEXT;            #IMPLIED&gt; 
-
-&lt;!ELEMENT author      (organization,address?)&gt;
-&lt;!ATTLIST author
-          initials    %ATEXT;            #IMPLIED
-          surname     %ATEXT;            #IMPLIED
-          fullname    %ATEXT;            #IMPLIED&gt;
-
-&lt;!ELEMENT organization
-                      (%CTEXT;)&gt;
-&lt;!ATTLIST organization
-          abbrev      %ATEXT;            #IMPLIED&gt; 
- 
-&lt;!ELEMENT address     (postal?,phone?,facsimile?,email?,uri?)&gt;
-
-&lt;!-- city, region, code, country 各要素がせいぜい1回出現可能 --&gt;
-&lt;!ELEMENT postal      (street+,(city|region|code|country)*)&gt;
-&lt;!ELEMENT street      (%CTEXT;)&gt;
-&lt;!ELEMENT city        (%CTEXT;)&gt;
-&lt;!ELEMENT region      (%CTEXT;)&gt;
-&lt;!ELEMENT code        (%CTEXT;)&gt;
-&lt;!ELEMENT country     (%CTEXT;)&gt;
-&lt;!ELEMENT phone       (%CTEXT;)&gt;
-&lt;!ELEMENT facsimile   (%CTEXT;)&gt;
-&lt;!ELEMENT email       (%CTEXT;)&gt;
-&lt;!ELEMENT uri         (%CTEXT;)&gt;
-
-&lt;!ELEMENT date        EMPTY&gt;
-&lt;!ATTLIST date
-          day         %DAY;              #IMPLIED
-          month       %MONTH;            #REQUIRED
-          year        %YEAR;             #REQUIRED&gt;
-
-&lt;!-- メタ・データ・・・ --&gt;
-&lt;!ELEMENT area        (%CTEXT;)&gt;
-&lt;!ELEMENT workgroup   (%CTEXT;)&gt;
-&lt;!ELEMENT keyword     (%CTEXT;)&gt;
-
-&lt;!ELEMENT abstract    (t)+&gt;
-&lt;!ELEMENT note        (t)+&gt;
-&lt;!ATTLIST note
-          title       %ATEXT;            #REQUIRED&gt;
-
-
-&lt;!--
-  本体
-  --&gt;
-
-
-&lt;!ELEMENT middle      (section)+&gt;
-
-&lt;!ELEMENT section     (t|figure|section)*&gt;
-&lt;!ATTLIST section
-          anchor      ID                 #IMPLIED
-          title       %ATEXT;            #REQUIRED&gt;
-
-&lt;!ELEMENT t           (%TEXT;|list|figure|xref|eref|iref|vspace)*&gt;
-&lt;!ATTLIST t
-          hangText    %ATEXT;            #IMPLIED&gt;
-
-&lt;!-- style 属性の値は直近の親から継承する --&gt;
-&lt;!ELEMENT list        (t+)&gt;
-&lt;!ATTLIST list
-          style       (numbers|symbols|hanging|empty)
-                                         "empty"&gt;
-
-&lt;!ELEMENT xref        (%CTEXT;)&gt;
-&lt;!ATTLIST xref
-          target      IDREF              #REQUIRED
-          pageno      (true|false)       "false"&gt;
-
-&lt;!ELEMENT eref        (%CTEXT;)&gt;
-&lt;!ATTLIST eref
-          target      %URI;              #REQUIRED&gt;
-
-&lt;!ELEMENT iref        EMPTY&gt;
-&lt;!ATTLIST iref
-          item        %ATEXT;            #REQUIRED
-          subitem     %ATEXT;            ""&gt;
-
-&lt;!ELEMENT vspace      EMPTY&gt;
-&lt;!ATTLIST vspace
-          blankLines  %NUMBER;           "0"&gt;
-
-&lt;!ELEMENT figure      (preamble?,artwork,postamble?)&gt;
-&lt;!ATTLIST figure
-          anchor      ID                 #IMPLIED
-          title       %ATEXT;            ""&gt;
-
-&lt;!ELEMENT preamble    (%TEXT;|xref|eref|iref)*&gt;
-&lt;!ELEMENT artwork     (%TEXT;)*&gt;
-&lt;!ATTLIST artwork
-          xml:space   (default|preserve) "preserve"&gt;
-&lt;!ELEMENT postamble   (%TEXT;|xref|eref|iref)*&gt;
-
-
-&lt;!--
-  Back matter
-  --&gt;
-
-
-&lt;!-- sections がある場合、それは附属書 --&gt;
-&lt;!ELEMENT back        (references?,section*)&gt;
-
-&lt;!ELEMENT references  (reference+)&gt;
-&lt;!ELEMENT reference   (front,seriesInfo*)&gt;
-&lt;!ATTLIST reference
-          anchor      ID                 #IMPLIED
-          target      %URI;              #IMPLIED&gt;
-&lt;!ELEMENT seriesInfo  EMPTY&gt;
-&lt;!ATTLIST seriesInfo
-          name        %ATEXT;            #REQUIRED
-          value       %ATEXT;            #REQUIRED&gt;
-</pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
-
-</div>
-</div>
-<div class="rfc-section" id="rfc.section.C">
-<div class="t-pair t-heading">
-<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">C. Acknowledgements</h1>
-<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">C. 
-          謝辞</h1>
-</div>
-<p class="rfc-t" id="rfc.section.C.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>enThe author gratefully acknowledges the contributions of:
-Alan Barrett,
-Brad Burdick,
-Brian Carpenter,
-Steve Deering,
-Patrik Faltstrom,
-Jim Gettys,
-Carl Malamud,
-Chris Newman,
-Kurt Starsinic,
-and,
-Frank Strauss.</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja著者は次の方々の貢献に謝意を表します:
-Alan Barrett,
-Brad Burdick,
-Brian Carpenter,
-Steve Deering,
-Patrik Faltstrom,
-Jim Gettys,
-Carl Malamud,
-Chris Newman,
-Kurt Starsinic,
-Frank Strauss。</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
-</div>
 <div id="rfc-authors" class="rfc-section">
 <div id="rfc.authors" class="t-pair t-heading">
 <h1 xml:lang="en" class="t-l-en">Author's Address</h1>
@@ -4381,16 +2873,16 @@ Frank Strauss。</ja:l>
 </ul>
 </div>
 <div class="rfc-section" id="rfc.section.A">
-<div id="rfc">
-<h1 xmlns="http://www.w3.org/1999/xhtml">A. The rfc Element</h1>
+<div class="t-pair t-heading" id="rfc">
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">A. The rfc Element</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">A. 
+          rfc 要素</h1>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.35">&#x00A0;</span>
 <div class="rfc-preamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     The "&lt;rfc&gt;" tag at the beginning of the file,
 with only <span class="rfc-xref">
 <a href="#ipr" title="">an "ipr" attribute</a>
@@ -4399,20 +2891,14 @@ produces an Internet-Draft.
 However,
 when other attributes are added to this tag by the RFC editor,
 an RFC is produced, e.g.,
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     ファイルのはじめの "&lt;rfc&gt;" タグは、
-    <span class="rfc-xref">
-<a href="#ipr" title="">"ipr" 属性</a>
-</span>だけを持つと、 Internet-Draft
+    <a href="#ipr" title="">"ipr" 属性</a>だけを持つと、 Internet-Draft
     を生成します。しかし、このタグに RFC 編集者により他の属性が
     付加されると、 RFC が生成されます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 <pre class="rfc-artwork" xml:space="preserve">
     &lt;rfc number="2200"
@@ -4421,201 +2907,129 @@ an RFC is produced, e.g.,
          seriesNo="1"&gt;
 </pre>
 <div class="rfc-postamble">
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     At a minimum,
 the "number" attribute should be present.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     少なくても、 "number" 属性があるべきです。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </div>
 </div>
 <div class="rfc-t" id="rfc.section.A.p.2" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     The other attributes are:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     この他の属性は、
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 <ul class="rfc-list-symbols text" xmlns="">
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     "obsoletes",
 having a comma-separated list of RFC numbers,
 that the document obsoletes;
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "obsoleted" は、その文書が廃止する読点 (comma) 区切りの RFC 番号の一覧です。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </li>
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     "updates",
 having a comma-separated list of RFC numbers,
 that the document updates;
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "updates" は、その文書が更新する読点 (comma) 区切りの RFC 番号の一覧です。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </li>
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     "category",
 having one of these values:
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "category" は、次の値のいずれかを持ちます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
     <ol class="rfc-list-numbers text">
     <li>
-      <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en"std", for a Standards-Track document;</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja"std" は標準化過程文書用</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">"std", for a Standards-Track document;</p>
+<p xml:lang="ja" class="t-l-ja">"std" は標準化過程文書用</p>
+</div>
     </li>
     <li>
-      <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en"bcp", for a Best Current Practices document;</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja"bcp" は現状最善運用文書用</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">"bcp", for a Best Current Practices document;</p>
+<p xml:lang="ja" class="t-l-ja">"bcp" は現状最善運用文書用</p>
+</div>
     </li>
     <li>
-      <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en"exp", for an Experimental Protocol document;</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja"exp" は実験プロトコル文書用</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">"exp", for an Experimental Protocol document;</p>
+<p xml:lang="ja" class="t-l-ja">"exp" は実験プロトコル文書用</p>
+</div>
     </li>
     <li>
-      <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en"historic", for a historic document; or,</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja"exp" は歴史的文書用</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">"historic", for a historic document; or,</p>
+<p xml:lang="ja" class="t-l-ja">"exp" は歴史的文書用</p>
+</div>
     </li>
     <li>
-      <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en"info", the default, for an Informational document.</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja"info" は既定値で参考文書用</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-      </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+      <div class="t-pair">
+<p xml:lang="en" class="t-l-en">"info", the default, for an Informational document.</p>
+<p xml:lang="ja" class="t-l-ja">"info" は既定値で参考文書用</p>
+</div>
     </li>
     </ol>
 </li>
 <li>
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     "seriesNo",
 having the corresponding number in the STD (std), BCP (bcp), or FYI (info)
 series.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     "seriesNo" は、 STD (std), BCP (bcp), FYI (info) 各系列での対応番号を値に持ちます。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 </li>
 </ul>
 </div>
-<p class="rfc-t" id="rfc.section.A.p.3" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+<div class="rfc-t" id="rfc.section.A.p.3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">
     Finally,
 a special entity, "&amp;rfc.number;", is available.
 Authors preparing an RFC should use this entity whenever they want to 
 reference the number of the RFC within the document itself.
 In printed versions of the document,
 the appropriate substitution (or "XXXX") will occur.
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     最後に、特別な実体 "&amp;rfc.number;" が使えます。
     RFC を用意する著者はこの実体を文書自身の 
     RFC 番号を参照したい時に使うべきです。文書の印刷版では、適切な代替 
     (または "XXXX") を使います。
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-  <span style="color: red" xmlns="">&lt;ja:note&gt;</span>
-<ja:note xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
+  </p>
+</div>
+  <ins class="t-note t-l-ja" xml:lang="ja" xmlns="">
+    (<span class="t-note-title">訳注:</span>
     <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.36">&#x00A0;</span>
       <div class="rfc-preamble">実際に使う時は、</div>
@@ -4623,30 +3037,27 @@ the appropriate substitution (or "XXXX") will occur.
       <div class="rfc-postamble">のように、文書型宣言で当該 RFC 
       番号を示すことになるでしょう。</div>
     </div>
-  </ja:note>
-<span style="color: red" xmlns="">&lt;/ja:note&gt;</span>
-</p>
+  )
+  </ins>
+</div>
 </div>
 <div class="rfc-section" id="rfc.section.B">
 <div id="rfc.dtd">
 <h1 xmlns="http://www.w3.org/1999/xhtml">B. The RFC DTD</h1>
 </div>
 
-<span style="color: red">&lt;ja:note&gt;</span>
-<ja:note xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
+<ins class="t-note t-l-ja" xml:lang="ja">
+<span class="t-note-title">訳注:</span>
   <p class="rfc-t" id="rfc.section.B.p.1" xmlns="http://www.w3.org/1999/xhtml">この DTD のファイル rfc2629.dtd は、 
   <a href="http://xml.resource.org/authoring/" title="URI: &lt;http://xml.resource.org/authoring/>" xmlns="">xml2rfc 
   工具</a>の中にも含まれています。</p>
-</ja:note>
-<span style="color: red">&lt;/ja:note&gt;</span>
+</ins>
 
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.37">&#x00A0;</span>
 
-  <span style="color: red">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>en
+  <div class="t-pair">
+<p xml:lang="en" class="t-l-en">
     <pre class="rfc-artwork" xml:space="preserve">
 &lt;!--
   DTD for the RFC document series, draft of 99-01-30
@@ -4855,10 +3266,8 @@ the appropriate substitution (or "XXXX") will occur.
           name        %ATEXT;            #REQUIRED
           value       %ATEXT;            #REQUIRED&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja
+  </p>
+<p xml:lang="ja" class="t-l-ja">
     <pre class="rfc-artwork" xml:space="preserve">
 &lt;!--
   RFC 文書系列用 DTD, 99-01-30 の原案 (の注釈部分和訳)
@@ -5065,10 +3474,8 @@ the appropriate substitution (or "XXXX") will occur.
           name        %ATEXT;            #REQUIRED
           value       %ATEXT;            #REQUIRED&gt;
 </pre>
-  </ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red">&lt;/ja:pair&gt;</span>
+  </p>
+</div>
 
 </div>
 </div>
@@ -5078,11 +3485,9 @@ the appropriate substitution (or "XXXX") will occur.
 <h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">C. 
           謝辞</h1>
 </div>
-<p class="rfc-t" id="rfc.section.C.p.1" xmlns="http://www.w3.org/1999/xhtml">
-  <span style="color: red" xmlns="">&lt;ja:pair&gt;</span>
-<ja:pair xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>enThe author gratefully acknowledges the contributions of:
+<div class="rfc-t" id="rfc.section.C.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
+<p xml:lang="en" class="t-l-en">The author gratefully acknowledges the contributions of:
 Alan Barrett,
 Brad Burdick,
 Brian Carpenter,
@@ -5093,10 +3498,8 @@ Carl Malamud,
 Chris Newman,
 Kurt Starsinic,
 and,
-Frank Strauss.</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  <span style="color: red">&lt;ja:l&gt;</span>
-<ja:l>ja著者は次の方々の貢献に謝意を表します:
+Frank Strauss.</p>
+<p xml:lang="ja" class="t-l-ja">著者は次の方々の貢献に謝意を表します:
 Alan Barrett,
 Brad Burdick,
 Brian Carpenter,
@@ -5106,19 +3509,17 @@ Jim Gettys,
 Carl Malamud,
 Chris Newman,
 Kurt Starsinic,
-Frank Strauss。</ja:l>
-<span style="color: red">&lt;/ja:l&gt;</span>
-  </ja:pair>
-<span style="color: red" xmlns="">&lt;/ja:pair&gt;</span>
-</p>
+Frank Strauss。</p>
+</div>
+</div>
 </div>
 <div id="rfc-copyright" class="rfc-section">
 <div class="t-pair" id="rfc.copyright">
 <h1 xml:lang="en" class="t-l-en">Full Copyright Statement</h1>
 <h1 xml:lang="ja" class="t-l-ja">完全な著作権声明</h1>
 </div>
-<div class="t-pair">
-<p class="t-l-en t-hide-no" xml:lang="en">
+<div class="t-pair t-hide-no">
+<p class="t-l-en" xml:lang="en">
           Copyright &#x00A9; 
           <a href="http://www.isoc.org/">The Internet Society</a> 
           (1999). 
@@ -5131,8 +3532,8 @@ Frank Strauss。</ja:l>
         </p>
 </div>
 <div class="rfc-t">
-<div class="t-pair">
-<p class="t-l-en t-hide-no" xml:lang="en">
+<div class="t-pair t-hide-no">
+<p class="t-l-en" xml:lang="en">
             This document and translations of it may be copied 
             and furnished
             to others, and derivative works that comment on or otherwise 
@@ -5160,8 +3561,8 @@ Frank Strauss。</ja:l>
 </div>
 </div>
 <div class="rfc-t">
-<div class="t-pair">
-<p class="t-l-en t-hide-no" xml:lang="en">
+<div class="t-pair t-hide-no">
+<p class="t-l-en" xml:lang="en">
             The limited permissions granted above are perpetual and will 
             not be revoked by the Internet Society or its successors or 
             assigns.
@@ -5173,8 +3574,8 @@ Frank Strauss。</ja:l>
 </div>
 </div>
 <div class="rfc-t">
-<div class="t-pair">
-<p class="t-l-en t-hide-no" xml:lang="en">
+<div class="t-pair t-hide-no">
+<p class="t-l-en" xml:lang="en">
             This document and the information contained herein is provided 
             on an “<strong>AS IS</strong>” basis and 
             <strong>THE INTERNET SOCIETY AND THE INTERNET ENGINEERING
@@ -5224,8 +3625,42 @@ Frank Strauss。</ja:l>
 </div>
 </div>
 <ins id="rfc-translators-note" class="t-note t-l-ja" xml:lang="ja">
+<div class="rfc-section">
+<div id="ja.note.mydtd">
+<h1 xmlns="http://www.w3.org/1999/xhtml">この翻訳文の形式について</h1>
+</div>
+    <p class="rfc-t" id="rfc.section.1.p.1" xmlns="http://www.w3.org/1999/xhtml">この文書 (の原本) は、 RFC 2629 
+    で定義された形式に、翻訳文用の要素を XML 
+    名前空間を使って追加して用いています。詳しくは、 
+    
+  &lt;<a href="http://suika.fam.cx/~wakaba/lang/rfc/translation/" xmlns="">http://suika.fam.cx/~wakaba/lang/rfc/translation/</a>&gt;
+
+    を御覧下さい。</p>
+  </div>
+<div class="rfc-section" id="t-change">
+<h1>翻訳の変更履歴</h1>
+<dl>
+<dt>2002-04-30 <a href="mailto:w@suika.fam.cx" title="電子メイル: &lt;w@suika.fam.cx>">わかば</a>
+</dt>
+<dd>
+<ul>
+<li>翻訳完了。</li>
+</ul>
+</dd>
+<dt>2002-05-03 <a href="mailto:w@suika.fam.cx" title="電子メイル: &lt;w@suika.fam.cx>">わかば</a>
+</dt>
+<dd>
+<ul>
+<li>訳注を幾つか追加。翻訳変更履歴の章を新設。</li>
+</ul>
+</dd>
+</dl>
+</div>
 <div class="rfc-section" id="rfc-t-copyright">
 <h1>訳文についての著作権声明</h1>
+<ul>
+<li>Copyright &#x00A9; わかば (2002)。全権保留。</li>
+</ul>
 <p>
 <a href="#rfc-copyright">原文の著作権声明</a>が、訳文についても同様に適用されます。</p>
 <p>また、改訳その他の原文の著作権声明に反しない範囲における改変は、一切の許可無く行って構いません。</p>
