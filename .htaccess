@@ -1,2 +1,6 @@
 
 AddType application/x-rfc-translation+xml .rfcja
+AddCharset iso-2022-jp .rfcja
+AddLanguage ja,en .rfcja
+
+Redirect /~wakaba/documents/rfc-ja/rfc2629.dtd http://suika.fam.cx/gate/cvs/*checkout*/markup/rfc/dtd/2629ja/rfc.dtd

@@ -44,7 +44,7 @@
     <t>少し英文を増やす。</t>
     <t>この文書の取り扱いの説明を書き直す。</t>
   </ja:item>
-</ja:change><!-- $Date: 2002/09/01 09:49:34 $ -->
+</ja:change><!-- $Date: 2003/09/13 08:57:55 $ -->
   <ja:copyright>
     <ja:full-statement>
       <t>
@@ -97,13 +97,13 @@
   <t>
     RFC の翻訳についての話題, 特にここにある RFC 
     の和訳については、次の場所で取り扱います。
-  </t>
   <list>
   <t><eref target="news://suika.fam.cx/suika.markup">ニュース組 suika.markup</eref></t>
   <t><eref target="http://suika.fam.cx/~wakaba/-temp/wiki/wiki?RFC%A4%CE%CF%C2%CC%F5%A4%CB%A4%C4%A4%A4%A4%C6%A4%DE%A4%BF%A1%BC%A4%EA">RFC
   の和訳についてまたーり</eref>
   (<eref target="http://suika.fam.cx/~wakaba/-temp/wiki/wiki">SuikaWiki</eref>)</t>
   </list>
+  </t>
 </section>
 
 <section title="Security Considerations">

@@ -103,7 +103,7 @@ Content-ID &ja.access;$BJ}K!$O!"%a%C%;!<%8Cf$N(B&ja.object;$B$r;2>H$9$kJ}K!$r
   <ja:item year="2002" month="07" day="26"><author ja:ref="wakaba" />
     <t><ja:link type="rfc" number="2629" /> $B$G%^!<%/IU$1!#(B</t>
   </ja:item>
-</ja:change><!-- $Date: 2002/07/26 11:56:16 $ -->
+</ja:change><!-- $Date: 2003/09/13 08:57:55 $ -->
 </ja:front>
 <middle>
 
@@ -133,6 +133,7 @@ access-type $B$rDj5A$7$^$9!#(B
 <section title="The Content-ID Access Type" ja:title-ja="Content-ID &ja.access;$B7?(B">
 
    <section title="Registration Information" ja:title-ja="$BEPO?>pJs(B">
+     <t>
      <list style="hanging">
      <t hangText="MIME access-type name" ja:hangText-ja="MIME access-type $BL>(B">content-id</t>
        
@@ -204,7 +205,6 @@ access-type $B$rDj5A$7$^$9!#(B
              &ja.mime.entity;$B$O<!$N$b$N$+$i9=@.$5$l$^$9!#(B
            </ja:l>
            </ja:pair>
-         </t>
          
          <list style="hanging">
            <t hangText="(a)"><ja:pair>
@@ -252,8 +252,10 @@ access-type $B$rDj5A$7$^$9!#(B
              </ja:l>
            </ja:pair></t>
          </list><!-- hanging -->
+         </t>
        </t><!-- additional requirements -->
      </list><!-- submit form -->
+     </t>
    </section><!-- 2.1 -->
    
    <section title="Example Usage" ja:title-ja="$B;HMQNc(B">
@@ -334,7 +336,7 @@ access-type $B$rDj5A$7$^$9!#(B
             Content-Type: image/jpeg
             Content-ID: <950323.1552@XIson.com>
             Content-Description:
-               $B$3$N(B&ja.mime.body-part;$B$O;2>H$GJ#@=$5$l$^$9!#(B
+               $B$3$N(B]]>&ja.mime.body-part;<![CDATA[$B$O;2>H$GJ#@=$5$l$^$9!#(B
 
             AAAcdb...
             --tiger-lily]]></artwork>
@@ -421,8 +423,8 @@ MIME &ja.mime.entity;</ja:word>$B$O(B&ja.security;$B$K4X78$9$k$+$b$7$l$^$;$s!
         <organization abbrev="Innosoft">Innosoft International, 
         Inc.</organization>
       </author>
+      <date month="September" year="1993" />
     </front>
-    <date month="September" year="1993" />
     <seriesInfo name="RFC" value="1521" /> 
   </reference>
 </references>
@@ -431,7 +433,7 @@ MIME &ja.mime.entity;</ja:word>$B$O(B&ja.security;$B$K4X78$9$k$+$b$7$l$^$;$s!
   <section title="Content-ID $B$N;XDj(B">
     <t>MIME <xref target="MIME" /> $B$N5,Dj$H>H$i$79g$o$;$k$H!"(B
     <eref target="http://suika.fam.cx/~wakaba/-temp/wiki/wiki?message%2Fexternal%2Dbody%C7%DE%C2%CE%B7%BF">$B$I$3$K(B 
-    Content-ID: $BMs$r=q$/$N$+$K$D$$$F5?Ld$,$"$j$^$9(B</eref>$B!#(B</t>
+    <h:code>Content-ID:</h:code> $BMs$r=q$/$N$+$K$D$$$F5?Ld$,$"$j$^$9(B</eref>$B!#(B</t>
   </section>
   <section title="IANA $B$K4X$7$F(B">
     <t><eref target="http://www.iana.org/assignments/access-types">IANA

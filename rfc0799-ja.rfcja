@@ -37,9 +37,9 @@
 <?rfc-translation show-rfc-status="no"?>
 <?rfc-translation autoquote-samp-element="no"?>
 <rfc number="&rfc.number;" category="info"
-   xmlns:myns="mailto:julian.reschke@greenbytes.de?subject=rcf2629.xslt"
    xmlns:ja="http://suika.fam.cx/~wakaba/lang/rfc/translation/"
    xmlns:h="http://www.w3.org/1999/xhtml">
+<!--   xmlns:myns="mailto:julian.reschke@greenbytes.de?subject=rcf2629.xslt"-->
 <front>
 <title>Internet Name Domains</title>
 <ja:title xml:lang="ja">Internet 名前ドメイン</ja:title>
@@ -65,7 +65,7 @@
   <ja:item year="2002" month="09" day="01"><author ja:ref="wakaba" />
     <t><ja:link type="rfc" number="2629" /> でマーク付け。</t>
   </ja:item>
-</ja:change><!-- $Date: 2002/09/01 09:18:48 $ -->
+</ja:change><!-- $Date: 2003/09/13 08:57:55 $ -->
 </ja:front>
 <middle>
 
@@ -176,7 +176,7 @@ the syntax
   </preamble>
   <ja:artwork>
     <artwork>&lt;user>.&lt;host>@&lt;domain> ,</artwork>
-    <h:var>&lt;user></h:var>.<h:var>&lt;host></h:var>@<h:var>&lt;domain></h:var>
+    <h:div class="blockcode"><h:var>&lt;user></h:var>.<h:var>&lt;host></h:var>@<h:var>&lt;domain></h:var></h:div>
   </ja:artwork>
   <postamble>
     <ja:pair>
@@ -264,7 +264,6 @@ staged at an intermediate relay, among them the following:
       メッセージが中継を経なければならない理由が次に挙げる様にいくつかあります。
     </ja:l>
     </ja:pair>
-  </t>
     
   <list style="numbers">
       <t>
@@ -314,6 +313,7 @@ staged at an intermediate relay, among them the following:
     </ja:pair>
   </t>
   </list>
+  </t>
   
   <t>
     <ja:pair>
@@ -345,7 +345,6 @@ the MRCP command.  There are several implications to this:
 命令の&ja.net.source-route;指定で決定されます。これには幾つかの係わり合いがあります。
     </ja:l>
     </ja:pair>
-  </t>
 
   <list style="numbers">
   <t>
@@ -392,6 +391,7 @@ the MRCP command.  There are several implications to this:
     </ja:pair>
   </t>
   </list>
+  </t>
 </section>
 
 <section title="Forwarder Operations" ja:title-ja="&ja.mail.forwarder;の作業">

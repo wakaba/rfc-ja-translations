@@ -85,7 +85,7 @@
     <author ja:ref="wakaba" />
     <t><ja:link type="rfc" number="2629" /> でマーク付け。</t>
   </ja:item>
-</ja:change><!-- $Date: 2002/07/26 11:56:16 $ -->
+</ja:change><!-- $Date: 2003/09/13 08:57:55 $ -->
 </ja:front>
 <middle>
 
@@ -129,7 +129,7 @@
       </ja:l>
       </ja:pair>
     </t>
-    <t hangText="NONCE" ja:target="html-a-nonce">
+    <t hangText="NONCE" ja:anchor="html-a-nonce">
       <ja:pair>
       <ja:l xml:lang="en">
         A free-format string (appropriately SGML quoted) which
@@ -143,7 +143,7 @@
       </ja:l>
       </ja:pair>
     </t>
-    <t hangText="CRYPTOPTS" ja:target="html-a-cryptopts">
+    <t hangText="CRYPTOPTS" ja:anchor="html-a-cryptopts">
       <ja:pair>
       <ja:l xml:lang="en">
         Cryptographic option information as described in

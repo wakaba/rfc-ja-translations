@@ -63,7 +63,7 @@
   <ja:item year="2002" month="05" day="20"><author ja:ref="wakaba" />
     <t><ja:link type="rfc" number="2629" /> でマーク付け。</t>
   </ja:item>
-</ja:change><!-- $Date: 2002/07/26 11:56:16 $ -->
+</ja:change><!-- $Date: 2003/09/13 08:57:55 $ -->
 </ja:front>
 <middle>
 
@@ -149,4 +149,3 @@
 
 </back>
 </rfc>
-<!-- rfc3232-ja.rfcja ends here -->

@@ -65,7 +65,7 @@
   <ja:item year="2002" month="05" day="09"><author ja:ref="wakaba" />
     <t>RFC 番号を直書きから一般実体参照 &amp;rfc.number; に変更。</t>
   </ja:item>
-</ja:change><!-- $Date: 2002/05/09 09:52:35 $ -->
+</ja:change><!-- $Date: 2003/09/13 08:57:55 $ -->
 <keyword>拡張マーク付け言語</keyword>
 </ja:front>
 <middle>
@@ -995,7 +995,7 @@ other than to publish as an Internet-Draft.
     文書が
     <ja:link type="rfc" number="2026">RFC 2026</ja:link> 
     の<ja:link type="rfc" number="2026" section="10">第10章</ja:link>
-    に従って<h:strong>おらず</h:strong>、著者は IETF に Internet-Draft
+    に従って<h:em>おらず</h:em>、著者は IETF に Internet-Draft
     として発行する以外のいかなる権利をも提供しないことを示します
   </ja:l>
   </ja:pair>

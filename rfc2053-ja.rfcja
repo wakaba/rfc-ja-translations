@@ -42,7 +42,7 @@
   <ja:item year="2002" month="05" day="12"><author ja:ref="wakaba" />
     <t><ja:link type="rfc" number="2629" /> でマーク付け。</t>
   </ja:item>
-</ja:change><!-- $Date: 2002/05/12 04:31:40 $ -->
+</ja:change><!-- $Date: 2003/09/13 08:57:55 $ -->
 </ja:front>
 <middle>
 
@@ -178,7 +178,7 @@
 </preamble>
 
 <ja:artwork><artwork>http://www.amnic.net</artwork>
-<eref target="http://www.amnic.net/">http://www.amnic.net</eref></ja:artwork>
+<h:div><eref target="http://www.amnic.net/">http://www.amnic.net</eref></h:div></ja:artwork>
 
 <postamble>
   <ja:pair>

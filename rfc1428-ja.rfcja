@@ -79,7 +79,7 @@
     <t><ja:link type="rfc" number="2629" /> でマーク付け。</t>
     <t>翻訳完了。</t>
   </ja:item>
-</ja:change><!-- $Date: 2002/09/01 09:18:48 $ -->
+</ja:change><!-- $Date: 2003/09/13 08:57:55 $ -->
 <h:style xml:space="preserve" type="text/css">
   .rfc-t-artwork table
   	{margin-left: 15%; margin-right: 15%;
@@ -309,6 +309,7 @@
     </ja:pair>
   </figure>
 
+  <t>
   <list style="hanging">
     <t hangText="(1)" ja:anchor="s2.i1">
       <ja:pair>
@@ -317,7 +318,7 @@
       <ja:l xml:lang="ja">7ビット非 MIME 送信者から7ビットまたは 
       MIME, 8ビット透過受信者へ</ja:l>
       </ja:pair>
-        <vspace breakLines="1" />
+        <vspace blankLines="1" />
       <ja:pair>
       <ja:l xml:lang="en">
       This will continue to work unchanged with nationally varient ISO
@@ -331,7 +332,6 @@
         への&ja.mail.gateway;はこのメッセージの内容を変える必要はありません。
       </ja:l>
       </ja:pair>
-    </t>
     <ja:note>
       <t>Jargon File には、 「out of band」 = 
       <h:q title="Jargon File から「out of band」" xml:lang="en">sometimes
@@ -339,13 +339,14 @@
       such as the <h:code>ESC</h:code> that leads control sequences for 
       many terminals</h:q> と書かれています。</t>
     </ja:note>
+    </t>
 
     <t hangText="(2)" ja:anchor="s2.i2">
       <ja:pair>
       <ja:l xml:lang="en">8bit sender to 7bit non-MIME receiver</ja:l>
       <ja:l xml:lang="ja">8ビット送信者から7ビット非 MIME 受信者へ</ja:l>
       </ja:pair>
-        <vspace breakLines="1" />
+        <vspace blankLines="1" />
       <ja:pair>
       <ja:l xml:lang="en">
         The receiver will receive bit-stripped mail which results in the
@@ -366,7 +367,7 @@
       <ja:l xml:lang="en">8bit transparent sender to 8bit transparent receiver</ja:l>
       <ja:l xml:lang="ja">8ビット透過送信者から8ビット透過受信者へ</ja:l>
       </ja:pair>
-        <vspace breakLines="1" />
+        <vspace blankLines="1" />
       <ja:pair>
       <ja:l xml:lang="en">
         Will work if an external agreement "out of band" to use a
@@ -384,7 +385,7 @@
       <ja:l xml:lang="en">8bit transparent sender to MIME/ESMTP conformant receiver</ja:l>
       <ja:l xml:lang="ja">8ビット透過送信者から MIME/ESMTP 適合受信者へ</ja:l>
       </ja:pair>
-        <vspace breakLines="1" />
+        <vspace blankLines="1" />
       <ja:pair>
       <ja:l xml:lang="en">
         Will work if a reasonable upgrade path is provided via gateways,
@@ -403,7 +404,7 @@
       <ja:l xml:lang="en">MIME/ESMTP sender to non-MIME 7bit receiver</ja:l>
       <ja:l xml:lang="ja">MIME/ESMTP 送信者から非 MIME 7ビット受信者へ</ja:l>
       </ja:pair>
-        <vspace breakLines="1" />
+        <vspace blankLines="1" />
       <ja:pair>
       <ja:l xml:lang="en">
         Because the ESMTP/MIME sender cannot know if the receiver will
@@ -431,7 +432,7 @@
       <ja:l xml:lang="en">MIME/ESMTP sender to MIME/ESMTP receiver</ja:l>
       <ja:l xml:lang="ja">MIME/ESMTP 送信者から MIME/ESMTP 受信者へ</ja:l>
       </ja:pair>
-        <vspace breakLines="1" />
+        <vspace blankLines="1" />
       <ja:pair>
       <ja:l xml:lang="en">
         Interoperability will be attained provided the receiver supports
@@ -441,6 +442,7 @@
       </ja:pair>
     </t>
   </list>
+  </t>
 </section>
 
 <section title="Upgrade Path from 8bit Transparent to ESMTP/MIME"
@@ -539,7 +541,7 @@ Content-Transfer-Encoding: 8bit
       メッセージ&ja.body;が MIME に&ja.upgrade;される場合、非 US-ASCII
       文字を含む <ja:link type="rfc" number="822" /> 頭は
       RFC 1342 
-      の頭符号化規則に適合するよう&ja.upgtade;しなければなりません。&ja.mail.gateway;は全ての非構造化頭領域と 
+      の頭符号化規則に適合するよう&ja.upgrade;しなければなりません。&ja.mail.gateway;は全ての非構造化頭領域と 
       RFC 822 "comment" と "phrase" を RFC 1342 
       の規則に従い再符号化するべきです。メッセージ&ja.body;の "8bit" 
       内容転送符号化値に相当するものは RFC 1342 
