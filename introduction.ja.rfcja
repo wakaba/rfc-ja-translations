@@ -29,7 +29,7 @@
         <ja:l xml:lang="en">
           There are some Japanese translations of 
           <eref target="http://www.ietf.org/">IETF</eref>
-          <eref target="http://www.rfc-editor.org/">RFC</eref>s.
+          <eref target="http://www.rfc-editor.org/">RFC</eref>s here.
         </ja:l>
         </ja:pair>
       </t>
@@ -40,32 +40,70 @@
   <ja:item year="2002" month="06" day="12"><author ja:ref="wakaba" />
     <t>新規作成。</t>
   </ja:item>
+  <ja:item year="2002" month="09" day="01"><author ja:ref="wakaba" />
+    <t>少し英文を増やす。</t>
+    <t>この文書の取り扱いの説明を書き直す。</t>
+  </ja:item>
+</ja:change><!-- $Date: 2002/09/01 09:49:34 $ -->
   <ja:copyright>
-    <ja:full-statement>この説明文は、翻訳文同様自由に取り扱ってもらって構いません。</ja:full-statement>
+    <ja:full-statement>
+      <t>
+        この説明文そのものについては、筆者は著作権を主張しません。御自由にお使い下さい。各
+        RFC については、それぞれの説明をご覧下さい。
+      </t>
+    </ja:full-statement>
   </ja:copyright>
-</ja:change><!-- $Date: 2002/07/26 11:56:15 $ -->
 </ja:front>
 <middle>
 
 <section title="Description">
   <t>
-   ここには、幾つかの RFC の和訳が置いてあります。各文書は、
-   RFC 2629 <xref target="RFC2629" /> 
-   形式に、翻訳文のための多少の拡張を加えた形式でマーク付けしています。
+    <ja:pair>
+    <ja:l xml:lang="ja">
+      ここには、幾つかの RFC の和訳が置いてあります。各文書は、
+      RFC 2629 <xref target="RFC2629" /> 
+      形式に、翻訳文のための多少の拡張を加えた形式でマーク付けしています。
+    </ja:l>
+    <ja:l xml:lang="en">
+      There are some translations of RFCs here.
+      Every documents are marked up with extended RFC 2629 
+      <xref target="RFC2629" /> format for translation.
+    </ja:l>
+    </ja:pair>
   </t>
   
   <t>
-    また、それを HTML 化したものも併せて用意しています。
+    <ja:pair>
+    <ja:l xml:lang="ja">
+      また、それを HTML 化したものも併せて用意しています。
     HTML 版は、英和対訳の形になっています。適切なスタイルシート
     (XSLT や CSS) などを使えば、和文のみに出来ます。
+    </ja:l>
+    <ja:l xml:lang="en">
+      HTMLed version of those are also provided.
+    </ja:l>
+    </ja:pair>
   </t>
   
   <t>
     全ての翻訳文は、 (その末尾に記してある通り、)
     無保証ではありますが、自由に利用することが出来ます。
-    (公開されている RFC 和訳の多くは、 (意図的かどうかは別にして、)
-    その自由な利用が認められていません。あるいは、閲覧や配布は認められていても、改訳等の改変が認められていなかったり、出来るのかどうか曖昧で合ったりします。しかし、ここにある翻訳文は、これらも含めて自由に使って構いません。)
+    <ja:note>公開されている RFC 和訳の多くは、 (意図的かどうかは別にして、)
+    その自由な利用が認められていません。あるいは、閲覧や配布は認められていても、改訳等の改変が認められていなかったり、出来るのかどうか曖昧で合ったりします。しかし、ここにある翻訳文は、これらも含めて自由に使って構いません。</ja:note>
   </t>
+</section>
+
+<section title="RFC の日本語訳についての話題">
+  <t>
+    RFC の翻訳についての話題, 特にここにある RFC 
+    の和訳については、次の場所で取り扱います。
+  </t>
+  <list>
+  <t><eref target="news://suika.fam.cx/suika.markup">ニュース組 suika.markup</eref></t>
+  <t><eref target="http://suika.fam.cx/~wakaba/-temp/wiki/wiki?RFC%A4%CE%CF%C2%CC%F5%A4%CB%A4%C4%A4%A4%A4%C6%A4%DE%A4%BF%A1%BC%A4%EA">RFC
+  の和訳についてまたーり</eref>
+  (<eref target="http://suika.fam.cx/~wakaba/-temp/wiki/wiki">SuikaWiki</eref>)</t>
+  </list>
 </section>
 
 <section title="Security Considerations">
