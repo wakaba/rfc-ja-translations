@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="iso-2022-jp"?>
-<?xml-stylesheet href="http://suika.fam.cx/~wakaba/lang/rfc/translate/rfc-ja-style.css" type="text/css"?>
+<!--#if expr=" != /MSIE/" --><?xml version="1.0" encoding="iso-2022-jp"?><!--#endif -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:h="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head profile="http://suika.fam.cx/~wakaba/lang/rfc/translate/html-profile">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <title>
       RFC 2629: 
     XML を使って I-D や RFC を書く (Writing I-Ds and RFCs using XML)
     </title>
-<link rel="stylesheet" href="http://suika.fam.cx/~wakaba/lang/rfc/translate/rfc-ja-style.css" type="text/css"/>
+<link rel="stylesheet" href="http://suika.fam.cx/~wakaba/lang/rfc/translation/rfc-ja-style.css" type="text/css"/>
 <meta name="ietf-area" content="General"/>
 <meta name="keyword" xml:lang="en" content="RFC, Request for Comments, I-D, Internet-Draft, XML, Extensible Markup Language, "/>
 <meta name="keyword" content="拡張マーク付け言語, "/>
@@ -87,8 +86,8 @@
 <h1 xml:lang="en" class="t-l-en">Abstract</h1>
 <h1 xml:lang="ja" class="t-l-ja">概要</h1>
 </div>
-  <div class="rfc-t">
-    <div class="t-pair">
+  <div class="rfc-t" xmlns="http://www.w3.org/1999/xhtml">
+    <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
       This memo presents a technique for using XML
       (Extensible Markup Language)
@@ -105,12 +104,12 @@
 
 <div class="rfc-section" id="rfc.section.1">
 <div class="t-pair t-heading">
-<h1 xml:lang="en" class="t-l-en">1. Introduction</h1>
-<h1 xml:lang="ja" class="t-l-ja">1. 
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">1. Introduction</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">1. 
           はじめに</h1>
 </div>
-<div class="rfc-t" id="rfc.section.1.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     This memo describes how to write a document for the I-D and 
     RFC series using <span class="rfc-xref">
@@ -129,7 +128,7 @@
   </p>
 </div>
   
-<ol class="rfc-list-numbers text">
+<ol class="rfc-list-numbers text" xmlns="">
 <li>
   <div class="t-pair">
 <p xml:lang="en" class="t-l-en">
@@ -181,8 +180,8 @@ software).
 </li>
 </ol>
 </div>
-<div class="rfc-t" id="rfc.section.1.p.2">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.1.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     It is beyond the scope of this memo to discuss the political
 ramifications of using XML as a source format for RFC-like documents.
@@ -194,7 +193,7 @@ it is simply noted that adding minimal markup to plain text:
   </p>
 </div>
   
-<ul class="rfc-list-symbols text">
+<ul class="rfc-list-symbols text" xmlns="">
 <li>
   <div class="t-pair">
 <p xml:lang="en" class="t-l-en">
@@ -230,7 +229,7 @@ using both unstructured and structured mechanisms.
 </li>
 </ul>
 
-  <div class="t-pair">
+  <div class="t-pair" xmlns="">
 <p xml:lang="ja" class="t-l-ja">
     ということを単に記すものです。
   </p>
@@ -240,12 +239,12 @@ using both unstructured and structured mechanisms.
 
 <div class="rfc-section" id="rfc.section.2">
 <div class="t-pair t-heading">
-<h1 xml:lang="en" class="t-l-en">2. Using the DTD to Write I-Ds and RFCs</h1>
-<h1 xml:lang="ja" class="t-l-ja">2. 
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2. Using the DTD to Write I-Ds and RFCs</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2. 
           I-D や RFC を書くのに DTD を使う</h1>
 </div>
-<div class="rfc-t" id="rfc.section.2.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     We do not provide a formal or comprehensive description of XML.
 Rather,
@@ -259,8 +258,8 @@ Declaration (DTD) to write RFC-like documents.
   </p>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.2.p.2">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     If you're already familiar with XML,
 skip to <span class="rfc-xref">
@@ -277,12 +276,12 @@ skip to <span class="rfc-xref">
 
 <div class="rfc-section" id="rfc.section.2.1">
 <div class="t-pair t-heading" id="xml_basics">
-<h2 xml:lang="en" class="t-l-en">2.1. XML basics</h2>
-<h2 xml:lang="ja" class="t-l-ja">2.1. 
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.1. XML basics</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.1. 
           XML の基礎</h2>
 </div>
-<div class="rfc-t" id="rfc.section.2.1.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     There are very few rules when writing in XML,
 as the syntax is simple.
@@ -293,7 +292,7 @@ There are five terms you'll need to know:
   </p>
 </div>
 
-<ol class="rfc-list-numbers text">
+<ol class="rfc-list-numbers text" xmlns="">
 <li>
   <div class="t-pair">
 <p xml:lang="en" class="t-l-en">
@@ -416,8 +415,8 @@ Nothing else should be present after the "&lt;/rfc&gt;" tag.
 </div>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.2.1.p.3">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.1.p.3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     Second,
 make sure that all elements are properly matched and nested.
@@ -499,8 +498,8 @@ Elements are properly nested when they don't overlap.
 </div>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.2.1.p.6">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.1.p.6" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     Third,
 never use "&lt;" or "&amp;" in your text.
@@ -511,8 +510,8 @@ Instead, use either "&amp;lt;" or "&amp;amp;", respectively.
   </p>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.2.1.p.7">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.1.p.7" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     Fourth,
 there are two quoting characters in XML, 'apostrophe' and "quotation".
@@ -573,8 +572,8 @@ here's the syntax:
 </div>
 
 </div>
-<div class="rfc-t" id="rfc.section.2.1.p.9">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.1.p.9" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     Finally,
 XML is case sensitive.
@@ -588,7 +587,7 @@ XML is case sensitive.
 
 <div class="rfc-section" id="rfc.section.2.2">
 <div id="front_matter">
-<h2>2.2. Front matter</h2>
+<h2 xmlns="http://www.w3.org/1999/xhtml">2.2. Front matter</h2>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.5">&#x00A0;</span>
@@ -634,8 +633,8 @@ indentation is used only for expository purposes.)
 </div>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.2.2.p.2">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.2.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The "front" element consists of a "title" element,
 one or more "author" elements,
@@ -659,8 +658,8 @@ one or more optional "note" elements.
 </div>
 <div class="rfc-section" id="rfc.section.2.2.1">
 <div class="t-pair t-heading">
-<h3 xml:lang="en" class="t-l-en">2.2.1. The title Element</h3>
-<h3 xml:lang="ja" class="t-l-ja">2.2.1. 
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.1. The title Element</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.1. 
           title 要素</h3>
 </div>
 <div class="rfc-figure">
@@ -692,8 +691,8 @@ e.g.,
 </div>
 <div class="rfc-section" id="rfc.section.2.2.2">
 <div class="t-pair t-heading" id="author">
-<h3 xml:lang="en" class="t-l-en">2.2.2. The author Element</h3>
-<h3 xml:lang="ja" class="t-l-ja">2.2.2. 
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.2. The author Element</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.2. 
           author 要素</h3>
 </div>
 <div class="rfc-figure">
@@ -722,8 +721,8 @@ e.g.,
             fullname="Marshall T. Rose"&gt;
 </pre>
 </div>
-<div class="rfc-t" id="rfc.section.2.2.2.p.2">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.2.2.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The "author" element itself consists of an "organization" element,
 and,
@@ -757,8 +756,8 @@ using the "abbrev" attribute, e.g.,
     &lt;/organization&gt;
 </pre>
 </div>
-<div class="rfc-t" id="rfc.section.2.2.2.p.4">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.2.2.p.4" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The "address" element consists of an optional "postal" element,
 an optional "phone" element,
@@ -852,8 +851,8 @@ simple, e.g.,
 </div>
 <div class="rfc-section" id="rfc.section.2.2.3">
 <div class="t-pair t-heading" id="date">
-<h3 xml:lang="en" class="t-l-en">2.2.3. The date Element</h3>
-<h3 xml:lang="ja" class="t-l-ja">2.2.3. 
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.3. The date Element</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.3. 
           date 要素</h3>
 </div>
 <div class="rfc-figure">
@@ -887,12 +886,12 @@ It consists of a month and a year, e.g.,
 </div>
 <div class="rfc-section" id="rfc.section.2.2.4">
 <div class="t-pair t-heading">
-<h3 xml:lang="en" class="t-l-en">2.2.4. Meta Data Elements</h3>
-<h3 xml:lang="ja" class="t-l-ja">2.2.4. 
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.4. Meta Data Elements</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.4. 
           メタ・データ要素</h3>
 </div>
-<div class="rfc-t" id="rfc.section.2.2.4.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.2.4.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The "front" element may contain meta data ――
 the content of these elements does not appear in printed versions of
@@ -952,8 +951,8 @@ and the "keyword" elements identify useful search terms.
 </div>
 <div class="rfc-section" id="rfc.section.2.2.5">
 <div class="t-pair t-heading">
-<h3 xml:lang="en" class="t-l-en">2.2.5. The abstract Element</h3>
-<h3 xml:lang="ja" class="t-l-ja">2.2.5. 
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.5. The abstract Element</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.5. 
           abstract 要素</h3>
 </div>
 <div class="rfc-figure">
@@ -1002,8 +1001,8 @@ e.g.,
 </div>
 <div class="rfc-section" id="rfc.section.2.2.6">
 <div class="t-pair t-heading">
-<h3 xml:lang="en" class="t-l-en">2.2.6. The note Element</h3>
-<h3 xml:lang="ja" class="t-l-ja">2.2.6. 
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.6. The note Element</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.6. 
           note 要素</h3>
 </div>
 <div class="rfc-figure">
@@ -1050,12 +1049,12 @@ e.g.,
 </div>
 <div class="rfc-section" id="rfc.section.2.2.7">
 <div class="t-pair t-heading">
-<h3 xml:lang="en" class="t-l-en">2.2.7. Status, Copyright Notice, Table of Contents</h3>
-<h3 xml:lang="ja" class="t-l-ja">2.2.7. 
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.7. Status, Copyright Notice, Table of Contents</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.7. 
           位置付け, 著作権表示, 目次</h3>
 </div>
-<div class="rfc-t" id="rfc.section.2.2.7.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.2.7.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     Note that text relating to the memo's status, copyright notice, or
 table of contents is not included in the document's markup ―― this is
@@ -1071,12 +1070,12 @@ a text or HTML version of the document.
 </div>
 <div class="rfc-section" id="rfc.section.2.2.7.1">
 <div class="t-pair t-heading" id="ipr">
-<h4 xml:lang="en" class="t-l-en">2.2.7.1. Conformance with RFC 2026</h4>
-<h4 xml:lang="ja" class="t-l-ja">2.2.7.1. 
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.7.1. Conformance with RFC 2026</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.7.1. 
           RFC 2026 への適合性</h4>
 </div>
-<div class="rfc-t" id="rfc.section.2.2.7.1.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.2.7.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     If an Internet-Draft is being produced,
 then the "ipr" attribute should be present in the "&lt;rfc&gt;"
@@ -1089,7 +1088,7 @@ The value of the attribute should be one of:
   </p>
 </div>
 
-<dl class="rfc-list-hanging">
+<dl class="rfc-list-hanging" xmlns="">
 <dt>full2026:</dt>
 <dd>
   <div class="t-pair">
@@ -1132,14 +1131,14 @@ other than to publish as an Internet-Draft.
     文書が
     <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:2026" title="RFC 2026">RFC 2026</a> 
     の<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:2026" title="RFC 2026">第10章</a>
-    に従って<strong>おらず</strong>、著者は IETF に Internet-Draft
+    に従って<strong xmlns="http://www.w3.org/1999/xhtml">おらず</strong>、著者は IETF に Internet-Draft
     として発行する以外のいかなる権利をも提供しないことを示します
   </p>
 </div>
 </dd>
 </dl>
 
-  <div class="t-pair">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     In the latter case,
 a copyright notice will not be automatically inserted during
@@ -1154,8 +1153,8 @@ processing by an XML application.
   </p>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.2.2.7.1.p.2">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.2.7.1.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     Consult <span class="rfc-xref">
 <a href="#refs.RFC2026" title="The Internet Standards Process ―― Revision 3">[3]</a>
@@ -1198,8 +1197,8 @@ associated with this Internet-Draft, e.g.,
 </div>
 <div class="rfc-section" id="rfc.section.2.2.8">
 <div class="t-pair t-heading">
-<h3 xml:lang="en" class="t-l-en">2.2.8. Everything in the Front</h3>
-<h3 xml:lang="ja" class="t-l-ja">2.2.8. 
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.2.8. Everything in the Front</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.2.8. 
           Front 全体</h3>
 </div>
 <div class="rfc-figure">
@@ -1309,7 +1308,7 @@ putting it all together, we have, e.g.,
 </div>
 <div class="rfc-section" id="rfc.section.2.3">
 <div>
-<h2>2.3. The Middle</h2>
+<h2 xmlns="http://www.w3.org/1999/xhtml">2.3. The Middle</h2>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.17">&#x00A0;</span>
@@ -1349,8 +1348,8 @@ elements.
 </div>
 <div class="rfc-section" id="rfc.section.2.3.1">
 <div class="t-pair t-heading" id="section">
-<h3 xml:lang="en" class="t-l-en">2.3.1. The section Element</h3>
-<h3 xml:lang="ja" class="t-l-ja">2.3.1. 
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1. The section Element</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1. 
           section 要素</h3>
 </div>
 <div class="rfc-figure">
@@ -1416,12 +1415,12 @@ elements, e.g.,
 </div>
 <div class="rfc-section" id="rfc.section.2.3.1.1">
 <div class="t-pair t-heading" id="t">
-<h4 xml:lang="en" class="t-l-en">2.3.1.1. The t Element</h4>
-<h4 xml:lang="ja" class="t-l-ja">2.3.1.1. 
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1.1. The t Element</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1.1. 
           t 要素</h4>
 </div>
-<div class="rfc-t" id="rfc.section.2.3.1.1.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.3.1.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The "t" element contains any number and combination of
 paragraphs, lists, and figures.
@@ -1450,8 +1449,8 @@ Indexing of text is provided by the
 </div>
 <div class="rfc-section" id="rfc.section.2.3.1.2">
 <div class="t-pair t-heading">
-<h4 xml:lang="en" class="t-l-en">2.3.1.2. The list Element</h4>
-<h4 xml:lang="ja" class="t-l-ja">2.3.1.2. 
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1.2. The list Element</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1.2. 
           list 要素</h4>
 </div>
 <div class="rfc-figure">
@@ -1584,12 +1583,12 @@ the "t" element has an optional attribute,
 </div>
 <div class="rfc-section" id="rfc.section.2.3.1.3">
 <div class="t-pair t-heading" id="figure">
-<h4 xml:lang="en" class="t-l-en">2.3.1.3. The figure Element</h4>
-<h4 xml:lang="ja" class="t-l-ja">2.3.1.3. 
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1.3. The figure Element</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1.3. 
           figure 要素</h4>
 </div>
-<div class="rfc-t" id="rfc.section.2.3.1.3.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.3.1.3.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The "figure" element groups an optional "preamble" element,
 an "artwork" element,
@@ -1612,8 +1611,8 @@ of the figure.
   </p>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.2.3.1.3.p.2">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.3.1.3.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The "preamble" and "postamble" elements,
 if present,
@@ -1642,8 +1641,8 @@ Indexing of text is provided by the
   </p>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.2.3.1.3.p.3">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.3.1.3.p.3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The "artwork" element,
 which must be present,
@@ -1782,8 +1781,8 @@ the XML application.
 </div>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.2.3.1.3.p.6">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.3.1.3.p.6" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     Because the "figure" element represents a logical grouping of text
 and artwork,
@@ -1809,8 +1808,8 @@ breaks to allow for better visual grouping.
   </p>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.2.3.1.3.p.7">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.3.1.3.p.7" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     Finally,
 the "artwork" element has two optional attributes:
@@ -1828,12 +1827,12 @@ whilst the latter contains a suggestive data-typing for the content.
 </div>
 <div class="rfc-section" id="rfc.section.2.3.1.4">
 <div class="t-pair t-heading" id="xref">
-<h4 xml:lang="en" class="t-l-en">2.3.1.4. The xref Element</h4>
-<h4 xml:lang="ja" class="t-l-ja">2.3.1.4. 
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1.4. The xref Element</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1.4. 
           xref 要素</h4>
 </div>
-<div class="rfc-t" id="rfc.section.2.3.1.4.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.3.1.4.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The "xref" element is used to cross-reference sections, figures, and
 references.
@@ -1947,8 +1946,8 @@ its choice is consistent throughout the processing of the document.
 
 <div class="rfc-section" id="rfc.section.2.3.1.5">
 <div class="t-pair t-heading" id="eref">
-<h4 xml:lang="en" class="t-l-en">2.3.1.5. The eref Element</h4>
-<h4 xml:lang="ja" class="t-l-ja">2.3.1.5. 
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1.5. The eref Element</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1.5. 
           eref 要素</h4>
 </div>
 <div class="rfc-figure">
@@ -2011,8 +2010,8 @@ processing such as "[9]" or
 </div>
 <div class="rfc-section" id="rfc.section.2.3.1.6">
 <div class="t-pair t-heading" id="iref">
-<h4 xml:lang="en" class="t-l-en">2.3.1.6. The iref Element</h4>
-<h4 xml:lang="ja" class="t-l-ja">2.3.1.6. 
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1.6. The iref Element</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1.6. 
           iref 要素</h4>
 </div>
 <div class="rfc-figure">
@@ -2048,8 +2047,8 @@ whilst the optional "subitem" attribute is the secondary key, e.g.,
 </div>
 
 </div>
-<div class="rfc-t" id="rfc.section.2.3.1.6.p.2">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.3.1.6.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
 Finally, note that the "iref" element is always empty ―― it never
 contains any text.
@@ -2063,12 +2062,12 @@ contains any text.
 </div>
 <div class="rfc-section" id="rfc.section.2.3.1.7">
 <div class="t-pair t-heading">
-<h4 xml:lang="en" class="t-l-en">2.3.1.7. The vspace Element</h4>
-<h4 xml:lang="ja" class="t-l-ja">2.3.1.7. 
+<h4 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.3.1.7. The vspace Element</h4>
+<h4 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.3.1.7. 
           vspace 要素</h4>
 </div>
-<div class="rfc-t" id="rfc.section.2.3.1.7.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.3.1.7.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The "vspace" element,
 which may occur only inside the "t" element,
@@ -2127,8 +2126,8 @@ within a list item, e.g.,
 </div>
 
 </div>
-<div class="rfc-t" id="rfc.section.2.3.1.7.p.3">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.3.1.7.p.3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     An XML application producing a text version of the document should
 exercise care when encountering a value for "blankLines" that causes a
@@ -2147,8 +2146,8 @@ large value, e.g., "blankLines='100'".
   </p>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.2.3.1.7.p.4">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.3.1.7.p.4" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     Finally, note that the "vspace" element is always empty ―― it never
 contains any text.
@@ -2163,7 +2162,7 @@ contains any text.
 </div>
 <div class="rfc-section" id="rfc.section.2.4">
 <div id="back_matter">
-<h2>2.4. Back matter</h2>
+<h2 xmlns="http://www.w3.org/1999/xhtml">2.4. Back matter</h2>
 </div>
 <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.30">&#x00A0;</span>
@@ -2211,12 +2210,12 @@ you don't have to include it.
 </div>
 <div class="rfc-section" id="rfc.section.2.4.1">
 <div class="t-pair t-heading" id="references">
-<h3 xml:lang="en" class="t-l-en">2.4.1. The references Element</h3>
-<h3 xml:lang="ja" class="t-l-ja">2.4.1. 
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.4.1. The references Element</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.4.1. 
           references 要素</h3>
 </div>
-<div class="rfc-t" id="rfc.section.2.4.1.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.4.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The "references" element contains the document's bibliography.
 It contains one or more "reference" elements.
@@ -2227,8 +2226,8 @@ It contains one or more "reference" elements.
   </p>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.2.4.1.p.2">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.4.1.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     Each "reference" element contains a "front" element and one or more
 optional "seriesInfo" elements.
@@ -2239,8 +2238,8 @@ optional "seriesInfo" elements.
   </p>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.2.4.1.p.3">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.4.1.p.3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     We've already discussed the "front" element back in
 <span class="rfc-xref">
@@ -2254,8 +2253,8 @@ optional "seriesInfo" elements.
   </p>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.2.4.1.p.4">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.4.1.p.4" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The "seriesInfo" element has two attributes,
 "name" and "value" that identify the document series and series entry,
@@ -2301,8 +2300,8 @@ attribute that is used for cross-referencing with
     &lt;/reference&gt;
 </pre>
 </div>
-<div class="rfc-t" id="rfc.section.2.4.1.p.6">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.4.1.p.6" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The "reference" element also has an optional "target"
 attribute that is used for external references
@@ -2332,12 +2331,12 @@ default for the "target" attribute
 </div>
 <div class="rfc-section" id="rfc.section.2.4.2">
 <div class="t-pair t-heading">
-<h3 xml:lang="en" class="t-l-en">2.4.2. Appendices</h3>
-<h3 xml:lang="ja" class="t-l-ja">2.4.2. 
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.4.2. Appendices</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.4.2. 
           附属書</h3>
 </div>
-<div class="rfc-t" id="rfc.section.2.4.2.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.4.2.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     To include appendices after the bibliography,
 simply add more "section" elements.
@@ -2357,12 +2356,12 @@ look at the example at the beginning of <span class="rfc-xref">
 </div>
 <div class="rfc-section" id="rfc.section.2.4.3">
 <div class="t-pair t-heading">
-<h3 xml:lang="en" class="t-l-en">2.4.3. Copyright Status</h3>
-<h3 xml:lang="ja" class="t-l-ja">2.4.3. 
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">2.4.3. Copyright Status</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">2.4.3. 
           著作権状態</h3>
 </div>
-<div class="rfc-t" id="rfc.section.2.4.3.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.2.4.3.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The copyright status for the document is not included in the
 document's markup ―― this is automatically inserted by an XML
@@ -2380,12 +2379,12 @@ application that produces either a text or HTML version of the document.
 </div>
 <div class="rfc-section" id="rfc.section.3">
 <div class="t-pair t-heading">
-<h1 xml:lang="en" class="t-l-en">3. Processing the XML Source File</h1>
-<h1 xml:lang="ja" class="t-l-ja">3. 
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3. Processing the XML Source File</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3. 
           XML 源ファイルの処理</h1>
 </div>
-<div class="rfc-t" id="rfc.section.3.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.3.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     This section concerns itself with applications that operate on
 an XML source file.
@@ -2402,8 +2401,8 @@ e.g.,
   </p>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.3.p.2">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.3.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     There are two kinds of XML tools: validating and non-validating.
 Both check that the source file conforms to the rules given in
@@ -2426,12 +2425,12 @@ There are a number of both validating and non-validating tools available.
 </div>
 <div class="rfc-section" id="rfc.section.3.1">
 <div class="t-pair t-heading">
-<h2 xml:lang="en" class="t-l-en">3.1. Editing</h2>
-<h2 xml:lang="ja" class="t-l-ja">3.1. 
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3.1. Editing</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3.1. 
           編集</h2>
 </div>
-<div class="rfc-t" id="rfc.section.3.1.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.3.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     There are several XML editors available.
 Ideally,
@@ -2443,7 +2442,7 @@ This has two advantages:
   </p>
 </div>
 
-<ul class="rfc-list-symbols text">
+<ul class="rfc-list-symbols text" xmlns="">
 <li>
   <div class="t-pair">
 <p xml:lang="en" class="t-l-en">
@@ -2510,8 +2509,8 @@ try one of the sources above.
 </div>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.3.1.p.3">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.3.1.p.3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The author uses both sgml-mode in Emacs,
 and a commercial validating editor,
@@ -2528,12 +2527,12 @@ files.
 </div>
 <div class="rfc-section" id="rfc.section.3.1.1">
 <div class="t-pair t-heading">
-<h3 xml:lang="en" class="t-l-en">3.1.1. Checking</h3>
-<h3 xml:lang="ja" class="t-l-ja">3.1.1. 
+<h3 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3.1.1. Checking</h3>
+<h3 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3.1.1. 
           確認</h3>
 </div>
-<div class="rfc-t" id="rfc.section.3.1.1.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.3.1.1.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     If your editor doesn't validate,
 then you should run a program to validate the source file.
@@ -2543,8 +2542,8 @@ then you should run a program to validate the source file.
   </p>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.3.1.1.p.2">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.3.1.1.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The author uses
 <a href="http://www.alphaworks.ibm.com/formula/xml/" title="URI: &lt;http://www.alphaworks.ibm.com/formula/xml/>">the
@@ -2566,12 +2565,12 @@ there are validating parsers written in C, Perl, Python, and Tcl.
 </div>
 <div class="rfc-section" id="rfc.section.3.2">
 <div class="t-pair t-heading" id="xml2rfc">
-<h2 xml:lang="en" class="t-l-en">3.2. Converting to Text Format</h2>
-<h2 xml:lang="ja" class="t-l-ja">3.2. 
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3.2. Converting to Text Format</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3.2. 
           text 形式に変換する</h2>
 </div>
-<div class="rfc-t" id="rfc.section.3.2.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.3.2.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The author has written
 <a href="http://memory.palace.org/authoring/" title="URI: &lt;http://memory.palace.org/authoring/>">the xml2rfc tool</a>,
@@ -2593,12 +2592,12 @@ validating parser prior to using the tool.
 </div>
 <div class="rfc-section" id="rfc.section.3.3">
 <div class="t-pair t-heading">
-<h2 xml:lang="en" class="t-l-en">3.3. Converting to HTML Format</h2>
-<h2 xml:lang="ja" class="t-l-ja">3.3. 
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3.3. Converting to HTML Format</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3.3. 
           HTML 形式に変換する</h2>
 </div>
-<div class="rfc-t" id="rfc.section.3.3.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.3.3.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The XML Style Language (XSL) is used to describe transformations
 from the source file into some other structured file.
@@ -2612,8 +2611,8 @@ file to HTML.
   </p>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.3.3.p.2">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.3.3.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     However,
 as of this writing XSL is still in considerable flux.
@@ -2636,20 +2635,20 @@ even though this tool doesn't provide much flexibility in its HTML layout.
 </div>
 <ins class="t-note t-l-ja" xml:lang="ja">
 <span class="t-note-title">訳注:</span>
-  <p class="rfc-t" id="rfc.section.3.3.p.1">rfc2629.xslt は、 
-  <a href="http://xml.resource.org/authoring/" title="URI: &lt;http://xml.resource.org/authoring/>">xml2rfc 
+  <p class="rfc-t" id="rfc.section.3.3.p.1" xmlns="http://www.w3.org/1999/xhtml">rfc2629.xslt は、 
+  <a href="http://xml.resource.org/authoring/" title="URI: &lt;http://xml.resource.org/authoring/>" xmlns="">xml2rfc 
   工具</a>に含まれています。これを使って巷の XSLT formatter
   でも HTML に変換出来ます。</p>
 </ins>
 </div>
 <div class="rfc-section" id="rfc.section.3.4">
 <div class="t-pair t-heading">
-<h2 xml:lang="en" class="t-l-en">3.4. Viewing</h2>
-<h2 xml:lang="ja" class="t-l-ja">3.4. 
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3.4. Viewing</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3.4. 
           表示</h2>
 </div>
-<div class="rfc-t" id="rfc.section.3.4.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.3.4.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     Browsers that support either XSL or Cascading Style Sheets (CSS)
 are able to view the source file directly.
@@ -2660,8 +2659,8 @@ are able to view the source file directly.
   </p>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.3.4.p.2">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.3.4.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     At present,
 the author doesn't use any of these browsers,
@@ -2676,12 +2675,12 @@ instead converting source files to either text or HTML.
 </div>
 <div class="rfc-section" id="rfc.section.3.5">
 <div class="t-pair t-heading">
-<h2 xml:lang="en" class="t-l-en">3.5. Searching</h2>
-<h2 xml:lang="ja" class="t-l-ja">3.5. 
+<h2 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">3.5. Searching</h2>
+<h2 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">3.5. 
           検索</h2>
 </div>
-<div class="rfc-t" id="rfc.section.3.5.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.3.5.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     As with text editors,
 any text-oriented search tool (e.g., grep) can be used on the source file.
@@ -2731,8 +2730,8 @@ e.g.
 </div>
 <div class="rfc-section" id="rfc.section.4">
 <div class="t-pair t-heading">
-<h1 xml:lang="en" class="t-l-en">4. Security Considerations</h1>
-<h1 xml:lang="ja" class="t-l-ja">4. 
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">4. Security Considerations</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">4. 
           安全性に関して</h1>
 </div>
 <div class="rfc-figure">
@@ -2858,8 +2857,8 @@ main topic of your document, e.g.,
 </div>
 <div class="rfc-section" id="rfc.section.A">
 <div class="t-pair t-heading" id="rfc">
-<h1 xml:lang="en" class="t-l-en">A. The rfc Element</h1>
-<h1 xml:lang="ja" class="t-l-ja">A. 
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">A. The rfc Element</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">A. 
           rfc 要素</h1>
 </div>
 <div class="rfc-figure">
@@ -2902,8 +2901,8 @@ the "number" attribute should be present.
 </div>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.A.p.2">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.A.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The other attributes are:
   </p>
@@ -2912,7 +2911,7 @@ the "number" attribute should be present.
   </p>
 </div>
 
-<ul class="rfc-list-symbols text">
+<ul class="rfc-list-symbols text" xmlns="">
 <li>
   <div class="t-pair">
 <p xml:lang="en" class="t-l-en">
@@ -2995,8 +2994,8 @@ series.
 </li>
 </ul>
 </div>
-<div class="rfc-t" id="rfc.section.A.p.3">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.A.p.3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     Finally,
 a special entity, "&amp;rfc.number;", is available.
@@ -3012,7 +3011,7 @@ the appropriate substitution (or "XXXX") will occur.
     (または "XXXX") を使います。
   </p>
 </div>
-  <ins class="t-note t-l-ja" xml:lang="ja">
+  <ins class="t-note t-l-ja" xml:lang="ja" xmlns="">
     (<span class="t-note-title">訳注:</span>
     <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.36">&#x00A0;</span>
@@ -3027,13 +3026,13 @@ the appropriate substitution (or "XXXX") will occur.
 </div>
 <div class="rfc-section" id="rfc.section.B">
 <div id="rfc.dtd">
-<h1>B. The RFC DTD</h1>
+<h1 xmlns="http://www.w3.org/1999/xhtml">B. The RFC DTD</h1>
 </div>
 
 <ins class="t-note t-l-ja" xml:lang="ja">
 <span class="t-note-title">訳注:</span>
-  <p class="rfc-t" id="rfc.section.B.p.1">この DTD のファイル rfc2629.dtd は、 
-  <a href="http://xml.resource.org/authoring/" title="URI: &lt;http://xml.resource.org/authoring/>">xml2rfc 
+  <p class="rfc-t" id="rfc.section.B.p.1" xmlns="http://www.w3.org/1999/xhtml">この DTD のファイル rfc2629.dtd は、 
+  <a href="http://xml.resource.org/authoring/" title="URI: &lt;http://xml.resource.org/authoring/>" xmlns="">xml2rfc 
   工具</a>の中にも含まれています。</p>
 </ins>
 
@@ -3465,12 +3464,12 @@ the appropriate substitution (or "XXXX") will occur.
 </div>
 <div class="rfc-section" id="rfc.section.C">
 <div class="t-pair t-heading">
-<h1 xml:lang="en" class="t-l-en">C. Acknowledgements</h1>
-<h1 xml:lang="ja" class="t-l-ja">C. 
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">C. Acknowledgements</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">C. 
           謝辞</h1>
 </div>
-<div class="rfc-t" id="rfc.section.C.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.C.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">The author gratefully acknowledges the contributions of:
 Alan Barrett,
 Brad Burdick,
@@ -3517,8 +3516,8 @@ Frank Strauss。</p>
 </div>
 <div class="rfc-section" id="rfc.section.A">
 <div class="t-pair t-heading" id="rfc">
-<h1 xml:lang="en" class="t-l-en">A. The rfc Element</h1>
-<h1 xml:lang="ja" class="t-l-ja">A. 
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">A. The rfc Element</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">A. 
           rfc 要素</h1>
 </div>
 <div class="rfc-figure">
@@ -3561,8 +3560,8 @@ the "number" attribute should be present.
 </div>
 </div>
 </div>
-<div class="rfc-t" id="rfc.section.A.p.2">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.A.p.2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     The other attributes are:
   </p>
@@ -3571,7 +3570,7 @@ the "number" attribute should be present.
   </p>
 </div>
 
-<ul class="rfc-list-symbols text">
+<ul class="rfc-list-symbols text" xmlns="">
 <li>
   <div class="t-pair">
 <p xml:lang="en" class="t-l-en">
@@ -3654,8 +3653,8 @@ series.
 </li>
 </ul>
 </div>
-<div class="rfc-t" id="rfc.section.A.p.3">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.A.p.3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">
     Finally,
 a special entity, "&amp;rfc.number;", is available.
@@ -3671,7 +3670,7 @@ the appropriate substitution (or "XXXX") will occur.
     (または "XXXX") を使います。
   </p>
 </div>
-  <ins class="t-note t-l-ja" xml:lang="ja">
+  <ins class="t-note t-l-ja" xml:lang="ja" xmlns="">
     (<span class="t-note-title">訳注:</span>
     <div class="rfc-figure">
 <span class="rfc-figure-id" id="rfc.figure.u.36">&#x00A0;</span>
@@ -3686,13 +3685,13 @@ the appropriate substitution (or "XXXX") will occur.
 </div>
 <div class="rfc-section" id="rfc.section.B">
 <div id="rfc.dtd">
-<h1>B. The RFC DTD</h1>
+<h1 xmlns="http://www.w3.org/1999/xhtml">B. The RFC DTD</h1>
 </div>
 
 <ins class="t-note t-l-ja" xml:lang="ja">
 <span class="t-note-title">訳注:</span>
-  <p class="rfc-t" id="rfc.section.B.p.1">この DTD のファイル rfc2629.dtd は、 
-  <a href="http://xml.resource.org/authoring/" title="URI: &lt;http://xml.resource.org/authoring/>">xml2rfc 
+  <p class="rfc-t" id="rfc.section.B.p.1" xmlns="http://www.w3.org/1999/xhtml">この DTD のファイル rfc2629.dtd は、 
+  <a href="http://xml.resource.org/authoring/" title="URI: &lt;http://xml.resource.org/authoring/>" xmlns="">xml2rfc 
   工具</a>の中にも含まれています。</p>
 </ins>
 
@@ -4124,12 +4123,12 @@ the appropriate substitution (or "XXXX") will occur.
 </div>
 <div class="rfc-section" id="rfc.section.C">
 <div class="t-pair t-heading">
-<h1 xml:lang="en" class="t-l-en">C. Acknowledgements</h1>
-<h1 xml:lang="ja" class="t-l-ja">C. 
+<h1 xml:lang="en" class="t-l-en" xmlns="http://www.w3.org/1999/xhtml">C. Acknowledgements</h1>
+<h1 xml:lang="ja" class="t-l-ja" xmlns="http://www.w3.org/1999/xhtml">C. 
           謝辞</h1>
 </div>
-<div class="rfc-t" id="rfc.section.C.p.1">
-  <div class="t-pair">
+<div class="rfc-t" id="rfc.section.C.p.1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="t-pair" xmlns="">
 <p xml:lang="en" class="t-l-en">The author gratefully acknowledges the contributions of:
 Alan Barrett,
 Brad Burdick,
@@ -4270,13 +4269,13 @@ Frank Strauss。</p>
 <ins id="rfc-translators-note" class="t-note t-l-ja" xml:lang="ja">
 <div class="rfc-section">
 <div id="ja.note.mydtd">
-<h1>この翻訳文の形式について</h1>
+<h1 xmlns="http://www.w3.org/1999/xhtml">この翻訳文の形式について</h1>
 </div>
-    <p class="rfc-t" id="rfc.section.1.p.1">この文書 (の原本) は、 RFC 2629 
+    <p class="rfc-t" id="rfc.section.1.p.1" xmlns="http://www.w3.org/1999/xhtml">この文書 (の原本) は、 RFC 2629 
     で定義された形式に、翻訳文用の要素を XML 
     名前空間を使って追加して用いています。詳しくは、 
     
-  &lt;<a href="http://suika.fam.cx/~wakaba/lang/rfc/translate/">http://suika.fam.cx/~wakaba/lang/rfc/translate/</a>&gt;
+  &lt;<a href="http://suika.fam.cx/~wakaba/lang/rfc/translate/" xmlns="">http://suika.fam.cx/~wakaba/lang/rfc/translate/</a>&gt;
 
     を御覧下さい。</p>
   </div>
