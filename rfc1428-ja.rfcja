@@ -2,12 +2,15 @@
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
   <!ENTITY rfc.number "1428">
   <!ENTITY ja.agent "代理者">
-  <!ENTITY ja.body "本体">
+  <!ENTITY ja.body "本文">
   <!ENTITY ja.downgrade "格下げ">
-  <!ENTITY ja.outofband "out of band">
+  <!ENTITY ja.outofband " out of band ">
   <!ENTITY ja.protocol "プロトコル">
   <!ENTITY ja.upgrade "格上げ">
   <!ENTITY ja.UserAgent "利用者代理者">
+  <!ENTITY ja.mail.gateway "関門">
+  <!ENTITY ja.mail.just-send-8 "8ママ送り">
+  <!ENTITY ja.mail.mail-reader "メイル・リーダー">
 ]>
 <?rfc-translation show-rfc-header-category="no" ?>
 <rfc number="&rfc.number;" category="info"
@@ -16,7 +19,7 @@
    xmlns:h="http://www.w3.org/1999/xhtml">
 <front>
 <title abbrev="Transition to 8bit-SMTP/MIME">Transition of Internet Mail from Just-Send-8 to 8bit-SMTP/MIME</title>
-<ja:title xml:lang="ja" abbrev="8ビット SMTP/MIME への変換">Internet メイルの8まんま送りから8ビット SMTP/MIME への変換</ja:title>
+<ja:title xml:lang="ja" abbrev="8ビット SMTP/MIME への変換">Internet メイルの&ja.mail.just-send-8;から8ビット SMTP/MIME への変換</ja:title>
 <author initials="G." surname="Vaudreuil" fullname="Greg Vaudreuil">
   <organization abbrev="CNRI">Corporation for National Research Initiatives</organization>
    <address>
@@ -76,7 +79,7 @@
     <t><ja:link type="rfc" number="2629" /> でマーク付け。</t>
     <t>翻訳完了。</t>
   </ja:item>
-</ja:change><!-- $Date: 2002/05/09 09:52:35 $ -->
+</ja:change><!-- $Date: 2002/09/01 09:18:48 $ -->
 <h:style xml:space="preserve" type="text/css">
   .rfc-t-artwork table
   	{margin-left: 15%; margin-right: 15%;
@@ -120,8 +123,8 @@
       MIME メッセージをオクテットの8ビット全てを使って渡す8ビット拡張&ja.protocol; 
       <xref target="refs.RFC1426" /> の実装を8ビット 
       ESMTP と呼びます。8ビット文字を受け付けない拡張 SMTP 
-      の実装を7ビット ESMTP と呼びます。関門 (gateway) 
-      は、メッセージの内容を変える・変換する&ja.UserAgent;当局つき転送&ja.agent;と定義します。
+      の実装を7ビット ESMTP 
+      と呼びます。&ja.mail.gateway;は、メッセージの内容を変える・変換する&ja.UserAgent;当局つき転送&ja.agent;と定義します。
     </ja:l>
     </ja:pair>
   </t>
@@ -218,8 +221,8 @@
     <ja:l xml:lang="ja">
       現在非 US-ASCII メイルに存在する興味深い相互通信不可な事例、あるいは8ビット/MIME 
       への変換で浮上しそうな新しい事例が幾つかあります。下に挙げるのは、
-      MIME への変換の事例です。変換関門における <xref target="s2.i4" />
-      の解決策のみをこのメモでは取り上げます。
+      MIME への変換の事例です。変換&ja.mail.gateway;における 
+      <xref target="s2.i4" /> の解決策のみをこのメモでは取り上げます。
     </ja:l>
     </ja:pair>
   </t>
@@ -325,7 +328,7 @@
       </ja:l>
       <ja:l xml:lang="ja">
         ISO 646 国家版や ISO 2022 文字集合転移を、外部「&ja.outofband;」合意が送受信者間で存在する場合は変更無く運用し続けます。7ビットから8ビット/SMTP 
-        への関門はこのメッセージの内容を変える必要はありません。
+        への&ja.mail.gateway;はこのメッセージの内容を変える必要はありません。
       </ja:l>
       </ja:pair>
     </t>
@@ -390,7 +393,7 @@
       This case is the focus of this memo.
       </ja:l>
       <ja:l xml:lang="ja">
-        分別ある格上げ経路が関門経由で提供されていて、関門が挿入する文字集合札が正しくて、受信者が送信者の選んだ文字集合に対応していれば、うまく働きましょう。この場合がこのメモの焦点です。
+        分別ある格上げ経路が&ja.mail.gateway;経由で提供されていて、&ja.mail.gateway;が挿入する文字集合札が正しくて、受信者が送信者の選んだ文字集合に対応していれば、うまく働きましょう。この場合がこのメモの焦点です。
       </ja:l>
       </ja:pair>
     </t>
@@ -415,7 +418,8 @@
       <ja:l xml:lang="ja">
         ESMTP/MIME 送信者は受信者が8ビットを理解するかどうか知り得ないので、送信者は文を 
         base-64 か受信者に「文字化けした」と思われるかもしれない 
-        quoted-printable で符号化するでしょう。有用な格下げ経路を提供するには関門は受信者の理解能力についての知識を有する必要があります。文字集合が明確に識別出来る時は、 
+        quoted-printable 
+        で符号化するでしょう。有用な格下げ経路を提供するには&ja.mail.gateway;は受信者の理解能力についての知識を有する必要があります。文字集合が明確に識別出来る時は、 
         <ja:link type="rfc" number="1345" /> で説明されている記法 MNEM 
         符号化の様な手法がこの場合には有用かもしれません。
       </ja:l>
@@ -451,8 +455,10 @@
    The upgrade should be done using the best available information.
     </ja:l>
     <ja:l xml:lang="ja">
-      拡張 SMTP に対応するよう&ja.upgrade;する関門は、受信した8ビット・メッセージを
-      MIME に&ja.upgrade;して構いません。これは ESMTP で送信される8ビット・メイルは全て
+      拡張 SMTP 
+      に対応するよう&ja.upgrade;する&ja.mail.gateway;は、受信した8ビット・メッセージを
+      MIME に&ja.upgrade;して構いません。これは ESMTP 
+      で送信される8ビット・メイルは全て
       MIME で符号化されていなければならないという要件を満たします。&ja.upgrade;は一番利用可能な情報を使って行うべきです。
     </ja:l>
     </ja:pair>
@@ -507,7 +513,7 @@ Content-Transfer-Encoding: 8bit
    set(s) used in the message was available.
     </ja:l>
     <ja:l xml:lang="ja">
-      使用されている文字集合についての情報が無い場合は、関門は内容を文字集合 
+      使用されている文字集合についての情報が無い場合は、&ja.mail.gateway;は内容を文字集合 
       "unknown-8bit" を使って&ja.upgrade;するべきです。 charset
       パラメーターの unknown-8bit 
       値はメッセージに使われている文字集合についての確実な情報を得ることが出来なかったことのみを示します。
@@ -532,7 +538,8 @@ Content-Transfer-Encoding: 8bit
     <ja:l xml:lang="ja">
       メッセージ&ja.body;が MIME に&ja.upgrade;される場合、非 US-ASCII
       文字を含む <ja:link type="rfc" number="822" /> 頭は
-      RFC1342 の頭符号化規則に適合するよう&ja.upgtade;しなければなりません。関門は全ての非構造化頭領域と 
+      RFC 1342 
+      の頭符号化規則に適合するよう&ja.upgtade;しなければなりません。&ja.mail.gateway;は全ての非構造化頭領域と 
       RFC 822 "comment" と "phrase" を RFC 1342 
       の規則に従い再符号化するべきです。メッセージ&ja.body;の "8bit" 
       内容転送符号化値に相当するものは RFC 1342 
@@ -566,8 +573,9 @@ Content-Transfer-Encoding: 8bit
   </figure>
 </section>
 
-<section title="Appendix ― The “unknown-8bit” Character Set"
- ja:title-ja="附属書 ― 「unknown-8bit」文字集合" myns:unnumbered="yes">
+<section title="Appendix ― The &quot;unknown-8bit&quot; Character Set"
+ ja:title-ja="附属書 ― &quot;unknown-8bit&quot; 文字集合"
+ myns:unnumbered="yes">
 
   <t>
     <ja:pair>
@@ -591,7 +599,8 @@ Content-Transfer-Encoding: 8bit
    using any encoding.  It must not be further defined.
     </ja:l>
     <ja:l xml:lang="ja">
-      "unknown-8bit" という特殊目的文字集合を、オクテット列に符号化された未知の8ビット文字集合用に定義します。これはいかなる言語でいかなる符号化を用いるいかなる文字集合にも札として使うことが出来ます。これ以上は定義しません。
+      "unknown-8bit" 
+      という特殊目的文字集合を、オクテット列に符号化された未知の8ビット文字集合用に定義します。これはいかなる言語でいかなる符号化を用いるいかなる文字集合にも札として使うことが出来ます。これ以上は定義しません。
     </ja:l>
     </ja:pair>
   </t>
@@ -606,8 +615,10 @@ Content-Transfer-Encoding: 8bit
     </ja:l>
     <ja:l xml:lang="ja">
       この字句をメッセージの "charset=" 
-      領域で使うことで、使われている文字集合について全くもって不明であることを示します。この印は非 MIME から MIME への関門、具体的には SMTP 
-      から8ビット ESMTP/MIME に変換する関門で使うことを意図しています。
+      領域で使うことで、使われている文字集合について全くもって不明であることを示します。この印は非 
+      MIME から MIME への&ja.mail.gateway;、具体的には SMTP 
+      から8ビット ESMTP/MIME 
+      に変換する&ja.mail.gateway;で使うことを意図しています。
     </ja:l>
     </ja:pair>
   </t>
@@ -638,8 +649,8 @@ Content-Transfer-Encoding: 8bit
    intended character set.
     </ja:l>
     <ja:l xml:lang="ja">
-      "unknown-8bit" 札の使用は、 &ja.outofband;
-      情報により意図された文字集合を決定出来ないメイル関門&ja.agent;によりのみ使われることを想定しています。
+      "unknown-8bit" 
+      札の使用は、&ja.outofband;情報により意図された文字集合を決定出来ないメイル&ja.mail.gateway;&ja.agent;によりのみ使われることを想定しています。
     </ja:l>
     </ja:pair>
   </t>
@@ -653,7 +664,8 @@ Content-Transfer-Encoding: 8bit
    pre-processor.
     </ja:l>
     <ja:l xml:lang="ja">
-      "unknown-8bit" の解釈はメイル・リーダーに委ねられます。多くの場合では人間利用者が情報を解釈して適切な文字集合あるいは前処理器を選択できると思われます。
+      "unknown-8bit" 
+      の解釈は&ja.mail.mail-reader;に委ねられます。多くの場合では人間利用者が情報を解釈して適切な文字集合あるいは前処理器を選択できると思われます。
     </ja:l>
     </ja:pair>
   </t>
@@ -674,7 +686,8 @@ Content-Transfer-Encoding: 8bit
     <ja:l xml:lang="ja">
       この文書は Ned Freed, Neil Katin と著者の井戸端会議から生まれました。
       Jonathan Laventhol, Craig Everhart, 
-      Olle Jarnefors, Olafur Gudmundsson が魂を吹き込んでくれました。この文書は
+      Olle Jarnefors, Olafur Gudmundsson 
+      が魂を吹き込んでくれました。この文書は
       IETF SMTP 拡張作業部会の参加者の意見により精錬されました。
     </ja:l>
     </ja:pair>
@@ -705,8 +718,10 @@ Content-Transfer-Encoding: 8bit
       <seriesInfo name="RFC" value="1341" />
     </reference>
     <reference anchor="refs.RFC1342"><!-- [2] -->
-      <front><title>Representation of Non-ASCII Text in Internet Message Headers</title>
-             <ja:title xml:lang="ja">非 ASCII 文の Internet メッセージ頭における表現</ja:title>
+      <front><title>Representation of Non-ASCII Text in 
+             Internet Message Headers</title>
+             <ja:title xml:lang="ja">非 ASCII 文の Internet 
+             メッセージ頭における表現</ja:title>
              <author initials="K." surname="Moore">
                <organization>University of Tennessee</organization>
              </author>
@@ -739,7 +754,8 @@ Content-Transfer-Encoding: 8bit
     <reference anchor="refs.RFC1426"><!-- [4] -->
       <front><title>SMTP Service Extensions for 8bit
        MIMEtransport</title>
-             <ja:title xml:lang="ja">8ビット MIME 転送用 SMTP サービス拡張</ja:title>
+             <ja:title xml:lang="ja">8ビット MIME 転送用 
+             SMTP サービス拡張</ja:title>
              <author initials="J." surname="Klensin" ja:text="Klensin, J., WG Chair">
                <organization>United Nations University</organization>
              </author>
