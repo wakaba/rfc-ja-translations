@@ -1,6 +1,13 @@
+Options +MultiViews
 
 AddType application/x-rfc-translation+xml .rfcja
 AddCharset iso-2022-jp .rfcja
 AddLanguage ja,en .rfcja
 
+Redirect /rfc/ja-translations/rfc2629.dtd http://suika.fam.cx/www/markup/rfc/dtd/rfc2629.dtd
+
 Redirect /~wakaba/documents/rfc-ja/rfc2629.dtd http://suika.fam.cx/gate/cvs/*checkout*/markup/rfc/dtd/2629ja/Attic/rfc.dtd?rev=HEAD&search=None&hideattic=1&content-type=text/plain
+
+ReadmeName description
+
+## License: Public Domain.
