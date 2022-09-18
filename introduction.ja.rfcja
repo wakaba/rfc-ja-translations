@@ -12,8 +12,8 @@
     <author fullname="わかば" ja:id="wakaba">
       <organization>西瓜計画</organization>
       <address>
-        <email>w@suika.fam.cx</email>
-        <uri>http://suika.fam.cx</uri>
+        <email>wakaba@suikawiki.org</email>
+        <uri>https://suika.suikawiki.org</uri>
       </address>
     </author>
     <date month="June" year="2002" />
@@ -99,9 +99,9 @@
     の和訳については、次の場所で取り扱います。
   <list>
   <t><eref target="news://suika.fam.cx/suika.markup">ニュース組 suika.markup</eref></t>
-  <t><eref target="http://suika.fam.cx/~wakaba/-temp/wiki/wiki?RFC%A4%CE%CF%C2%CC%F5%A4%CB%A4%C4%A4%A4%A4%C6%A4%DE%A4%BF%A1%BC%A4%EA">RFC
+  <t><eref target="https://suika.suikawiki.org/~wakaba/-temp/wiki/wiki?RFC%A4%CE%CF%C2%CC%F5%A4%CB%A4%C4%A4%A4%A4%C6%A4%DE%A4%BF%A1%BC%A4%EA">RFC
   の和訳についてまたーり</eref>
-  (<eref target="http://suika.fam.cx/~wakaba/-temp/wiki/wiki">SuikaWiki</eref>)</t>
+  (<eref target="https://suika.suikawiki.org/~wakaba/-temp/wiki/wiki">SuikaWiki</eref>)</t>
   </list>
   </t>
 </section>
@@ -139,7 +139,7 @@
       <seriesInfo name="RFC" value="2629" />
     </reference>
     
-    <reference anchor="XRFCTML" target="http://suika.fam.cx/~wakaba/lang/rfc/translation/">
+    <reference anchor="XRFCTML" target="https://suika.suikawiki.org/~wakaba/lang/rfc/translation/">
       <front>
         <title xml:lang="ja">拡張可能な RFC の翻訳マーク付け言語</title>
       </front>

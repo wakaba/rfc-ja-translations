@@ -7,7 +7,7 @@
       RFC 1428: 
     Internet メイルの8まんま送りから8ビット SMTP/MIME への変換 (Transition of Internet Mail from Just-Send-8 to 8bit-SMTP/MIME)
     </title>
-<link rel="stylesheet" href="http://suika.fam.cx/~wakaba/lang/rfc/translation/rfc-ja-style.css" type="text/css"/>
+<link rel="stylesheet" href="/~wakaba/lang/rfc/translation/rfc-ja-style.css" type="text/css"/>
 <meta name="ietf-workgroup" content="SMTP Extensions Working Group"/>
 <style xml:space="preserve" type="text/css">
   .rfc-t-artwork table
@@ -140,7 +140,7 @@
       to alter or convert the content of a message.
     </p>
 <p xml:lang="ja" class="t-l-ja">
-      <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:821" title="RFC 821">RFC 821</a> は8ビット転送を定義しています。
+      <a href="/uri-res/N2L?urn:ietf:rfc:821" title="RFC 821">RFC 821</a> は8ビット転送を定義しています。
       SMTP メッセージ中の受け取ったオクテットの最上位ビットを、このビットに値を設定することで消去しない転送代理者を、この文書では8ビット透過と呼びます。一般 
       SMTP 拡張文書 <a href="#refs.RFC1425" title="SMTP サービス拡張">[3]</a> 及び
       MIME メッセージをオクテットの8ビット全てを使って渡す8ビット拡張プロトコル 
@@ -175,12 +175,12 @@
       character sets, and to use proprietary PC character sets.
     </p>
 <p xml:lang="ja" class="t-l-ja">
-      <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:821" title="RFC 821">RFC 821</a> で定義された SMTP は
+      <a href="/uri-res/N2L?urn:ietf:rfc:821" title="RFC 821">RFC 821</a> で定義された SMTP は
       Internet メイルの送信を US-ASCII <a href="#refs.ASCII" title="符号化文字集合――7ビットの情報交換用亜米利加標準符号">[5]</a>
       文字に制限していました。 Internet 
       が非英語文通者を含む様に成長するに従い、非 US-ASCII 
       文字集合による意思疎通の必要性から、多くの製造者や利用者が SMTP 
-      や <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:822" title="RFC 822">RFC 822</a> を非 ASCII 
+      や <a href="/uri-res/N2L?urn:ietf:rfc:822" title="RFC 822">RFC 822</a> を非 ASCII 
       文字集合を使用するように拡張しようとしました。その共通の手段には7ビットの国家版
       ISO 646 文字集合を現行の RFC 822/SMTP で送信する, SMTP と
       RFC822 を8ビットの ISO 8859 文字集合を使用するように拡張する,
@@ -514,7 +514,7 @@
         ESMTP/MIME 送信者は受信者が8ビットを理解するかどうか知り得ないので、送信者は文を 
         base-64 か受信者に「文字化けした」と思われるかもしれない 
         quoted-printable で符号化するでしょう。有用な格下げ経路を提供するには関門は受信者の理解能力についての知識を有する必要があります。文字集合が明確に識別出来る時は、 
-        <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1345" title="RFC 1345">RFC 1345</a> で説明されている記法 MNEM 
+        <a href="/uri-res/N2L?urn:ietf:rfc:1345" title="RFC 1345">RFC 1345</a> で説明されている記法 MNEM 
         符号化の様な手法がこの場合には有用かもしれません。
       </p>
 </div>
@@ -640,7 +640,7 @@ Content-Transfer-Encoding: 8bit
     </p>
 <p xml:lang="ja" class="t-l-ja">
       メッセージ本体が MIME に格上げされる場合、非 US-ASCII
-      文字を含む <a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:822" title="RFC 822">RFC 822</a> 頭は
+      文字を含む <a href="/uri-res/N2L?urn:ietf:rfc:822" title="RFC 822">RFC 822</a> 頭は
       RFC1342 の頭符号化規則に適合するようしなければなりません。関門は全ての非構造化頭領域と 
       RFC 822 "comment" と "phrase" を RFC 1342 
       の規則に従い再符号化するべきです。メッセージ本体の "8bit" 
@@ -810,28 +810,28 @@ Content-Transfer-Encoding: 8bit
 <dl>
     <dt id="refs.RFC1341">[1]</dt>
 <dd>『<cite>
-<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1341" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1341>">Multipurpose Internet Mail Extensions</a>
+<a href="/uri-res/N2L?urn:ietf:rfc:1341" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1341>">Multipurpose Internet Mail Extensions</a>
 </cite>』<span class="t-pair">
 <span xml:lang="ja" class="t-l-ja">, 『<cite>多目的 Internet メイル拡張</cite>』</span>
 </span>, Borenstein, N., Freed, N., RFC
         &#x00A0;1341。</dd>
     <dt id="refs.RFC1342">[2]</dt>
 <dd>『<cite>
-<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1342" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1342>">Representation of Non-ASCII Text in Internet Message Headers</a>
+<a href="/uri-res/N2L?urn:ietf:rfc:1342" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1342>">Representation of Non-ASCII Text in Internet Message Headers</a>
 </cite>』<span class="t-pair">
 <span xml:lang="ja" class="t-l-ja">, 『<cite>非 ASCII 文の Internet メッセージ頭における表現</cite>』</span>
 </span>, Moore, K., RFC
         &#x00A0;1342。</dd>
     <dt id="refs.RFC1425">[3]</dt>
 <dd>『<cite>
-<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1425" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1425>">SMTP Service Extensions</a>
+<a href="/N2L?urn:ietf:rfc:1425" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1425>">SMTP Service Extensions</a>
 </cite>』<span class="t-pair">
 <span xml:lang="ja" class="t-l-ja">, 『<cite>SMTP サービス拡張</cite>』</span>
 </span>, Klensin, J., WG Chair, Freed, N., Editor, Rose, M., Stefferud, E., Crocker, D., RFC
         &#x00A0;1425。</dd>
     <dt id="refs.RFC1426">[4]</dt>
 <dd>『<cite>
-<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1426" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1426>">SMTP Service Extensions for 8bit
+<a href="/uri-res/N2L?urn:ietf:rfc:1426" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1426>">SMTP Service Extensions for 8bit
        MIMEtransport</a>
 </cite>』<span class="t-pair">
 <span xml:lang="ja" class="t-l-ja">, 『<cite>8ビット MIME 転送用 SMTP サービス拡張</cite>』</span>
@@ -845,7 +845,7 @@ Content-Transfer-Encoding: 8bit
         &#x00A0;X3.4-1986。</dd>
     <dt id="refs.STD2">[6]</dt>
 <dd>『<cite>
-<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1340" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1340>">Assigned Numbers</a>
+<a href="/uri-res/N2L?urn:ietf:rfc:1340" title="URI: &lt;http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:1340>">Assigned Numbers</a>
 </cite>』<span class="t-pair">
 <span xml:lang="ja" class="t-l-ja">, 『<cite>割当番号</cite>』</span>
 </span>, Reynolds, J., Postel, J., STD
@@ -894,7 +894,7 @@ Content-Transfer-Encoding: 8bit
 <dd>
 <ul>
 <li>
-<a href="http://suika.fam.cx/uri-res/N2L?urn:ietf:rfc:2629" title="RFC 2629">RFC 2629</a> でマーク付け。</li>
+<a href="/uri-res/N2L?urn:ietf:rfc:2629" title="RFC 2629">RFC 2629</a> でマーク付け。</li>
 <li>翻訳完了。</li>
 </ul>
 </dd>

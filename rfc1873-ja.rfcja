@@ -92,8 +92,8 @@ Content-ID &ja.access;$BJ}K!$O!"%a%C%;!<%8Cf$N(B&ja.object;$B$r;2>H$9$kJ}K!$r
 <ja:front>
 <author fullname="$B$o$+$P(B" ja:id="wakaba">
 	<address>
-	<email>w@suika.fam.cx</email>
-	<uri>http://suika.fam.cx/~wakaba/</uri>
+	<email>wakaba@suikawiki.org</email>
+	<uri>https://suika.suikawiki.org/~wakaba/</uri>
 	</address>
 </author>
 <ja:change>
@@ -432,7 +432,7 @@ MIME &ja.mime.entity;</ja:word>$B$O(B&ja.security;$B$K4X78$9$k$+$b$7$l$^$;$s!
 <ja:back xml:lang="ja">
   <section title="Content-ID $B$N;XDj(B">
     <t>MIME <xref target="MIME" /> $B$N5,Dj$H>H$i$79g$o$;$k$H!"(B
-    <eref target="http://suika.fam.cx/~wakaba/-temp/wiki/wiki?message%2Fexternal%2Dbody%C7%DE%C2%CE%B7%BF">$B$I$3$K(B 
+    <eref target="/~wakaba/-temp/wiki/wiki?message%2Fexternal%2Dbody%C7%DE%C2%CE%B7%BF">$B$I$3$K(B 
     <h:code>Content-ID:</h:code> $BMs$r=q$/$N$+$K$D$$$F5?Ld$,$"$j$^$9(B</eref>$B!#(B</t>
   </section>
   <section title="IANA $B$K4X$7$F(B">

@@ -48,8 +48,8 @@
 <ja:front>
 <author fullname="わかば" ja:id="wakaba">
 	<address>
-	<email>w@suika.fam.cx</email>
-	<uri>http://suika.fam.cx/~wakaba/</uri>
+	<email>wakaba@suikawiki.org</email>
+	<uri>https://suika.suikawiki.org/~wakaba/</uri>
 	</address>
 </author>
 <ja:copyright>
@@ -3229,7 +3229,7 @@ Frank Strauss。</ja:l>
     <t>この文書 (の原本) は、 RFC &rfc.number; 
     で定義された形式に、翻訳文用の要素を XML 
     名前空間を使って追加して用いています。詳しくは、 
-    <ja:uri-ref target="http://suika.fam.cx/~wakaba/lang/rfc/translation/" />
+    <ja:uri-ref target="https://suika.suikawiki.org/~wakaba/lang/rfc/translation/" />
     を御覧下さい。</t>
   </section>
 </ja:back>
